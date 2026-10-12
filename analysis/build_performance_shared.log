@@ -1,0 +1,309 @@
+CMake Warning at C:/bo3recomp/thirdparty/rexglue-sdk/cmake/rex_version.cmake:33 (message):
+  rex_compute_version: no v* tag reachable from HEAD.  Falling back to
+  0.9.0.0-dev.unknown.  If this is a CI build, ensure tags are fetched
+  (fetch-depth: 0 + fetch-tags: true).  If this is a fork, push tags with:
+  git push <fork-remote> --tags
+Call Stack (most recent call first):
+  C:/bo3recomp/thirdparty/rexglue-sdk/cmake/rex_version.cmake:146 (rex_compute_version)
+  C:/bo3recomp/thirdparty/rexglue-sdk/CMakeLists.txt:140 (rex_resolve_version)
+
+
+-- xxHash build type: Release
+-- Architecture: x86
+-- {fmt} version: 12.1.0
+-- Build type: Release
+-- Build spdlog: 1.17.0
+-- Build type: Release
+-- Generating install
+-- Checking for module 'libusb-1.0>=1.0.16'
+--   Package 'libusb-1.0' not found
+-- Could NOT find LibUSB (missing: LibUSB_LIBRARY LibUSB_INCLUDE_PATH) (found version "LibUSB_VERSION-NOTFOUND")
+-- 
+-- SDL3 was configured with the following options:
+-- 
+-- Platform: Windows-10.0.26200
+-- 64-bit:   TRUE
+-- Compiler: C:/bo3recomp/tools/llvm-20.1.8/bin/clang.exe
+-- Revision: SDL-3.5.0-HEAD-HASH-NOTFOUND
+-- Vendor:   
+-- 
+-- Subsystems:
+--   Audio:    ON
+--   Video:    ON
+--   GPU:      ON
+--   Render:   OFF
+--   Camera:   OFF
+--   Joystick: ON
+--   Haptic:   OFF
+--   Hidapi:   ON
+--   Power:    OFF
+--   Sensor:   OFF
+--   Dialog:   OFF
+--   Tray:     OFF
+-- 
+-- Options:
+--   SDL_ALSA                    (Wanted: OFF): OFF
+--   SDL_ALSA_SHARED             (Wanted: OFF): OFF
+--   SDL_ALTIVEC                 (Wanted: OFF): OFF
+--   SDL_ARMNEON                 (Wanted: OFF): OFF
+--   SDL_ASAN                    (Wanted: OFF): OFF
+--   SDL_ASSEMBLY                (Wanted: ON): ON
+--   SDL_ASSERTIONS              (Wanted: auto): auto
+--   SDL_AVX                     (Wanted: ON): ON
+--   SDL_AVX2                    (Wanted: ON): ON
+--   SDL_AVX512F                 (Wanted: ON): ON
+--   SDL_BACKGROUNDING_SIGNAL    (Wanted: OFF): OFF
+--   SDL_CCACHE                  (Wanted: OFF): OFF
+--   SDL_CLANG_TIDY              (Wanted: OFF): OFF
+--   SDL_CLOCK_GETTIME           (Wanted: OFF): OFF
+--   SDL_COCOA                   (Wanted: OFF): OFF
+--   SDL_DBUS                    (Wanted: OFF): OFF
+--   SDL_DEPS_SHARED             (Wanted: ON): OFF
+--   SDL_DIRECTX                 (Wanted: ON): ON
+--   SDL_DISKAUDIO               (Wanted: OFF): OFF
+--   SDL_DLOPEN_NOTES            (Wanted: OFF): OFF
+--   SDL_DUMMYAUDIO              (Wanted: OFF): OFF
+--   SDL_DUMMYCAMERA             (Wanted: OFF): OFF
+--   SDL_DUMMYVIDEO              (Wanted: OFF): OFF
+--   SDL_EXAMPLES                (Wanted: OFF): OFF
+--   SDL_EXAMPLES_LINK_SHARED    (Wanted: OFF): OFF
+--   SDL_FOREGROUNDING_SIGNAL    (Wanted: OFF): OFF
+--   SDL_FRIBIDI                 (Wanted: OFF): OFF
+--   SDL_FRIBIDI_SHARED          (Wanted: OFF): OFF
+--   SDL_GCC_ATOMICS             (Wanted: ON): ON
+--   SDL_GPU_OPENXR              (Wanted: ON): ON
+--   SDL_HIDAPI                  (Wanted: ON): ON
+--   SDL_HIDAPI_JOYSTICK         (Wanted: ON): ON
+--   SDL_HIDAPI_LIBUSB           (Wanted: ON): OFF
+--   SDL_HIDAPI_LIBUSB_SHARED    (Wanted: ON): OFF
+--   SDL_IBUS                    (Wanted: OFF): OFF
+--   SDL_INSTALL                 (Wanted: ON): OFF
+--   SDL_INSTALL_TESTS           (Wanted: OFF): OFF
+--   SDL_JACK                    (Wanted: OFF): OFF
+--   SDL_JACK_SHARED             (Wanted: OFF): OFF
+--   SDL_KMSDRM                  (Wanted: OFF): OFF
+--   SDL_KMSDRM_SHARED           (Wanted: OFF): OFF
+--   SDL_LASX                    (Wanted: OFF): OFF
+--   SDL_LIBC                    (Wanted: ON): ON
+--   SDL_LIBICONV                (Wanted: OFF): OFF
+--   SDL_LIBTHAI                 (Wanted: OFF): OFF
+--   SDL_LIBTHAI_SHARED          (Wanted: OFF): OFF
+--   SDL_LIBUDEV                 (Wanted: ON): OFF
+--   SDL_LIBURING                (Wanted: OFF): OFF
+--   SDL_LSX                     (Wanted: OFF): OFF
+--   SDL_METAL                   (Wanted: OFF): OFF
+--   SDL_MMX                     (Wanted: ON): ON
+--   SDL_OFFSCREEN               (Wanted: ON): ON
+--   SDL_OPENGL                  (Wanted: OFF): OFF
+--   SDL_OPENGLES                (Wanted: OFF): OFF
+--   SDL_OPENVR                  (Wanted: OFF): OFF
+--   SDL_OSS                     (Wanted: OFF): OFF
+--   SDL_PIPEWIRE                (Wanted: OFF): OFF
+--   SDL_PIPEWIRE_SHARED         (Wanted: OFF): OFF
+--   SDL_PTHREADS                (Wanted: OFF): OFF
+--   SDL_PTHREADS_SEM            (Wanted: OFF): OFF
+--   SDL_PULSEAUDIO              (Wanted: OFF): OFF
+--   SDL_PULSEAUDIO_SHARED       (Wanted: OFF): OFF
+--   SDL_RENDER_D3D              (Wanted: OFF): OFF
+--   SDL_RENDER_D3D11            (Wanted: OFF): OFF
+--   SDL_RENDER_D3D12            (Wanted: OFF): OFF
+--   SDL_RENDER_GPU              (Wanted: OFF): OFF
+--   SDL_RENDER_METAL            (Wanted: OFF): OFF
+--   SDL_RENDER_VULKAN           (Wanted: OFF): OFF
+--   SDL_ROCKCHIP                (Wanted: OFF): OFF
+--   SDL_RPATH                   (Wanted: OFF): OFF
+--   SDL_RPI                     (Wanted: OFF): OFF
+--   SDL_SNDIO                   (Wanted: OFF): OFF
+--   SDL_SNDIO_SHARED            (Wanted: OFF): OFF
+--   SDL_SSE                     (Wanted: ON): ON
+--   SDL_SSE2                    (Wanted: ON): ON
+--   SDL_SSE3                    (Wanted: ON): ON
+--   SDL_SSE4_1                  (Wanted: ON): ON
+--   SDL_SSE4_2                  (Wanted: ON): ON
+--   SDL_SYSTEM_ICONV            (Wanted: OFF): OFF
+--   SDL_TESTS                   (Wanted: OFF): OFF
+--   SDL_TESTS_LINK_SHARED       (Wanted: OFF): OFF
+--   SDL_UNINSTALL               (Wanted: OFF): OFF
+--   SDL_VIRTUAL_JOYSTICK        (Wanted: ON): ON
+--   SDL_VIVANTE                 (Wanted: OFF): OFF
+--   SDL_VULKAN                  (Wanted: OFF): OFF
+--   SDL_WASAPI                  (Wanted: ON): ON
+--   SDL_WAYLAND                 (Wanted: OFF): OFF
+--   SDL_WAYLAND_LIBDECOR        (Wanted: OFF): OFF
+--   SDL_WAYLAND_LIBDECOR_SHARED (Wanted: OFF): OFF
+--   SDL_WAYLAND_SHARED          (Wanted: OFF): OFF
+--   SDL_X11                     (Wanted: OFF): OFF
+--   SDL_X11_SHARED              (Wanted: OFF): OFF
+--   SDL_X11_XCURSOR             (Wanted: OFF): OFF
+--   SDL_X11_XDBE                (Wanted: OFF): OFF
+--   SDL_X11_XFIXES              (Wanted: OFF): OFF
+--   SDL_X11_XINPUT              (Wanted: OFF): OFF
+--   SDL_X11_XRANDR              (Wanted: OFF): OFF
+--   SDL_X11_XSCRNSAVER          (Wanted: OFF): OFF
+--   SDL_X11_XSHAPE              (Wanted: OFF): OFF
+--   SDL_X11_XSYNC               (Wanted: OFF): OFF
+--   SDL_X11_XTEST               (Wanted: OFF): OFF
+--   SDL_XINPUT                  (Wanted: ON): ON
+-- 
+--  Build Shared Library: OFF
+--  Build Static Library: ON
+-- 
+-- Enabled backends:
+--   Video drivers: offscreen windows
+--   Render drivers: 
+--   GPU drivers: d3d12 openxr
+--   Audio drivers: dsound wasapi
+--   Joystick drivers: dinput gameinput hidapi rawinput virtual wgi xinput
+--   Camera drivers: dummy
+-- 
+-- ===========================================
+-- ReXGlue Configuration Summary:
+--   Version: 0.9.0.0-dev.unknown
+--   Platform: win-amd64
+--   Compiler: Clang 20.1.8
+--   Configurations: 
+--   Output Dir: C:/bo3recomp/thirdparty/rexglue-sdk/out/win-amd64
+--   C++ Standard: C++23
+--   Graphics: D3D12=ON Vulkan=OFF
+--   FidelityFX: OFF
+--   Tracy: ON
+--   Perf Counters: ON
+-- ===========================================
+-- Using ReXGlue SDK from source tree: C:/bo3recomp/thirdparty/rexglue-sdk
+-- Configuring done (0.7s)
+-- Generating done (0.4s)
+-- Build files have been written to: C:/bo3recomp/build
+[0/2] Re-checking globbed directories...
+[1/7] Building CXX object rexglue-sdk/src/ui/CMakeFiles/rexui.dir/overlay/debug_overlay.cpp.obj
+[2/7] Linking CXX shared library C:\bo3recomp\thirdparty\rexglue-sdk\out\win-amd64\rexruntime.dll
+[3/7] Building CXX object CMakeFiles/bo3_zm.dir/C_/bo3recomp/thirdparty/rexglue-sdk/src/ui/rex_app.cpp.obj
+[4/7] Building CXX object rexglue-sdk/src/graphics/CMakeFiles/rexgpu-xenos.dir/command_processor.cpp.obj
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/command_processor.h:24:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/register_file.h:19:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/registers.h:18:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/xenos.h:1621:70: warning: unused parameter 'one_reg' [-Wunused-parameter]
+ 1621 | inline uint32_t MakePacketType0(uint16_t index, uint16_t count, bool one_reg = false) {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:167:77: warning: unused parameter 'cache_root' [-Wunused-parameter]
+  167 | void CommandProcessor::InitializeShaderStorage(const std::filesystem::path& cache_root,
+      |                                                                             ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:168:57: warning: unused parameter 'title_id' [-Wunused-parameter]
+  168 |                                                uint32_t title_id, bool blocking) {}
+      |                                                         ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:168:72: warning: unused parameter 'blocking' [-Wunused-parameter]
+  168 |                                                uint32_t title_id, bool blocking) {}
+      |                                                                        ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:841:80: warning: unused parameter 'packet' [-Wunused-parameter]
+  841 | bool CommandProcessor::ExecutePacketType2(memory::RingBuffer* reader, uint32_t packet) {
+      |                                                                                ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1039:88: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1039 | bool CommandProcessor::ExecutePacketType3_ME_INIT(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                        ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1050:84: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1050 | bool CommandProcessor::ExecutePacketType3_NOP(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                    ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1058:90: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1058 | bool CommandProcessor::ExecutePacketType3_INTERRUPT(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                          ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1059:62: warning: unused parameter 'count' [-Wunused-parameter]
+ 1059 |                                                     uint32_t count) {
+      |                                                              ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1074:88: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1074 | bool CommandProcessor::ExecutePacketType3_XE_SWAP(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                        ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1156:68: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1156 |                                                           uint32_t packet, uint32_t count) {
+      |                                                                    ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1156:85: warning: unused parameter 'count' [-Wunused-parameter]
+ 1156 |                                                           uint32_t packet, uint32_t count) {
+      |                                                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1166:93: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1166 | bool CommandProcessor::ExecutePacketType3_WAIT_REG_MEM(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                             ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1167:65: warning: unused parameter 'count' [-Wunused-parameter]
+ 1167 |                                                        uint32_t count) {
+      |                                                                 ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1247:88: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1247 | bool CommandProcessor::ExecutePacketType3_REG_RMW(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                        ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1248:60: warning: unused parameter 'count' [-Wunused-parameter]
+ 1248 |                                                   uint32_t count) {
+      |                                                            ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1273:91: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1273 | bool CommandProcessor::ExecutePacketType3_REG_TO_MEM(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                           ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1274:63: warning: unused parameter 'count' [-Wunused-parameter]
+ 1274 |                                                      uint32_t count) {
+      |                                                               ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1292:90: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1292 | bool CommandProcessor::ExecutePacketType3_MEM_WRITE(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                          ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1309:91: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1309 | bool CommandProcessor::ExecutePacketType3_COND_WRITE(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                           ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1310:63: warning: unused parameter 'count' [-Wunused-parameter]
+ 1310 |                                                      uint32_t count) {
+      |                                                               ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1374:92: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1374 | bool CommandProcessor::ExecutePacketType3_EVENT_WRITE(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                            ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1391:68: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1391 |                                                           uint32_t packet, uint32_t count) {
+      |                                                                    ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1391:85: warning: unused parameter 'count' [-Wunused-parameter]
+ 1391 |                                                           uint32_t packet, uint32_t count) {
+      |                                                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1416:68: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1416 |                                                           uint32_t packet, uint32_t count) {
+      |                                                                    ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1416:85: warning: unused parameter 'count' [-Wunused-parameter]
+ 1416 |                                                           uint32_t packet, uint32_t count) {
+      |                                                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1445:68: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1445 |                                                           uint32_t packet, uint32_t count) {
+      |                                                                    ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1480:84: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1480 | bool CommandProcessor::ExecutePacketType3Draw(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                    ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1481:81: warning: unused parameter 'viz_query_condition' [-Wunused-parameter]
+ 1481 |                                               const char* opcode_name, uint32_t viz_query_condition,
+      |                                                                                 ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1626:93: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1626 | bool CommandProcessor::ExecutePacketType3_SET_CONSTANT(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                             ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1659:94: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1659 | bool CommandProcessor::ExecutePacketType3_SET_CONSTANT2(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                              ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1668:70: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1668 |                                                             uint32_t packet, uint32_t count) {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1668:87: warning: unused parameter 'count' [-Wunused-parameter]
+ 1668 |                                                             uint32_t packet, uint32_t count) {
+      |                                                                                       ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1707:73: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1707 |                                                                uint32_t packet, uint32_t count) {
+      |                                                                         ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1714:88: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1714 | bool CommandProcessor::ExecutePacketType3_IM_LOAD(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                        ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1715:60: warning: unused parameter 'count' [-Wunused-parameter]
+ 1715 |                                                   uint32_t count) {
+      |                                                            ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1745:70: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1745 |                                                             uint32_t packet, uint32_t count) {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1776:69: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1776 |                                                            uint32_t packet, uint32_t count) {
+      |                                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1776:86: warning: unused parameter 'count' [-Wunused-parameter]
+ 1776 |                                                            uint32_t packet, uint32_t count) {
+      |                                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/command_processor.cpp:1783:90: warning: unused parameter 'packet' [-Wunused-parameter]
+ 1783 | bool CommandProcessor::ExecutePacketType3_VIZ_QUERY(memory::RingBuffer* reader, uint32_t packet,
+      |                                                                                          ^
+
+40 warnings generated.
+
+[5/7] Linking CXX shared library C:\bo3recomp\thirdparty\rexglue-sdk\out\win-amd64\rexgpu-xenos.dll
+[6/7] Linking CXX executable bo3_zm.exe

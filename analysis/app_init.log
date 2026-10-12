@@ -1,0 +1,9 @@
+ReXGlue v0.9.0.0-dev.unknown - Xbox 360 Recompilation Toolkit
+
+Initializing project:
+  Project:    bo3_zm
+  Root:       C:\bo3recomp\app
+  Entrypoint: ../runtime/game/default_zm.xex
+  Game root:  ../runtime/game
+
+Done in 0.0s.

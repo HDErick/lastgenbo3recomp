@@ -1,0 +1,13 @@
+[2026-10-12 00:46:32.284] [info] [sys] [t18692] FunctionDispatcher initialized
+[2026-10-12 00:46:32.292] [info] [sys] [t18692]   Mounted C:\bo3recomp\analysis\loader_probe at \Device\Harddisk0\Partition1
+[2026-10-12 00:46:32.292] [info] [sys] [t18692] Runtime initialized in tool mode (no GPU)
+[2026-10-12 00:46:32.292] [info] [sys] [t18692] Loading XEX image: game:\default_zm.xex
+[2026-10-12 00:46:32.449] [info] [core] [t18692] XEX patch applied successfully: base version: 0.0.0.5, new version: 0.0.8.5
+[2026-10-12 00:46:32.453] [info] [sys] [t23496] XThread::Execute thid 1 (handle=F8000018, 'Kernel Dispatch (F8000018)', native=00005BC8, <host>)
+[2026-10-12 00:46:32.453] [info] [sys] [t18692] Achievement store: loaded 32 entries
+[2026-10-12 00:46:43.899] [error] [codegen] [t18692] Analyze: found 1 errors
+[2026-10-12 00:46:43.899] [error] [codegen] [t18692] === ANALYSIS ERRORS ===
+[2026-10-12 00:46:43.899] [error] [codegen] [t18692] UnresolvedCall (1):
+[2026-10-12 00:46:43.899] [error] [codegen] [t18692]   0x828552B8 from 0x8285550C: b 0x828552B8 from 0x8285550C - target not in any function
+[2026-10-12 00:46:43.899] [error] [codegen] [t18692] Total: 1 errors
+[2026-10-12 00:46:43.899] [error] [core] [t18692] Analysis failed for 'default_zm'

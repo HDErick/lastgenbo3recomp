@@ -1,0 +1,2116 @@
+{
+  "folders": [
+    {
+      "folder": "base",
+      "file_count": 381,
+      "bytes": 4075143943
+    },
+    {
+      "folder": "compatibility1",
+      "file_count": 620,
+      "bytes": 1915087920
+    },
+    {
+      "folder": "compatibility2",
+      "file_count": 115,
+      "bytes": 34447388
+    },
+    {
+      "folder": "optional_dlc0",
+      "file_count": 50,
+      "bytes": 635447385
+    },
+    {
+      "folder": "optional_dlc1",
+      "file_count": 195,
+      "bytes": 1290952145
+    },
+    {
+      "folder": "title_update",
+      "file_count": 429,
+      "bytes": 114824767
+    }
+  ],
+  "total_files": 1790,
+  "total_bytes": 8065903548,
+  "unique_relative_paths": 1682,
+  "duplicated_relative_path_count": 107,
+  "duplicates": {
+    "bp_core_common.ff": [
+      {
+        "folder": "base",
+        "path": "bp_core_common.ff",
+        "size": 162304
+      },
+      {
+        "folder": "title_update",
+        "path": "bp_core_common.ff",
+        "size": 198656
+      }
+    ],
+    "bp_core_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "bp_core_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "bp_core_gfx.ff",
+        "size": 768
+      }
+    ],
+    "bp_core_patch.ff": [
+      {
+        "folder": "base",
+        "path": "bp_core_patch.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "bp_core_patch.ff",
+        "size": 360192
+      }
+    ],
+    "bp_core_post_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "bp_core_post_gfx.ff",
+        "size": 336640
+      },
+      {
+        "folder": "title_update",
+        "path": "bp_core_post_gfx.ff",
+        "size": 2368
+      }
+    ],
+    "bp_core_pre_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "bp_core_pre_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "bp_core_pre_gfx.ff",
+        "size": 768
+      }
+    ],
+    "bp_core_ui.ff": [
+      {
+        "folder": "base",
+        "path": "bp_core_ui.ff",
+        "size": 8192
+      },
+      {
+        "folder": "title_update",
+        "path": "bp_core_ui.ff",
+        "size": 832
+      }
+    ],
+    "bp_mp_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "bp_mp_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "bp_mp_gfx.ff",
+        "size": 768
+      }
+    ],
+    "core_common.ff": [
+      {
+        "folder": "base",
+        "path": "core_common.ff",
+        "size": 4653952
+      },
+      {
+        "folder": "title_update",
+        "path": "core_common.ff",
+        "size": 6821440
+      }
+    ],
+    "core_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "core_gfx.ff",
+        "size": 1854272
+      },
+      {
+        "folder": "title_update",
+        "path": "core_gfx.ff",
+        "size": 1462976
+      }
+    ],
+    "core_patch.ff": [
+      {
+        "folder": "base",
+        "path": "core_patch.ff",
+        "size": 1524416
+      },
+      {
+        "folder": "title_update",
+        "path": "core_patch.ff",
+        "size": 2194560
+      }
+    ],
+    "core_post_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "core_post_gfx.ff",
+        "size": 269952
+      },
+      {
+        "folder": "title_update",
+        "path": "core_post_gfx.ff",
+        "size": 291328
+      }
+    ],
+    "core_pre_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "core_pre_gfx.ff",
+        "size": 16000
+      },
+      {
+        "folder": "title_update",
+        "path": "core_pre_gfx.ff",
+        "size": 14976
+      }
+    ],
+    "core_ui.ff": [
+      {
+        "folder": "base",
+        "path": "core_ui.ff",
+        "size": 5487936
+      },
+      {
+        "folder": "title_update",
+        "path": "core_ui.ff",
+        "size": 2856512
+      }
+    ],
+    "en_core_common.ff": [
+      {
+        "folder": "base",
+        "path": "en_core_common.ff",
+        "size": 162240
+      },
+      {
+        "folder": "title_update",
+        "path": "en_core_common.ff",
+        "size": 198528
+      }
+    ],
+    "en_core_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "en_core_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "en_core_gfx.ff",
+        "size": 768
+      }
+    ],
+    "en_core_patch.ff": [
+      {
+        "folder": "base",
+        "path": "en_core_patch.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "en_core_patch.ff",
+        "size": 329984
+      }
+    ],
+    "en_core_post_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "en_core_post_gfx.ff",
+        "size": 309056
+      },
+      {
+        "folder": "title_update",
+        "path": "en_core_post_gfx.ff",
+        "size": 2496
+      }
+    ],
+    "en_core_pre_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "en_core_pre_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "en_core_pre_gfx.ff",
+        "size": 768
+      }
+    ],
+    "en_core_ui.ff": [
+      {
+        "folder": "base",
+        "path": "en_core_ui.ff",
+        "size": 7232
+      },
+      {
+        "folder": "title_update",
+        "path": "en_core_ui.ff",
+        "size": 832
+      }
+    ],
+    "en_mp_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "en_mp_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "en_mp_gfx.ff",
+        "size": 768
+      }
+    ],
+    "es_core_common.ff": [
+      {
+        "folder": "base",
+        "path": "es_core_common.ff",
+        "size": 162240
+      },
+      {
+        "folder": "title_update",
+        "path": "es_core_common.ff",
+        "size": 198528
+      }
+    ],
+    "es_core_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "es_core_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "es_core_gfx.ff",
+        "size": 768
+      }
+    ],
+    "es_core_patch.ff": [
+      {
+        "folder": "base",
+        "path": "es_core_patch.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "es_core_patch.ff",
+        "size": 357952
+      }
+    ],
+    "es_core_post_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "es_core_post_gfx.ff",
+        "size": 334656
+      },
+      {
+        "folder": "title_update",
+        "path": "es_core_post_gfx.ff",
+        "size": 2432
+      }
+    ],
+    "es_core_pre_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "es_core_pre_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "es_core_pre_gfx.ff",
+        "size": 768
+      }
+    ],
+    "es_core_ui.ff": [
+      {
+        "folder": "base",
+        "path": "es_core_ui.ff",
+        "size": 8000
+      },
+      {
+        "folder": "title_update",
+        "path": "es_core_ui.ff",
+        "size": 832
+      }
+    ],
+    "es_mp_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "es_mp_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "es_mp_gfx.ff",
+        "size": 768
+      }
+    ],
+    "fr_core_common.ff": [
+      {
+        "folder": "base",
+        "path": "fr_core_common.ff",
+        "size": 162240
+      },
+      {
+        "folder": "title_update",
+        "path": "fr_core_common.ff",
+        "size": 198464
+      }
+    ],
+    "fr_core_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "fr_core_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "fr_core_gfx.ff",
+        "size": 768
+      }
+    ],
+    "fr_core_patch.ff": [
+      {
+        "folder": "base",
+        "path": "fr_core_patch.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "fr_core_patch.ff",
+        "size": 363392
+      }
+    ],
+    "fr_core_post_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "fr_core_post_gfx.ff",
+        "size": 339072
+      },
+      {
+        "folder": "title_update",
+        "path": "fr_core_post_gfx.ff",
+        "size": 2368
+      }
+    ],
+    "fr_core_pre_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "fr_core_pre_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "fr_core_pre_gfx.ff",
+        "size": 768
+      }
+    ],
+    "fr_core_ui.ff": [
+      {
+        "folder": "base",
+        "path": "fr_core_ui.ff",
+        "size": 8192
+      },
+      {
+        "folder": "title_update",
+        "path": "fr_core_ui.ff",
+        "size": 832
+      }
+    ],
+    "fr_mp_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "fr_mp_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "fr_mp_gfx.ff",
+        "size": 768
+      }
+    ],
+    "ge_core_common.ff": [
+      {
+        "folder": "base",
+        "path": "ge_core_common.ff",
+        "size": 162240
+      },
+      {
+        "folder": "title_update",
+        "path": "ge_core_common.ff",
+        "size": 198464
+      }
+    ],
+    "ge_core_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "ge_core_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "ge_core_gfx.ff",
+        "size": 768
+      }
+    ],
+    "ge_core_patch.ff": [
+      {
+        "folder": "base",
+        "path": "ge_core_patch.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "ge_core_patch.ff",
+        "size": 360896
+      }
+    ],
+    "ge_core_post_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "ge_core_post_gfx.ff",
+        "size": 336512
+      },
+      {
+        "folder": "title_update",
+        "path": "ge_core_post_gfx.ff",
+        "size": 2368
+      }
+    ],
+    "ge_core_pre_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "ge_core_pre_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "ge_core_pre_gfx.ff",
+        "size": 768
+      }
+    ],
+    "ge_core_ui.ff": [
+      {
+        "folder": "base",
+        "path": "ge_core_ui.ff",
+        "size": 8192
+      },
+      {
+        "folder": "title_update",
+        "path": "ge_core_ui.ff",
+        "size": 832
+      }
+    ],
+    "ge_mp_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "ge_mp_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "ge_mp_gfx.ff",
+        "size": 768
+      }
+    ],
+    "it_core_common.ff": [
+      {
+        "folder": "base",
+        "path": "it_core_common.ff",
+        "size": 162240
+      },
+      {
+        "folder": "title_update",
+        "path": "it_core_common.ff",
+        "size": 198528
+      }
+    ],
+    "it_core_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "it_core_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "it_core_gfx.ff",
+        "size": 768
+      }
+    ],
+    "it_core_patch.ff": [
+      {
+        "folder": "base",
+        "path": "it_core_patch.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "it_core_patch.ff",
+        "size": 353728
+      }
+    ],
+    "it_core_post_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "it_core_post_gfx.ff",
+        "size": 330944
+      },
+      {
+        "folder": "title_update",
+        "path": "it_core_post_gfx.ff",
+        "size": 2368
+      }
+    ],
+    "it_core_pre_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "it_core_pre_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "it_core_pre_gfx.ff",
+        "size": 768
+      }
+    ],
+    "it_core_ui.ff": [
+      {
+        "folder": "base",
+        "path": "it_core_ui.ff",
+        "size": 7936
+      },
+      {
+        "folder": "title_update",
+        "path": "it_core_ui.ff",
+        "size": 832
+      }
+    ],
+    "it_mp_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "it_mp_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "it_mp_gfx.ff",
+        "size": 768
+      }
+    ],
+    "mp_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "mp_gfx.ff",
+        "size": 2944
+      },
+      {
+        "folder": "title_update",
+        "path": "mp_gfx.ff",
+        "size": 2880
+      }
+    ],
+    "ms_core_common.ff": [
+      {
+        "folder": "base",
+        "path": "ms_core_common.ff",
+        "size": 162176
+      },
+      {
+        "folder": "title_update",
+        "path": "ms_core_common.ff",
+        "size": 198720
+      }
+    ],
+    "ms_core_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "ms_core_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "ms_core_gfx.ff",
+        "size": 768
+      }
+    ],
+    "ms_core_patch.ff": [
+      {
+        "folder": "base",
+        "path": "ms_core_patch.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "ms_core_patch.ff",
+        "size": 357504
+      }
+    ],
+    "ms_core_post_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "ms_core_post_gfx.ff",
+        "size": 334400
+      },
+      {
+        "folder": "title_update",
+        "path": "ms_core_post_gfx.ff",
+        "size": 2432
+      }
+    ],
+    "ms_core_pre_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "ms_core_pre_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "ms_core_pre_gfx.ff",
+        "size": 768
+      }
+    ],
+    "ms_core_ui.ff": [
+      {
+        "folder": "base",
+        "path": "ms_core_ui.ff",
+        "size": 8000
+      },
+      {
+        "folder": "title_update",
+        "path": "ms_core_ui.ff",
+        "size": 832
+      }
+    ],
+    "ms_mp_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "ms_mp_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "ms_mp_gfx.ff",
+        "size": 768
+      }
+    ],
+    "null": [
+      {
+        "folder": "compatibility2",
+        "path": "null",
+        "size": 4
+      },
+      {
+        "folder": "optional_dlc0",
+        "path": "null",
+        "size": 4
+      },
+      {
+        "folder": "optional_dlc1",
+        "path": "null",
+        "size": 4
+      }
+    ],
+    "po_core_common.ff": [
+      {
+        "folder": "base",
+        "path": "po_core_common.ff",
+        "size": 124288
+      },
+      {
+        "folder": "title_update",
+        "path": "po_core_common.ff",
+        "size": 210048
+      }
+    ],
+    "po_core_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "po_core_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "po_core_gfx.ff",
+        "size": 768
+      }
+    ],
+    "po_core_patch.ff": [
+      {
+        "folder": "base",
+        "path": "po_core_patch.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "po_core_patch.ff",
+        "size": 370496
+      }
+    ],
+    "po_core_post_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "po_core_post_gfx.ff",
+        "size": 346752
+      },
+      {
+        "folder": "title_update",
+        "path": "po_core_post_gfx.ff",
+        "size": 2496
+      }
+    ],
+    "po_core_pre_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "po_core_pre_gfx.ff",
+        "size": 896
+      },
+      {
+        "folder": "title_update",
+        "path": "po_core_pre_gfx.ff",
+        "size": 832
+      }
+    ],
+    "po_core_ui.ff": [
+      {
+        "folder": "base",
+        "path": "po_core_ui.ff",
+        "size": 8384
+      },
+      {
+        "folder": "title_update",
+        "path": "po_core_ui.ff",
+        "size": 832
+      }
+    ],
+    "po_mp_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "po_mp_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "po_mp_gfx.ff",
+        "size": 768
+      }
+    ],
+    "ru_core_common.ff": [
+      {
+        "folder": "base",
+        "path": "ru_core_common.ff",
+        "size": 204480
+      },
+      {
+        "folder": "title_update",
+        "path": "ru_core_common.ff",
+        "size": 254720
+      }
+    ],
+    "ru_core_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "ru_core_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "ru_core_gfx.ff",
+        "size": 768
+      }
+    ],
+    "ru_core_patch.ff": [
+      {
+        "folder": "base",
+        "path": "ru_core_patch.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "ru_core_patch.ff",
+        "size": 449344
+      }
+    ],
+    "ru_core_post_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "ru_core_post_gfx.ff",
+        "size": 418112
+      },
+      {
+        "folder": "title_update",
+        "path": "ru_core_post_gfx.ff",
+        "size": 2368
+      }
+    ],
+    "ru_core_pre_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "ru_core_pre_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "ru_core_pre_gfx.ff",
+        "size": 768
+      }
+    ],
+    "ru_core_ui.ff": [
+      {
+        "folder": "base",
+        "path": "ru_core_ui.ff",
+        "size": 10112
+      },
+      {
+        "folder": "title_update",
+        "path": "ru_core_ui.ff",
+        "size": 832
+      }
+    ],
+    "ru_mp_gfx.ff": [
+      {
+        "folder": "base",
+        "path": "ru_mp_gfx.ff",
+        "size": 832
+      },
+      {
+        "folder": "title_update",
+        "path": "ru_mp_gfx.ff",
+        "size": 768
+      }
+    ],
+    "snd/mp_common_patch.all.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.all.sabl",
+        "size": 10298
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.all.sabl",
+        "size": 90672
+      }
+    ],
+    "snd/mp_common_patch.all.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.all.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.all.sabs",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.bp.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.bp.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.bp.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.bp.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.bp.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.bp.sabs",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.en.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.en.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.en.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.en.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.en.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.en.sabs",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.es.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.es.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.es.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.es.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.es.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.es.sabs",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.fr.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.fr.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.fr.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.fr.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.fr.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.fr.sabs",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.ge.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.ge.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.ge.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.ge.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.ge.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.ge.sabs",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.it.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.it.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.it.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.it.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.it.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.it.sabs",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.ms.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.ms.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.ms.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.ms.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.ms.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.ms.sabs",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.ru.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.ru.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.ru.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/mp_common_patch.ru.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/mp_common_patch.ru.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/mp_common_patch.ru.sabs",
+        "size": 2048
+      }
+    ],
+    "snd/zm_zod_patch.all.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.all.sabl",
+        "size": 152269
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.all.sabl",
+        "size": 210163
+      }
+    ],
+    "snd/zm_zod_patch.all.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.all.sabs",
+        "size": 479403
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.all.sabs",
+        "size": 2048
+      }
+    ],
+    "snd/zm_zod_patch.bp.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.bp.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.bp.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/zm_zod_patch.bp.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.bp.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.bp.sabs",
+        "size": 31413
+      }
+    ],
+    "snd/zm_zod_patch.en.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.en.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.en.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/zm_zod_patch.en.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.en.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.en.sabs",
+        "size": 834397
+      }
+    ],
+    "snd/zm_zod_patch.es.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.es.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.es.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/zm_zod_patch.es.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.es.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.es.sabs",
+        "size": 31413
+      }
+    ],
+    "snd/zm_zod_patch.fr.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.fr.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.fr.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/zm_zod_patch.fr.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.fr.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.fr.sabs",
+        "size": 31413
+      }
+    ],
+    "snd/zm_zod_patch.ge.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.ge.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.ge.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/zm_zod_patch.ge.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.ge.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.ge.sabs",
+        "size": 31413
+      }
+    ],
+    "snd/zm_zod_patch.it.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.it.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.it.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/zm_zod_patch.it.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.it.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.it.sabs",
+        "size": 31413
+      }
+    ],
+    "snd/zm_zod_patch.ms.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.ms.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.ms.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/zm_zod_patch.ms.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.ms.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.ms.sabs",
+        "size": 31413
+      }
+    ],
+    "snd/zm_zod_patch.ru.sabl": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.ru.sabl",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.ru.sabl",
+        "size": 2048
+      }
+    ],
+    "snd/zm_zod_patch.ru.sabs": [
+      {
+        "folder": "compatibility1",
+        "path": "snd/zm_zod_patch.ru.sabs",
+        "size": 2048
+      },
+      {
+        "folder": "title_update",
+        "path": "snd/zm_zod_patch.ru.sabs",
+        "size": 31413
+      }
+    ]
+  },
+  "map_fastfiles": {
+    "base": [
+      "mp_gfx.ff"
+    ],
+    "compatibility1": [
+      "mp_apartments.ff",
+      "mp_biodome.ff",
+      "mp_chinatown.ff",
+      "mp_common.ff",
+      "mp_common_all.ff",
+      "mp_ethiopia.ff",
+      "mp_freerun_01.ff",
+      "mp_freerun_02.ff",
+      "mp_freerun_03.ff",
+      "mp_freerun_04.ff",
+      "mp_havoc.ff",
+      "mp_infection.ff",
+      "mp_metro.ff",
+      "mp_redwood.ff",
+      "mp_sector.ff",
+      "mp_spire.ff",
+      "mp_stronghold.ff",
+      "mp_veiled.ff",
+      "zm_common.ff",
+      "zm_common_all.ff",
+      "zm_frontend.ff",
+      "zm_zod.ff"
+    ],
+    "compatibility2": [
+      "mp_apartments_patch.ff",
+      "mp_chinatown_patch.ff",
+      "mp_havoc_patch.ff",
+      "mp_patch.ff",
+      "mp_redwood_patch.ff",
+      "mp_sector_patch.ff",
+      "mp_spire_patch.ff",
+      "zm_patch.ff"
+    ],
+    "optional_dlc0": [
+      "zm_factory.ff"
+    ],
+    "optional_dlc1": [
+      "mp_crucible.ff",
+      "mp_rise.ff",
+      "mp_skyjacked.ff",
+      "mp_waterpark.ff",
+      "zm_castle.ff"
+    ],
+    "title_update": [
+      "mp_biodome_patch.ff",
+      "mp_crucible_patch.ff",
+      "mp_ethiopia_patch.ff",
+      "mp_freerun_01_patch.ff",
+      "mp_freerun_02_patch.ff",
+      "mp_freerun_03_patch.ff",
+      "mp_freerun_04_patch.ff",
+      "mp_frontend.ff",
+      "mp_frontend_patch.ff",
+      "mp_gfx.ff",
+      "mp_infection_patch.ff",
+      "mp_metro_patch.ff",
+      "mp_patch2.ff",
+      "mp_rise_patch.ff",
+      "mp_skyjacked_patch.ff",
+      "mp_stronghold_patch.ff",
+      "mp_veiled_patch.ff",
+      "mp_waterpark_patch.ff",
+      "zm_castle_patch.ff",
+      "zm_factory_patch.ff",
+      "zm_frontend_patch.ff",
+      "zm_gfx.ff",
+      "zm_patch2.ff",
+      "zm_zod_patch.ff"
+    ]
+  },
+  "probes": [
+    {
+      "mode": "zm",
+      "exit_code": 0,
+      "function_mappings": 34805,
+      "cpp_files": 87,
+      "generated_bytes": 179217277,
+      "imports": [
+        "DbgBreakPoint",
+        "DbgPrint",
+        "ExCreateThread",
+        "ExGetXConfigSetting",
+        "ExRegisterTitleTerminateNotification",
+        "ExTerminateThread",
+        "HalReturnToFirmware",
+        "KeAcquireSpinLockAtRaisedIrql",
+        "KeBugCheck",
+        "KeBugCheckEx",
+        "KeDelayExecutionThread",
+        "KeEnterCriticalRegion",
+        "KeGetCurrentProcessType",
+        "KeInitializeDpc",
+        "KeInsertQueueDpc",
+        "KeLeaveCriticalRegion",
+        "KeLockL2",
+        "KeQueryBasePriorityThread",
+        "KeQueryPerformanceFrequency",
+        "KeQuerySystemTime",
+        "KeReleaseSpinLockFromRaisedIrql",
+        "KeResetEvent",
+        "KeSetAffinityThread",
+        "KeSetBasePriorityThread",
+        "KeSetCurrentProcessType",
+        "KeSetEvent",
+        "KeTlsAlloc",
+        "KeTlsFree",
+        "KeTlsGetValue",
+        "KeTlsSetValue",
+        "KeUnlockL2",
+        "KeWaitForMultipleObjects",
+        "KeWaitForSingleObject",
+        "KfAcquireSpinLock",
+        "KfReleaseSpinLock",
+        "KiApcNormalRoutineNop",
+        "MmAllocatePhysicalMemoryEx",
+        "MmFreePhysicalMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmQueryAddressProtect",
+        "MmQueryStatistics",
+        "MmSetAddressProtect",
+        "NetDll_WSAGetLastError",
+        "NetDll_WSAStartup",
+        "NetDll_XHttpCloseHandle",
+        "NetDll_XHttpConnect",
+        "NetDll_XHttpCrackUrl",
+        "NetDll_XHttpDoWork",
+        "NetDll_XHttpOpen",
+        "NetDll_XHttpOpenRequest",
+        "NetDll_XHttpQueryHeaders",
+        "NetDll_XHttpReadData",
+        "NetDll_XHttpReceiveResponse",
+        "NetDll_XHttpSendRequest",
+        "NetDll_XHttpSetStatusCallback",
+        "NetDll_XHttpShutdown",
+        "NetDll_XHttpStartup",
+        "NetDll_XHttpWriteData",
+        "NetDll_XNetConnect",
+        "NetDll_XNetGetConnectStatus",
+        "NetDll_XNetGetEthernetLinkStatus",
+        "NetDll_XNetGetTitleXnAddr",
+        "NetDll_XNetInAddrToString",
+        "NetDll_XNetInAddrToXnAddr",
+        "NetDll_XNetQosListen",
+        "NetDll_XNetQosLookup",
+        "NetDll_XNetQosRelease",
+        "NetDll_XNetQosServiceLookup",
+        "NetDll_XNetRandom",
+        "NetDll_XNetRegisterKey",
+        "NetDll_XNetServerToInAddr",
+        "NetDll_XNetStartup",
+        "NetDll_XNetTsAddrToInAddr",
+        "NetDll_XNetUnregisterInAddr",
+        "NetDll_XNetUnregisterKey",
+        "NetDll_XNetXnAddrToInAddr",
+        "NetDll_XNetXnAddrToMachineId",
+        "NetDll_XnpLogonGetStatus",
+        "NetDll___WSAFDIsSet",
+        "NetDll_accept",
+        "NetDll_bind",
+        "NetDll_closesocket",
+        "NetDll_connect",
+        "NetDll_getsockname",
+        "NetDll_inet_addr",
+        "NetDll_ioctlsocket",
+        "NetDll_listen",
+        "NetDll_recv",
+        "NetDll_recvfrom",
+        "NetDll_select",
+        "NetDll_send",
+        "NetDll_sendto",
+        "NetDll_setsockopt",
+        "NetDll_socket",
+        "NtAllocateVirtualMemory",
+        "NtCancelTimer",
+        "NtClearEvent",
+        "NtClose",
+        "NtCreateEvent",
+        "NtCreateFile",
+        "NtCreateMutant",
+        "NtCreateSemaphore",
+        "NtCreateTimer",
+        "NtDuplicateObject",
+        "NtFlushBuffersFile",
+        "NtFreeVirtualMemory",
+        "NtOpenFile",
+        "NtPulseEvent",
+        "NtQueryDirectoryFile",
+        "NtQueryFullAttributesFile",
+        "NtQueryInformationFile",
+        "NtQueryVirtualMemory",
+        "NtQueryVolumeInformationFile",
+        "NtReadFile",
+        "NtReadFileScatter",
+        "NtReleaseMutant",
+        "NtReleaseSemaphore",
+        "NtResumeThread",
+        "NtSetEvent",
+        "NtSetInformationFile",
+        "NtSetTimerEx",
+        "NtSuspendThread",
+        "NtWaitForSingleObjectEx",
+        "NtWriteFile",
+        "NtYieldExecution",
+        "ObCreateSymbolicLink",
+        "ObDeleteSymbolicLink",
+        "ObDereferenceObject",
+        "ObReferenceObjectByHandle",
+        "RtlCaptureContext",
+        "RtlCompareMemoryUlong",
+        "RtlEnterCriticalSection",
+        "RtlFillMemoryUlong",
+        "RtlFreeAnsiString",
+        "RtlImageXexHeaderField",
+        "RtlInitAnsiString",
+        "RtlInitUnicodeString",
+        "RtlInitializeCriticalSection",
+        "RtlInitializeCriticalSectionAndSpinCount",
+        "RtlLeaveCriticalSection",
+        "RtlMultiByteToUnicodeN",
+        "RtlNtStatusToDosError",
+        "RtlRaiseException",
+        "RtlTimeFieldsToTime",
+        "RtlTimeToTimeFields",
+        "RtlTryEnterCriticalSection",
+        "RtlUnicodeStringToAnsiString",
+        "RtlUnicodeToMultiByteN",
+        "RtlUnwind",
+        "VdCallGraphicsNotificationRoutines",
+        "VdEnableDisableClockGating",
+        "VdEnableRingBufferRPtrWriteBack",
+        "VdGetCurrentDisplayGamma",
+        "VdGetCurrentDisplayInformation",
+        "VdGetSystemCommandBuffer",
+        "VdInitializeEngines",
+        "VdInitializeRingBuffer",
+        "VdInitializeScalerCommandBuffer",
+        "VdIsHSIOTrainingSucceeded",
+        "VdPersistDisplay",
+        "VdQueryVideoFlags",
+        "VdQueryVideoMode",
+        "VdRetrainEDRAM",
+        "VdRetrainEDRAMWorker",
+        "VdSetDisplayMode",
+        "VdSetDisplayModeOverride",
+        "VdSetGraphicsInterruptCallback",
+        "VdSetSystemCommandBufferGpuIdentifierAddress",
+        "VdShutdownEngines",
+        "VdSwap",
+        "XAudioEnableDucker",
+        "XAudioGetDuckerAttackTime",
+        "XAudioGetDuckerHoldTime",
+        "XAudioGetDuckerLevel",
+        "XAudioGetDuckerReleaseTime",
+        "XAudioGetDuckerThreshold",
+        "XAudioGetSpeakerConfig",
+        "XAudioGetVoiceCategoryVolume",
+        "XAudioRegisterRenderDriverClient",
+        "XAudioSubmitRenderDriverFrame",
+        "XAudioUnregisterRenderDriverClient",
+        "XGetAVPack",
+        "XGetDisplaySize",
+        "XGetGameRegion",
+        "XGetVideoCapabilities",
+        "XGetVideoMode",
+        "XMACreateContext",
+        "XMAReleaseContext",
+        "XMsgCancelIORequest",
+        "XMsgInProcessCall",
+        "XMsgStartIORequest",
+        "XMsgStartIORequestEx",
+        "XNetLogonGetMachineID",
+        "XNetLogonGetTitleID",
+        "XNotifyGetNext",
+        "XNotifyPositionUI",
+        "XamAlloc",
+        "XamBackgroundDownloadSetMode",
+        "XamContentClose",
+        "XamContentCreateEnumerator",
+        "XamContentCreateEx",
+        "XamContentGetDeviceData",
+        "XamContentGetDeviceState",
+        "XamCreateEnumeratorHandle",
+        "XamEnumerate",
+        "XamFree",
+        "XamFreeToken",
+        "XamGetExecutionId",
+        "XamGetLanguage",
+        "XamGetLocaleEx",
+        "XamGetPrivateEnumStructureFromHandle",
+        "XamGetSystemVersion",
+        "XamGetToken",
+        "XamInputGetCapabilities",
+        "XamInputGetState",
+        "XamInputSetState",
+        "XamLoaderGetLaunchData",
+        "XamLoaderLaunchTitle",
+        "XamLoaderSetLaunchData",
+        "XamLoaderTerminateTitle",
+        "XamNotifyCreateListener",
+        "XamQueryLiveHiveA",
+        "XamSessionCreateHandle",
+        "XamSessionRefObjByHandle",
+        "XamShowDeviceSelectorUI",
+        "XamShowDirtyDiscErrorUI",
+        "XamShowFriendRequestUI",
+        "XamShowGamerCardUIForXUID",
+        "XamShowKeyboardUI",
+        "XamShowMarketplaceDownloadItemsUI",
+        "XamShowMessageBoxUI",
+        "XamShowMessageBoxUIEx",
+        "XamShowSigninUI",
+        "XamUserAreUsersFriends",
+        "XamUserCheckPrivilege",
+        "XamUserGetDeviceContext",
+        "XamUserGetMembershipTierFromXUID",
+        "XamUserGetName",
+        "XamUserGetOnlineCountryFromXUID",
+        "XamUserGetSigninInfo",
+        "XamUserGetSigninState",
+        "XamUserGetXUID",
+        "XamUserReadProfileSettings",
+        "XamVoiceClose",
+        "XamVoiceCreate",
+        "XamVoiceHeadsetPresent",
+        "XamVoiceIsActiveProcess",
+        "XamVoiceSubmitPacket",
+        "XampXAuthGetTitleBuffer",
+        "XampXAuthShutdown",
+        "XampXAuthStartup",
+        "XeCryptSha256Final",
+        "XeCryptSha256Init",
+        "XeCryptSha256Update",
+        "XeCryptSha384Final",
+        "XeCryptSha384Init",
+        "XeCryptSha384Update",
+        "XeCryptSha512Final",
+        "XeCryptSha512Init",
+        "XeCryptSha512Update",
+        "XeCryptShaFinal",
+        "XeCryptShaInit",
+        "XeCryptShaUpdate",
+        "XeKeysGetConsoleID",
+        "XeKeysGetKey",
+        "XeKeysGetKeyProperties",
+        "XexCheckExecutablePrivilege",
+        "XexGetModuleHandle",
+        "XexGetProcedureAddress",
+        "XexLoadImage",
+        "XexUnloadImage",
+        "__C_specific_handler",
+        "_snprintf",
+        "_vsnprintf",
+        "sprintf"
+      ],
+      "explicit_import_stubs": {
+        "NetDll_XHttpCloseHandle": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpConnect": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpCrackUrl": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpDoWork": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpOpen": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpOpenRequest": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpQueryHeaders": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpReadData": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpReceiveResponse": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpSendRequest": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpSetStatusCallback": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpShutdown": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpStartup": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpWriteData": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XNetConnect": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XNetGetConnectStatus": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XNetQosLookup": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XNetTsAddrToInAddr": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XNetUnregisterInAddr": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XnpLogonGetStatus": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_getsockname": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "XAudioGetDuckerAttackTime": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_audio.cpp",
+        "XAudioGetDuckerHoldTime": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_audio.cpp",
+        "XAudioGetDuckerLevel": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_audio.cpp",
+        "XAudioGetDuckerReleaseTime": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_audio.cpp",
+        "XAudioGetDuckerThreshold": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_audio.cpp",
+        "XGetDisplaySize": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XNetLogonGetMachineID": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XNetLogonGetTitleID": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XamBackgroundDownloadSetMode": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XamFreeToken": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XamGetLanguage": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_locale.cpp",
+        "XamGetToken": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XamQueryLiveHiveA": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XamShowFriendRequestUI": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_ui.cpp",
+        "XamShowGamerCardUIForXUID": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_ui.cpp",
+        "XamShowMarketplaceDownloadItemsUI": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_ui.cpp",
+        "XamUserGetMembershipTierFromXUID": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_user.cpp",
+        "XamUserGetOnlineCountryFromXUID": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_user.cpp",
+        "XamVoiceSubmitPacket": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_voice.cpp",
+        "XampXAuthGetTitleBuffer": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XampXAuthShutdown": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XeCryptSha384Final": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeCryptSha384Init": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeCryptSha384Update": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeCryptSha512Final": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeCryptSha512Init": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeCryptSha512Update": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeKeysGetConsoleID": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeKeysGetKey": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeKeysGetKeyProperties": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp"
+      },
+      "emitter_fatal_branches": [],
+      "vector_pack_warning_count": 20,
+      "float16_pack_modes": {
+        "pack=2,shift=2": 42,
+        "pack=3,shift=0": 20
+      },
+      "vector_u16_out_of_bounds": [],
+      "image_definitions": [
+        "#define REX_IMAGE_BASE 0x82000000ull",
+        "#define REX_IMAGE_SIZE 0x28D0000ull",
+        "#define REX_CODE_BASE 0x82140000ull",
+        "#define REX_CODE_SIZE 0x975CC0ull"
+      ]
+    },
+    {
+      "mode": "mp",
+      "exit_code": 0,
+      "function_mappings": 34960,
+      "cpp_files": 87,
+      "generated_bytes": 180146582,
+      "imports": [
+        "DbgBreakPoint",
+        "DbgPrint",
+        "ExCreateThread",
+        "ExGetXConfigSetting",
+        "ExRegisterTitleTerminateNotification",
+        "ExTerminateThread",
+        "HalReturnToFirmware",
+        "KeAcquireSpinLockAtRaisedIrql",
+        "KeBugCheck",
+        "KeBugCheckEx",
+        "KeDelayExecutionThread",
+        "KeEnterCriticalRegion",
+        "KeGetCurrentProcessType",
+        "KeInitializeDpc",
+        "KeInsertQueueDpc",
+        "KeLeaveCriticalRegion",
+        "KeLockL2",
+        "KeQueryBasePriorityThread",
+        "KeQueryPerformanceFrequency",
+        "KeQuerySystemTime",
+        "KeReleaseSpinLockFromRaisedIrql",
+        "KeResetEvent",
+        "KeSetAffinityThread",
+        "KeSetBasePriorityThread",
+        "KeSetCurrentProcessType",
+        "KeSetEvent",
+        "KeTlsAlloc",
+        "KeTlsFree",
+        "KeTlsGetValue",
+        "KeTlsSetValue",
+        "KeUnlockL2",
+        "KeWaitForMultipleObjects",
+        "KeWaitForSingleObject",
+        "KfAcquireSpinLock",
+        "KfReleaseSpinLock",
+        "KiApcNormalRoutineNop",
+        "MmAllocatePhysicalMemoryEx",
+        "MmFreePhysicalMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmQueryAddressProtect",
+        "MmQueryStatistics",
+        "MmSetAddressProtect",
+        "NetDll_WSAGetLastError",
+        "NetDll_WSAStartup",
+        "NetDll_XHttpCloseHandle",
+        "NetDll_XHttpConnect",
+        "NetDll_XHttpCrackUrl",
+        "NetDll_XHttpDoWork",
+        "NetDll_XHttpOpen",
+        "NetDll_XHttpOpenRequest",
+        "NetDll_XHttpQueryHeaders",
+        "NetDll_XHttpReadData",
+        "NetDll_XHttpReceiveResponse",
+        "NetDll_XHttpSendRequest",
+        "NetDll_XHttpSetStatusCallback",
+        "NetDll_XHttpShutdown",
+        "NetDll_XHttpStartup",
+        "NetDll_XHttpWriteData",
+        "NetDll_XNetConnect",
+        "NetDll_XNetGetConnectStatus",
+        "NetDll_XNetGetEthernetLinkStatus",
+        "NetDll_XNetGetTitleXnAddr",
+        "NetDll_XNetInAddrToString",
+        "NetDll_XNetInAddrToXnAddr",
+        "NetDll_XNetQosListen",
+        "NetDll_XNetQosLookup",
+        "NetDll_XNetQosRelease",
+        "NetDll_XNetQosServiceLookup",
+        "NetDll_XNetRandom",
+        "NetDll_XNetRegisterKey",
+        "NetDll_XNetServerToInAddr",
+        "NetDll_XNetStartup",
+        "NetDll_XNetTsAddrToInAddr",
+        "NetDll_XNetUnregisterInAddr",
+        "NetDll_XNetUnregisterKey",
+        "NetDll_XNetXnAddrToInAddr",
+        "NetDll_XNetXnAddrToMachineId",
+        "NetDll_XnpLogonGetStatus",
+        "NetDll___WSAFDIsSet",
+        "NetDll_accept",
+        "NetDll_bind",
+        "NetDll_closesocket",
+        "NetDll_connect",
+        "NetDll_getsockname",
+        "NetDll_inet_addr",
+        "NetDll_ioctlsocket",
+        "NetDll_listen",
+        "NetDll_recv",
+        "NetDll_recvfrom",
+        "NetDll_select",
+        "NetDll_send",
+        "NetDll_sendto",
+        "NetDll_setsockopt",
+        "NetDll_socket",
+        "NtAllocateVirtualMemory",
+        "NtCancelTimer",
+        "NtClearEvent",
+        "NtClose",
+        "NtCreateEvent",
+        "NtCreateFile",
+        "NtCreateMutant",
+        "NtCreateSemaphore",
+        "NtCreateTimer",
+        "NtDuplicateObject",
+        "NtFlushBuffersFile",
+        "NtFreeVirtualMemory",
+        "NtOpenFile",
+        "NtPulseEvent",
+        "NtQueryDirectoryFile",
+        "NtQueryFullAttributesFile",
+        "NtQueryInformationFile",
+        "NtQueryVirtualMemory",
+        "NtQueryVolumeInformationFile",
+        "NtReadFile",
+        "NtReadFileScatter",
+        "NtReleaseMutant",
+        "NtReleaseSemaphore",
+        "NtResumeThread",
+        "NtSetEvent",
+        "NtSetInformationFile",
+        "NtSetTimerEx",
+        "NtSuspendThread",
+        "NtWaitForSingleObjectEx",
+        "NtWriteFile",
+        "NtYieldExecution",
+        "ObCreateSymbolicLink",
+        "ObDeleteSymbolicLink",
+        "ObDereferenceObject",
+        "ObReferenceObjectByHandle",
+        "RtlCaptureContext",
+        "RtlCompareMemoryUlong",
+        "RtlEnterCriticalSection",
+        "RtlFillMemoryUlong",
+        "RtlFreeAnsiString",
+        "RtlImageXexHeaderField",
+        "RtlInitAnsiString",
+        "RtlInitUnicodeString",
+        "RtlInitializeCriticalSection",
+        "RtlInitializeCriticalSectionAndSpinCount",
+        "RtlLeaveCriticalSection",
+        "RtlMultiByteToUnicodeN",
+        "RtlNtStatusToDosError",
+        "RtlRaiseException",
+        "RtlTimeFieldsToTime",
+        "RtlTimeToTimeFields",
+        "RtlTryEnterCriticalSection",
+        "RtlUnicodeStringToAnsiString",
+        "RtlUnicodeToMultiByteN",
+        "RtlUnwind",
+        "VdCallGraphicsNotificationRoutines",
+        "VdEnableDisableClockGating",
+        "VdEnableRingBufferRPtrWriteBack",
+        "VdGetCurrentDisplayGamma",
+        "VdGetCurrentDisplayInformation",
+        "VdGetSystemCommandBuffer",
+        "VdInitializeEngines",
+        "VdInitializeRingBuffer",
+        "VdInitializeScalerCommandBuffer",
+        "VdIsHSIOTrainingSucceeded",
+        "VdPersistDisplay",
+        "VdQueryVideoFlags",
+        "VdQueryVideoMode",
+        "VdRetrainEDRAM",
+        "VdRetrainEDRAMWorker",
+        "VdSetDisplayMode",
+        "VdSetDisplayModeOverride",
+        "VdSetGraphicsInterruptCallback",
+        "VdSetSystemCommandBufferGpuIdentifierAddress",
+        "VdShutdownEngines",
+        "VdSwap",
+        "XAudioEnableDucker",
+        "XAudioGetDuckerAttackTime",
+        "XAudioGetDuckerHoldTime",
+        "XAudioGetDuckerLevel",
+        "XAudioGetDuckerReleaseTime",
+        "XAudioGetDuckerThreshold",
+        "XAudioGetSpeakerConfig",
+        "XAudioGetVoiceCategoryVolume",
+        "XAudioRegisterRenderDriverClient",
+        "XAudioSubmitRenderDriverFrame",
+        "XAudioUnregisterRenderDriverClient",
+        "XGetAVPack",
+        "XGetDisplaySize",
+        "XGetGameRegion",
+        "XGetVideoCapabilities",
+        "XGetVideoMode",
+        "XMACreateContext",
+        "XMAReleaseContext",
+        "XMsgCancelIORequest",
+        "XMsgInProcessCall",
+        "XMsgStartIORequest",
+        "XMsgStartIORequestEx",
+        "XNetLogonGetMachineID",
+        "XNetLogonGetTitleID",
+        "XNotifyGetNext",
+        "XNotifyPositionUI",
+        "XamAlloc",
+        "XamBackgroundDownloadItemGetHistoryStatus",
+        "XamBackgroundDownloadItemGetStatus",
+        "XamBackgroundDownloadSetMode",
+        "XamContentClose",
+        "XamContentCreateEnumerator",
+        "XamContentCreateEx",
+        "XamContentGetDeviceData",
+        "XamContentGetDeviceState",
+        "XamCreateEnumeratorHandle",
+        "XamEnumerate",
+        "XamFree",
+        "XamFreeToken",
+        "XamGetExecutionId",
+        "XamGetLanguage",
+        "XamGetLocaleEx",
+        "XamGetPrivateEnumStructureFromHandle",
+        "XamGetSystemVersion",
+        "XamGetToken",
+        "XamInputGetCapabilities",
+        "XamInputGetState",
+        "XamInputSetState",
+        "XamLoaderGetLaunchData",
+        "XamLoaderLaunchTitle",
+        "XamLoaderSetLaunchData",
+        "XamLoaderTerminateTitle",
+        "XamMarketplaceAcquireFreeContent",
+        "XamNotifyCreateListener",
+        "XamQueryLiveHiveA",
+        "XamSessionCreateHandle",
+        "XamSessionRefObjByHandle",
+        "XamShowDeviceSelectorUI",
+        "XamShowDirtyDiscErrorUI",
+        "XamShowFriendRequestUI",
+        "XamShowGamerCardUIForXUID",
+        "XamShowKeyboardUI",
+        "XamShowMarketplaceDownloadItemsUI",
+        "XamShowMessageBoxUI",
+        "XamShowMessageBoxUIEx",
+        "XamShowSigninUI",
+        "XamUserAreUsersFriends",
+        "XamUserCheckPrivilege",
+        "XamUserGetDeviceContext",
+        "XamUserGetMembershipTierFromXUID",
+        "XamUserGetName",
+        "XamUserGetOnlineCountryFromXUID",
+        "XamUserGetSigninInfo",
+        "XamUserGetSigninState",
+        "XamUserGetXUID",
+        "XamUserReadProfileSettings",
+        "XamVoiceClose",
+        "XamVoiceCreate",
+        "XamVoiceHeadsetPresent",
+        "XamVoiceIsActiveProcess",
+        "XamVoiceSubmitPacket",
+        "XampXAuthGetTitleBuffer",
+        "XampXAuthShutdown",
+        "XampXAuthStartup",
+        "XeCryptSha256Final",
+        "XeCryptSha256Init",
+        "XeCryptSha256Update",
+        "XeCryptSha384Final",
+        "XeCryptSha384Init",
+        "XeCryptSha384Update",
+        "XeCryptSha512Final",
+        "XeCryptSha512Init",
+        "XeCryptSha512Update",
+        "XeCryptShaFinal",
+        "XeCryptShaInit",
+        "XeCryptShaUpdate",
+        "XeKeysGetConsoleID",
+        "XeKeysGetKey",
+        "XeKeysGetKeyProperties",
+        "XexCheckExecutablePrivilege",
+        "XexGetModuleHandle",
+        "XexGetProcedureAddress",
+        "XexLoadImage",
+        "XexUnloadImage",
+        "__C_specific_handler",
+        "_snprintf",
+        "_vsnprintf",
+        "sprintf"
+      ],
+      "explicit_import_stubs": {
+        "NetDll_XHttpCloseHandle": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpConnect": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpCrackUrl": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpDoWork": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpOpen": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpOpenRequest": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpQueryHeaders": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpReadData": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpReceiveResponse": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpSendRequest": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpSetStatusCallback": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpShutdown": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpStartup": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XHttpWriteData": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XNetConnect": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XNetGetConnectStatus": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XNetQosLookup": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XNetTsAddrToInAddr": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XNetUnregisterInAddr": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_XnpLogonGetStatus": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "NetDll_getsockname": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_net.cpp",
+        "XAudioGetDuckerAttackTime": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_audio.cpp",
+        "XAudioGetDuckerHoldTime": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_audio.cpp",
+        "XAudioGetDuckerLevel": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_audio.cpp",
+        "XAudioGetDuckerReleaseTime": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_audio.cpp",
+        "XAudioGetDuckerThreshold": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_audio.cpp",
+        "XGetDisplaySize": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XNetLogonGetMachineID": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XNetLogonGetTitleID": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XamBackgroundDownloadItemGetHistoryStatus": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XamBackgroundDownloadItemGetStatus": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XamBackgroundDownloadSetMode": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XamFreeToken": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XamGetLanguage": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_locale.cpp",
+        "XamGetToken": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XamMarketplaceAcquireFreeContent": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XamQueryLiveHiveA": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XamShowFriendRequestUI": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_ui.cpp",
+        "XamShowGamerCardUIForXUID": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_ui.cpp",
+        "XamShowMarketplaceDownloadItemsUI": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_ui.cpp",
+        "XamUserGetMembershipTierFromXUID": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_user.cpp",
+        "XamUserGetOnlineCountryFromXUID": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_user.cpp",
+        "XamVoiceSubmitPacket": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_voice.cpp",
+        "XampXAuthGetTitleBuffer": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XampXAuthShutdown": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xam\\xam_misc.cpp",
+        "XeCryptSha384Final": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeCryptSha384Init": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeCryptSha384Update": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeCryptSha512Final": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeCryptSha512Init": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeCryptSha512Update": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeKeysGetConsoleID": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeKeysGetKey": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp",
+        "XeKeysGetKeyProperties": "C:\\BO2recomp\\Project BO2\\rexglue-sdk\\src\\kernel\\xboxkrnl\\xboxkrnl_crypt.cpp"
+      },
+      "emitter_fatal_branches": [],
+      "vector_pack_warning_count": 20,
+      "float16_pack_modes": {
+        "pack=2,shift=2": 42,
+        "pack=3,shift=0": 20
+      },
+      "vector_u16_out_of_bounds": [],
+      "image_definitions": [
+        "#define REX_IMAGE_BASE 0x82000000ull",
+        "#define REX_IMAGE_SIZE 0x2970000ull",
+        "#define REX_CODE_BASE 0x82140000ull",
+        "#define REX_CODE_SIZE 0x983EC0ull"
+      ]
+    }
+  ],
+  "package_files_verified": 1409,
+  "package_issues": 0
+}

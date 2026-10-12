@@ -1,0 +1,22 @@
+
+7-Zip 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 385658654 bytes (368 MiB)
+
+Extracting archive: C:\bo3recomp\tools\downloads\LLVM-20.1.8-win64.exe
+--
+Path = C:\bo3recomp\tools\downloads\LLVM-20.1.8-win64.exe
+Type = Nsis
+Physical Size = 385658654
+Method = LZMA:25
+Solid = +
+Headers Size = 392252
+Embedded Stub Size = 116736
+SubType = NSIS-3 Unicode
+
+Everything is Ok
+
+Files: 489
+Size:       2544900054
+Compressed: 385658654

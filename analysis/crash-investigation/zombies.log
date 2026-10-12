@@ -1,0 +1,519 @@
+[2026-10-12 01:54:55.458] [info] [core] [t8328] bo3_zm starting
+[2026-10-12 01:54:55.458] [info] [core] [t8328]   Game directory: C:\bo3recomp\runtime\game
+[2026-10-12 01:54:55.458] [info] [core] [t8328]   User data:      C:\bo3recomp\runtime\user
+[2026-10-12 01:54:55.458] [info] [core] [t8328]   Update data:    C:\bo3recomp\runtime\update
+[2026-10-12 01:54:55.458] [info] [core] [t8328]   Cache root:     C:\bo3recomp\runtime\cache
+[2026-10-12 01:54:55.459] [info] [sys] [t8328] GPU plugin 'xenos' loaded (rexgpu-xenos.dll)
+[2026-10-12 01:54:55.485] [info] [gpu] [t8328] DXGI adapter: Intel(R) Arc(TM) B580 Graphics (vendor 0x8086, device 0xE20B)
+[2026-10-12 01:54:55.791] [info] [gpu] [t8328] Direct3D 12 device and OS features:
+* Max GPU virtual address bits per resource: 44
+* Non-zeroed heap creation: yes
+* Pixel-shader-specified stencil reference: yes
+* Programmable sample positions: tier 1
+* Rasterizer-ordered views: yes
+* Resource binding: tier 3
+* Tiled resources: tier 4
+* Unaligned block-compressed textures: yes
+[2026-10-12 01:54:55.852] [info] [sys] [t8328] FunctionDispatcher initialized
+[2026-10-12 01:54:55.852] [info] [core] [t8328] SDL: Using version 3.5.0
+[2026-10-12 01:54:55.852] [info] [core] [t8328] MnK input driver initialized
+[2026-10-12 01:54:55.852] [info] [sys] [t8328] Input system initialized
+[2026-10-12 01:54:55.879] [info] [sys] [t8328] Audio system initialized
+[2026-10-12 01:54:55.879] [info] [sys] [t14000] XThread::Execute thid 1 (handle=F8000010, 'XMA Decoder (F8000010)', native=000036B0, <host>)
+[2026-10-12 01:54:55.879] [info] [sys] [t20880] XThread::Execute thid 2 (handle=F8000014, 'Audio Worker (F8000014)', native=00005190, <host>)
+[2026-10-12 01:54:55.880] [info] [sys] [t8328]   Mounted C:\bo3recomp\runtime\game at \Device\Harddisk0\Partition1
+[2026-10-12 01:54:55.882] [info] [sys] [t8328]   Mounted C:\bo3recomp\runtime\update at update:
+[2026-10-12 01:54:55.882] [info] [sys] [t23308] XThread::Execute thid 3 (handle=F8000018, 'GPU Commands (F8000018)', native=00005B0C, <host>)
+[2026-10-12 01:54:55.882] [info] [sys] [t8328] GPU system initialized (presentation=true)
+[2026-10-12 01:54:55.882] [info] [sys] [t8328] Runtime initialized successfully
+[2026-10-12 01:54:55.882] [info] [sys] [t19100] XThread::Execute thid 4 (handle=F800001C, 'GPU VSync (F800001C)', native=00004A9C, <host>)
+[2026-10-12 01:54:55.888] [info] [core] [t8328] Function table initialized for module: code=82140000-82AB5CC0, image=82000000-848D0000
+[2026-10-12 01:54:55.981] [warning] [core] [t8328] SDL GameControllerDB: file 'gamecontrollerdb.txt' does not exist.
+[2026-10-12 01:54:55.981] [info] [core] [t8328] SDL input driver initialized successfully
+[2026-10-12 01:54:55.981] [info] [sys] [t8328] Loading XEX image: game:\default_zm.xex
+[2026-10-12 01:54:56.100] [info] [core] [t8328] XEX patch applied successfully: base version: 0.0.0.5, new version: 0.0.8.5
+[2026-10-12 01:54:56.102] [info] [sys] [t19816] XThread::Execute thid 5 (handle=F8000028, 'Kernel Dispatch (F8000028)', native=00004D68, <host>)
+[2026-10-12 01:54:56.102] [info] [sys] [t8328] Achievement store: loaded 32 entries
+[2026-10-12 01:54:56.103] [info] [core] [t8328] BO3 content header A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164: result 00000000, original license FFFFFFFF
+[2026-10-12 01:54:56.103] [info] [core] [t8328] BO3 content header 4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341: result 00000000, original license FFFFFFFF
+[2026-10-12 01:54:56.104] [info] [core] [t8328] BO3 content header 2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41: result 00000000, original license 00000001
+[2026-10-12 01:54:56.104] [info] [core] [t8328] BO3 content header D0288B47455419D4F8862B84CCC508126F84816A41: result 00000000, original license 00000001
+[2026-10-12 01:54:56.104] [info] [core] [t8328] BO3 common marketplace packages available: 4
+[2026-10-12 01:54:56.108] [info] [sys] [t8328] KernelState: Preparing module launch...
+[2026-10-12 01:54:56.108] [info] [core] [t8328] Initializing shader storage for title 4156091D...
+[2026-10-12 01:54:56.130] [info] [gpu] [t23308] Translated 490 shaders from the storage in 20 milliseconds
+[2026-10-12 01:54:56.626] [info] [gpu] [t23308] Created 410 graphics pipelines (not including reading the descriptions) from the storage in 495 milliseconds
+[2026-10-12 01:54:56.627] [info] [sys] [t19508] GetProcAddressByOrdinal: XamPartyGetUserList (0AFF) in xam -> thunk at 82AB5CC0
+[2026-10-12 01:54:56.627] [info] [sys] [t19508] GetProcAddressByOrdinal: XamPartySendGameInvites (0B00) in xam -> thunk at 82AB5CC4
+[2026-10-12 01:54:56.627] [info] [sys] [t19508] GetProcAddressByOrdinal: XamPartySetCustomData (0B0B) in xam -> thunk at 82AB5CC8
+[2026-10-12 01:54:56.627] [info] [sys] [t19508] GetProcAddressByOrdinal: XamPartyGetBandwidth (0B10) in xam -> thunk at 82AB5CCC
+[2026-10-12 01:54:56.627] [info] [sys] [t19508] GetProcAddressByOrdinal: XamShowPartyUI (0305) in xam -> thunk at 82AB5CD0
+[2026-10-12 01:54:56.627] [info] [sys] [t19508] GetProcAddressByOrdinal: XamShowCommunitySessionsUI (030B) in xam -> thunk at 82AB5CD4
+[2026-10-12 01:54:56.628] [info] [sys] [t19508] GetProcAddressByOrdinal: XamMediaVerificationCreate (09BB) in xam -> thunk at 82AB5CD8
+[2026-10-12 01:54:56.628] [warning] [krnl] [t19508] __imp__XamMediaVerificationCreate STUB
+[2026-10-12 01:54:56.641] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.642] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.650] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\fc_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.655] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\as_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.659] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\br_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.665] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\ko_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.666] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.668] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\cz_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.670] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\fj_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.676] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\ar_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.677] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\tc_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.679] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\sc_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.681] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\eg_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.682] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\ej_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.684] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\he_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.687] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.689] [warning] [krnl] [t19508] __imp__XGetDisplaySize STUB
+[2026-10-12 01:54:56.689] [info] [gpu] [t19508] SetInterruptCallback(826F0870, BE428F80)
+[2026-10-12 01:54:56.695] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='update:\discdata\SplashScreen.xpr' -> 0xc000000f
+[2026-10-12 01:54:56.695] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='game:\discdata\SplashScreen.xpr' -> 0xc000000f
+[2026-10-12 01:54:56.703] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:56.705] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:56.706] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:56.715] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:56.716] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:56.729] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:56.731] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:56.731] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.733] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.733] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:56.735] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:56.736] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\fc_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.738] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\as_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.740] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\br_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.742] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\ko_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.744] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.746] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\cz_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.748] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\fj_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.749] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\ar_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.751] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\tc_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.753] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\sc_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.755] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\eg_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.757] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\ej_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.759] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\he_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.761] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-12 01:54:56.789] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-12 01:54:56.794] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:56.795] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-12 01:54:56.796] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.103] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.105] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.106] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.125] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.130] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.131] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.132] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.656] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.658] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.659] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.680] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.682] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\zm_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.684] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.685] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.692] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.693] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.718] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.720] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\zm_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.721] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.723] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.725] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.740] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.747] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.748] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.750] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.847] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.848] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.849] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.874] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_ui.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.880] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.882] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_ui.xpak' -> 0xc000000f
+[2026-10-12 01:54:57.884] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:58.167] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_ui.xpak' -> 0xc000000f
+[2026-10-12 01:54:58.168] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:58.169] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:58.189] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_common.xpak' -> 0xc000000f
+[2026-10-12 01:54:58.295] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:58.310] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_common.xpak' -> 0xc000000f
+[2026-10-12 01:54:58.326] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:59.136] [info] [sys] [t19508] GetProcAddressByOrdinal: XamVoiceSetMicArrayIdleUsers (048C) in xam -> thunk at 82AB5CDC
+[2026-10-12 01:54:59.136] [warning] [krnl] [t19508] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 01:54:59.137] [warning] [krnl] [t19508] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 01:54:59.137] [warning] [krnl] [t19508] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 01:54:59.137] [warning] [krnl] [t19508] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 01:54:59.138] [info] [core] [t19508] SDL OnControllerDeviceAdded: "Xbox One S Controller", JoystickType(1), GameControllerType(3), VendorID(0x045E), ProductID(0x02E0)
+[2026-10-12 01:54:59.138] [info] [core] [t19508] SDL OnControllerDeviceAdded: Added at index 0.
+[2026-10-12 01:54:59.152] [error] [krnl] [t19508] Unimplemented XLIVEBASE message app=000000FC, msg=0005801E, arg1=3013A000, arg2=7019F1B0
+[2026-10-12 01:54:59.152] [error] [krnl] [t19508] Unimplemented XLIVEBASE message app=000000FC, msg=00058019, arg1=3013A000, arg2=7019F1A0
+[2026-10-12 01:54:59.152] [info] [krnl] [t22072] XamUserCheckPrivilege(user=0, mask=0xfc) -> 1
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc0zm.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc0zm.txt' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc0mp.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc0mp.txt' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc1.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc1.txt' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc2.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc2.txt' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc3.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc3.txt' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc4.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc4.txt' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlccompat2.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlccompat2.txt' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlccompat1.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlccompat1.txt' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlccompat3.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlccompat3.txt' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD001.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD001.txt' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD002.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD002.txt' -> 0xc000000f
+[2026-10-12 01:54:59.152] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD003.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD003.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD004.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD004.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc0zm.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc0zm.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc0mp.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc0mp.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc1.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc1.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc2.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc2.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc3.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc3.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc4.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlc4.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlccompat2.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlccompat2.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlccompat1.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlccompat1.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlccompat3.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\dlccompat3.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD001.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD001.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD002.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD002.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD003.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD003.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD004.fakeid' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:\LQD004.txt' -> 0xc000000f
+[2026-10-12 01:54:59.153] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='D:/product.info' -> 0xc000000f
+[2026-10-12 01:54:59.182] [info] [krnl] [t22072] XamUserCheckPrivilege(user=0, mask=0xfc) -> 1
+[2026-10-12 01:54:59.245] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_common.xpak' -> 0xc000000f
+[2026-10-12 01:54:59.261] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:54:59.277] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.009] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc2:\dlc0zm.id' -> 0xc000000f
+[2026-10-12 01:55:00.009] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc2:\dlc0zm.txt' -> 0xc000000f
+[2026-10-12 01:55:00.009] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc2:\dlc0mp.id' -> 0xc000000f
+[2026-10-12 01:55:00.009] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc2:\dlc0mp.txt' -> 0xc000000f
+[2026-10-12 01:55:00.009] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc2:\dlc1.id' -> 0xc000000f
+[2026-10-12 01:55:00.009] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc2:\dlc1.txt' -> 0xc000000f
+[2026-10-12 01:55:00.009] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc2:\dlc2.id' -> 0xc000000f
+[2026-10-12 01:55:00.009] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc2:\dlc2.txt' -> 0xc000000f
+[2026-10-12 01:55:00.009] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc2:\dlc3.id' -> 0xc000000f
+[2026-10-12 01:55:00.009] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc2:\dlc3.txt' -> 0xc000000f
+[2026-10-12 01:55:00.009] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc2:\dlc4.id' -> 0xc000000f
+[2026-10-12 01:55:00.009] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc2:\dlc4.txt' -> 0xc000000f
+[2026-10-12 01:55:00.104] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc3:\dlc0zm.id' -> 0xc000000f
+[2026-10-12 01:55:00.104] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc3:\dlc0zm.txt' -> 0xc000000f
+[2026-10-12 01:55:00.104] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc3:\dlc0mp.id' -> 0xc000000f
+[2026-10-12 01:55:00.104] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc3:\dlc0mp.txt' -> 0xc000000f
+[2026-10-12 01:55:00.104] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc3:\dlc1.id' -> 0xc000000f
+[2026-10-12 01:55:00.104] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc3:\dlc1.txt' -> 0xc000000f
+[2026-10-12 01:55:00.104] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc3:\dlc2.id' -> 0xc000000f
+[2026-10-12 01:55:00.104] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc3:\dlc2.txt' -> 0xc000000f
+[2026-10-12 01:55:00.104] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc3:\dlc3.id' -> 0xc000000f
+[2026-10-12 01:55:00.104] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc3:\dlc3.txt' -> 0xc000000f
+[2026-10-12 01:55:00.104] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc3:\dlc4.id' -> 0xc000000f
+[2026-10-12 01:55:00.104] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc3:\dlc4.txt' -> 0xc000000f
+[2026-10-12 01:55:00.104] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc3:\dlccompat2.id' -> 0xc000000f
+[2026-10-12 01:55:00.104] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc3:\dlccompat2.txt' -> 0xc000000f
+[2026-10-12 01:55:00.211] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc4:\dlc0zm.id' -> 0xc000000f
+[2026-10-12 01:55:00.211] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc4:\dlc0zm.txt' -> 0xc000000f
+[2026-10-12 01:55:00.211] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc4:\dlc0mp.id' -> 0xc000000f
+[2026-10-12 01:55:00.211] [warning] [krnl] [t19508] [NtCreateFile] FAILED: path='dlc4:\dlc0mp.txt' -> 0xc000000f
+[2026-10-12 01:55:00.400] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_patch2.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.414] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\zm_patch2.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.429] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.445] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.460] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_patch2.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.476] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.537] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_patch2.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.552] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\zm_patch2.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.568] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.584] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.599] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.698] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_patch.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.740] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.756] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.772] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_patch.xpak' -> 0xc000000f
+[2026-10-12 01:55:00.788] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:01.222] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_patch.xpak' -> 0xc000000f
+[2026-10-12 01:55:01.224] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:01.240] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:55:01.255] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:01.542] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:55:01.584] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:01.600] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:55:01.616] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:55:01.632] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:01.772] [info] [sys] [t12148] GetProcAddressByOrdinal: XamMediaVerificationVerify (09BD) in xam -> thunk at 82AB5CE0
+[2026-10-12 01:55:01.773] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:02.885] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:55:02.893] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:02.910] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:55:02.925] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:03.797] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:03.921] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_frontend_patch.xpak' -> 0xc000000f
+[2026-10-12 01:55:03.967] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:03.983] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:55:03.998] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_frontend_patch.xpak' -> 0xc000000f
+[2026-10-12 01:55:04.013] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:04.311] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_frontend_patch.xpak' -> 0xc000000f
+[2026-10-12 01:55:04.326] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:04.342] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:55:04.358] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:04.594] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_frontend.xpak' -> 0xc000000f
+[2026-10-12 01:55:04.640] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:55:04.655] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:04.671] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:55:04.686] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_frontend.xpak' -> 0xc000000f
+[2026-10-12 01:55:04.702] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:05.449] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_frontend.xpak' -> 0xc000000f
+[2026-10-12 01:55:05.461] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:55:05.477] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:05.493] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:55:05.508] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:55:05.804] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:07.813] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:09.838] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:11.846] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:13.869] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:15.877] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:17.917] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:19.946] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:21.957] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:23.987] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:26.016] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:28.043] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:30.054] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:32.060] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:34.071] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:36.082] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:38.107] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:40.133] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:42.162] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:44.180] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:46.185] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:48.212] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:50.213] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:52.225] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:54.254] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:56.261] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:55:58.269] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:00.277] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:02.305] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:04.320] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:06.334] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:08.366] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:10.378] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:12.394] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:14.397] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:16.404] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:18.422] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:20.429] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:22.453] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:24.462] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:26.482] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:26.982] [info] [krnl] [t19508] XNetGetEthernetLinkStatus(caller=00000001) -> 0xb
+[2026-10-12 01:56:38.318] [info] [krnl] [t19508] XGISessionCreate -> session 009BF7BD547A28FC nonce 02D5AF8C547B70B2 status 00000000
+[2026-10-12 01:56:38.580] [info] [krnl] [t19508] XGISessionCreate -> session 0022C11817A68E6D nonce 026C992917A7D623 status 00000000
+[2026-10-12 01:56:38.970] [warning] [krnl] [t19508] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 01:56:38.970] [warning] [krnl] [t19508] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 01:56:38.986] [info] [krnl] [t22072] XamUserCheckPrivilege(user=0, mask=0xfc) -> 1
+[2026-10-12 01:56:40.668] [info] [krnl] [t19508] XNetRegisterKey registered session 0022C11817A68E6D
+[2026-10-12 01:56:40.793] [info] [krnl] [t19508] XNetRegisterKey registered session 0022C11817A68E6D
+[2026-10-12 01:56:40.887] [warning] [krnl] [t19508] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 01:56:40.887] [warning] [krnl] [t19508] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 01:56:40.903] [info] [krnl] [t22072] XamUserCheckPrivilege(user=0, mask=0xfc) -> 1
+[2026-10-12 01:56:53.217] [warning] [krnl] [t19508] __imp__XamBackgroundDownloadSetMode STUB
+[2026-10-12 01:56:53.260] [warning] [krnl] [t12148] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 01:56:53.574] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_zod_patch.xpak' -> 0xc000000f
+[2026-10-12 01:56:53.615] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:56:53.631] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:56:53.647] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:56:53.663] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_zod_patch.xpak' -> 0xc000000f
+[2026-10-12 01:56:53.678] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:56:53.853] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\snd\en\zm_zod_patch.disc.en.sabs' -> 0xc000000f
+[2026-10-12 01:56:54.177] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_zod_patch.xpak' -> 0xc000000f
+[2026-10-12 01:56:54.191] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:56:54.207] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:56:54.222] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:56:54.237] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:56:54.416] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\snd\all\zm_zod_patch.disc.all.sabs' -> 0xc000000f
+[2026-10-12 01:56:54.790] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_zod.xpak' -> 0xc000000f
+[2026-10-12 01:56:54.835] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:56:54.850] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:56:54.866] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:56:54.881] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_zod.xpak' -> 0xc000000f
+[2026-10-12 01:56:54.896] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:56:57.870] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_zm_zod.xpak' -> 0xc000000f
+[2026-10-12 01:56:57.877] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 01:56:57.892] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:56:57.908] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-12 01:56:57.923] [warning] [krnl] [t12148] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 01:56:59.139] [error] [gpu] [t23308] D3D12 device removed: HRESULT 0x887A0006 - DEVICE_HUNG (TDR - GPU command took too long)
+[2026-10-12 01:56:59.139] [error] [gpu] [t23308] PM4_DRAW_INDX(4352, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.139] [error] [gpu] [t23308] PM4_DRAW_INDX(4352, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.139] [error] [gpu] [t23308] PM4_DRAW_INDX(14400, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.139] [error] [gpu] [t23308] PM4_DRAW_INDX_2(512, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(3, 8, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=5)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(3, 8, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=5)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX(6, 4, 0): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX(6, 4, 0): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(3, 8, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=5)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(3, 8, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=6)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.140] [error] [gpu] [t23308] IssueSwap: BeginSubmission failed
+[2026-10-12 01:56:59.155] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.155] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.155] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.155] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(3, 8, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=5)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(3, 8, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=5)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX(6, 4, 0): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX(6, 4, 0): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(3, 8, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=5)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(3, 8, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=6)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] IssueSwap: BeginSubmission failed
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX(14400, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX(4352, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX(4352, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX(14400, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.156] [error] [gpu] [t23308] PM4_DRAW_INDX_2(512, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(3, 8, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=5)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(3, 8, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=5)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX(6, 4, 0): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX(6, 4, 0): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(3, 8, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=5)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(3, 8, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=6)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] PM4_DRAW_INDX_2(1, 1, 2): Failed in backend (major_mode=0, explicit_major=0, path_select=0, tess_mode=1, edram_mode=4)
+[2026-10-12 01:56:59.171] [error] [gpu] [t23308] IssueSwap: BeginSubmission failed

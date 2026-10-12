@@ -1,0 +1,11 @@
+warning: in the working copy of 'include/rex/audio/xma/decoder.h', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'include/rex/audio/xma/register_table.inc', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'src/audio/xma_decoder.cpp', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'src/kernel/xam/apps/xgi_app.cpp', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'src/kernel/xam/xam_net.cpp', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'src/kernel/xam/xam_user.cpp', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'src/system/CMakeLists.txt', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'src/system/xsocket.cpp', CRLF will be replaced by LF the next time Git touches it
+Copying SDK source snapshot...
+Hashing preserved source and bootstrap files...
+Preserved 20078 files at C:\bo3recomp\thirdparty\rexglue-sdk

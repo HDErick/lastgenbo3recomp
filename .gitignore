@@ -1,0 +1,54 @@
+# Local authentication and machine configuration
+/.local/
+/.codex/
+/.agents/
+/.aws/
+.env
+.env.*
+
+# Supplied game content, installed content, profiles and caches
+/game_files/
+/runtime/
+/compat1 *
+/compat2 *
+/dlc0 *
+/dlc1 *
+/tu000000*
+*.xex
+*.xexp
+*.ff
+*.xpak
+
+# Portable tools, installers and build products
+/tools/
+/Horizon.Setup*/
+*.lnk
+**/out/
+**/build/
+**/_build/
+**/.vs/
+**/.cache/
+**/__pycache__/
+*.exe
+*.dll
+*.pdb
+*.obj
+*.lib
+*.pyc
+*.zip
+*.7z
+# This dependency's nested ignore rules re-include its prebuilt sample binary.
+/thirdparty/rexglue-sdk/thirdparty/vulkan-memory-allocator/bin/
+/thirdparty/rexglue-sdk/tools/binutils/powerpc-none-elf-*
+
+# Raw guest-memory dumps, generated binary probes and frame captures
+/analysis/**/*.bin
+/analysis/**/*.xex
+/analysis/**/*.xexp
+/analysis/**/*.ppm
+/analysis/**/*.png
+/analysis/**/*.jpg
+/analysis/**/*.jpeg
+# Redundant generated translation probes; keep their manifests and reports.
+/analysis/mp_probe/generated/
+/analysis/zm_probe/generated/

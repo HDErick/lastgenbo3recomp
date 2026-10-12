@@ -1,0 +1,13 @@
+[2026-10-12 00:47:33.661] [info] [sys] [t16684] FunctionDispatcher initialized
+[2026-10-12 00:47:33.663] [info] [sys] [t16684]   Mounted C:\bo3recomp\analysis\loader_probe at \Device\Harddisk0\Partition1
+[2026-10-12 00:47:33.663] [info] [sys] [t16684] Runtime initialized in tool mode (no GPU)
+[2026-10-12 00:47:33.663] [info] [sys] [t16684] Loading XEX image: game:\default.xex
+[2026-10-12 00:47:33.800] [info] [core] [t16684] XEX patch applied successfully: base version: 0.0.0.5, new version: 0.0.8.5
+[2026-10-12 00:47:33.802] [info] [sys] [t16684] Achievement store: loaded 32 entries
+[2026-10-12 00:47:33.802] [info] [sys] [t22784] XThread::Execute thid 1 (handle=F8000018, 'Kernel Dispatch (F8000018)', native=00005900, <host>)
+[2026-10-12 00:47:45.349] [error] [codegen] [t16684] Analyze: found 1 errors
+[2026-10-12 00:47:45.349] [error] [codegen] [t16684] === ANALYSIS ERRORS ===
+[2026-10-12 00:47:45.349] [error] [codegen] [t16684] UnresolvedCall (1):
+[2026-10-12 00:47:45.349] [error] [codegen] [t16684]   0x82862C38 from 0x82862E8C: b 0x82862C38 from 0x82862E8C - target not in any function
+[2026-10-12 00:47:45.349] [error] [codegen] [t16684] Total: 1 errors
+[2026-10-12 00:47:45.349] [error] [core] [t16684] Analysis failed for 'default'

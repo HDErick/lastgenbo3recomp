@@ -1,0 +1,1244 @@
+diff --git a/include/rex/audio/xma/decoder.h b/include/rex/audio/xma/decoder.h
+index df00f06..fb1d401 100644
+--- a/include/rex/audio/xma/decoder.h
++++ b/include/rex/audio/xma/decoder.h
+@@ -71,6 +71,12 @@ class XmaDecoder {
+   memory::Memory* memory_ = nullptr;
+   runtime::FunctionDispatcher* function_dispatcher_ = nullptr;
+ 
++  // Guest-driven lock around the context array, taken and released through
++  // register 0x0601 (XmaRegister::ContextArrayLock). The worker holds it for the
++  // duration of a sweep so a guest that has taken the lock is not racing a decode.
++  std::mutex context_array_mutex_;
++  uint32_t context_array_lock_depth_ = 0;
++
+   std::atomic<bool> worker_running_ = {false};
+   system::object_ref<system::XHostThread> worker_thread_;
+   std::unique_ptr<rex::thread::Event> work_event_ = nullptr;
+diff --git a/include/rex/audio/xma/register_table.inc b/include/rex/audio/xma/register_table.inc
+index 1703c2e..670a8e9 100644
+--- a/include/rex/audio/xma/register_table.inc
++++ b/include/rex/audio/xma/register_table.inc
+@@ -46,7 +46,10 @@
+ //---------------------------------------------------------------------------//
+ 
+ XE_XMA_REGISTER(0x0600, ContextArrayAddress)
+-// 0x0601..0x0605 : ???
++// 0x0601 brackets context-array access: written 0x02000000 to take the hardware
++// lock and 0x03000000 to release it (0x02 / 0x03 after the byte swap).
++XE_XMA_REGISTER(0x0601, ContextArrayLock)
++// 0x0602..0x0605 : ???
+ XE_XMA_REGISTER(0x0606, CurrentContextIndex)
+ XE_XMA_REGISTER(0x0607, NextContextIndex)
+ // 0x0608         : ???
+diff --git a/src/audio/xma_decoder.cpp b/src/audio/xma_decoder.cpp
+index a0a178d..487e44f 100644
+--- a/src/audio/xma_decoder.cpp
++++ b/src/audio/xma_decoder.cpp
+@@ -141,14 +141,19 @@ void XmaDecoder::WorkerThreadMain() {
+   while (worker_running_) {
+     // Okay, let's loop through XMA contexts to find ones we need to decode!
+     bool did_work = false;
+-    for (uint32_t n = 0; n < kContextCount && worker_running_; n++) {
+-      XmaContext& context = contexts_[n];
+-      bool worked = context.Work();
+-      if (worked) {
+-        context.SignalWorkDone();
+-        PROFILE_XMA_FRAME_DECODED();
++    {
++      // Held for the sweep so the guest's ContextArrayLock (register 0x0601)
++      // actually excludes decoding, the way the hardware lock does.
++      std::lock_guard<std::mutex> lock(context_array_mutex_);
++      for (uint32_t n = 0; n < kContextCount && worker_running_; n++) {
++        XmaContext& context = contexts_[n];
++        bool worked = context.Work();
++        if (worked) {
++          context.SignalWorkDone();
++          PROFILE_XMA_FRAME_DECODED();
++        }
++        did_work = did_work || worked;
+       }
+-      did_work = did_work || worked;
+     }
+ 
+     if (paused_) {
+@@ -336,9 +341,33 @@ void XmaDecoder::WriteRegister(uint32_t addr, uint32_t value) {
+       }
+     }
+   } else {
+-    // 0601h (1804h) is written to with 0x02000000 and 0x03000000 around a lock
+-    // operation
+     switch (r) {
++      case XmaRegister::ContextArrayLock: {
++        // 0601h (1804h) is the hardware lock around context-array access: the guest
++        // writes 0x02000000 to take it and 0x03000000 to release it (0x02 / 0x03
++        // after the byte swap above). Black Ops 2 cycles it a few hundred times a
++        // second, so leaving it in the "unknown register" path buried every other
++        // audio log line.
++        //
++        // Mirror it onto a real mutex that the decode worker also takes while it
++        // sweeps contexts, so a guest holding the lock is not racing a decode.
++        // Reference-counted because nested takes are legal, and clamped so a stray
++        // release can never unlock a mutex we don't hold.
++        constexpr uint32_t kContextArrayLockAcquire = 0x02;
++        constexpr uint32_t kContextArrayLockRelease = 0x03;
++        if (value == kContextArrayLockAcquire) {
++          if (context_array_lock_depth_++ == 0) {
++            context_array_mutex_.lock();
++          }
++        } else if (value == kContextArrayLockRelease) {
++          if (context_array_lock_depth_ && --context_array_lock_depth_ == 0) {
++            context_array_mutex_.unlock();
++          }
++        } else {
++          REXAPU_DEBUG("XMA: ContextArrayLock written with unexpected value {:08X}", value);
++        }
++        break;
++      }
+       default: {
+         const auto register_info = register_file_.GetRegisterInfo(r);
+         if (register_info) {
+diff --git a/src/kernel/CMakeLists.txt b/src/kernel/CMakeLists.txt
+index 984b97d..62d534e 100644
+--- a/src/kernel/CMakeLists.txt
++++ b/src/kernel/CMakeLists.txt
+@@ -50,7 +50,11 @@ set(REXKERNEL_SOURCES
+     xboxkrnl/xboxkrnl_rtl.cpp
+     xboxkrnl/xboxkrnl_strings.cpp
+     xboxkrnl/xboxkrnl_threading.cpp
+-    # xboxkrnl/xboxkrnl_usbcam.cpp  # TODO: lol eventually.
++    # BO2's default_mp.xex imports 6 XUsbcam ordinals, so this TU has to build:
++    # the recompiled code takes them as dllimports from rexruntime, which means
++    # the exe can't supply them itself. The file's existing success-return and
++    # "camera not connected" stubs are all the game needs.
++    xboxkrnl/xboxkrnl_usbcam.cpp
+     xboxkrnl/xboxkrnl_video.cpp
+     xboxkrnl/xboxkrnl_xconfig.cpp
+     xboxkrnl/xboxkrnl_audio.cpp
+diff --git a/src/kernel/xam/apps/xgi_app.cpp b/src/kernel/xam/apps/xgi_app.cpp
+index 85c045c..3f048e6 100644
+--- a/src/kernel/xam/apps/xgi_app.cpp
++++ b/src/kernel/xam/apps/xgi_app.cpp
+@@ -11,6 +11,7 @@
+ 
+ #include <rex/kernel/xam/apps/xgi_app.h>
+ #include <rex/logging.h>
++#include <rex/system/xsession.h>
+ #include <rex/thread.h>
+ 
+ namespace rex {
+@@ -19,6 +20,33 @@ namespace xam {
+ using namespace rex::system;
+ using namespace rex::system::xam;
+ namespace apps {
++
++// Session support ported from NX1recomp's ReXGlue fork (local-session subset; its
++// XLive web discovery path is not brought over). Previously these messages logged
++// and returned success without touching any session state, so a title's session
++// was never really created and it refused to start a match.
++namespace {
++
++constexpr uint32_t kSessionFlagHost = 1u << 0;
++
++object_ref<XSession> LookupSessionByGuestObject(KernelState* kernel_state,
++                                                memory::Memory* memory, uint32_t session_ptr) {
++  if (!session_ptr) {
++    return nullptr;
++  }
++  auto* session_object = memory->TranslateVirtual<X_KSESSION*>(session_ptr);
++  if (!session_object) {
++    return nullptr;
++  }
++  return kernel_state->object_table()->LookupObject<XSession>(session_object->handle);
++}
++
++X_HRESULT ResultFromStatus(X_STATUS status) {
++  return XSUCCEEDED(status) ? X_E_SUCCESS : X_E_FAIL;
++}
++
++}  // namespace
++
+ using namespace rex::system;
+ 
+ XgiApp::XgiApp(KernelState* kernel_state) : App(kernel_state, 0xFB) {}
+@@ -113,7 +141,23 @@ X_HRESULT XgiApp::DispatchMessageSync(uint32_t message, uint32_t buffer_ptr,
+           "{:08X})",
+           session_ptr, flags, num_slots_public, num_slots_private, user_xuid, session_info_ptr,
+           nonce_ptr);
+-      return X_E_SUCCESS;
++
++      auto session = LookupSessionByGuestObject(kernel_state_, memory_, session_ptr);
++      if (!session) {
++        return X_E_FAIL;
++      }
++
++      auto* session_info =
++          session_info_ptr ? memory_->TranslateVirtual<XSESSION_INFO*>(session_info_ptr) : nullptr;
++      uint64_t nonce = 0;
++      X_STATUS status = session->CreateHostSession(flags, num_slots_public, num_slots_private,
++                                                   session_info, nonce_ptr ? &nonce : nullptr);
++      if (nonce_ptr) {
++        memory::store_and_swap<uint64_t>(memory_->TranslateVirtual(nonce_ptr), nonce);
++      }
++      REXKRNL_INFO("XGISessionCreate -> session {:016X} nonce {:016X} status {:08X}",
++                   session->session_id(), nonce, status);
++      return ResultFromStatus(status);
+     }
+     case 0x000B0011: {
+       assert_true(!buffer_length || buffer_length == 16);
+@@ -124,7 +168,11 @@ X_HRESULT XgiApp::DispatchMessageSync(uint32_t message, uint32_t buffer_ptr,
+ 
+       REXKRNL_DEBUG("XGISessionDelete({:08X}, {:08X}, {:016X})", obj_ptr, flags, session_nonce);
+ 
+-      return X_E_SUCCESS;
++      auto session = LookupSessionByGuestObject(kernel_state_, memory_, obj_ptr);
++      if (!session) {
++        return X_E_FAIL;
++      }
++      return ResultFromStatus(session->DeleteSession());
+     }
+     case 0x000B0012: {
+       assert_true(!buffer_length || buffer_length == 20);
+@@ -137,7 +185,34 @@ X_HRESULT XgiApp::DispatchMessageSync(uint32_t message, uint32_t buffer_ptr,
+       assert_zero(unk_0);
+       REXKRNL_DEBUG("XGISessionJoinLocal({:08X}, {}, {}, {:08X}, {:08X})", session_ptr, user_count,
+                     unk_0, user_index_array, private_slots_array);
+-      return X_E_SUCCESS;
++
++      auto session = LookupSessionByGuestObject(kernel_state_, memory_, session_ptr);
++      if (!session) {
++        return X_E_FAIL;
++      }
++      return ResultFromStatus(
++          session->JoinLocal(user_count, user_index_array, private_slots_array));
++    }
++    case 0x000B0013: {
++      // Session leave. There was no handler at all, so this fell through to the
++      // default and returned X_E_FAIL -- which the title reports as
++      // Com_Error(1, "Error leaving session gameSession ... 0x80004005") when a
++      // round ends. Not fatal, but it is a real failure on the way back to the menu.
++      assert_true(!buffer_length || buffer_length == 20);
++      uint32_t session_ptr = memory::load_and_swap<uint32_t>(buffer + 0);
++      uint32_t user_count = memory::load_and_swap<uint32_t>(buffer + 4);
++      uint32_t xuid_array = memory::load_and_swap<uint32_t>(buffer + 8);
++      uint32_t user_index_array = memory::load_and_swap<uint32_t>(buffer + 12);
++      uint32_t private_slots_array = memory::load_and_swap<uint32_t>(buffer + 16);
++
++      REXKRNL_DEBUG("XGISessionLeave({:08X}, {}, {:08X}, {:08X}, {:08X})", session_ptr, user_count,
++                    xuid_array, user_index_array, private_slots_array);
++
++      auto session = LookupSessionByGuestObject(kernel_state_, memory_, session_ptr);
++      if (!session) {
++        return X_E_FAIL;
++      }
++      return ResultFromStatus(session->Leave(user_count));
+     }
+     case 0x000B0014: {
+       assert_true(!buffer_length || buffer_length == 16);
+@@ -148,7 +223,11 @@ X_HRESULT XgiApp::DispatchMessageSync(uint32_t message, uint32_t buffer_ptr,
+ 
+       REXKRNL_DEBUG("XSessionStart({:08X}, {:08X}, {:016X})", obj_ptr, flags, session_nonce);
+ 
+-      return X_STATUS_SUCCESS;
++      auto session = LookupSessionByGuestObject(kernel_state_, memory_, obj_ptr);
++      if (!session) {
++        return X_E_FAIL;
++      }
++      return ResultFromStatus(session->Start());
+     }
+     case 0x000B0015: {
+       // send high scores?
+@@ -160,7 +239,11 @@ X_HRESULT XgiApp::DispatchMessageSync(uint32_t message, uint32_t buffer_ptr,
+ 
+       REXKRNL_DEBUG("XSessionEnd({:08X}, {:08X}, {:016X})", obj_ptr, flags, session_nonce);
+ 
+-      return X_E_SUCCESS;
++      auto session = LookupSessionByGuestObject(kernel_state_, memory_, obj_ptr);
++      if (!session) {
++        return X_E_FAIL;
++      }
++      return ResultFromStatus(session->End());
+     }
+     case 0x000B0016: {
+       assert_true(!buffer_length || buffer_length == 32);
+@@ -191,7 +274,11 @@ X_HRESULT XgiApp::DispatchMessageSync(uint32_t message, uint32_t buffer_ptr,
+       REXKRNL_DEBUG("XSessionModify({:08X}, {:08X}, {:08X}, {:08X})", obj_ptr, flags,
+                     maxPublicSlots, maxPrivateSlots);
+ 
+-      return X_E_SUCCESS;
++      auto session = LookupSessionByGuestObject(kernel_state_, memory_, obj_ptr);
++      if (!session) {
++        return X_E_FAIL;
++      }
++      return ResultFromStatus(session->Modify(flags, maxPublicSlots, maxPrivateSlots));
+     }
+     case 0x000B001C: {
+       assert_true(!buffer_length || buffer_length == 36);
+diff --git a/src/kernel/xam/apps/xlivebase_app.cpp b/src/kernel/xam/apps/xlivebase_app.cpp
+index 3593403..4370e16 100644
+--- a/src/kernel/xam/apps/xlivebase_app.cpp
++++ b/src/kernel/xam/apps/xlivebase_app.cpp
+@@ -13,6 +13,30 @@
+ #include <rex/logging.h>
+ #include <rex/thread.h>
+ 
++#include <cstring>
++#include <string>
++
++#include <fmt/format.h>
++
++#include <rex/platform.h>
++#include <rex/system/flags.h>
++
++#if REX_PLATFORM_WIN32
++#include <winsock2.h>
++#include <ws2tcpip.h>
++#else
++#include <arpa/inet.h>
++#endif
++
++// Synthesizing a service endpoint locally is what lets a title's back-end
++// enumeration succeed without reaching Microsoft's Live Server Platform. Empty
++// address restores the old refuse-everything behaviour.
++REXCVAR_DEFINE_STRING(xonline_service_address, "127.0.0.1", "Network",
++                      "Address reported for every XOnlineGetServiceInfo query "
++                      "(empty = report no service)");
++REXCVAR_DEFINE_UINT32(xonline_service_port, 30003, "Network",
++                      "Port reported for every XOnlineGetServiceInfo query");
++
+ namespace rex {
+ namespace kernel {
+ namespace xam {
+@@ -47,8 +71,53 @@ X_HRESULT XLiveBaseApp::DispatchMessageSync(uint32_t message, uint32_t buffer_pt
+       // Occurs if title calls XOnlineGetServiceInfo, expects dwServiceId
+       // and pServiceInfo. pServiceInfo should contain pointer to
+       // XONLINE_SERVICE_INFO structure.
+-      REXKRNL_DEBUG("CXLiveLogon::GetServiceInfo({:08X}, {:08X})", buffer_ptr, buffer_length);
+-      return 0x80151802;  // ERROR_CONNECTION_INVALID
++      //
++      // Returning ERROR_CONNECTION_INVALID here is what stops Black Ops 2 ever
++      // reaching a back-end: Live_Base_StartLSPEnumeration calls
++      // XOnlineGetServiceInfo and XTitleServerCreateEnumerator, and with no
++      // service info the enumeration task never completes -- neither
++      // Live_Base_TitleServerEnumerationSuccess nor ...Failure runs, so
++      // Live_Base_ConnectToLobby (the Demonware connect) is never called.
++      //
++      // Unlike the other messages, arg1/arg2 are NOT (buffer, length) here: arg1 is
++      // dwServiceID and arg2 is the guest pointer to the XONLINE_SERVICE_INFO to
++      // fill. (Established from a live call: arg1 came through as 0x415607E9, a
++      // service id, and treating it as a buffer address faults.)
++      const uint32_t service_id = buffer_ptr;
++      const uint32_t service_info_ptr = buffer_length;
++
++      const std::string target = REXCVAR_GET(xonline_service_address);
++      if (target.empty()) {
++        REXKRNL_INFO("CXLiveLogon::GetServiceInfo(service={:08X}) -> refused", service_id);
++        return 0x80151802;  // ERROR_CONNECTION_INVALID
++      }
++
++      uint32_t addr = inet_addr(target.c_str());
++      if (addr == INADDR_NONE) {
++        REXKRNL_ERROR("xonline_service_address is not a valid IPv4 address: '{}'", target);
++        return 0x80151802;
++      }
++      const uint16_t port = static_cast<uint16_t>(REXCVAR_GET(xonline_service_port));
++
++      // Black Ops 2 first probes with pServiceInfo == nullptr just to learn whether
++      // the service exists, then asks again with a real buffer. Report success for
++      // the probe rather than treating it as a bad request.
++      if (service_info_ptr) {
++        // XONLINE_SERVICE_INFO { u32 dwServiceID; IN_ADDR ina; IN_ADDR inaOnline;
++        //                        u16 wServicePort; u16 wReserved; u32 dwFlags; }
++        auto* info = memory_->TranslateVirtual(service_info_ptr);
++        std::memset(info, 0, 20);
++        memory::store_and_swap<uint32_t>(info + 0, service_id);
++        // IN_ADDR holds network byte order already, so copy the bytes rather than
++        // byte-swapping them into guest order.
++        std::memcpy(info + 4, &addr, 4);
++        std::memcpy(info + 8, &addr, 4);
++        memory::store_and_swap<uint16_t>(info + 12, port);
++      }
++
++      REXKRNL_INFO("CXLiveLogon::GetServiceInfo(service={:08X}) -> {}:{}", service_id, target,
++                   port);
++      return X_E_SUCCESS;
+     }
+     case 0x00058020: {
+       // 0x00058004 is called right before this.
+diff --git a/src/kernel/xam/xam_enum.cpp b/src/kernel/xam/xam_enum.cpp
+index 9dcab94..8761648 100644
+--- a/src/kernel/xam/xam_enum.cpp
++++ b/src/kernel/xam/xam_enum.cpp
+@@ -19,12 +19,25 @@
+ #include <rex/system/xenumerator.h>
+ #include <rex/system/xtypes.h>
+ 
+-#if REX_PLATFORM_WIN32
+ #include <rex/platform.h>
+-#endif
++#include <rex/system/flags.h>
++
++#include <cstring>
++#include <string>
+ 
+ #include <fmt/format.h>
+ 
++#if REX_PLATFORM_WIN32
++#include <winsock2.h>
++#include <ws2tcpip.h>
++#else
++#include <arpa/inet.h>
++#endif
++
++// Defined alongside the XOnlineGetServiceInfo handler in xlivebase_app.cpp; the
++// synthetic title-server entry has to advertise the same host.
++REXCVAR_DECLARE(std::string, xonline_service_address);
++
+ namespace rex {
+ namespace kernel {
+ namespace xam {
+@@ -83,9 +96,63 @@ u32 XamEnumerate_entry(u32 handle, u32 flags, mapped_void buffer, u32 buffer_len
+   return result;
+ }
+ 
+-u32 XamCreateEnumeratorHandle_entry(u32 unk1, u32 unk2, u32 unk3, u32 unk4, u32 unk5, u32 unk6,
+-                                    u32 unk7, u32 unk8) {
+-  return X_ERROR_INVALID_PARAMETER;
++// Live Server Platform enumeration, as issued by the xonline library statically
++// linked into a title. Black Ops 2's XTitleServerCreateEnumerator calls
++// XamCreateEnumeratorHandle(user=0xFFFFFFFF, app=0xFC, open=0x00058039,
++// close=0x0005803A, item_size=212, item_count=cItems, flags=0, &handle) and
++// propagates any failure straight out as ERROR_INVALID_PARAMETER, which is why
++// hard-failing here stalled the title's whole back-end handshake.
++static constexpr uint32_t kTitleServerOpenMessage = 0x00058039;
++static constexpr uint32_t kTitleServerCloseMessage = 0x0005803A;
++
++// XTITLE_SERVER_INFO { IN_ADDR inaServer; DWORD dwFlags; CHAR szServerDescription[200]; }
++// 208 bytes, matching the 208-byte stride the title uses when it walks the results.
++// The title asks for 212-byte items, so there are 4 bytes of slack at the end.
++static void AppendSyntheticTitleServer(XStaticUntypedEnumerator* e) {
++  const std::string target = REXCVAR_GET(xonline_service_address);
++  if (target.empty()) {
++    return;
++  }
++  uint32_t addr = inet_addr(target.c_str());
++  if (addr == INADDR_NONE) {
++    REXKRNL_ERROR("xonline_service_address is not a valid IPv4 address: '{}'", target);
++    return;
++  }
++  uint8_t* item = e->AppendItem();
++  if (!item) {
++    return;
++  }
++  std::memset(item, 0, e->item_size());
++  // IN_ADDR is already network byte order; copy the bytes rather than swapping.
++  std::memcpy(item + 0, &addr, 4);
++  const char kDescription[] = "rexglue";
++  std::memcpy(item + 8, kDescription, sizeof(kDescription));
++  REXKRNL_INFO("XamCreateEnumeratorHandle: advertising title server {}", target);
++}
++
++u32 XamCreateEnumeratorHandle_entry(u32 user_index, u32 app_id, u32 open_message,
++                                    u32 close_message, u32 item_size, u32 item_count, u32 flags,
++                                    mapped_u32 handle_out) {
++  if (!item_size || !item_count || !handle_out) {
++    return X_ERROR_INVALID_PARAMETER;
++  }
++
++  auto e = make_object<XStaticUntypedEnumerator>(REX_KERNEL_STATE(), item_count, item_size);
++  auto result = e->Initialize(user_index, app_id, open_message, close_message, flags);
++  if (XFAILED(result)) {
++    return result;
++  }
++
++  if (open_message == kTitleServerOpenMessage && close_message == kTitleServerCloseMessage) {
++    AppendSyntheticTitleServer(e.get());
++  }
++
++  *handle_out = e->handle();
++  REXKRNL_INFO(
++      "XamCreateEnumeratorHandle(user={:08X}, app={:08X}, open={:08X}, close={:08X}, "
++      "item_size={}, item_count={}) -> handle {:08X}",
++      user_index, app_id, open_message, close_message, item_size, item_count, e->handle());
++  return X_ERROR_SUCCESS;
+ }
+ 
+ u32 XamGetPrivateEnumStructureFromHandle_entry(u32 handle, mapped_u32 out_object_ptr) {
+diff --git a/src/kernel/xam/xam_misc.cpp b/src/kernel/xam/xam_misc.cpp
+index ff6cb56..9c8610e 100644
+--- a/src/kernel/xam/xam_misc.cpp
++++ b/src/kernel/xam/xam_misc.cpp
+@@ -811,7 +811,12 @@ REX_EXPORT_STUB(__imp__XampWebInstrumentationSetProfileCounts);
+ REX_EXPORT_STUB(__imp__XampXAuthGetTitleBuffer);
+ REX_EXPORT_STUB(__imp__XampXAuthIsLocalSocketAllowed);
+ REX_EXPORT_STUB(__imp__XampXAuthShutdown);
+-REX_EXPORT_STUB(__imp__XampXAuthStartup);
++// A plain stub leaves r3 holding whatever the caller left there, so the title sees
++// a random status. Black Ops 2 reads it: once the multiplayer privilege is granted
++// it runs XHttpStartup -> XampXAuthStartup -> XHttpShutdown in a retry loop and
++// then exits, which is the shape of XAuth startup being reported as failed. Report
++// success explicitly.
++REX_EXPORT_STUB_RETURN(__imp__XampXAuthStartup, 0);
+ REX_EXPORT_STUB(__imp__XapiDirectoryInformationToFindData);
+ REX_EXPORT_STUB(__imp__XapiFormatObjectAttributes);
+ REX_EXPORT_STUB(__imp__XapiFormatTimeOut);
+diff --git a/src/kernel/xam/xam_net.cpp b/src/kernel/xam/xam_net.cpp
+index 0f6aa34..a36e70d 100644
+--- a/src/kernel/xam/xam_net.cpp
++++ b/src/kernel/xam/xam_net.cpp
+@@ -13,6 +13,11 @@
+ #pragma GCC diagnostic ignored "-Wunused-parameter"
+ 
+ #include <cstring>
++#include <random>
++#include <mutex>
++#include <unordered_map>
++#include <vector>
++#include <string>
+ 
+ #include <rex/chrono/clock.h>
+ #include <rex/kernel/xam/module.h>
+@@ -26,6 +31,7 @@
+ #include <rex/system/kernel_state.h>
+ #include <rex/system/xevent.h>
+ #include <rex/system/xsocket.h>
++#include <rex/system/xsession.h>
+ #include <rex/system/xthread.h>
+ #include <rex/system/xtypes.h>
+ 
+@@ -33,19 +39,51 @@
+ // NOTE: must be included last as it expects windows.h to already be included.
+ #define _WINSOCK_DEPRECATED_NO_WARNINGS  // inet_addr
+ #include <winsock2.h>                    // NOLINT(build/include_order)
++#include <ws2tcpip.h>                    // getaddrinfo, NOLINT(build/include_order)
+ #elif REX_PLATFORM_LINUX
+ #include <arpa/inet.h>
++#include <netdb.h>  // getaddrinfo
+ #include <netinet/in.h>
+ #include <netinet/ip.h>
+ #include <sys/socket.h>
+ #endif
+ 
++#include <rex/system/flags.h>
++
++REXCVAR_DEFINE_BOOL(xnet_ethernet_link_active, true, "Network",
++                    "Report a wired network link from XNetGetEthernetLinkStatus");
++
++REXCVAR_DECLARE(uint32_t, systemlink_base_port);
++REXCVAR_DECLARE(uint32_t, systemlink_port_offset);
++
++REXCVAR_DEFINE_STRING(xnet_dns_redirect, "127.0.0.1", "Network",
++                      "Resolve every XNetDnsLookup to this IPv4 address (empty = real DNS)");
++
+ namespace rex {
+ namespace kernel {
+ namespace xam {
+ using namespace rex::system;
+ using namespace rex::system::xam;
+ 
++// The last socket error from the host stack, in the WSAE* numbering the guest
++// expects (Winsock and Xbox share those values).
++static uint32_t XSocketNativeError() {
++#if REX_PLATFORM_WIN32
++  return static_cast<uint32_t>(WSAGetLastError());
++#else
++  switch (errno) {
++    case EWOULDBLOCK:
++      return 0x2733;  // WSAEWOULDBLOCK
++    case EINPROGRESS:
++      return 0x2734;  // WSAEINPROGRESS
++    case ECONNRESET:
++      return 0x2746;  // WSAECONNRESET
++    default:
++      return static_cast<uint32_t>(errno);
++  }
++#endif
++}
++
+ // https://github.com/G91/TitanOffLine/blob/1e692d9bb9dfac386d08045ccdadf4ae3227bb5e/xkelib/xam/xamNet.h
+ enum {
+   XNCALLER_INVALID = 0x0,
+@@ -178,6 +216,143 @@ struct XNetStartupParams {
+ 
+ XNetStartupParams xnet_startup_params = {};
+ 
++//=============================================================================
++// System Link session support, ported from NX1recomp's ReXGlue fork.
++//
++// A title will not start even a local match without a real session: it wants an
++// XNKID/XNKEY pair, a host XNADDR with a MAC and an advertised query port, and a
++// machine id. Stubs that return nothing leave the session half-built and the title
++// aborts the map load. NX1recomp's WAN discovery (its XLive web control plane) is
++// NOT ported -- only what a local session needs.
++//=============================================================================
++
++// XNetQosListen registers a session for QoS probes. Flags select the operation
++// rather than it being a single "start" call.
++enum XNetQosListenFlags : uint32_t {
++  kXNetQosListenEnable = 0x01,
++  kXNetQosListenDisable = 0x02,
++  kXNetQosListenSetData = 0x04,
++  kXNetQosListenSetBitsPerSec = 0x08,
++  kXNetQosListenRelease = 0x10,
++};
++
++struct CachedQosListenData {
++  bool enabled = false;
++  uint32_t bits_per_second = 1024 * 1024;
++  std::vector<uint8_t> data;
++};
++
++std::mutex xnet_qos_mutex;
++std::unordered_map<uint64_t, CachedQosListenData> xnet_qos_listen_data;
++
++// Session ids with a leading type byte of 0 are System Link ids.
++constexpr uint8_t kXnkidSystemLink = 0x00;
++
++uint64_t xnet_registered_systemlink_id = 0;
++
++uint16_t AdvertisedSystemLinkPort() {
++  const uint32_t advertised =
++      REXCVAR_GET(systemlink_base_port) + REXCVAR_GET(systemlink_port_offset);
++  return advertised <= 65535 ? static_cast<uint16_t>(advertised)
++                             : static_cast<uint16_t>(REXCVAR_GET(systemlink_base_port));
++}
++
++uint64_t GenerateSessionId(uint8_t type) {
++  std::random_device random;
++  std::uniform_int_distribution<uint64_t> distribution(1, 0x00FFFFFFFFFFFFFFull);
++  return (uint64_t(type) << 56) | (distribution(random) & 0x00FFFFFFFFFFFFFFull);
++}
++
++void GenerateExchangeKey(XNKEY* exchange_key) {
++  if (!exchange_key) {
++    return;
++  }
++  for (size_t i = 0; i < sizeof(exchange_key->ab); ++i) {
++    exchange_key->ab[i] = static_cast<uint8_t>(i);
++  }
++}
++
++bool IsSystemLinkSessionId(uint64_t session_id) {
++  return session_id && ((session_id >> 56) & 0xFF) == kXnkidSystemLink;
++}
++
++// Derive a stable MAC from the profile XUID. RakNet's 360 build uses abEnet to seed
++// "random" 64-bit values and fails outright on an all-zero MAC, so this must never
++// be zero.
++void GetLocalMacAddress(uint8_t* out_mac) {
++  uint64_t xuid = 0;
++  auto* kernel_state = REX_KERNEL_STATE();
++  if (kernel_state && kernel_state->user_profile()) {
++    xuid = kernel_state->user_profile()->xuid();
++  }
++
++  out_mac[0] = 0x02;  // locally administered, unicast
++  out_mac[1] = static_cast<uint8_t>((xuid >> 32) & 0xFF);
++  out_mac[2] = static_cast<uint8_t>((xuid >> 24) & 0xFF);
++  out_mac[3] = static_cast<uint8_t>((xuid >> 16) & 0xFF);
++  out_mac[4] = static_cast<uint8_t>((xuid >> 8) & 0xFF);
++  out_mac[5] = static_cast<uint8_t>(xuid & 0xFF);
++}
++
++uint64_t GetLocalMachineId() {
++  uint8_t mac_address[6] = {};
++  GetLocalMacAddress(mac_address);
++  uint64_t machine_id = 0;
++  for (uint8_t byte : mac_address) {
++    machine_id = (machine_id << 8) | byte;
++  }
++  return machine_id;
++}
++
++// First non-loopback IPv4 of this host, in network byte order; loopback if there
++// isn't one.
++uint32_t GetLocalIpv4NetworkOrder() {
++  static bool initialized = false;
++  static uint32_t cached_addr = 0;
++  if (initialized) {
++    return cached_addr;
++  }
++
++  initialized = true;
++  cached_addr = htonl(INADDR_LOOPBACK);
++
++  char host_name[256] = {};
++  if (gethostname(host_name, sizeof(host_name)) != 0) {
++    return cached_addr;
++  }
++
++  addrinfo hints = {};
++  hints.ai_family = AF_INET;
++  hints.ai_socktype = SOCK_DGRAM;
++  addrinfo* results = nullptr;
++  if (getaddrinfo(host_name, nullptr, &hints, &results) != 0) {
++    return cached_addr;
++  }
++
++  for (addrinfo* result = results; result; result = result->ai_next) {
++    auto* addr = reinterpret_cast<sockaddr_in*>(result->ai_addr);
++    const uint8_t first_octet = static_cast<uint8_t>(ntohl(addr->sin_addr.s_addr) >> 24);
++    if (first_octet == 127 || first_octet == 0) {
++      continue;
++    }
++    cached_addr = addr->sin_addr.s_addr;
++    break;
++  }
++
++  freeaddrinfo(results);
++  return cached_addr;
++}
++
++void PopulateLocalXnAddr(XNADDR* addr_ptr) {
++  std::memset(addr_ptr, 0, sizeof(XNADDR));
++  const uint32_t local_addr = GetLocalIpv4NetworkOrder();
++  addr_ptr->ina.s_addr = local_addr;
++  addr_ptr->inaOnline.s_addr = local_addr;
++  addr_ptr->wPortOnline = AdvertisedSystemLinkPort();
++  GetLocalMacAddress(addr_ptr->abEnet);
++}
++
++
+ u32 NetDll_XNetStartup_entry(u32 caller, ppc_ptr_t<XNetStartupParams> params) {
+   if (params) {
+     assert_true(params->cfgSizeOfStruct == sizeof(XNetStartupParams));
+@@ -432,7 +607,15 @@ struct XnAddrStatus {
+ };
+ 
+ u32 NetDll_XNetGetTitleXnAddr_entry(u32 caller, ppc_ptr_t<XNADDR> addr_ptr) {
+-  // Just return a loopback address atm.
++  // Reporting a loopback address with no online address, no port and a 0xCC MAC
++  // leaves a title unable to describe itself as a session host. Fill in a real
++  // local address, the advertised System Link port and a XUID-derived MAC, and
++  // report the address as online. (Ported from NX1recomp's ReXGlue fork.)
++  PopulateLocalXnAddr(addr_ptr);
++  return XnAddrStatus::XNET_GET_XNADDR_STATIC | XnAddrStatus::XNET_GET_XNADDR_ONLINE;
++}
++
++u32 NetDll_XNetGetTitleXnAddr_unused_entry(u32 caller, ppc_ptr_t<XNADDR> addr_ptr) {
+   addr_ptr->ina.s_addr = htonl(INADDR_LOOPBACK);
+   addr_ptr->inaOnline.s_addr = 0;
+   addr_ptr->wPortOnline = 0;
+@@ -462,9 +645,15 @@ u32 NetDll_XNetGetDebugXnAddr_entry(u32 caller, ppc_ptr_t<XNADDR> addr_ptr) {
+   return XnAddrStatus::XNET_GET_XNADDR_NONE;
+ }
+ 
+-u32 NetDll_XNetXnAddrToMachineId_entry(u32 caller, ppc_ptr_t<XNADDR> addr_ptr, mapped_u32 id_ptr) {
+-  // Tell the caller we're not signed in to live (non-zero ret)
+-  return 1;
++u32 NetDll_XNetXnAddrToMachineId_entry(u32 caller, ppc_ptr_t<XNADDR> addr_ptr,
++                                       mapped_u64 id_ptr) {
++  // Returning non-zero here says "not signed in", which blocks session creation.
++  // Hand back the MAC-derived machine id. (Ported from NX1recomp.)
++  if (!id_ptr) {
++    return 0x2726;  // WSAEINVAL
++  }
++  *id_ptr = GetLocalMachineId();
++  return X_ERROR_SUCCESS;
+ }
+ 
+ void NetDll_XNetInAddrToString_entry(u32 caller, u32 in_addr, mapped_string string_out,
+@@ -486,12 +675,84 @@ u32 NetDll_XNetInAddrToXnAddr_entry(u32 caller, mapped_void in_addr, ppc_ptr_t<X
+   return 1;
+ }
+ 
++// XNetCreateKey / XNetRegisterKey / XNetUnregisterKey and the System Link port
++// query, ported from NX1recomp's ReXGlue fork. A title generates a session
++// key pair before it creates a session; with these stubbed it has no session id to
++// register and gives up. XNetGetSystemLinkPort must also report the same port the
++// host advertises in its XNADDR.
++u32 NetDll_XNetCreateKey_entry(u32 caller, ppc_ptr_t<XNKID> session_key,
++                               ppc_ptr_t<XNKEY> exchange_key) {
++  if (!session_key || !exchange_key) {
++    return 0x2726;  // WSAEINVAL
++  }
++
++  const uint64_t session_id = GenerateSessionId(kXnkidSystemLink);
++  Uint64ToXnkid(session_id, session_key);
++  GenerateExchangeKey(exchange_key);
++  REXKRNL_INFO("XNetCreateKey generated systemlink session {:016X}", session_id);
++  return X_ERROR_SUCCESS;
++}
++
++u32 NetDll_XNetRegisterKey_entry(u32 caller, ppc_ptr_t<XNKID> session_key,
++                                 ppc_ptr_t<XNKEY> exchange_key) {
++  if (!session_key || !exchange_key) {
++    return 0x2726;  // WSAEINVAL
++  }
++
++  const uint64_t session_id = XnkidToUint64(*session_key);
++  if (IsSystemLinkSessionId(session_id)) {
++    xnet_registered_systemlink_id = session_id;
++  }
++  REXKRNL_INFO("XNetRegisterKey registered session {:016X}", session_id);
++  return X_ERROR_SUCCESS;
++}
++
++u32 NetDll_XNetUnregisterKey_entry(u32 caller, ppc_ptr_t<XNKID> session_key) {
++  if (!session_key) {
++    return 0x2726;  // WSAEINVAL
++  }
++  const uint64_t session_id = XnkidToUint64(*session_key);
++  if (session_id == xnet_registered_systemlink_id) {
++    xnet_registered_systemlink_id = 0;
++  }
++  return X_ERROR_SUCCESS;
++}
++
++u32 NetDll_XNetGetSystemLinkPort_entry(u32 caller) {
++  return AdvertisedSystemLinkPort();
++}
++
+ // https://www.google.com/patents/WO2008112448A1?cl=en
+ // Reserves a port for use by system link
+ u32 NetDll_XNetSetSystemLinkPort_entry(u32 caller, u32 port) {
+   return 1;
+ }
+ 
++// XNetServerToInAddr(IN_ADDR inaServer, DWORD dwServiceId, IN_ADDR* pina) maps a
++// Live Server Platform server address into an IN_ADDR the title can hand to
++// connect(). On console that indirection exists for Xbox secure addressing; with a
++// plain routable address there is nothing to translate, so pass it through.
++//
++// This was a bare REX_EXPORT_STUB, which leaves r3 holding whatever the caller left
++// and writes no address -- Black Ops 2 calls it from
++// Live_Base_TitleServerEnumerationSuccess with the enumerated server and service id
++// 0x415607E9, and without a result it never reaches Live_Base_ConnectToLobby.
++u32 NetDll_XNetServerToInAddr_entry(u32 caller, u32 server_addr, u32 service_id,
++                                   mapped_u32 out_addr) {
++  if (!out_addr || !server_addr) {
++    return static_cast<u32>(-1);
++  }
++  *out_addr = server_addr;
++
++  static uint32_t log_count = 0;
++  if (log_count < 8) {
++    ++log_count;
++    REXKRNL_INFO("XNetServerToInAddr(server={:08X}, service={:08X}) -> passthrough", server_addr,
++                 service_id);
++  }
++  return 0;
++}
++
+ // https://github.com/ILOVEPIE/Cxbx-Reloaded/blob/master/src/CxbxKrnl/EmuXOnline.h#L39
+ struct XEthernetStatus {
+   static const uint32_t XNET_ETHERNET_LINK_ACTIVE = 0x01;
+@@ -502,17 +763,95 @@ struct XEthernetStatus {
+ };
+ 
+ u32 NetDll_XNetGetEthernetLinkStatus_entry(u32 caller) {
+-  return 0;
++  // Reporting no link makes titles that gate on it refuse to start a match.
++  // Black Ops 2's Live_CheckNotifications tests exactly bit 0 --
++  //   bl XNetGetEthernetLinkStatus / clrlwi r8,r3,31 / cmplwi cr6,r8,0 / bne
++  // -- and on the fall-through raises Com_Error("You must have an active
++  // network connection to play Xbox LIVE or System Link matches."), which
++  // aborts an in-progress SV_SpawnServer. A wired 100Mbit full-duplex link is
++  // the least surprising thing to claim; set --no-xnet_ethernet_link_active to
++  // go back to reporting no cable.
++  uint32_t status = 0;
++  if (REXCVAR_GET(xnet_ethernet_link_active)) {
++    status = XEthernetStatus::XNET_ETHERNET_LINK_ACTIVE |
++             XEthernetStatus::XNET_ETHERNET_LINK_100MBPS |
++             XEthernetStatus::XNET_ETHERNET_LINK_FULL_DUPLEX;
++  }
++  static uint32_t log_count = 0;
++  if (log_count < 8) {
++    ++log_count;
++    REXKRNL_INFO("XNetGetEthernetLinkStatus(caller={:08X}) -> {:#x}", caller, status);
++  }
++  return status;
++}
++
++// Resolve a host name to an IPv4 address, honouring the redirect cvar.
++// Returns network byte order, or 0 when the name can't be resolved.
++static uint32_t ResolveHostName(const std::string& host) {
++  const std::string redirect = REXCVAR_GET(xnet_dns_redirect);
++  if (!redirect.empty()) {
++    // Every name lands on the redirect target -- that is the point: it is what
++    // points the title's back-end lookups at a locally hosted service.
++    uint32_t addr = inet_addr(redirect.c_str());
++    if (addr == INADDR_NONE) {
++      REXKRNL_ERROR("xnet_dns_redirect is not a valid IPv4 address: '{}'", redirect);
++      return 0;
++    }
++    return addr;
++  }
++
++  addrinfo hints{};
++  hints.ai_family = AF_INET;
++  hints.ai_socktype = SOCK_STREAM;
++  addrinfo* results = nullptr;
++  if (getaddrinfo(host.c_str(), nullptr, &hints, &results) != 0 || !results) {
++    return 0;
++  }
++  uint32_t addr = 0;
++  for (addrinfo* it = results; it; it = it->ai_next) {
++    if (it->ai_family == AF_INET && it->ai_addr) {
++      addr = reinterpret_cast<const sockaddr_in*>(it->ai_addr)->sin_addr.s_addr;
++      break;
++    }
++  }
++  freeaddrinfo(results);
++  return addr;
+ }
+ 
+ u32 NetDll_XNetDnsLookup_entry(u32 caller, mapped_string host, u32 event_handle, mapped_u32 pdns) {
+-  // TODO(gibbed): actually implement this
++  // This used to always report failure (status = 1), which leaves any title that
++  // talks to a back-end unable to reach one at all. Resolve for real, and let
++  // xnet_dns_redirect point every name at a locally hosted service.
++  std::string host_name = host ? std::string(host.value()) : std::string();
++  uint32_t addr = ResolveHostName(host_name);
++
+   if (pdns) {
+     auto dns_guest = REX_KERNEL_MEMORY()->SystemHeapAlloc(sizeof(XNDNS));
+     auto dns = REX_KERNEL_MEMORY()->TranslateVirtual<XNDNS*>(dns_guest);
+-    dns->status = 1;  // non-zero = error
++    std::memset(dns, 0, sizeof(XNDNS));
++    if (addr) {
++      dns->status = 0;  // 0 = resolved
++      dns->cina = 1;
++      // aina is a raw in_addr array; s_addr is already network byte order, so it
++      // needs no swap on the way to the guest.
++      dns->aina[0].s_addr = addr;
++    } else {
++      dns->status = 1;  // non-zero = error
++    }
+     *pdns = dns_guest;
+   }
++
++  static uint32_t log_count = 0;
++  if (log_count < 32) {
++    ++log_count;
++    if (addr) {
++      const uint8_t* o = reinterpret_cast<const uint8_t*>(&addr);
++      REXKRNL_INFO("XNetDnsLookup('{}') -> {}.{}.{}.{}", host_name, o[0], o[1], o[2], o[3]);
++    } else {
++      REXKRNL_INFO("XNetDnsLookup('{}') -> unresolved", host_name);
++    }
++  }
++
+   if (event_handle) {
+     auto ev = REX_KERNEL_OBJECTS()->LookupObject<XEvent>(event_handle);
+     assert_not_null(ev);
+@@ -553,9 +892,51 @@ u32 NetDll_XNetQosRelease_entry(u32 caller, ppc_ptr_t<XNQOS> qos) {
+   return 0;
+ }
+ 
+-u32 NetDll_XNetQosListen_entry(u32 caller, mapped_void id, mapped_void data, u32 data_size, u32 r7,
+-                               u32 flags) {
+-  return X_ERROR_FUNCTION_FAILED;
++// Ported from NX1recomp's ReXGlue fork. This used to return X_ERROR_FUNCTION_FAILED
++// unconditionally, which Black Ops 2 treats as fatal: after a round ends it registers
++// the party-presence session for QoS and, on failure, raises
++// Com_Error(1, "Error starting QOS listen on server. party presence session ...") and
++// exits -- so you could play one round and no more.
++//
++// Track the per-session listen state the flags describe and report success. Nothing
++// locally answers QoS probes, but no local game needs one to.
++u32 NetDll_XNetQosListen_entry(u32 caller, mapped_void id, mapped_void data, u32 data_size,
++                               u32 bits_per_second, u32 flags) {
++  const uint64_t session_id =
++      id ? XnkidToUint64(*id.as<XNKID*>()) : xnet_registered_systemlink_id;
++
++  static uint32_t log_count = 0;
++  if (log_count < 16) {
++    ++log_count;
++    REXKRNL_INFO("XNetQosListen session={:016X} data={} bps={} flags={:#x}", session_id, data_size,
++                 bits_per_second, flags);
++  }
++
++  if (!session_id) {
++    // Nothing to track, but the caller only cares that it worked.
++    return X_ERROR_SUCCESS;
++  }
++
++  std::lock_guard<std::mutex> lock(xnet_qos_mutex);
++  auto& cached = xnet_qos_listen_data[session_id];
++  if (flags & kXNetQosListenEnable) {
++    cached.enabled = true;
++  }
++  if (flags & kXNetQosListenDisable) {
++    cached.enabled = false;
++  }
++  if (flags & kXNetQosListenSetBitsPerSec) {
++    cached.bits_per_second = bits_per_second;
++  }
++  if ((flags & kXNetQosListenSetData) && data && data_size) {
++    cached.data.resize(data_size);
++    std::memcpy(cached.data.data(), data.host_address(), data_size);
++  }
++  if (flags & kXNetQosListenRelease) {
++    xnet_qos_listen_data.erase(session_id);
++  }
++
++  return X_ERROR_SUCCESS;
+ }
+ 
+ u32 NetDll_inet_addr_entry(mapped_string addr_ptr) {
+@@ -685,8 +1066,33 @@ u32 NetDll_connect_entry(u32 caller, u32 socket_handle, ppc_ptr_t<XSOCKADDR> nam
+ 
+   N_XSOCKADDR native_name(name);
+   X_STATUS status = socket->Connect(&native_name, namelen);
++
++  // XSocket::Connect collapses every failure into X_STATUS_UNSUCCESSFUL, and
++  // translating that as an NTSTATUS hands the title a generic error. That breaks
++  // non-blocking sockets: connect() on one fails with WSAEWOULDBLOCK, which the
++  // title must see so it waits with select() rather than giving up. Black Ops 2 was
++  // opening its Demonware lobby connection, being told it had hard-failed, and
++  // closing the socket at once -- the server logged a connect immediately followed
++  // by a disconnect. Winsock and Xbox share the WSAE* numbering, so pass the native
++  // error straight through. Safe to read here: nothing runs between the failing
++  // connect() inside XSocket::Connect and this point.
++  const uint32_t native_error = XFAILED(status) ? XSocketNativeError() : 0;
++
++  // Which endpoint a title dials is the single most useful thing to know when
++  // wiring it to a local service, and nothing else logs it.
++  static uint32_t log_count = 0;
++  if (log_count < 32) {
++    ++log_count;
++    const auto* sin = reinterpret_cast<const sockaddr_in*>(&native_name);
++    const uint8_t* o = reinterpret_cast<const uint8_t*>(&sin->sin_addr.s_addr);
++    REXKRNL_INFO("connect(sock={:08X}) -> {}.{}.{}.{}:{} : {} (err {})", socket_handle, o[0], o[1],
++                 o[2], o[3], ntohs(sin->sin_port), XFAILED(status) ? "pending/failed" : "ok",
++                 native_error);
++  }
++
+   if (XFAILED(status)) {
+-    XThread::SetLastError(xboxkrnl::xeRtlNtStatusToDosError(status));
++    XThread::SetLastError(native_error ? native_error
++                                       : xboxkrnl::xeRtlNtStatusToDosError(status));
+     return -1;
+   }
+ 
+@@ -848,7 +1254,15 @@ u32 NetDll_recv_entry(u32 caller, u32 socket_handle, mapped_void buf_ptr, u32 bu
+     return -1;
+   }
+ 
+-  return socket->Recv(buf_ptr, buf_len, flags);
++  int ret = socket->Recv(buf_ptr, buf_len, flags);
++  if (ret < 0) {
++    // Same trap as connect: on a non-blocking socket "no data yet" comes back as
++    // -1 / WSAEWOULDBLOCK, and a title that reads a stale or zero last-error
++    // concludes the peer is gone and tears the connection down. Publish the real
++    // error so the title can tell "retry" from "dead".
++    XThread::SetLastError(XSocketNativeError());
++  }
++  return ret;
+ }
+ 
+ u32 NetDll_recvfrom_entry(u32 caller, u32 socket_handle, mapped_void buf_ptr, u32 buf_len,
+@@ -899,7 +1313,11 @@ u32 NetDll_send_entry(u32 caller, u32 socket_handle, mapped_void buf_ptr, u32 bu
+     return -1;
+   }
+ 
+-  return socket->Send(buf_ptr, buf_len, flags);
++  int ret = socket->Send(buf_ptr, buf_len, flags);
++  if (ret < 0) {
++    XThread::SetLastError(XSocketNativeError());
++  }
++  return ret;
+ }
+ 
+ u32 NetDll_sendto_entry(u32 caller, u32 socket_handle, mapped_void buf_ptr, u32 buf_len, u32 flags,
+@@ -955,6 +1373,14 @@ REX_EXPORT(__imp__NetDll_XNetXnAddrToMachineId,
+ REX_EXPORT(__imp__NetDll_XNetInAddrToString, rex::kernel::xam::NetDll_XNetInAddrToString_entry)
+ REX_EXPORT(__imp__NetDll_XNetXnAddrToInAddr, rex::kernel::xam::NetDll_XNetXnAddrToInAddr_entry)
+ REX_EXPORT(__imp__NetDll_XNetInAddrToXnAddr, rex::kernel::xam::NetDll_XNetInAddrToXnAddr_entry)
++REX_EXPORT(__imp__NetDll_XNetCreateKey, rex::kernel::xam::NetDll_XNetCreateKey_entry)
++REX_EXPORT(__imp__NetDll_XNetRegisterKey, rex::kernel::xam::NetDll_XNetRegisterKey_entry)
++REX_EXPORT(__imp__NetDll_XNetUnregisterKey,
++           rex::kernel::xam::NetDll_XNetUnregisterKey_entry)
++REX_EXPORT(__imp__NetDll_XNetGetSystemLinkPort,
++           rex::kernel::xam::NetDll_XNetGetSystemLinkPort_entry)
++REX_EXPORT(__imp__NetDll_XNetServerToInAddr,
++           rex::kernel::xam::NetDll_XNetServerToInAddr_entry)
+ REX_EXPORT(__imp__NetDll_XNetSetSystemLinkPort,
+            rex::kernel::xam::NetDll_XNetSetSystemLinkPort_entry)
+ REX_EXPORT(__imp__NetDll_XNetGetEthernetLinkStatus,
+@@ -1027,24 +1453,19 @@ REX_EXPORT_STUB(__imp__NetDll_XHttpShutdown);
+ REX_EXPORT_STUB(__imp__NetDll_XHttpStartup);
+ REX_EXPORT_STUB(__imp__NetDll_XHttpWriteData);
+ REX_EXPORT_STUB(__imp__NetDll_XNetConnect);
+-REX_EXPORT_STUB(__imp__NetDll_XNetCreateKey);
+ REX_EXPORT_STUB(__imp__NetDll_XNetDnsReverseLookup);
+ REX_EXPORT_STUB(__imp__NetDll_XNetDnsReverseRelease);
+ REX_EXPORT_STUB(__imp__NetDll_XNetGetBroadcastVersionStatus);
+ REX_EXPORT_STUB(__imp__NetDll_XNetGetConnectStatus);
+-REX_EXPORT_STUB(__imp__NetDll_XNetGetSystemLinkPort);
+ REX_EXPORT_STUB(__imp__NetDll_XNetGetXnAddrPlatform);
+ REX_EXPORT_STUB(__imp__NetDll_XNetInAddrToServer);
+ REX_EXPORT_STUB(__imp__NetDll_XNetQosGetListenStats);
+ REX_EXPORT_STUB(__imp__NetDll_XNetQosLookup);
+-REX_EXPORT_STUB(__imp__NetDll_XNetRegisterKey);
+ REX_EXPORT_STUB(__imp__NetDll_XNetReplaceKey);
+-REX_EXPORT_STUB(__imp__NetDll_XNetServerToInAddr);
+ REX_EXPORT_STUB(__imp__NetDll_XNetSetOpt);
+ REX_EXPORT_STUB(__imp__NetDll_XNetStartupEx);
+ REX_EXPORT_STUB(__imp__NetDll_XNetTsAddrToInAddr);
+ REX_EXPORT_STUB(__imp__NetDll_XNetUnregisterInAddr);
+-REX_EXPORT_STUB(__imp__NetDll_XNetUnregisterKey);
+ REX_EXPORT_STUB(__imp__NetDll_XmlDownloadContinue);
+ REX_EXPORT_STUB(__imp__NetDll_XmlDownloadGetParseTime);
+ REX_EXPORT_STUB(__imp__NetDll_XmlDownloadGetReceivedDataSize);
+diff --git a/src/kernel/xam/xam_user.cpp b/src/kernel/xam/xam_user.cpp
+index 8778066..66c9951 100644
+--- a/src/kernel/xam/xam_user.cpp
++++ b/src/kernel/xam/xam_user.cpp
+@@ -24,12 +24,22 @@
+ #include <rex/system/kernel_state.h>
+ #include <rex/system/xam/user_profile.h>
+ #include <rex/system/xenumerator.h>
++#include <rex/system/xsession.h>
+ #include <rex/system/xio.h>
+ #include <rex/system/xthread.h>
+ #include <rex/system/xtypes.h>
+ 
+ REXCVAR_DEFINE_UINT32(user_language, 1, "Kernel", "User's language ID");
+ 
++// UserProfile::signin_state() is hardcoded to 1 (signed in locally). Titles that
++// gate online features want 2 (signed in to Xbox LIVE); override at the API
++// boundary so the header stays free of cvar dependencies.
++REXCVAR_DEFINE_UINT32(xam_signin_state, 2, "Kernel",
++                      "Signin state reported for user 0: 0 not signed in, 1 local, 2 LIVE");
++
++REXCVAR_DEFINE_BOOL(xam_grant_privileges, true, "Kernel",
++                    "Grant every XamUserCheckPrivilege query instead of denying it");
++
+ namespace rex {
+ namespace kernel {
+ namespace xam {
+@@ -65,12 +75,21 @@ i32 XamUserGetXUID_entry(u32 user_index, u32 type_mask, mapped_u64 xuid_ptr) {
+   return result;
+ }
+ 
++// Single source of truth for the signin state the guest observes, so
++// XamUserGetSigninState and XamUserGetSigninInfo can never disagree.
++static uint32_t EffectiveSigninState() {
++  const auto& user_profile = REX_KERNEL_STATE()->user_profile();
++  if (user_profile->signin_state() == 0) {
++    return 0;  // genuinely nobody signed in; don't invent a user
++  }
++  return REXCVAR_GET(xam_signin_state);
++}
++
+ u32 XamUserGetSigninState_entry(u32 user_index) {
+   uint32_t signin_state = 0;
+   if (user_index < 4) {
+     if (user_index == 0) {
+-      const auto& user_profile = REX_KERNEL_STATE()->user_profile();
+-      signin_state = user_profile->signin_state();
++      signin_state = EffectiveSigninState();
+     }
+   }
+   return signin_state;
+@@ -98,7 +117,7 @@ i32 XamUserGetSigninInfo_entry(u32 user_index, u32 flags, ppc_ptr_t<X_USER_SIGNI
+ 
+   const auto& user_profile = REX_KERNEL_STATE()->user_profile();
+   info->xuid = user_profile->xuid();
+-  info->signin_state = user_profile->signin_state();
++  info->signin_state = EffectiveSigninState();
+   rex::string::copy_truncating(info->name, user_profile->name(), rex::countof(info->name));
+   return X_E_SUCCESS;
+ }
+@@ -382,8 +401,20 @@ u32 XamUserCheckPrivilege_entry(u32 user_index, u32 mask, mapped_u32 out_value)
+     }
+   }
+ 
+-  // If we deny everything, games should hopefully not try to do stuff.
+-  *out_value = 0;
++  // Denying everything was the old default, on the theory that games would then
++  // avoid online paths. Black Ops 2 does the opposite: it checks the multiplayer
++  // privilege before starting a match and, when refused, reports "You must have an
++  // active network connection to play Xbox LIVE or System Link matches" and drops
++  // back to the frontend. Grant by default; --no-xam_grant_privileges restores the
++  // deny-everything behaviour.
++  *out_value = REXCVAR_GET(xam_grant_privileges) ? 1 : 0;
++
++  static uint32_t log_count = 0;
++  if (log_count < 16) {
++    ++log_count;
++    REXKRNL_INFO("XamUserCheckPrivilege(user={}, mask={:#x}) -> {}", user_index, mask,
++                 static_cast<uint32_t>(*out_value));
++  }
+   return X_ERROR_SUCCESS;
+ }
+ 
+@@ -712,16 +743,36 @@ u32 XamWriteGamerTile_entry(u32 arg1, u32 arg2, u32 arg3, u32 arg4, u32 arg5, u3
+   return X_ERROR_SUCCESS;
+ }
+ 
++// Ported from NX1recomp's ReXGlue fork. These used to hand back the placeholder
++// handles 0xCAFEDEAD / 0xDEADF00D, so nothing behind a session handle existed and
++// every XGI session message had no object to act on -- a title then cannot create
++// the session a match needs, even a local one.
+ u32 XamSessionCreateHandle_entry(mapped_u32 handle_ptr) {
+-  *handle_ptr = 0xCAFEDEAD;
++  if (!handle_ptr) {
++    return X_ERROR_INVALID_PARAMETER;
++  }
++
++  object_ref<XSession> session(new XSession(REX_KERNEL_STATE()));
++  X_STATUS status = session->Initialize();
++  if (XFAILED(status)) {
++    return X_ERROR_FUNCTION_FAILED;
++  }
++
++  *handle_ptr = session->handle();
+   return X_ERROR_SUCCESS;
+ }
+ 
+ u32 XamSessionRefObjByHandle_entry(u32 handle, mapped_u32 obj_ptr) {
+-  assert_true(handle == 0xCAFEDEAD);
+-  // TODO(PermaNull): Implement this properly,
+-  // For the time being returning 0xDEADF00D will prevent crashing.
+-  *obj_ptr = 0xDEADF00D;
++  if (!obj_ptr) {
++    return X_ERROR_INVALID_PARAMETER;
++  }
++
++  auto session = REX_KERNEL_OBJECTS()->LookupObject<XSession>(handle);
++  if (!session) {
++    return X_ERROR_INVALID_HANDLE;
++  }
++
++  *obj_ptr = session->guest_object();
+   return X_ERROR_SUCCESS;
+ }
+ 
+diff --git a/src/system/CMakeLists.txt b/src/system/CMakeLists.txt
+index a1d8258..b1c68d9 100644
+--- a/src/system/CMakeLists.txt
++++ b/src/system/CMakeLists.txt
+@@ -16,6 +16,7 @@ set(REXSYSTEM_SOURCES
+     xiocompletion.cpp
+     xnotifylistener.cpp
+     xenumerator.cpp
++    xsession.cpp
+     xsocket.cpp
+     xsymboliclink.cpp
+     xobject.cpp
+diff --git a/src/system/xsocket.cpp b/src/system/xsocket.cpp
+index 0b44e06..6b6d383 100644
+--- a/src/system/xsocket.cpp
++++ b/src/system/xsocket.cpp
+@@ -31,6 +31,18 @@
+ #include <sys/socket.h>
+ #endif
+ 
++#include <rex/system/flags.h>
++
++// The System Link query port a host advertises, and an offset so several local
++// instances can bind distinct native ports. XSession reads both when it fills in a
++// session's host address.
++REXCVAR_DEFINE_UINT32(systemlink_base_port, 1001, "Network",
++                      "Guest System Link query port advertised by a hosted session")
++    .range(1, 65535);
++REXCVAR_DEFINE_UINT32(systemlink_port_offset, 0, "Network",
++                      "Offset added to native System Link UDP ports for multiple instances")
++    .range(0, 60000);
++
+ namespace rex::system {
+ 
+ XSocket::XSocket(KernelState* kernel_state) : XObject(kernel_state, kObjectType) {}

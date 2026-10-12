@@ -1,0 +1,635 @@
+thread stacks at 15s (56 threads)
+
+thread 20060:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFAEB3B1C98  MSVCP140!Cnd_wait+0x28
+  #4  0x00007FFA3CD7A0A7  rexruntime!rex::ui::Presenter::WaitForUITickFromUIThread+0xC7
+  #5  0x00007FFA3CD79D7F  rexruntime!rex::ui::Presenter::PaintFromUIThread+0x11F
+  #6  0x00007FFA3CD80B31  rexruntime!rex::ui::Window::OnPaint+0x31
+  #7  0x00007FFA3CD87A97  rexruntime!rex::ui::SDLWindowedAppContext::RunMainMessageLoop+0x47
+  #8  0x00007FF72444ADA5  bo3_zm!wWinMain+0x6C5
+  #9  0x00007FF7244CF1BE  bo3_zm!__scrt_common_main_seh+0x106  (D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288)
+  #10 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #11 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 9432:
+  #0  0x00007FFB08AC5874  ntdll!ZwWaitForWorkViaWorkerFactory+0x14
+  #1  0x00007FFB089D5F3E  ntdll!RtlSetThreadSubProcessTag+0x1AEE
+  #2  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #3  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 11600:
+  #0  0x00007FFB08AC5874  ntdll!ZwWaitForWorkViaWorkerFactory+0x14
+  #1  0x00007FFB089D5F3E  ntdll!RtlSetThreadSubProcessTag+0x1AEE
+  #2  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #3  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 13572:
+  #0  0x00007FFB08AC5874  ntdll!ZwWaitForWorkViaWorkerFactory+0x14
+  #1  0x00007FFB089D5F3E  ntdll!RtlSetThreadSubProcessTag+0x1AEE
+  #2  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #3  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 21924:
+  #0  0x00007FFB08AC2244  ntdll!ZwDelayExecution+0x14
+  #1  0x00007FFB08A2EE84  ntdll!RtlDelayExecution+0x34
+  #2  0x00007FFB062979A1  KERNELBASE!SleepEx+0x91
+  #3  0x00007FFA3CD36055  rexruntime!rex::thread::TimerQueue::TimerThreadMain+0x575
+  #4  0x00007FFA3CD359FD  rexruntime!std::thread::_Invoke<std::tuple<`rex::thread::TimerQueue::TimerQueue'::`1'::<lambda_1>,std::stop_token>,0,1>+0x3D
+  #5  0x00007FFB05F837B0  ucrtbase!wcsrchr+0x150
+  #6  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #7  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 23096:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3D287A45  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::crt::SwitchToFiber_entry>+0x1968B5
+  #3  0x00007FFA3D19EFEA  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::crt::SwitchToFiber_entry>+0xADE5A
+  #4  0x00007FFA3D1C4D2E  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::crt::SwitchToFiber_entry>+0xD3B9E
+  #5  0x00007FFB05F837B0  ucrtbase!wcsrchr+0x150
+  #6  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #7  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 23360:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFB05EF3D2D  msvcp_win!std::time_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::_Getcat+0xBBD
+  #4  0x00007FFB05EEF4A9  msvcp_win!Cnd_wait+0x19
+  #5  0x00007FFAC0CE8D5A  ?!<no symbol>+0x0
+
+thread 19332:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFB05EF3D2D  msvcp_win!std::time_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::_Getcat+0xBBD
+  #4  0x00007FFB05EEF4A9  msvcp_win!Cnd_wait+0x19
+  #5  0x00007FFAC0CE8D5A  ?!<no symbol>+0x0
+
+thread 20028:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFB05EF3D2D  msvcp_win!std::time_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::_Getcat+0xBBD
+  #4  0x00007FFB05EEF4A9  msvcp_win!Cnd_wait+0x19
+  #5  0x00007FFAC0CE8D5A  ?!<no symbol>+0x0
+
+thread 19172:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFB05EF3D2D  msvcp_win!std::time_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::_Getcat+0xBBD
+  #4  0x00007FFB05EEF4A9  msvcp_win!Cnd_wait+0x19
+  #5  0x00007FFAC0CE8D5A  ?!<no symbol>+0x0
+
+thread 15828:
+  #0  0x00007FFB05AB5FE4  win32u!NtGdiDdDDIWaitForVerticalBlankEvent+0x14
+  #1  0x00007FFB02F10126  dxgi!DXGIReportAdapterConfiguration+0x4016
+  #2  0x00007FFA3CD7B08C  rexruntime!rex::ui::Presenter::DXGIUITickThread+0xAC
+  #3  0x00007FFA3CD7E02C  rexruntime!std::thread::_Invoke<std::tuple<void (__cdecl rex::ui::Presenter::*)(void) __ptr64,rex::ui::Presenter * __ptr64>,0,1>+0x1C
+  #4  0x00007FFB05F837B0  ucrtbase!wcsrchr+0x150
+  #5  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #6  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 1132:
+  #0  0x00007FFB08AC2714  ntdll!NtWaitForMultipleObjects+0x14
+  #1  0x00007FFB06292533  KERNELBASE!WaitForMultipleObjectsEx+0x123
+  #2  0x00007FFB0682383E  combase!RoClearError+0x104E
+  #3  0x00007FFB0681B761  combase!RoParameterizedTypeExtraGetTypeSignature+0x211
+  #4  0x00007FFB0681B619  combase!RoParameterizedTypeExtraGetTypeSignature+0xC9
+  #5  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #6  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 8780:
+  #0  0x00007FFB08AC5874  ntdll!ZwWaitForWorkViaWorkerFactory+0x14
+  #1  0x00007FFB089D5F3E  ntdll!RtlSetThreadSubProcessTag+0x1AEE
+  #2  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #3  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 11812:
+  #0  0x00007FFB08AC5874  ntdll!ZwWaitForWorkViaWorkerFactory+0x14
+  #1  0x00007FFB089D5F3E  ntdll!RtlSetThreadSubProcessTag+0x1AEE
+  #2  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #3  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 1872:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CDB0F71  rexruntime!rex::audio::XmaDecoder::WorkerThreadMain+0x1D1
+  #4  0x00007FFA3CDB1F9D  rexruntime!rex::audio::XmaDecoder::Pause+0x2ED
+  #5  0x00007FFA3CEEEC8D  rexruntime!rex::system::XHostThread::Execute+0x10D
+  #6  0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #7  0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #8  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #9  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 8500:
+  #0  0x00007FFB08AC2714  ntdll!NtWaitForMultipleObjects+0x14
+  #1  0x00007FFB06292533  KERNELBASE!WaitForMultipleObjectsEx+0x123
+  #2  0x00007FFA3CD43969  rexruntime!rex::thread::WaitMultiple+0x109
+  #3  0x00007FFA3CDAA348  rexruntime!rex::audio::AudioSystem::WorkerThreadMain+0x108
+  #4  0x00007FFA3CDAC32D  rexruntime!rex::audio::AudioSystem::Resume+0x27D
+  #5  0x00007FFA3CEEEC8D  rexruntime!rex::system::XHostThread::Execute+0x10D
+  #6  0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #7  0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #8  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #9  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 22684:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFAE7CDA5BD  ?!<no symbol>+0x0
+  #4  0x00007FFA3D450610  rexruntime!std::_Func_impl_no_alloc<`rex::thread::HighResolutionTimer::HighResolutionTimer'::`1'::<lambda_1>,void,void * __ptr64>::`vftable'+0xB9E28
+
+thread 19720:
+  #0  0x00007FFB08AC2244  ntdll!ZwDelayExecution+0x14
+  #1  0x00007FFB08A2EE84  ntdll!RtlDelayExecution+0x34
+  #2  0x00007FFB062979A1  KERNELBASE!SleepEx+0x91
+  #3  0x00007FFAE7CD670A  ?!<no symbol>+0x0
+  #4  0x000000002CF44869  ?!<no symbol>+0x0
+
+thread 5228:
+  #0  0x00007FFB08AC5874  ntdll!ZwWaitForWorkViaWorkerFactory+0x14
+  #1  0x00007FFB089D5F3E  ntdll!RtlSetThreadSubProcessTag+0x1AEE
+  #2  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #3  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 19932:
+  #0  0x00007FFB08AC2714  ntdll!NtWaitForMultipleObjects+0x14
+  #1  0x00007FFB06292533  KERNELBASE!WaitForMultipleObjectsEx+0x123
+  #2  0x00007FFB028EE5D8  ?!<no symbol>+0x0
+  #3  0x0000018551883AC0  ?!<no symbol>+0x0
+
+thread 13952:
+  #0  0x00007FFB08AC5874  ntdll!ZwWaitForWorkViaWorkerFactory+0x14
+  #1  0x00007FFB089D5F3E  ntdll!RtlSetThreadSubProcessTag+0x1AEE
+  #2  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #3  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 20188:
+  #0  0x00007FFB05AB1324  win32u!NtUserGetMessage+0x14
+  #1  0x00007FFB07FEF402  USER32!GetMessageW+0x22
+  #2  0x00007FFA3D26C5CE  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::crt::SwitchToFiber_entry>+0x17B43E
+  #3  0x00007FFA3D19EFEA  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::crt::SwitchToFiber_entry>+0xADE5A
+  #4  0x00007FFA3D1C4D2E  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::crt::SwitchToFiber_entry>+0xD3B9E
+  #5  0x00007FFB05F837B0  ucrtbase!wcsrchr+0x150
+  #6  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #7  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 13492:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFAEB3B1C98  MSVCP140!Cnd_wait+0x28
+  #4  0x00007FFAE7DC7232  ?!<no symbol>+0x0
+
+thread 18564:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFAEB3B1C98  MSVCP140!Cnd_wait+0x28
+  #4  0x00007FFAE7DC7232  ?!<no symbol>+0x0
+
+thread 13224:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFAEB3B1C98  MSVCP140!Cnd_wait+0x28
+  #4  0x00007FFAE7DC7232  ?!<no symbol>+0x0
+
+thread 15996:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFAEB3B1C98  MSVCP140!Cnd_wait+0x28
+  #4  0x00007FFAE7DC7232  ?!<no symbol>+0x0
+
+thread 9592:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFAEB3B1C98  MSVCP140!Cnd_wait+0x28
+  #4  0x00007FFAE7DC7232  ?!<no symbol>+0x0
+
+thread 22812:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFAEB3B1C98  MSVCP140!Cnd_wait+0x28
+  #4  0x00007FFAE7DC7232  ?!<no symbol>+0x0
+
+thread 19832:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFAEB3B1C98  MSVCP140!Cnd_wait+0x28
+  #4  0x00007FFAE7DC7232  ?!<no symbol>+0x0
+
+thread 15144:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFAEB3B1C98  MSVCP140!Cnd_wait+0x28
+  #4  0x00007FFAE7DC7232  ?!<no symbol>+0x0
+
+thread 6476:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFAEB3B1C98  MSVCP140!Cnd_wait+0x28
+  #4  0x00007FFAE7DC7232  ?!<no symbol>+0x0
+
+thread 9880:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFAEB3B1C98  MSVCP140!Cnd_wait+0x28
+  #4  0x00007FFA3CED0361  rexruntime!std::condition_variable_any::wait<std::unique_lock<std::recursive_mutex> >+0x81
+  #5  0x00007FFA3CECA144  rexruntime!rex::system::KernelState::GetOrCreateFiberName+0x544
+  #6  0x00007FFA3CEEEC8D  rexruntime!rex::system::XHostThread::Execute+0x10D
+  #7  0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #8  0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #9  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #10 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 20864:
+  #0  0x00007FFB08AC2244  ntdll!ZwDelayExecution+0x14
+  #1  0x00007FFB08A2EE84  ntdll!RtlDelayExecution+0x34
+  #2  0x00007FFB062979A1  KERNELBASE!SleepEx+0x91
+  #3  0x00007FF720F37015  bo3_zm!std::this_thread::sleep_for<__int64,std::ratio<1,1> >+0x135
+  #4  0x00007FF720F360F3  bo3_zm!`Bo3ZmApp::LaunchModule'::`1'::<lambda_1>::operator()+0xD3
+  #5  0x00007FF720F35F71  bo3_zm!std::thread::_Invoke<std::tuple<`Bo3ZmApp::LaunchModule'::`1'::<lambda_1>,std::stop_token>,0,1>+0x31
+  #6  0x00007FFB05F837B0  ucrtbase!wcsrchr+0x150
+  #7  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #8  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 232:
+  #0  0x00007FFB08AC2244  ntdll!ZwDelayExecution+0x14
+  #1  0x00007FFB08A2EE84  ntdll!RtlDelayExecution+0x34
+  #2  0x00007FFB062979A1  KERNELBASE!SleepEx+0x91
+  #3  0x00007FFA3CEED16B  rexruntime!rex::system::XThread::Delay+0x10B
+  #4  0x00007FFA3D0D3D98  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::KeDelayExecutionThread_entry>+0x58
+  #5  0x00007FF722EE2C10  bo3_zm!_imp__sub_826DBEE8+0x1A0
+  #6  0x00007FF721A60810  bo3_zm!_imp__sub_82323E90+0x160
+  #7  0x00007FF722E48DBE  bo3_zm!_imp__sub_826C01B0+0x9E
+  #8  0x00007FF721868AD1  bo3_zm!_imp__sub_822C2898+0xC11
+  #9  0x00007FF721868D3C  bo3_zm!_imp__sub_822C2898+0xE7C
+  #10 0x00007FF72186CDCB  bo3_zm!_imp__sub_822C3650+0x121B
+  #11 0x00007FF72186EE21  bo3_zm!_imp__sub_822C41C8+0x161
+  #12 0x00007FF721124AA9  bo3_zm!_imp__sub_82171110+0x5A9
+  #13 0x00007FF722082C89  bo3_zm!_imp__sub_82436E80+0x1E79
+  #14 0x00007FF722C48E68  bo3_zm!_imp__sub_82666A78+0x2A8
+  #15 0x00007FF722C84B99  bo3_zm!_imp__sub_82672060+0x2589
+  #16 0x00007FF722B8E9E7  bo3_zm!_imp__sub_826427C8+0x307
+  #17 0x00007FF722B8F53A  bo3_zm!_imp__sub_826429A8+0x5DA
+  #18 0x00007FF722B9CAE9  bo3_zm!_imp__sub_82644DC8+0x2289
+  #19 0x00007FF722BA0603  bo3_zm!_imp__sub_82645F38+0x433
+  #20 0x00007FF722EA6142  bo3_zm!_imp__sub_826CFFB8+0x2042
+  #21 0x00007FF722F00484  bo3_zm!_imp__xstart+0x834
+  #22 0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #23 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #24 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #25 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #26 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 21760:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFAEB3B1C98  MSVCP140!Cnd_wait+0x28
+  #4  0x00007FFAE7DC6A7A  ?!<no symbol>+0x0
+
+thread 14108:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CEF8278  rexruntime!rex::system::XObject::Wait+0x78
+  #4  0x00007FF72445709F  bo3_zm!rex::ReXApp::SetGuestFrameStats+0x16FF
+  #5  0x00007FFB05F837B0  ucrtbase!wcsrchr+0x150
+  #6  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #7  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 6332:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CEF8278  rexruntime!rex::system::XObject::Wait+0x78
+  #4  0x00007FFA3D0C87A7  rexruntime!rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry+0x77
+  #5  0x00007FFA3D0D49AE  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry>+0x4E
+  #6  0x00007FF722F1F38A  bo3_zm!_imp__sub_826E2D70+0xEA
+  #7  0x00007FF722BF1A1A  bo3_zm!_imp__sub_826573C8+0x64A
+  #8  0x00007FF722C0C5A3  bo3_zm!_imp__sub_8265CB90+0x1B3
+  #9  0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #10 0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #11 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #12 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #13 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #14 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 7160:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CEF8278  rexruntime!rex::system::XObject::Wait+0x78
+  #4  0x00007FFA3D0C8654  rexruntime!rex::kernel::xboxkrnl::xeKeWaitForSingleObject+0x64
+  #5  0x00007FFA3D0D4945  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::KeWaitForSingleObject_entry>+0x85
+  #6  0x00007FF722FECBD6  bo3_zm!_imp__sub_8270A048+0x836
+  #7  0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #8  0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #9  0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #10 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #11 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #12 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 21648:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CEF8278  rexruntime!rex::system::XObject::Wait+0x78
+  #4  0x00007FFA3D0C8654  rexruntime!rex::kernel::xboxkrnl::xeKeWaitForSingleObject+0x64
+  #5  0x00007FFA3D0D4945  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::KeWaitForSingleObject_entry>+0x85
+  #6  0x00007FF722FEC741  bo3_zm!_imp__sub_8270A048+0x3A1
+  #7  0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #8  0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #9  0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #10 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #11 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #12 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 13860:
+  #0  0x00007FF7221CDE08  bo3_zm!_imp__sub_824779B8+0x1B8
+  #1  0x00007FF722DB19DB  bo3_zm!_imp__sub_826A8818+0x39B
+  #2  0x00007FF7221CBD2F  bo3_zm!_imp__sub_824773B8+0x11F
+  #3  0x00007FF722306C4A  bo3_zm!_imp__sub_824ACCB0+0x65A
+  #4  0x00007FF721969DFD  bo3_zm!_imp__sub_822F7750+0x239D
+  #5  0x00007FF72196A92B  bo3_zm!_imp__sub_822F80C8+0x3EB
+  #6  0x00007FF7221CF298  bo3_zm!_imp__sub_82477B10+0xFE8
+  #7  0x00007FF722C0C5A3  bo3_zm!_imp__sub_8265CB90+0x1B3
+  #8  0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #9  0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #10 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #11 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #12 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #13 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 19088:
+  #0  0x00007FFB08AC2244  ntdll!ZwDelayExecution+0x14
+  #1  0x00007FFB08A2EE84  ntdll!RtlDelayExecution+0x34
+  #2  0x00007FFB062979A1  KERNELBASE!SleepEx+0x91
+  #3  0x00007FFA3CEED16B  rexruntime!rex::system::XThread::Delay+0x10B
+  #4  0x00007FFA3D0D3D98  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::KeDelayExecutionThread_entry>+0x58
+  #5  0x00007FF722EE2C10  bo3_zm!_imp__sub_826DBEE8+0x1A0
+  #6  0x00007FF721A6B8D9  bo3_zm!_imp__sub_82326310+0x3B9
+  #7  0x00007FF722C0C5A3  bo3_zm!_imp__sub_8265CB90+0x1B3
+  #8  0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #9  0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #10 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #11 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #12 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #13 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 19888:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CEF8278  rexruntime!rex::system::XObject::Wait+0x78
+  #4  0x00007FFA3D0C87A7  rexruntime!rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry+0x77
+  #5  0x00007FFA3D0D49AE  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry>+0x4E
+  #6  0x00007FF722F1F38A  bo3_zm!_imp__sub_826E2D70+0xEA
+  #7  0x00007FF72100A166  bo3_zm!_imp__sub_82146A48+0x1956
+  #8  0x00007FF72100B6E4  bo3_zm!_imp__sub_821470B8+0x194
+  #9  0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #10 0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #11 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #12 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #13 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #14 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 2684:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CEF8278  rexruntime!rex::system::XObject::Wait+0x78
+  #4  0x00007FFA3D0C87A7  rexruntime!rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry+0x77
+  #5  0x00007FFA3D0D49AE  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry>+0x4E
+  #6  0x00007FF722F1F38A  bo3_zm!_imp__sub_826E2D70+0xEA
+  #7  0x00007FF72100A166  bo3_zm!_imp__sub_82146A48+0x1956
+  #8  0x00007FF72100B6E4  bo3_zm!_imp__sub_821470B8+0x194
+  #9  0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #10 0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #11 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #12 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #13 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #14 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 20568:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CEF8278  rexruntime!rex::system::XObject::Wait+0x78
+  #4  0x00007FFA3D0C87A7  rexruntime!rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry+0x77
+  #5  0x00007FFA3D0D49AE  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry>+0x4E
+  #6  0x00007FF722F1F38A  bo3_zm!_imp__sub_826E2D70+0xEA
+  #7  0x00007FF72100A166  bo3_zm!_imp__sub_82146A48+0x1956
+  #8  0x00007FF72100B6E4  bo3_zm!_imp__sub_821470B8+0x194
+  #9  0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #10 0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #11 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #12 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #13 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #14 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 23116:
+  #0  0x00007FFB08AC2714  ntdll!NtWaitForMultipleObjects+0x14
+  #1  0x00007FFB06292533  KERNELBASE!WaitForMultipleObjectsEx+0x123
+  #2  0x00007FFA3CD43969  rexruntime!rex::thread::WaitMultiple+0x109
+  #3  0x00007FFA3CEF84E6  rexruntime!rex::system::XObject::WaitMultiple+0x166
+  #4  0x00007FFA3D0C8986  rexruntime!rex::kernel::xboxkrnl::KeWaitForMultipleObjects_entry+0x146
+  #5  0x00007FFA3D0D4A53  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::KeWaitForMultipleObjects_entry>+0x93
+  #6  0x00007FF723150F73  bo3_zm!_imp__sub_827477C8+0x213
+  #7  0x00007FF7231597BD  bo3_zm!_imp__sub_82748EB8+0x4DD
+  #8  0x00007FF72315126C  bo3_zm!_imp__sub_82747888+0x13C
+  #9  0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #10 0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #11 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #12 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #13 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #14 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 8084:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CEF8278  rexruntime!rex::system::XObject::Wait+0x78
+  #4  0x00007FFA3D0C87A7  rexruntime!rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry+0x77
+  #5  0x00007FFA3D0D49AE  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry>+0x4E
+  #6  0x00007FF722F1F38A  bo3_zm!_imp__sub_826E2D70+0xEA
+  #7  0x00007FF723155617  bo3_zm!_imp__sub_82748368+0x217
+  #8  0x00007FF72315142A  bo3_zm!_imp__sub_827478E8+0xDA
+  #9  0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #10 0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #11 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #12 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #13 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #14 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 14676:
+  #0  0x00007FFB08AC5814  ntdll!ZwWaitForAlertByThreadId+0x14
+  #1  0x00007FFB089F4D4E  ntdll!RtlSleepConditionVariableSRW+0x1DE
+  #2  0x00007FFB06292818  KERNELBASE!SleepConditionVariableSRW+0x38
+  #3  0x00007FFA3D199EAA  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::crt::SwitchToFiber_entry>+0xA8D1A
+  #4  0x00007FFA3D270FAF  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::crt::SwitchToFiber_entry>+0x17FE1F
+  #5  0x00007FFA3D19EFEA  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::crt::SwitchToFiber_entry>+0xADE5A
+  #6  0x00007FFA3D1C4D2E  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::crt::SwitchToFiber_entry>+0xD3B9E
+  #7  0x00007FFB05F837B0  ucrtbase!wcsrchr+0x150
+  #8  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #9  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 22908:
+  #0  0x00007FFB08AC5874  ntdll!ZwWaitForWorkViaWorkerFactory+0x14
+  #1  0x00007FFB089D5F3E  ntdll!RtlSetThreadSubProcessTag+0x1AEE
+  #2  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #3  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 20248:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3D27099D  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::crt::SwitchToFiber_entry>+0x17F80D
+  #3  0x00007FFA3D199BF2  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::crt::SwitchToFiber_entry>+0xA8A62
+  #4  0x00007FFA3D19EFEA  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::crt::SwitchToFiber_entry>+0xADE5A
+  #5  0x00007FFA3D1C4D2E  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::crt::SwitchToFiber_entry>+0xD3B9E
+  #6  0x00007FFB05F837B0  ucrtbase!wcsrchr+0x150
+  #7  0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #8  0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 10324:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CEF8278  rexruntime!rex::system::XObject::Wait+0x78
+  #4  0x00007FFA3D0C87A7  rexruntime!rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry+0x77
+  #5  0x00007FFA3D0D49AE  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry>+0x4E
+  #6  0x00007FF722F1F38A  bo3_zm!_imp__sub_826E2D70+0xEA
+  #7  0x00007FF722CACCF1  bo3_zm!_imp__sub_8267A438+0x2C1
+  #8  0x00007FF722C0C5A3  bo3_zm!_imp__sub_8265CB90+0x1B3
+  #9  0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #10 0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #11 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #12 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #13 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #14 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 11632:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CEF8278  rexruntime!rex::system::XObject::Wait+0x78
+  #4  0x00007FFA3D0C87A7  rexruntime!rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry+0x77
+  #5  0x00007FFA3D0D49AE  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry>+0x4E
+  #6  0x00007FF722F1F38A  bo3_zm!_imp__sub_826E2D70+0xEA
+  #7  0x00007FF7232A44D4  bo3_zm!_imp__sub_82781C40+0x2B4
+  #8  0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #9  0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #10 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #11 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #12 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #13 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 1096:
+  #0  0x00007FFB08AC2244  ntdll!ZwDelayExecution+0x14
+  #1  0x00007FFB08A2EE84  ntdll!RtlDelayExecution+0x34
+  #2  0x00007FFB062979A1  KERNELBASE!SleepEx+0x91
+  #3  0x00007FFA3CEED16B  rexruntime!rex::system::XThread::Delay+0x10B
+  #4  0x00007FFA3D0D3D98  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::KeDelayExecutionThread_entry>+0x58
+  #5  0x00007FF722EE2C10  bo3_zm!_imp__sub_826DBEE8+0x1A0
+  #6  0x00007FF722BE6099  bo3_zm!_imp__sub_82654C30+0xED9
+  #7  0x00007FF722C0C5A3  bo3_zm!_imp__sub_8265CB90+0x1B3
+  #8  0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #9  0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #10 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #11 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #12 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #13 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 14792:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CEF8278  rexruntime!rex::system::XObject::Wait+0x78
+  #4  0x00007FFA3D0C87A7  rexruntime!rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry+0x77
+  #5  0x00007FFA3D0D49AE  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry>+0x4E
+  #6  0x00007FF722F1F38A  bo3_zm!_imp__sub_826E2D70+0xEA
+  #7  0x00007FF722C0CC32  bo3_zm!_imp__sub_8265CD28+0xE2
+  #8  0x00007FF722C92A27  bo3_zm!_imp__sub_82675380+0xD17
+  #9  0x00007FF722C0C5A3  bo3_zm!_imp__sub_8265CB90+0x1B3
+  #10 0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #11 0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #12 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #13 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #14 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #15 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 21892:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CEF8278  rexruntime!rex::system::XObject::Wait+0x78
+  #4  0x00007FFA3D0C87A7  rexruntime!rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry+0x77
+  #5  0x00007FFA3D0D49AE  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry>+0x4E
+  #6  0x00007FF722F1F38A  bo3_zm!_imp__sub_826E2D70+0xEA
+  #7  0x00007FF72442CA08  bo3_zm!_imp__sub_82AAF4A0+0xF8
+  #8  0x00007FF72434A951  bo3_zm!_imp__sub_82A85CC0+0x431
+  #9  0x00007FF72442CD4F  bo3_zm!_imp__sub_82AAF528+0x21F
+  #10 0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #11 0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #12 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #13 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #14 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #15 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 18632:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CEF8278  rexruntime!rex::system::XObject::Wait+0x78
+  #4  0x00007FFA3D0C87A7  rexruntime!rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry+0x77
+  #5  0x00007FFA3D0D49AE  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry>+0x4E
+  #6  0x00007FF722F1F38A  bo3_zm!_imp__sub_826E2D70+0xEA
+  #7  0x00007FF72442CA08  bo3_zm!_imp__sub_82AAF4A0+0xF8
+  #8  0x00007FF7243ED9B3  bo3_zm!_imp__sub_82AA3F80+0x143
+  #9  0x00007FF7243EE59A  bo3_zm!_imp__sub_82AA42D8+0x18A
+  #10 0x00007FF724361E81  bo3_zm!_imp__sub_82A8A5F8+0x261
+  #11 0x00007FF7243ED48B  bo3_zm!_imp__sub_82AA3E28+0x19B
+  #12 0x00007FF72442CD4F  bo3_zm!_imp__sub_82AAF528+0x21F
+  #13 0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #14 0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #15 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #16 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #17 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #18 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+
+thread 4720:
+  #0  0x00007FFB08AC1C44  ntdll!NtWaitForSingleObject+0x14
+  #1  0x00007FFB0628BC5F  KERNELBASE!WaitForSingleObjectEx+0xAF
+  #2  0x00007FFA3CD43790  rexruntime!rex::thread::Wait+0x20
+  #3  0x00007FFA3CEF8278  rexruntime!rex::system::XObject::Wait+0x78
+  #4  0x00007FFA3D0C87A7  rexruntime!rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry+0x77
+  #5  0x00007FFA3D0D49AE  rexruntime!rex::ppc::HostToGuestFunction<&rex::kernel::xboxkrnl::NtWaitForSingleObjectEx_entry>+0x4E
+  #6  0x00007FF722F1F38A  bo3_zm!_imp__sub_826E2D70+0xEA
+  #7  0x00007FF72442CA08  bo3_zm!_imp__sub_82AAF4A0+0xF8
+  #8  0x00007FF7243ED9B3  bo3_zm!_imp__sub_82AA3F80+0x143
+  #9  0x00007FF7243EE59A  bo3_zm!_imp__sub_82AA42D8+0x18A
+  #10 0x00007FF724361E81  bo3_zm!_imp__sub_82A8A5F8+0x261
+  #11 0x00007FF7243ED48B  bo3_zm!_imp__sub_82AA3E28+0x19B
+  #12 0x00007FF72442CD4F  bo3_zm!_imp__sub_82AAF528+0x21F
+  #13 0x00007FF722F23050  bo3_zm!_imp__sub_826E3A38+0x110
+  #14 0x00007FFA3CEEBBCF  rexruntime!rex::system::XThread::Execute+0x32F
+  #15 0x00007FFA3CEEF229  rexruntime!rex::system::XHostThread::Execute+0x6A9
+  #16 0x00007FFA3CD44037  rexruntime!rex::thread::ThreadStartRoutine+0xA7
+  #17 0x00007FFB07CAE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #18 0x00007FFB089EC53C  ntdll!RtlUserThreadStart+0x2C
+

@@ -1,0 +1,54 @@
+{
+  "compiler": "clang version 20.1.8\nTarget: x86_64-pc-windows-msvc\nThread model: posix\nInstalledDir: C:\\bo3recomp\\tools\\llvm-20.1.8\\bin",
+  "sdk": {
+    "original_source": "C:\\BO2recomp\\Project BO2\\rexglue-sdk",
+    "revision": "cb58065c793429aa92895d778af58d12e9d26d8f",
+    "manifest": "../../sdk_snapshot/snapshot-manifest.json"
+  },
+  "files": {
+    "build/bo3_zm.exe": {
+      "bytes": 58003968,
+      "sha256": "47fde8e510669aa9a9afa6857a427e302654af3bd64499dfd7f420d6a9ca928f"
+    },
+    "build/bo3_zm.pdb": {
+      "bytes": 6590464,
+      "sha256": "34b89daa2e280814ff016fe3a2301bb20a6f115ff62868812beb6bdf1a9fdb91"
+    },
+    "build/rexruntime.dll": {
+      "bytes": 10484224,
+      "sha256": "8f5c80ffcc25715a6e826d160640e0a0d9127faff4823433c56dce1774cd9d4f"
+    },
+    "build/rexgpu-xenos.dll": {
+      "bytes": 2886656,
+      "sha256": "f0269d924a7893b4f10589152c11376aa6e9d219b17435d75fd022719758bb31"
+    },
+    "build/TracyClient.dll": {
+      "bytes": 246784,
+      "sha256": "ed0a9a466c0fffcc5f2273099e45923a9e85f38fbe75ac917870b041bfdfdc00"
+    },
+    "app/bo3_zm_manifest.toml": {
+      "bytes": 2472,
+      "sha256": "0532c5b4e743e7c0e560a242b094fc1a7ef3bd865140bb5b2e9dc2299dbee43f"
+    },
+    "scripts/build.cmd": {
+      "bytes": 1003,
+      "sha256": "d716f6b3c5cc9fa1a053ba92229a795d2a001da42d65dacad19e3633fae3488c"
+    },
+    "runtime/game/default_zm.xex": {
+      "bytes": 13492224,
+      "sha256": "d0eb63c97f69cf14ecaf5171429fa4afcce6f0fd5ca3d774c7a0af343f33fe4e"
+    },
+    "runtime/game/default_zm.xexp": {
+      "bytes": 3416064,
+      "sha256": "a2c170614d5323d2202d551faecb45ca8db958da2b06c5fe1d8d9771e6fbe777"
+    },
+    "tools/rexglue-bootstrap/rexglue.exe": {
+      "bytes": 3244544,
+      "sha256": "759f855b63f16a43b30710ac56f662b4a8d6de9d3077237926c505c07229a18c"
+    },
+    "tools/llvm-20.1.8/bin/clang++.exe": {
+      "bytes": 101879296,
+      "sha256": "57e32b1ea2456f12f97bf802453171bbff12d56b2c486b4eca0c75343c0cda2c"
+    }
+  }
+}

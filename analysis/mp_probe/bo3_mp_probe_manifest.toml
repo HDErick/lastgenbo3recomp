@@ -1,0 +1,16 @@
+[project]
+name = "bo3_mp_probe"
+sdk_version = "0.9.0"
+game_root = "../loader_probe"
+
+[entrypoint]
+file_path = "../loader_probe/default.xex"
+out_directory_path = "generated"
+
+# Entry inferred from the direct tail branch at 0x82862E8C in the patched image.
+# Seed discovery without imposing an unverified function size.
+[entrypoint.functions]
+0x82862C38 = { name = "sub_82862C38" }
+# Corresponding leaf routine in the multiplayer image, ending in blr.
+0x824DEDD0 = { name = "sub_824DEDD0", end = 0x824DEE78 }
+

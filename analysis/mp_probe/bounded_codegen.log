@@ -1,0 +1,27 @@
+[2026-10-12 00:53:33.422] [info] [sys] [t14444] FunctionDispatcher initialized
+[2026-10-12 00:53:33.424] [info] [sys] [t14444]   Mounted C:\bo3recomp\analysis\loader_probe at \Device\Harddisk0\Partition1
+[2026-10-12 00:53:33.424] [info] [sys] [t14444] Runtime initialized in tool mode (no GPU)
+[2026-10-12 00:53:33.424] [info] [sys] [t14444] Loading XEX image: game:\default.xex
+[2026-10-12 00:53:33.565] [info] [core] [t14444] XEX patch applied successfully: base version: 0.0.0.5, new version: 0.0.8.5
+[2026-10-12 00:53:33.567] [info] [sys] [t14444] Achievement store: loaded 32 entries
+[2026-10-12 00:53:33.567] [info] [sys] [t14104] XThread::Execute thid 1 (handle=F8000018, 'Kernel Dispatch (F8000018)', native=00003718, <host>)
+[2026-10-12 00:53:47.317] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272A1AC
+[2026-10-12 00:53:47.317] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272A220
+[2026-10-12 00:53:47.317] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272A24C
+[2026-10-12 00:53:47.317] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272A278
+[2026-10-12 00:53:47.317] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272A334
+[2026-10-12 00:53:47.317] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272A338
+[2026-10-12 00:53:47.317] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272A33C
+[2026-10-12 00:53:47.317] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272A350
+[2026-10-12 00:53:47.317] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272A35C
+[2026-10-12 00:53:47.317] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272A3D8
+[2026-10-12 00:53:47.318] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272A914
+[2026-10-12 00:53:47.318] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272ABDC
+[2026-10-12 00:53:47.318] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272AC08
+[2026-10-12 00:53:47.318] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272AC18
+[2026-10-12 00:53:47.318] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272AC2C
+[2026-10-12 00:53:47.318] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272AC44
+[2026-10-12 00:53:47.318] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272AC54
+[2026-10-12 00:53:47.318] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272AC80
+[2026-10-12 00:53:47.318] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272AC94
+[2026-10-12 00:53:47.318] [warning] [codegen] [t14444] Unexpected float16_4 pack instruction at 8272AD38

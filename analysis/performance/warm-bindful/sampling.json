@@ -1,0 +1,8 @@
+{
+  "process_id": 13604,
+  "started_utc": "2026-10-12T06:22:04.5706621Z",
+  "host_tick": 223446582426,
+  "host_tick_frequency": 10000000,
+  "logical_processors": 12,
+  "cpu_percent_definition": "100 percent equals one fully occupied logical processor"
+}

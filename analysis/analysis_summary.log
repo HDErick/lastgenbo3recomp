@@ -1,0 +1,147 @@
+{
+  "folders": [
+    {
+      "folder": "base",
+      "file_count": 381,
+      "bytes": 4075143943
+    },
+    {
+      "folder": "compatibility1",
+      "file_count": 620,
+      "bytes": 1915087920
+    },
+    {
+      "folder": "compatibility2",
+      "file_count": 115,
+      "bytes": 34447388
+    },
+    {
+      "folder": "optional_dlc0",
+      "file_count": 50,
+      "bytes": 635447385
+    },
+    {
+      "folder": "optional_dlc1",
+      "file_count": 195,
+      "bytes": 1290952145
+    },
+    {
+      "folder": "title_update",
+      "file_count": 429,
+      "bytes": 114824767
+    }
+  ],
+  "total_files": 1790,
+  "total_bytes": 8065903548,
+  "unique_relative_paths": 1682,
+  "duplicated_relative_path_count": 107,
+  "map_fastfiles": {
+    "base": [
+      "mp_gfx.ff"
+    ],
+    "compatibility1": [
+      "mp_apartments.ff",
+      "mp_biodome.ff",
+      "mp_chinatown.ff",
+      "mp_common.ff",
+      "mp_common_all.ff",
+      "mp_ethiopia.ff",
+      "mp_freerun_01.ff",
+      "mp_freerun_02.ff",
+      "mp_freerun_03.ff",
+      "mp_freerun_04.ff",
+      "mp_havoc.ff",
+      "mp_infection.ff",
+      "mp_metro.ff",
+      "mp_redwood.ff",
+      "mp_sector.ff",
+      "mp_spire.ff",
+      "mp_stronghold.ff",
+      "mp_veiled.ff",
+      "zm_common.ff",
+      "zm_common_all.ff",
+      "zm_frontend.ff",
+      "zm_zod.ff"
+    ],
+    "compatibility2": [
+      "mp_apartments_patch.ff",
+      "mp_chinatown_patch.ff",
+      "mp_havoc_patch.ff",
+      "mp_patch.ff",
+      "mp_redwood_patch.ff",
+      "mp_sector_patch.ff",
+      "mp_spire_patch.ff",
+      "zm_patch.ff"
+    ],
+    "optional_dlc0": [
+      "zm_factory.ff"
+    ],
+    "optional_dlc1": [
+      "mp_crucible.ff",
+      "mp_rise.ff",
+      "mp_skyjacked.ff",
+      "mp_waterpark.ff",
+      "zm_castle.ff"
+    ],
+    "title_update": [
+      "mp_biodome_patch.ff",
+      "mp_crucible_patch.ff",
+      "mp_ethiopia_patch.ff",
+      "mp_freerun_01_patch.ff",
+      "mp_freerun_02_patch.ff",
+      "mp_freerun_03_patch.ff",
+      "mp_freerun_04_patch.ff",
+      "mp_frontend.ff",
+      "mp_frontend_patch.ff",
+      "mp_gfx.ff",
+      "mp_infection_patch.ff",
+      "mp_metro_patch.ff",
+      "mp_patch2.ff",
+      "mp_rise_patch.ff",
+      "mp_skyjacked_patch.ff",
+      "mp_stronghold_patch.ff",
+      "mp_veiled_patch.ff",
+      "mp_waterpark_patch.ff",
+      "zm_castle_patch.ff",
+      "zm_factory_patch.ff",
+      "zm_frontend_patch.ff",
+      "zm_gfx.ff",
+      "zm_patch2.ff",
+      "zm_zod_patch.ff"
+    ]
+  },
+  "package_files_verified": 1409,
+  "package_issues": 0
+}
+{
+  "mode": "zm",
+  "exit_code": 0,
+  "functions": 34805,
+  "cpp_files": 87,
+  "generated_bytes": 179217277,
+  "import_count": 276,
+  "source_stub_count": 51,
+  "fatal_branch_count": 0,
+  "float16_warnings": 20,
+  "float16_modes": {
+    "pack=2,shift=2": 42,
+    "pack=3,shift=0": 20
+  },
+  "vector_bounds_violations": 0
+}
+{
+  "mode": "mp",
+  "exit_code": 0,
+  "functions": 34960,
+  "cpp_files": 87,
+  "generated_bytes": 180146582,
+  "import_count": 279,
+  "source_stub_count": 54,
+  "fatal_branch_count": 0,
+  "float16_warnings": 20,
+  "float16_modes": {
+    "pack=2,shift=2": 42,
+    "pack=3,shift=0": 20
+  },
+  "vector_bounds_violations": 0
+}
