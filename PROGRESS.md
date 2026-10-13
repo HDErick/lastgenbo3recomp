@@ -30,6 +30,15 @@ Vulkan baseline using the same SDK, then native renderer development on PC
 before pursuing complete Switch gameplay/performance. Evidence is archived as
 `analysis/nx_runtime_hardware01_startup.log` and `analysis/nx_runtime_hardware01.log`.
 
+PC renderer development now has its own branch, `native-rendering-pc`. The
+isolated Vulkan build using the Switch SDK sources linked successfully.
+FBO failed with device loss on Intel Arc B580 in two controls. A third run loaded
+The Giant and ended normally, with large white effect squares reported and
+shown in the user's screenshot. The intended FSI setting was passed incorrectly
+to late plugin cvars, so that third run also used FBO. The launcher is corrected
+and a new build logs actual renderer selection. A BO3 native renderer is not yet
+implemented. See [PC native rendering work](docs/NATIVE_RENDERING_PC.md).
+
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches
 playable Shadows of Evil, confirmed by the user. The user also confirmed that
 The Giant and Der Eisendrache both load successfully. Earlier builds lost the

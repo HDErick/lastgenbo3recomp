@@ -1,5 +1,7 @@
 @echo off
 setlocal
+"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -Command "if (Get-Process -Name bo3_zm_vulkan -ErrorAction SilentlyContinue) { Write-Error 'Close the PC Vulkan test before rebuilding'; exit 1 }"
+if errorlevel 1 exit /b 1
 call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat" >nul
 if errorlevel 1 exit /b 1
 set "BO3_ROOT=%~dp0..\.."

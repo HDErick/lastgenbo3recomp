@@ -25,6 +25,56 @@ Switch configuration. Initial acceptance is title/menu and one map, followed
 by DLC coverage. Neither a successful compile nor Vulkan setup alone proves
 renderer correctness or gameplay.
 
+Launch with `scripts/nx/launch-pc-vulkan.ps1`. It selects explicit content roots,
+a local signed-in profile, muted audio and separate caches per render-target
+path. `-RenderTargetPath fsi` selects the interlock path; `fbo` is the default
+for comparison with Switch. Optional `-CaptureFrames` and `-DumpShaders` are
+diagnostics, not required for ordinary play. Close the test before rebuilding.
+
+### Initial PC validation
+
+Build01 linked the executable, runtime and Xenos plugin successfully. On Intel
+Arc B580, FBO boot01 and the minimal boot02 control both reported a graphics
+device loss after loading the updated XEX and the four content packages.
+Boot01 used frame capture and shader dumping; boot02 used neither, so those
+diagnostics are not required for the failure. No cause has been established.
+The Vulkan loader also reported RTSS and OBS implicit layers; their involvement
+has not been tested. This is not evidence of a Switch NVK driver fault.
+
+Boot03 remained running, and the user loaded The Giant and supplied a game-over
+screenshot after round 1. Large pale squares with circular shading obscure the
+scene; the user reports the scene behind them otherwise looks correct. Particle
+alpha/texture sampling, blending or another translucent/light pass are candidates,
+not confirmed causes. The run ended with orderly window close/guest exit after
+about 3 minutes. FSI requires fragment shader interlock, which this PC advertises.
+A later build02
+attempt was unable to relink the executable while boot03 held it open; no source
+compile error was reported. The build script now checks for a running test.
+Build03 subsequently linked successfully with the test closed.
+
+**Comparison correction:** boot03 was launched with an intended FSI setting,
+but its pipeline cache was named `.fbo.vk.xpso`. Inspection of SDK `cvar::Init`
+shows late plugin settings only accept `--name=value`; a separated
+`--name value` is replayed as `name=true` with the value left positional.
+Thus boot01/02/03 used FBO; their results cannot establish an FSI benefit.
+Shader dumping in boot01 similarly wrote into the build folder `true/`.
+The launcher now uses equals syntax for late GPU settings, a standalone mute
+flag and a diagnostic that logs the requested and actual render-target path.
+Build04 includes that diagnostic and is the corrected FSI comparison.
+Boot04 logs `requested='fsi', selected=fsi, FSI supported=true`, confirming the
+actual backend. Shader dumping now writes microcode and disassembly into the
+intended ignored runtime directory, and scheduled guest-frame captures work.
+The user's comparison of the square effects is pending. Binary/source hashes
+are in `analysis/pc_vulkan_provenance04.json`; the log snapshot is
+`analysis/pc_vulkan_boot04_fsi_snapshot.log`.
+
+Evidence: `analysis/pc_vulkan_build01.log`, `analysis/pc_vulkan_boot01.log`,
+`analysis/pc_vulkan_boot02.log`, their stderr reports and
+`analysis/pc_vulkan_provenance01.json`. The complete boot03 log is archived as
+`analysis/pc_vulkan_boot03_requested_fsi_actual_fbo.log`. Its screenshot is kept
+locally at `runtime/logs/pc-vulkan-boot03-fsi-screenshot.png`. Corrected FSI test
+log: `runtime/logs/pc-vulkan-boot04-fsi.log`.
+
 ## Native renderer work order
 
 1. Establish the emulated Vulkan baseline on PC and retain frame captures.

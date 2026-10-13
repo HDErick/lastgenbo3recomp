@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-13",
+  "sdk_sources": "analysis/nx_runtime_sources.json",
+  "build_log": "analysis/pc_vulkan_build01.log",
+  "compiler": "Clang 20.1.8, Windows x86-64-v3 Release",
+  "renderer": "Emulated Xenos Vulkan; native renderer not implemented",
+  "files": {
+    "build/pc-vulkan/bo3_zm_vulkan.exe": {
+      "bytes": 58010112,
+      "sha256": "75b80f80252c9e1ac5370c58dbaab559c03f513b9ddacdae07f6185de038bd47"
+    },
+    "build/pc-vulkan/bo3_zm_vulkan.pdb": {
+      "bytes": 6598656,
+      "sha256": "0f3fa8bfc87b8fd61a992e9993306886824d8d4be958065dbf446c4540550aee"
+    },
+    "build/pc-vulkan/rexruntime.dll": {
+      "bytes": 12502016,
+      "sha256": "e41e45a6d8244e11d5a7f4e8cb467c43b8cfb789d64f0a609f4962c563ddee24"
+    },
+    "build/pc-vulkan/rexgpu-xenos.dll": {
+      "bytes": 4731392,
+      "sha256": "7218706c43b6a37df525826e5590ec2ebd8a4e5ba740ae1ef6b08c62af1ae5c6"
+    },
+    "nx/pc-vulkan/main.cpp": {
+      "bytes": 178,
+      "sha256": "791fac00372a589d1edff5d1010687e54cea9e5a2349361ce499a7ac4533b889"
+    },
+    "build/nx-generated/zombies/bo3_zm_init.h": {
+      "bytes": 1136286,
+      "sha256": "3824ce80dc42c46e1c58927f8c4fd8e905e700fd1ea7cb2d3cb5f8906435a0ec"
+    }
+  },
+  "hardware": "Intel Arc B580",
+  "fbo_status": "Boot01/02 device loss; boot03 loaded The Giant with large white effect squares, then orderly exit. Boot03 intended FSI but late CLI syntax applied true, so actual FBO.",
+  "additional_build": "Build02 relink failed because test process held executable open; build01 executable used for all three tests"
+}

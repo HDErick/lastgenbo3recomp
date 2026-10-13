@@ -53,6 +53,18 @@ for name, path in inputs.items():
         anchor = 'if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${submodule}/.git")'
         assert anchor in cmake
         data = cmake.replace(anchor, 'if(NOT IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/${submodule}")', 1).encode()
+    if name == 'src/graphics/vulkan/render_target_cache.cpp':
+        source = data.decode().replace('\r\n', '\n')
+        anchor = '  // Format support.\n'
+        assert source.count(anchor) == 1
+        diagnostic = '''  REXGPU_INFO("BO3 Vulkan render targets: requested='{}', selected={}, FSI supported={}, sampleRateShading={}, standardSampleLocations={}, shared buffers={}, storage slots={}",
+      REXCVAR_GET(render_target_path_vulkan),
+      path_ == Path::kPixelShaderInterlock ? "fsi" : "fbo", fsi_path_supported,
+      device_properties.sampleRateShading, device_properties.standardSampleLocations,
+      shared_memory_binding_count, device_properties.maxPerStageDescriptorStorageBuffers);
+
+'''
+        data = source.replace(anchor, diagnostic + anchor, 1).encode()
     write_if_changed(target / name, data)
 
 generated = root / 'build/nx-generated/zombies'
@@ -69,7 +81,8 @@ provenance = {'reference_repository': 'https://github.com/StevensND/nfsmw-nx',
               'reference_revision': pinned, 'sdk_version': '0.10.0',
               'dependency_source': 'Vendored desktop SDK dependencies, with reference overrides',
               'dependency_snapshot': json.loads((root / 'thirdparty/rexglue-sdk/SOURCE_SNAPSHOT.json').read_text()),
-              'adaptations': ['Vendored dependency directory checks', 'Explicit C linkage in generated GCC aliases'],
+              'adaptations': ['Vendored dependency directory checks', 'Explicit C linkage in generated GCC aliases',
+                              'Log requested and selected Vulkan render-target path'],
               'patch_files': [p.relative_to(patches).as_posix() for p in patches.rglob('*') if p.is_file()] if patches.exists() else [],
               'desktop_init_sha256': hashlib.sha256((root / 'app/generated/default_zm/bo3_zm_init.h').read_bytes()).hexdigest(),
               'nx_init_sha256': hashlib.sha256(header_path.read_bytes()).hexdigest()}

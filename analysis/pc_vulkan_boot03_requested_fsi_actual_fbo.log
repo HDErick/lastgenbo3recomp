@@ -1,0 +1,1170 @@
+[2026-10-13 01:57:41.496] [info] [core] [t19832] Vulkan instance API version 1.4.350. Enabled layers and extensions:
+[2026-10-13 01:57:41.496] [info] [core] [t19832] * VK_KHR_surface
+[2026-10-13 01:57:41.496] [info] [core] [t19832] * VK_KHR_win32_surface
+[2026-10-13 01:57:41.496] [info] [core] [t19832] * VK_EXT_debug_utils
+[2026-10-13 01:57:41.496] [info] [core] [t19832] * VK_KHR_portability_enumeration
+[2026-10-13 01:57:41.498] [warning] [core] [t19832] Available Vulkan physical devices (use the 'vulkan_device' configuration variable to force a specific device):
+[2026-10-13 01:57:41.498] [warning] [core] [t19832] * 0: Intel(R) Arc(TM) B580 Graphics
+[2026-10-13 01:57:41.498] [warning] [core] [t19832] * 1: AMD Radeon(TM) Graphics
+[2026-10-13 01:57:41.498] [info] [core] [t19832] Vulkan device 'Intel(R) Arc(TM) B580 Graphics': API 1.4.356, vendor 0x8086, device 0xE20B, driver version 0x196320
+[2026-10-13 01:57:41.498] [info] [core] [t19832] Enabled Vulkan device extensions:
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * VK_KHR_swapchain
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * VK_EXT_shader_stencil_export
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * VK_EXT_fragment_shader_interlock
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * VK_EXT_memory_budget
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * VK_EXT_custom_border_color
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * VK_EXT_robustness2
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * VK_EXT_non_seamless_cube_map
+[2026-10-13 01:57:41.498] [info] [core] [t19832] Vulkan device properties and enabled features:
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * driverID: IntelProprietaryWindows
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * driverName: Intel Corporation
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * driverInfo: 101.8992
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * conformanceVersion: 1.4.0.0
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxImageDimension2D: 16384
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxImageDimension3D: 2048
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxImageDimensionCube: 16384
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxImageArrayLayers: 2048
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxStorageBufferRange: 4294967292
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxSamplerAllocationCount: 4000
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxPerStageDescriptorSamplers: 33554432
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxPerStageDescriptorStorageBuffers: 33554432
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxPerStageDescriptorSampledImages: 33554432
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxPerStageResources: 33554432
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxVertexOutputComponents: 128
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxTessellationEvaluationOutputComponents: 128
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxGeometryInputComponents: 128
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxGeometryOutputComponents: 128
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxFragmentInputComponents: 128
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxFragmentCombinedOutputResources: 33554440
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxSamplerAnisotropy: 16
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxViewportDimensions[0]: 32768
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxViewportDimensions[1]: 32768
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * minUniformBufferOffsetAlignment: 64
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * minStorageBufferOffsetAlignment: 64
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxFramebufferWidth: 16384
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxFramebufferHeight: 16384
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * framebufferColorSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * framebufferDepthSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * framebufferStencilSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * framebufferNoAttachmentsSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * sampledImageColorSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * sampledImageIntegerSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * sampledImageDepthSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * sampledImageStencilSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * standardSampleLocations: 1
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * optimalBufferCopyOffsetAlignment: 64
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * optimalBufferCopyRowPitchAlignment: 64
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * nonCoherentAtomSize: 1
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * robustBufferAccess
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * fullDrawIndexUint32
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * independentBlend
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * geometryShader
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * tessellationShader
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * sampleRateShading
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * depthClamp
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * fillModeNonSolid
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * samplerAnisotropy
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * occlusionQueryPrecise
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * vertexPipelineStoresAndAtomics
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * fragmentStoresAndAtomics
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * shaderClipDistance
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * shaderCullDistance
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * sparseBinding
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * sparseResidencyBuffer
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * samplerMirrorClampToEdge
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * uniformBufferStandardLayout
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * scalarBlockLayout
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * shaderDemoteToHelperInvocation
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * dynamicRendering
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * constantAlphaColorBlendFactors
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * imageViewFormatReinterpretation
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * imageViewFormatSwizzle
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * pointPolygons
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * separateStencilMaskRef
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * shaderSampleRateInterpolationFunctions
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * shaderSignedZeroInfNanPreserveFloat32: 1
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * shaderDenormFlushToZeroFloat32: 1
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * shaderRoundingModeRTEFloat32: 1
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * fragmentShaderSampleInterlock
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * fragmentShaderPixelInterlock
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * nonSeamlessCubeMap
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * customBorderColors
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * customBorderColorWithoutFormat
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * maxCustomBorderColorSamplers: 4096
+[2026-10-13 01:57:41.498] [info] [core] [t19832] * nullDescriptor
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message): Inserted device layer "VK_LAYER_RTSS" (C:\Program Files (x86)\RivaTuner Statistics Server\Vulkan\RTSSVkLayer64.dll) (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message): Inserted device layer "VK_LAYER_OBS_HOOK" (C:\ProgramData\obs-studio-hook\graphics-hook64.dll) (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message): Failed to find vkGetDeviceProcAddr in layer "C:\Windows\System32\DriverStore\FileRepository\u0420529.inf_amd64_94ad5a6c4d1a04e2\B419765\amdvlk64.dll" (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message): vkCreateDevice layer callstack setup to: (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):    <Application> (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):      || (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):    <Loader> (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):      || (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):    VK_LAYER_OBS_HOOK (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):            Type: Implicit (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):            Enabled By: Implicit Layer (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):                Disable Env Var:  DISABLE_VULKAN_OBS_CAPTURE (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):            Manifest: C:\ProgramData\obs-studio-hook\obs-vulkan64.json (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):            Library:  C:\ProgramData\obs-studio-hook\graphics-hook64.dll (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):      || (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):    VK_LAYER_RTSS (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):            Type: Implicit (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):            Enabled By: Implicit Layer (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):                Disable Env Var:  DISABLE_RTSS_LAYER (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):            Manifest: C:\Program Files (x86)\RivaTuner Statistics Server\Vulkan\RTSSVkLayer64.json (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):            Library:  C:\Program Files (x86)\RivaTuner Statistics Server\Vulkan\RTSSVkLayer64.dll (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):      || (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):    <Device> (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.498] [info] [gpu] [t19832] Vulkan Info ({ General }, ID 0: Loader Message):        Using "Intel(R) Arc(TM) B580 Graphics" with driver: "C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch_d.inf_amd64_62b87437c1961b1b\igvk64.dll" (object 0: Instance 0x20ed649e0d0)
+[2026-10-13 01:57:41.696] [info] [core] [t19832] VulkanPresenter: Created 2560x1440 swapchain with format 44, color space 0, presentation mode 0 (IMMEDIATE (intervalo 0)), 4 images requested
+[2026-10-13 01:57:41.696] [info] [core] [t19832] Presenter: modo de pintado -> desde el hilo del juego, presentando en el acto (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 01:57:41.696] [info] [sys] [t19832] Guest memory arena mapped: virtual base 0x0000000100000000, physical base 0x0000000200000000
+[2026-10-13 01:57:41.731] [info] [fs] [t19832] [io] montado 'C:\bo3recomp\runtime\game' en \Device\Harddisk0\Partition1: 394 entradas en 1.7 ms (solo lectura)
+[2026-10-13 01:57:41.732] [info] [fs] [t19832] [io] montado 'C:\bo3recomp\runtime\update' en \Device\Harddisk0\PartitionUpdate: 430 entradas en 1.2 ms (solo lectura)
+[2026-10-13 01:57:41.739] [info] [core] [t19832] Function table initialized for module: code=82140000-82AB5CC0, image=82000000-848D0000
+[2026-10-13 01:57:41.778] [info] [gpu] [t1720] VulkanTextureCache: Format k_Cr_Y1_Cb_Y0_REP (unsigned) is supported via a fallback format (using the Vulkan format 37 instead of the preferred 1000156000)
+[2026-10-13 01:57:41.778] [info] [gpu] [t1720] VulkanTextureCache: Format k_Y1_Cr_Y0_Cb_REP (unsigned) is supported via a fallback format (using the Vulkan format 37 instead of the preferred 1000156001)
+[2026-10-13 01:57:41.837] [warning] [core] [t19832] SDL GameControllerDB: file 'gamecontrollerdb.txt' does not exist.
+[2026-10-13 01:57:41.837] [info] [core] [t19832] SDL input driver initialized successfully
+[2026-10-13 01:57:41.957] [info] [core] [t19832] XEX patch applied successfully: base version: 0.0.0.5, new version: 0.0.8.5
+[2026-10-13 01:57:41.959] [info] [sys] [t19832] [guardado] cabecera de «A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164» escrita en C:\bo3recomp\runtime\user\0000000000000000\4156091D\Headers\00000002\A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164.header
+[2026-10-13 01:57:41.959] [info] [core] [t19832] BO3 content header A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164: result 00000000, original license FFFFFFFF
+[2026-10-13 01:57:41.960] [info] [sys] [t19832] [guardado] cabecera de «4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341» escrita en C:\bo3recomp\runtime\user\0000000000000000\4156091D\Headers\00000002\4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341.header
+[2026-10-13 01:57:41.960] [info] [core] [t19832] BO3 content header 4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341: result 00000000, original license FFFFFFFF
+[2026-10-13 01:57:41.960] [info] [sys] [t19832] [guardado] cabecera de «2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41» escrita en C:\bo3recomp\runtime\user\0000000000000000\4156091D\Headers\00000002\2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41.header
+[2026-10-13 01:57:41.960] [info] [core] [t19832] BO3 content header 2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41: result 00000000, original license 00000001
+[2026-10-13 01:57:41.961] [info] [sys] [t19832] [guardado] cabecera de «D0288B47455419D4F8862B84CCC508126F84816A41» escrita en C:\bo3recomp\runtime\user\0000000000000000\4156091D\Headers\00000002\D0288B47455419D4F8862B84CCC508126F84816A41.header
+[2026-10-13 01:57:41.961] [info] [core] [t19832] BO3 content header D0288B47455419D4F8862B84CCC508126F84816A41: result 00000000, original license 00000001
+[2026-10-13 01:57:41.961] [info] [sys] [t19832] [guardado] listar tipo 00000002 en C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002: 4 entrada(s)
+[2026-10-13 01:57:41.961] [info] [sys] [t19832] [guardado]   «2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41» (mostrado como «The Giant»)
+[2026-10-13 01:57:41.961] [info] [sys] [t19832] [guardado]   «4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341» (mostrado como «Compatibility Pack 2»)
+[2026-10-13 01:57:41.961] [info] [sys] [t19832] [guardado]   «A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164» (mostrado como «Compatibility Pack 1»)
+[2026-10-13 01:57:41.961] [info] [sys] [t19832] [guardado]   «D0288B47455419D4F8862B84CCC508126F84816A41» (mostrado como «Awakening»)
+[2026-10-13 01:57:41.961] [info] [core] [t19832] BO3 common marketplace packages available: 4
+[2026-10-13 01:57:41.962] [info] [core] [t19832] Presenter: modo de pintado -> en el hilo de la interfaz, a peticion (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 01:57:41.963] [info] [core] [t19832] [presentador] adquisicion esperada en la CPU (present_esperar_adquisicion_en_cpu) = no
+[2026-10-13 01:57:41.964] [info] [core] [t19832] Presenter: modo de pintado -> desde el hilo del juego, presentando en el acto (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 01:57:41.964] [info] [core] [t19832] Initializing shader storage for title 4156091D...
+[2026-10-13 01:57:41.968] [info] [core] [t19832] Presenter: modo de pintado -> en el hilo de la interfaz, a peticion (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 01:57:41.968] [info] [core] [t19832] Presenter: modo de pintado -> desde el hilo del juego, presentando en el acto (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 01:57:41.970] [warning] [krnl] [t4024] __imp__XamMediaVerificationCreate STUB
+[2026-10-13 01:57:41.982] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:41.984] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:41.991] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\fc_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:41.995] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\as_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.001] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\br_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.006] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\ko_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.008] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.011] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\cz_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.013] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\fj_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.019] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\ar_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.021] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\tc_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.023] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\sc_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.025] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\eg_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.026] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\ej_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.028] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\he_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.030] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.032] [warning] [krnl] [t4024] __imp__XGetDisplaySize STUB
+[2026-10-13 01:57:42.032] [info] [gpu] [t4024] SetInterruptCallback(826F0870, BE428F80)
+[2026-10-13 01:57:42.035] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='update:\discdata\SplashScreen.xpr' -> 0xc000000f
+[2026-10-13 01:57:42.035] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='game:\discdata\SplashScreen.xpr' -> 0xc000000f
+[2026-10-13 01:57:42.035] [info] [gpu] [t1720] Creating graphics pipeline state with VS 1E6883FCCDE1F688
+[2026-10-13 01:57:42.049] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.051] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.053] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.061] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.062] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.063] [info] [gpu] [t1720] Creating graphics pipeline state with VS B6C9863F710683EC
+[2026-10-13 01:57:42.076] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.077] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.077] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.079] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.079] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.080] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.082] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\fc_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.084] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\as_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.085] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\br_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.087] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\ko_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.088] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.090] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\cz_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.092] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\fj_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.094] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\ar_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.096] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\tc_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.097] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\sc_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.099] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\eg_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.101] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\ej_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.103] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\he_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.104] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-13 01:57:42.135] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.140] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.142] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.144] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.431] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.433] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.436] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.454] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.460] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.462] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.464] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.997] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:42.999] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.001] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.021] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.023] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\zm_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.025] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.027] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.032] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.034] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.057] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.060] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\zm_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.063] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.065] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.067] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.080] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.084] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.086] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.088] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.180] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.182] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.184] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.209] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_ui.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.215] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.216] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_ui.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.217] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.506] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_ui.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.507] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.509] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.532] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.625] [info] [apu] [t4024] audio endpoint 'Speakers (3- PRO X Wireless Gaming Headset)': 2 ch, 48000 Hz, format 0x8120; submitting 2 ch
+[2026-10-13 01:57:43.627] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.629] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:43.631] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:44.363] [warning] [krnl] [t4024] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-13 01:57:44.363] [warning] [krnl] [t4024] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-13 01:57:44.363] [warning] [krnl] [t4024] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-13 01:57:44.363] [warning] [krnl] [t4024] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-13 01:57:44.382] [error] [krnl] [t4024] Unimplemented XLIVEBASE message app=000000FC, msg=0005801E, arg1=3013A000, arg2=7019F1B0
+[2026-10-13 01:57:44.382] [error] [krnl] [t4024] Unimplemented XLIVEBASE message app=000000FC, msg=00058019, arg1=3013A000, arg2=7019F1A0
+[2026-10-13 01:57:44.382] [info] [sys] [t4024] [guardado] listar tipo 00000002 en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000002: 0 entrada(s)
+[2026-10-13 01:57:44.383] [info] [sys] [t4024] [guardado] listar tipo 00000002 en C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002: 4 entrada(s)
+[2026-10-13 01:57:44.383] [info] [sys] [t4024] [guardado]   «2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41» (mostrado como «The Giant»)
+[2026-10-13 01:57:44.383] [info] [sys] [t4024] [guardado]   «4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341» (mostrado como «Compatibility Pack 2»)
+[2026-10-13 01:57:44.383] [info] [sys] [t4024] [guardado]   «A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164» (mostrado como «Compatibility Pack 1»)
+[2026-10-13 01:57:44.383] [info] [sys] [t4024] [guardado]   «D0288B47455419D4F8862B84CCC508126F84816A41» (mostrado como «Awakening»)
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc0zm.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc0zm.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc0mp.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc0mp.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc1.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc1.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc2.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc2.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc3.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc3.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc4.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc4.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlccompat2.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlccompat2.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlccompat1.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlccompat1.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlccompat3.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlccompat3.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD001.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD001.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD002.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD002.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD003.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD003.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD004.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD004.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc0zm.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc0zm.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc0mp.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc0mp.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc1.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc1.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc2.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc2.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc3.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc3.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc4.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlc4.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlccompat2.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlccompat2.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlccompat1.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlccompat1.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlccompat3.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\dlccompat3.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD001.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD001.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD002.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD002.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD003.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD003.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD004.fakeid' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:\LQD004.txt' -> 0xc000000f
+[2026-10-13 01:57:44.383] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='D:/product.info' -> 0xc000000f
+[2026-10-13 01:57:44.389] [info] [gpu] [t1720] Creating graphics pipeline state with VS 1E6883FCCDE1F688
+[2026-10-13 01:57:44.389] [info] [gpu] [t17924] Creating graphics pipeline state with VS 1E6883FCCDE1F688, PS A4A965C189287B99
+[2026-10-13 01:57:44.390] [info] [gpu] [t1720] Creating graphics pipeline state with VS D13651A553173075
+[2026-10-13 01:57:44.391] [info] [gpu] [t22596] Creating graphics pipeline state with VS D13651A553173075, PS ED858B8CBB74080D
+[2026-10-13 01:57:44.391] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:57:44.391] [info] [gpu] [t3060] Creating graphics pipeline state with VS B2ABE37696B34964, PS 8BCED964C687816E
+[2026-10-13 01:57:44.391] [info] [gpu] [t1720] Creating graphics pipeline state with VS B6C9863F710683EC
+[2026-10-13 01:57:44.392] [warning] [gpu] [t1720] Skipping Vulkan frame presentation due to async placeholder draw usage in this frame
+[2026-10-13 01:57:44.483] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:44.484] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:44.486] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:44.572] [info] [gpu] [t1720] Creating graphics pipeline state with VS 1E6883FCCDE1F688
+[2026-10-13 01:57:44.654] [info] [gpu] [t1720] Creating graphics pipeline state with VS 0B1DA0EBE34144A2
+[2026-10-13 01:57:44.654] [info] [gpu] [t13748] Creating graphics pipeline state with VS 0B1DA0EBE34144A2, PS C1B82B817414DB59
+[2026-10-13 01:57:44.685] [info] [gpu] [t1720] Creating graphics pipeline state with VS A4827826E2589916
+[2026-10-13 01:57:44.752] [info] [sys] [t23244] [guardado] abrir «2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41» (raiz dlc1) en C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41 -> 28 fichero(s), 169504909 B: bp_zm_factory.ff (175552 B), bp_zm_factory.xpak (786432 B), dlc0zm.id (9 B), ea_zm_factory.ff (175744 B), ea_zm_factory.xpak (786432 B), en_zm_factory.ff (175808 B), en_zm_factory.xpak (786432 B), es_zm_factory.ff (175552 B), es_zm_factory.xpak (786432 B), fj_zm_factory.ff (176768 B), fj_zm_factory.xpak (1835008 B), fr_zm_factory.ff (175616 B), fr_zm_factory.xpak (786432 B), ge_zm_factory.ff (175552 B), ge_zm_factory.xpak (786432 B), it_zm_factory.ff (175552 B), it_zm_factory.xpak (786432 B), ja_zm_factory.ff (176896 B), ja_zm_factory.xpak (1835008 B), ms_zm_factory.ff (175680 B), ms_zm_factory.xpak (786432 B), null (4 B), po_zm_factory.ff (175872 B), po_zm_factory.xpak (786432 B), ru_zm_factory.ff (175616 B), ru_zm_factory.xpak (786432 B), zm_factory.ff (39206272 B), zm_factory.xpak (116654080 B)
+[2026-10-13 01:57:44.752] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41' en \Device\Content\1\: 51 entradas en 0.2 ms (escritura)
+[2026-10-13 01:57:44.753] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «dlc1» contenido «2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41» tipo 00000002 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 01:57:44.854] [info] [sys] [t23244] [guardado] abrir «4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341» (raiz dlc2) en C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341 -> 115 fichero(s), 34447388 B: bp_mp_apartments_patch.ff (768 B), bp_mp_chinatown_patch.ff (768 B), bp_mp_havoc_patch.ff (768 B), bp_mp_patch.ff (13056 B), bp_mp_redwood_patch.ff (768 B), bp_mp_sector_patch.ff (768 B), bp_mp_spire_patch.ff (768 B), bp_zm_patch.ff (16960 B), compatpack2.ff (11 B), dlccompat2.id (13 B), ea_mp_apartments_patch.ff (768 B), ea_mp_chinatown_patch.ff (768 B), ea_mp_havoc_patch.ff (768 B), ea_mp_patch.ff (11776 B), ea_mp_redwood_patch.ff (768 B), ea_mp_sector_patch.ff (768 B), ea_mp_spire_patch.ff (768 B), ea_zm_patch.ff (16192 B), en_mp_apartments_patch.ff (768 B), en_mp_chinatown_patch.ff (768 B), en_mp_havoc_patch.ff (768 B), en_mp_patch.ff (11776 B), en_mp_redwood_patch.ff (768 B), en_mp_sector_patch.ff (768 B), en_mp_spire_patch.ff (768 B), en_zm_patch.ff (16192 B), es_mp_apartments_patch.ff (768 B), es_mp_chinatown_patch.ff (768 B), es_mp_havoc_patch.ff (768 B), es_mp_patch.ff (12800 B), es_mp_redwood_patch.ff (768 B), es_mp_sector_patch.ff (768 B), es_mp_spire_patch.ff (768 B), es_zm_patch.ff (16960 B), fj_mp_apartments_patch.ff (768 B), fj_mp_chinatown_patch.ff (768 B), fj_mp_havoc_patch.ff (768 B), fj_mp_patch.ff (13312 B), fj_mp_redwood_patch.ff (768 B), fj_mp_sector_patch.ff (768 B), fj_mp_spire_patch.ff (768 B), fj_zm_patch.ff (18112 B), fr_mp_apartments_patch.ff (768 B), fr_mp_chinatown_patch.ff (768 B), fr_mp_havoc_patch.ff (768 B), fr_mp_patch.ff (13184 B), fr_mp_redwood_patch.ff (768 B), fr_mp_sector_patch.ff (768 B), fr_mp_spire_patch.ff (768 B), fr_zm_patch.ff (17152 B), ge_mp_apartments_patch.ff (768 B), ge_mp_chinatown_patch.ff (768 B), ge_mp_havoc_patch.ff (768 B), ge_mp_patch.ff (13376 B), ge_mp_redwood_patch.ff (768 B), ge_mp_sector_patch.ff (768 B), ge_mp_spire_patch.ff (768 B), ge_zm_patch.ff (17088 B), it_mp_apartments_patch.ff (768 B), it_mp_chinatown_patch.ff (768 B), it_mp_havoc_patch.ff (768 B), it_mp_patch.ff (12608 B), it_mp_redwood_patch.ff (768 B), it_mp_sector_patch.ff (768 B), it_mp_spire_patch.ff (768 B), it_zm_patch.ff (16704 B), ja_mp_apartments_patch.ff (768 B), ja_mp_chinatown_patch.ff (768 B), ja_mp_havoc_patch.ff (768 B), ja_mp_patch.ff (13312 B), ja_mp_redwood_patch.ff (768 B), ja_mp_sector_patch.ff (768 B), ja_mp_spire_patch.ff (768 B), ja_zm_patch.ff (18112 B), mp_apartments_patch.ff (70272 B), mp_apartments_patch.xpak (1572864 B), mp_chinatown_patch.ff (23616 B), mp_chinatown_patch.xpak (2097152 B), mp_havoc_patch.ff (184384 B), mp_havoc_patch.xpak (2621440 B), mp_patch.ff (3753088 B), mp_patch.xpak (14417920 B), mp_redwood_patch.ff (52608 B), mp_redwood_patch.xpak (1310720 B), mp_sector_patch.ff (52672 B), mp_sector_patch.xpak (1835008 B), mp_spire_patch.ff (22656 B), mp_spire_patch.xpak (1310720 B), ms_mp_apartments_patch.ff (768 B), ms_mp_chinatown_patch.ff (768 B), ms_mp_havoc_patch.ff (768 B), ms_mp_patch.ff (12800 B), ms_mp_redwood_patch.ff (768 B), ms_mp_sector_patch.ff (768 B), ms_mp_spire_patch.ff (768 B), ms_zm_patch.ff (16896 B), null (4 B), po_mp_apartments_patch.ff (768 B), po_mp_chinatown_patch.ff (768 B), po_mp_havoc_patch.ff (768 B), po_mp_patch.ff (13440 B), po_mp_redwood_patch.ff (768 B), po_mp_sector_patch.ff (768 B), po_mp_spire_patch.ff (768 B), po_zm_patch.ff (17728 B), ru_mp_apartments_patch.ff (768 B), ru_mp_chinatown_patch.ff (768 B), ru_mp_havoc_patch.ff (768 B), ru_mp_patch.ff (16064 B), ru_mp_redwood_patch.ff (768 B), ru_mp_sector_patch.ff (768 B), ru_mp_spire_patch.ff (768 B), ru_zm_patch.ff (20096 B), zm_patch.ff (2079808 B), zm_patch.xpak (2621440 B)
+[2026-10-13 01:57:44.854] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341' en \Device\Content\2\: 115 entradas en 0.3 ms (escritura)
+[2026-10-13 01:57:44.854] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «dlc2» contenido «4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341» tipo 00000002 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 01:57:44.864] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc2:\dlc0zm.id' -> 0xc000000f
+[2026-10-13 01:57:44.864] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc2:\dlc0zm.txt' -> 0xc000000f
+[2026-10-13 01:57:44.864] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc2:\dlc0mp.id' -> 0xc000000f
+[2026-10-13 01:57:44.864] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc2:\dlc0mp.txt' -> 0xc000000f
+[2026-10-13 01:57:44.864] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc2:\dlc1.id' -> 0xc000000f
+[2026-10-13 01:57:44.864] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc2:\dlc1.txt' -> 0xc000000f
+[2026-10-13 01:57:44.864] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc2:\dlc2.id' -> 0xc000000f
+[2026-10-13 01:57:44.864] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc2:\dlc2.txt' -> 0xc000000f
+[2026-10-13 01:57:44.864] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc2:\dlc3.id' -> 0xc000000f
+[2026-10-13 01:57:44.864] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc2:\dlc3.txt' -> 0xc000000f
+[2026-10-13 01:57:44.864] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc2:\dlc4.id' -> 0xc000000f
+[2026-10-13 01:57:44.864] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc2:\dlc4.txt' -> 0xc000000f
+[2026-10-13 01:57:44.956] [info] [sys] [t23244] [guardado] abrir «A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164» (raiz dlc3) en C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164 -> 242 fichero(s), 1827073933 B: bp_mp_apartments.ff (832 B), bp_mp_biodome.ff (832 B), bp_mp_chinatown.ff (832 B), bp_mp_common.ff (303808 B), bp_mp_common_all.ff (704 B), bp_mp_ethiopia.ff (832 B), bp_mp_freerun_01.ff (832 B), bp_mp_freerun_02.ff (832 B), bp_mp_freerun_03.ff (832 B), bp_mp_freerun_04.ff (832 B), bp_mp_havoc.ff (832 B), bp_mp_infection.ff (832 B), bp_mp_metro.ff (832 B), bp_mp_redwood.ff (832 B), bp_mp_sector.ff (832 B), bp_mp_spire.ff (832 B), bp_mp_stronghold.ff (832 B), bp_mp_veiled.ff (832 B), bp_zm_common.ff (49728 B), bp_zm_common_all.ff (704 B), bp_zm_frontend.ff (9216 B), bp_zm_zod.ff (170368 B), dlccompat1.id (13 B), en_mp_apartments.ff (832 B), en_mp_biodome.ff (832 B), en_mp_chinatown.ff (832 B), en_mp_common.ff (303616 B), en_mp_common_all.ff (704 B), en_mp_ethiopia.ff (832 B), en_mp_freerun_01.ff (832 B), en_mp_freerun_02.ff (832 B), en_mp_freerun_03.ff (832 B), en_mp_freerun_04.ff (832 B), en_mp_havoc.ff (832 B), en_mp_infection.ff (832 B), en_mp_metro.ff (832 B), en_mp_redwood.ff (832 B), en_mp_sector.ff (832 B), en_mp_spire.ff (832 B), en_mp_stronghold.ff (832 B), en_mp_veiled.ff (832 B), en_zm_common.ff (49536 B), en_zm_common_all.ff (704 B), en_zm_frontend.ff (9152 B), en_zm_zod.ff (170624 B), es_mp_apartments.ff (832 B), es_mp_biodome.ff (832 B), es_mp_chinatown.ff (832 B), es_mp_common.ff (303744 B), es_mp_common_all.ff (704 B), es_mp_ethiopia.ff (832 B), es_mp_freerun_01.ff (832 B), es_mp_freerun_02.ff (832 B), es_mp_freerun_03.ff (832 B), es_mp_freerun_04.ff (832 B), es_mp_havoc.ff (832 B), es_mp_infection.ff (832 B), es_mp_metro.ff (832 B), es_mp_redwood.ff (832 B), es_mp_sector.ff (832 B), es_mp_spire.ff (832 B), es_mp_stronghold.ff (832 B), es_mp_veiled.ff (832 B), es_zm_common.ff (49728 B), es_zm_common_all.ff (704 B), es_zm_frontend.ff (9216 B), es_zm_zod.ff (170304 B), fr_mp_apartments.ff (832 B), fr_mp_biodome.ff (832 B), fr_mp_chinatown.ff (832 B), fr_mp_common.ff (303744 B), fr_mp_common_all.ff (704 B), fr_mp_ethiopia.ff (832 B), fr_mp_freerun_01.ff (832 B), fr_mp_freerun_02.ff (832 B), fr_mp_freerun_03.ff (832 B), fr_mp_freerun_04.ff (832 B), fr_mp_havoc.ff (832 B), fr_mp_infection.ff (832 B), fr_mp_metro.ff (832 B), fr_mp_redwood.ff (832 B), fr_mp_sector.ff (832 B), fr_mp_spire.ff (832 B), fr_mp_stronghold.ff (832 B), fr_mp_veiled.ff (832 B), fr_zm_common.ff (49792 B), fr_zm_common_all.ff (704 B), fr_zm_frontend.ff (9216 B), fr_zm_zod.ff (170304 B), ge_mp_apartments.ff (832 B), ge_mp_biodome.ff (832 B), ge_mp_chinatown.ff (832 B), ge_mp_common.ff (303872 B), ge_mp_common_all.ff (704 B), ge_mp_ethiopia.ff (832 B), ge_mp_freerun_01.ff (832 B), ge_mp_freerun_02.ff (832 B), ge_mp_freerun_03.ff (832 B), ge_mp_freerun_04.ff (832 B), ge_mp_havoc.ff (832 B), ge_mp_infection.ff (832 B), ge_mp_metro.ff (832 B), ge_mp_redwood.ff (832 B), ge_mp_sector.ff (832 B), ge_mp_spire.ff (832 B), ge_mp_stronghold.ff (832 B), ge_mp_veiled.ff (832 B), ge_zm_common.ff (49664 B), ge_zm_common_all.ff (704 B), ge_zm_frontend.ff (9216 B), ge_zm_zod.ff (170368 B), it_mp_apartments.ff (832 B), it_mp_biodome.ff (832 B), it_mp_chinatown.ff (832 B), it_mp_common.ff (303424 B), it_mp_common_all.ff (704 B), it_mp_ethiopia.ff (832 B), it_mp_freerun_01.ff (832 B), it_mp_freerun_02.ff (832 B), it_mp_freerun_03.ff (832 B), it_mp_freerun_04.ff (832 B), it_mp_havoc.ff (832 B), it_mp_infection.ff (832 B), it_mp_metro.ff (832 B), it_mp_redwood.ff (832 B), it_mp_sector.ff (832 B), it_mp_spire.ff (832 B), it_mp_stronghold.ff (832 B), it_mp_veiled.ff (832 B), it_zm_common.ff (49600 B), it_zm_common_all.ff (704 B), it_zm_frontend.ff (9152 B), it_zm_zod.ff (170304 B), mp_apartments.ff (12284288 B), mp_apartments.xpak (42467328 B), mp_biodome.ff (13233536 B), mp_biodome.xpak (36438016 B), mp_chinatown.ff (15868480 B), mp_chinatown.xpak (56623104 B), mp_common.ff (26691456 B), mp_common.xpak (476315648 B), mp_common_all.ff (704 B), mp_ethiopia.ff (19006272 B), mp_ethiopia.xpak (45613056 B), mp_freerun_01.ff (4579008 B), mp_freerun_01.xpak (1572864 B), mp_freerun_02.ff (5057408 B), mp_freerun_02.xpak (1310720 B), mp_freerun_03.ff (5691968 B), mp_freerun_03.xpak (20185088 B), mp_freerun_04.ff (3870272 B), mp_freerun_04.xpak (1572864 B), mp_frontend.xpak (7864320 B), mp_havoc.ff (13367680 B), mp_havoc.xpak (65798144 B), mp_infection.ff (14006208 B), mp_infection.xpak (50331648 B), mp_metro.ff (11873664 B), mp_metro.xpak (30670848 B), mp_redwood.ff (12977280 B), mp_redwood.xpak (22020096 B), mp_sector.ff (12731264 B), mp_sector.xpak (39583744 B), mp_spire.ff (17997504 B), mp_spire.xpak (31981568 B), mp_stronghold.ff (16505664 B), mp_stronghold.xpak (56360960 B), mp_veiled.ff (20522432 B), mp_veiled.xpak (43778048 B), ms_mp_apartments.ff (832 B), ms_mp_biodome.ff (832 B), ms_mp_chinatown.ff (832 B), ms_mp_common.ff (303616 B), ms_mp_common_all.ff (704 B), ms_mp_ethiopia.ff (832 B), ms_mp_freerun_01.ff (832 B), ms_mp_freerun_02.ff (832 B), ms_mp_freerun_03.ff (832 B), ms_mp_freerun_04.ff (832 B), ms_mp_havoc.ff (832 B), ms_mp_infection.ff (832 B), ms_mp_metro.ff (832 B), ms_mp_redwood.ff (832 B), ms_mp_sector.ff (832 B), ms_mp_spire.ff (832 B), ms_mp_stronghold.ff (832 B), ms_mp_veiled.ff (832 B), ms_zm_common.ff (49728 B), ms_zm_common_all.ff (704 B), ms_zm_frontend.ff (9216 B), ms_zm_zod.ff (170368 B), po_mp_apartments.ff (832 B), po_mp_biodome.ff (832 B), po_mp_chinatown.ff (832 B), po_mp_common.ff (303744 B), po_mp_common_all.ff (704 B), po_mp_ethiopia.ff (832 B), po_mp_freerun_01.ff (832 B), po_mp_freerun_02.ff (832 B), po_mp_freerun_03.ff (832 B), po_mp_freerun_04.ff (832 B), po_mp_havoc.ff (832 B), po_mp_infection.ff (832 B), po_mp_metro.ff (832 B), po_mp_redwood.ff (832 B), po_mp_sector.ff (832 B), po_mp_spire.ff (832 B), po_mp_stronghold.ff (832 B), po_mp_veiled.ff (832 B), po_zm_common.ff (49856 B), po_zm_common_all.ff (704 B), po_zm_frontend.ff (9216 B), po_zm_zod.ff (170624 B), ru_mp_apartments.ff (832 B), ru_mp_biodome.ff (832 B), ru_mp_chinatown.ff (832 B), ru_mp_common.ff (303680 B), ru_mp_common_all.ff (704 B), ru_mp_ethiopia.ff (832 B), ru_mp_freerun_01.ff (832 B), ru_mp_freerun_02.ff (832 B), ru_mp_freerun_03.ff (832 B), ru_mp_freerun_04.ff (832 B), ru_mp_havoc.ff (832 B), ru_mp_infection.ff (832 B), ru_mp_metro.ff (832 B), ru_mp_redwood.ff (832 B), ru_mp_sector.ff (832 B), ru_mp_spire.ff (832 B), ru_mp_stronghold.ff (832 B), ru_mp_veiled.ff (832 B), ru_zm_common.ff (49664 B), ru_zm_common_all.ff (704 B), ru_zm_frontend.ff (9344 B), ru_zm_zod.ff (170432 B), zm_common.ff (15347328 B), zm_common.xpak (314310656 B), zm_common_all.ff (704 B), zm_frontend.ff (2814784 B), zm_frontend.xpak (9437184 B), zm_zod.ff (41028224 B), zm_zod.xpak (182452224 B)
+[2026-10-13 01:57:44.958] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164' en \Device\Content\3\: 621 entradas en 2.2 ms (escritura)
+[2026-10-13 01:57:44.958] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «dlc3» contenido «A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164» tipo 00000002 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 01:57:44.965] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc3:\dlc0zm.id' -> 0xc000000f
+[2026-10-13 01:57:44.965] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc3:\dlc0zm.txt' -> 0xc000000f
+[2026-10-13 01:57:44.965] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc3:\dlc0mp.id' -> 0xc000000f
+[2026-10-13 01:57:44.965] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc3:\dlc0mp.txt' -> 0xc000000f
+[2026-10-13 01:57:44.965] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc3:\dlc1.id' -> 0xc000000f
+[2026-10-13 01:57:44.965] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc3:\dlc1.txt' -> 0xc000000f
+[2026-10-13 01:57:44.965] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc3:\dlc2.id' -> 0xc000000f
+[2026-10-13 01:57:44.965] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc3:\dlc2.txt' -> 0xc000000f
+[2026-10-13 01:57:44.966] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc3:\dlc3.id' -> 0xc000000f
+[2026-10-13 01:57:44.966] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc3:\dlc3.txt' -> 0xc000000f
+[2026-10-13 01:57:44.966] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc3:\dlc4.id' -> 0xc000000f
+[2026-10-13 01:57:44.966] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc3:\dlc4.txt' -> 0xc000000f
+[2026-10-13 01:57:44.966] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc3:\dlccompat2.id' -> 0xc000000f
+[2026-10-13 01:57:44.966] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc3:\dlccompat2.txt' -> 0xc000000f
+[2026-10-13 01:57:45.059] [info] [sys] [t23244] [guardado] abrir «D0288B47455419D4F8862B84CCC508126F84816A41» (raiz dlc4) en C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\D0288B47455419D4F8862B84CCC508126F84816A41 -> 84 fichero(s), 517453131 B: bp_mp_crucible.ff (832 B), bp_mp_rise.ff (832 B), bp_mp_skyjacked.ff (832 B), bp_mp_waterpark.ff (832 B), bp_zm_castle.ff (238144 B), bp_zm_castle.xpak (786432 B), dlc1.id (7 B), ea_mp_crucible.ff (832 B), ea_mp_rise.ff (832 B), ea_mp_skyjacked.ff (832 B), ea_mp_waterpark.ff (832 B), ea_zm_castle.ff (201408 B), ea_zm_castle.xpak (786432 B), en_mp_crucible.ff (832 B), en_mp_rise.ff (832 B), en_mp_skyjacked.ff (832 B), en_mp_waterpark.ff (832 B), en_zm_castle.ff (242432 B), en_zm_castle.xpak (786432 B), es_mp_crucible.ff (832 B), es_mp_rise.ff (832 B), es_mp_skyjacked.ff (832 B), es_mp_waterpark.ff (832 B), es_zm_castle.ff (238208 B), es_zm_castle.xpak (786432 B), fj_mp_crucible.ff (832 B), fj_mp_rise.ff (832 B), fj_mp_skyjacked.ff (832 B), fj_mp_waterpark.ff (832 B), fj_zm_castle.ff (239424 B), fj_zm_castle.xpak (1835008 B), fr_mp_crucible.ff (832 B), fr_mp_rise.ff (832 B), fr_mp_skyjacked.ff (832 B), fr_mp_waterpark.ff (832 B), fr_zm_castle.ff (238144 B), fr_zm_castle.xpak (786432 B), ge_mp_crucible.ff (832 B), ge_mp_rise.ff (832 B), ge_mp_skyjacked.ff (832 B), ge_mp_waterpark.ff (832 B), ge_zm_castle.ff (238080 B), ge_zm_castle.xpak (786432 B), it_mp_crucible.ff (832 B), it_mp_rise.ff (832 B), it_mp_skyjacked.ff (832 B), it_mp_waterpark.ff (832 B), it_zm_castle.ff (238272 B), it_zm_castle.xpak (786432 B), ja_mp_crucible.ff (832 B), ja_mp_rise.ff (832 B), ja_mp_skyjacked.ff (832 B), ja_mp_waterpark.ff (832 B), ja_zm_castle.ff (244608 B), ja_zm_castle.xpak (1835008 B), mp_crucible.ff (30882112 B), mp_crucible.xpak (57671680 B), mp_rise.ff (23875584 B), mp_rise.xpak (56098816 B), mp_skyjacked.ff (29404928 B), mp_skyjacked.xpak (44564480 B), mp_waterpark.ff (26062080 B), mp_waterpark.xpak (71827456 B), ms_mp_crucible.ff (832 B), ms_mp_rise.ff (832 B), ms_mp_skyjacked.ff (832 B), ms_mp_waterpark.ff (832 B), ms_zm_castle.ff (238080 B), ms_zm_castle.xpak (786432 B), null (4 B), po_mp_crucible.ff (832 B), po_mp_rise.ff (832 B), po_mp_skyjacked.ff (832 B), po_mp_waterpark.ff (832 B), po_zm_castle.ff (242432 B), po_zm_castle.xpak (786432 B), ru_mp_crucible.ff (832 B), ru_mp_rise.ff (832 B), ru_mp_skyjacked.ff (832 B), ru_mp_waterpark.ff (832 B), ru_zm_castle.ff (238080 B), ru_zm_castle.xpak (786432 B), zm_castle.ff (36563136 B), zm_castle.xpak (126091264 B)
+[2026-10-13 01:57:45.060] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\D0288B47455419D4F8862B84CCC508126F84816A41' en \Device\Content\4\: 197 entradas en 1.2 ms (escritura)
+[2026-10-13 01:57:45.060] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «dlc4» contenido «D0288B47455419D4F8862B84CCC508126F84816A41» tipo 00000002 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 01:57:45.063] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc4:\dlc0zm.id' -> 0xc000000f
+[2026-10-13 01:57:45.063] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc4:\dlc0zm.txt' -> 0xc000000f
+[2026-10-13 01:57:45.063] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc4:\dlc0mp.id' -> 0xc000000f
+[2026-10-13 01:57:45.063] [warning] [krnl] [t4024] [NtCreateFile] FAILED: path='dlc4:\dlc0mp.txt' -> 0xc000000f
+[2026-10-13 01:57:45.143] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_patch2.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.144] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\zm_patch2.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.145] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.147] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.148] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_patch2.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.150] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.156] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_patch2.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.158] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\zm_patch2.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.159] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.160] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.162] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.188] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_patch.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.194] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.196] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.198] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_patch.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.200] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.423] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_patch.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.425] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.426] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.428] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.464] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.469] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.471] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.473] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:45.475] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:46.119] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:57:46.119] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:57:46.119] [info] [gpu] [t19592] Creating graphics pipeline state with VS B2ABE37696B34964, PS 8BCED964C687816E
+[2026-10-13 01:57:46.119] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:57:46.119] [info] [gpu] [t14920] Creating graphics pipeline state with VS B2ABE37696B34964, PS 8BCED964C687816E
+[2026-10-13 01:57:46.119] [info] [gpu] [t1720] Creating graphics pipeline state with VS B6C9863F710683EC
+[2026-10-13 01:57:46.120] [info] [gpu] [t1720] Creating graphics pipeline state with VS A4827826E2589916
+[2026-10-13 01:57:46.488] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:46.489] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:46.491] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:46.493] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:46.659] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:57:46.874] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_frontend_patch.xpak' -> 0xc000000f
+[2026-10-13 01:57:46.880] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:46.882] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:46.884] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_frontend_patch.xpak' -> 0xc000000f
+[2026-10-13 01:57:46.886] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:46.975] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_frontend_patch.xpak' -> 0xc000000f
+[2026-10-13 01:57:46.978] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:46.979] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:46.981] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:47.024] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_frontend.xpak' -> 0xc000000f
+[2026-10-13 01:57:47.030] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:47.032] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:47.033] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:47.035] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_frontend.xpak' -> 0xc000000f
+[2026-10-13 01:57:47.037] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:47.510] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_frontend.xpak' -> 0xc000000f
+[2026-10-13 01:57:47.512] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:57:47.514] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:47.516] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:57:47.518] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:57:47.996] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5B9B7484417FB9B6
+[2026-10-13 01:57:48.700] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:57:50.734] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:57:52.735] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:57:53.628] [info] [apu] [t19648] [audio] SDL en 10 s: 1855 tramas con datos y 22 de silencio por falta de tramas
+[2026-10-13 01:57:54.679] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 3506 con 3506 contextos descodificados, 25.4 ms (maximo 0.49 ms); locks 3503 con 3503 contextos, 0.6 ms esperando (maximo 0.15 ms)
+[2026-10-13 01:57:54.679] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 01:57:54.751] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:57:56.251] [info] [core] [t1720] [presentador] adquisicion anticipada: 599 de 600 fotogramas sin esperar (99.8 %)
+[2026-10-13 01:57:56.752] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:57:57.931] [info] [krnl] [t22404] [io] 15 s: 310 aperturas (221 fallan) 6.6 ms en total, peor 0.1 ms, media 0.02 ms; 800 lecturas 77.0 MB en 46.5 ms, peor 1.4 ms
+[2026-10-13 01:57:57.931] [info] [krnl] [t22404] [io] rutas: 12 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1808 entradas en el arbol); ventana: 99 aciertos / 49 rellenos / 651 directas, 4.1 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 01:57:57.931] [info] [krnl] [t22404] [io] rangos: 147 releidas de 728 (20 %), 7.1 MB ya leidos antes de 77.0 MB (9 %); 363 seguidas (50 %); 0 desalojos
+[2026-10-13 01:57:57.931] [info] [krnl] [t22404] [io] rangos-cache: 1 aciertos / 27 fallos (4 %), 0.2 MB desde RAM contra 6.9 MB de la SD; 27 entradas vivas (6.9 MB de 64 tope), 0 expulsiones; no cacheadas: 355 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 01:57:58.767] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:58:00.768] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:58:02.780] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:58:03.629] [info] [apu] [t19648] [audio] SDL en 10 s: 1875 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 01:58:04.678] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 3496 con 3496 contextos descodificados, 23.5 ms (maximo 0.04 ms); locks 3496 con 3496 contextos, 0.4 ms esperando (maximo 0.00 ms)
+[2026-10-13 01:58:04.678] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 01:58:04.795] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:58:06.245] [info] [core] [t1720] [presentador] adquisicion anticipada: 1199 de 1200 fotogramas sin esperar (99.9 %)
+[2026-10-13 01:58:06.798] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:58:08.812] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:58:10.813] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:58:12.825] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:58:13.638] [info] [apu] [t19648] [audio] SDL en 10 s: 1877 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 01:58:14.299] [info] [krnl] [t22404] [io] 15 s: 0 aperturas (0 fallan) 0.0 ms en total, peor 0.0 ms, media 0.00 ms; 106 lecturas 11.8 MB en 17.7 ms, peor 2.4 ms
+[2026-10-13 01:58:14.299] [info] [krnl] [t22404] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1808 entradas en el arbol); ventana: 0 aciertos / 0 rellenos / 106 directas, 0.0 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 01:58:14.299] [info] [krnl] [t22404] [io] rangos: 0 releidas de 106 (0 %), 0.0 MB ya leidos antes de 11.8 MB (0 %); 91 seguidas (86 %); 0 desalojos
+[2026-10-13 01:58:14.299] [info] [krnl] [t22404] [io] rangos-cache: 1 aciertos / 27 fallos (4 %), 0.2 MB desde RAM contra 6.9 MB de la SD; 27 entradas vivas (6.9 MB de 64 tope), 0 expulsiones; no cacheadas: 461 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 01:58:14.678] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 3494 con 3494 contextos descodificados, 23.4 ms (maximo 0.26 ms); locks 3494 con 3494 contextos, 0.4 ms esperando (maximo 0.01 ms)
+[2026-10-13 01:58:14.678] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 01:58:14.842] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:58:16.242] [info] [core] [t1720] [presentador] adquisicion anticipada: 1799 de 1800 fotogramas sin esperar (99.9 %)
+[2026-10-13 01:58:16.860] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:58:17.876] [info] [core] [t4024] SDL OnControllerDeviceAdded: "Xbox One S Controller", JoystickType(1), GameControllerType(3), VendorID(0x045E), ProductID(0x02E0)
+[2026-10-13 01:58:17.876] [info] [core] [t4024] SDL OnControllerDeviceAdded: connection order 0, device 1.
+[2026-10-13 01:58:18.866] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:58:19.068] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:19.068] [info] [gpu] [t21384] Creating graphics pipeline state with VS B2ABE37696B34964, PS 8BCED964C687816E
+[2026-10-13 01:58:19.252] [info] [sys] [t23244] [guardado] abrir «user_settings» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\user_settings -> 1 fichero(s), 2048 B: user_settings (2048 B)
+[2026-10-13 01:58:19.252] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\user_settings' en \Device\Content\5\: 1 entradas en 0.1 ms (escritura)
+[2026-10-13 01:58:19.252] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «save» contenido «user_settings» tipo 00000001 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 01:58:19.253] [info] [sys] [t396] [guardado] cerrar «user_settings» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\user_settings -> 1 fichero(s), 2048 B: user_settings (2048 B)
+[2026-10-13 01:58:19.278] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:19.280] [info] [gpu] [t20284] Creating graphics pipeline state with VS B2ABE37696B34964, PS EEF09A18F0ADF2F4
+[2026-10-13 01:58:19.353] [info] [sys] [t23244] [guardado] abrir «stats_mp_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_mp_offline -> 1 fichero(s), 62464 B: stats_mp_offline (62464 B)
+[2026-10-13 01:58:19.353] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_mp_offline' en \Device\Content\6\: 1 entradas en 0.0 ms (escritura)
+[2026-10-13 01:58:19.353] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «save» contenido «stats_mp_offline» tipo 00000001 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 01:58:19.354] [info] [sys] [t396] [guardado] cerrar «stats_mp_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_mp_offline -> 1 fichero(s), 62464 B: stats_mp_offline (62464 B)
+[2026-10-13 01:58:19.455] [info] [sys] [t23244] [guardado] abrir «loadouts_mp_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_mp_offline -> 1 fichero(s), 7168 B: loadouts_mp_offline (7168 B)
+[2026-10-13 01:58:19.455] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_mp_offline' en \Device\Content\7\: 1 entradas en 0.1 ms (escritura)
+[2026-10-13 01:58:19.455] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «save» contenido «loadouts_mp_offline» tipo 00000001 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 01:58:19.456] [info] [sys] [t396] [guardado] cerrar «loadouts_mp_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_mp_offline -> 1 fichero(s), 7168 B: loadouts_mp_offline (7168 B)
+[2026-10-13 01:58:19.556] [info] [sys] [t23244] [guardado] abrir «stats_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline -> 1 fichero(s), 55296 B: stats_zm_offline (55296 B)
+[2026-10-13 01:58:19.556] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline' en \Device\Content\8\: 1 entradas en 0.1 ms (escritura)
+[2026-10-13 01:58:19.560] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «save» contenido «stats_zm_offline» tipo 00000001 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 01:58:19.561] [info] [sys] [t396] [guardado] cerrar «stats_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline -> 1 fichero(s), 55296 B: stats_zm_offline (55296 B)
+[2026-10-13 01:58:19.662] [info] [sys] [t23244] [guardado] abrir «loadouts_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_zm_offline -> 1 fichero(s), 7168 B: loadouts_zm_offline (7168 B)
+[2026-10-13 01:58:19.662] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_zm_offline' en \Device\Content\9\: 1 entradas en 0.1 ms (escritura)
+[2026-10-13 01:58:19.666] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «save» contenido «loadouts_zm_offline» tipo 00000001 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 01:58:19.667] [info] [sys] [t396] [guardado] cerrar «loadouts_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_zm_offline -> 1 fichero(s), 7168 B: loadouts_zm_offline (7168 B)
+[2026-10-13 01:58:19.767] [info] [sys] [t23244] [guardado] abrir «stats_fr_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_fr_offline -> 1 fichero(s), 61440 B: stats_fr_offline (61440 B)
+[2026-10-13 01:58:19.768] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_fr_offline' en \Device\Content\10\: 1 entradas en 0.1 ms (escritura)
+[2026-10-13 01:58:19.771] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «save» contenido «stats_fr_offline» tipo 00000001 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 01:58:19.772] [info] [sys] [t396] [guardado] cerrar «stats_fr_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_fr_offline -> 1 fichero(s), 61440 B: stats_fr_offline (61440 B)
+[2026-10-13 01:58:20.892] [info] [gpu] [t1720] Creating graphics pipeline state with VS 1E6883FCCDE1F688
+[2026-10-13 01:58:20.892] [info] [gpu] [t17924] Creating graphics pipeline state with VS 1E6883FCCDE1F688, PS A4A965C189287B99
+[2026-10-13 01:58:20.902] [info] [gpu] [t1720] Creating graphics pipeline state with VS BE68717E4DF4E8D8
+[2026-10-13 01:58:20.904] [info] [sys] [t23244] [guardado] crear «stats_mp_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_mp_offline
+[2026-10-13 01:58:20.905] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_mp_offline' en \Device\Content\11\: 0 entradas en 0.0 ms (escritura)
+[2026-10-13 01:58:20.905] [info] [sys] [t23244] [guardado] cabecera de «stats_mp_offline» escrita en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\Headers\00000001\stats_mp_offline.header
+[2026-10-13 01:58:20.906] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «save» contenido «stats_mp_offline» tipo 00000001 modo 2 -> crear (resultado 00000000)
+[2026-10-13 01:58:20.906] [info] [sys] [t396] [guardado] cerrar «stats_mp_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_mp_offline -> 1 fichero(s), 62464 B: stats_mp_offline (62464 B)
+[2026-10-13 01:58:20.919] [info] [gpu] [t1720] Creating graphics pipeline state with VS 03EEAA01C3B394BF
+[2026-10-13 01:58:20.921] [info] [gpu] [t1720] Creating graphics pipeline state with VS B6C9863F710683EC
+[2026-10-13 01:58:20.932] [info] [gpu] [t1720] Creating graphics pipeline state with VS 6EFA8F94F8E84265
+[2026-10-13 01:58:20.956] [info] [gpu] [t22596] Creating graphics pipeline state with VS 6EFA8F94F8E84265, PS 7908906CB4FF32BB
+[2026-10-13 01:58:20.958] [info] [gpu] [t1720] Creating graphics pipeline state with VS 45C22282135783F5
+[2026-10-13 01:58:20.984] [info] [gpu] [t3060] Creating graphics pipeline state with VS 45C22282135783F5, PS BD826AA502533BFF
+[2026-10-13 01:58:21.012] [info] [gpu] [t1720] Creating graphics pipeline state with VS 43A0A190216125E2
+[2026-10-13 01:58:21.028] [info] [gpu] [t13748] Creating graphics pipeline state with VS 43A0A190216125E2, PS C9B26ED877177A19
+[2026-10-13 01:58:21.035] [info] [gpu] [t1720] Creating graphics pipeline state with VS 14D6A711E0A9B7DF
+[2026-10-13 01:58:21.035] [info] [gpu] [t19592] Creating graphics pipeline state with VS 14D6A711E0A9B7DF, PS 5D877A778427732D
+[2026-10-13 01:58:21.036] [info] [gpu] [t1720] Creating graphics pipeline state with VS 9A28E68621D4CA53
+[2026-10-13 01:58:21.053] [info] [gpu] [t14920] Creating graphics pipeline state with VS 9A28E68621D4CA53, PS 3D10ACD37886E7AB
+[2026-10-13 01:58:21.054] [info] [gpu] [t1720] Creating graphics pipeline state with VS 07849A6916CC7538
+[2026-10-13 01:58:21.075] [info] [gpu] [t21384] Creating graphics pipeline state with VS 07849A6916CC7538, PS 75E786D3C622569D
+[2026-10-13 01:58:21.076] [info] [gpu] [t1720] Creating graphics pipeline state with VS 62BD44703E4A15D4
+[2026-10-13 01:58:21.096] [info] [gpu] [t6752] Creating graphics pipeline state with VS 62BD44703E4A15D4, PS 03D82507C2227B98
+[2026-10-13 01:58:21.108] [info] [gpu] [t1720] Creating graphics pipeline state with VS DF35E70177804DCE
+[2026-10-13 01:58:21.126] [info] [gpu] [t20284] Creating graphics pipeline state with VS DF35E70177804DCE, PS 4817018CD698A824
+[2026-10-13 01:58:21.150] [info] [gpu] [t1720] Creating graphics pipeline state with VS 62BD44703E4A15D4
+[2026-10-13 01:58:21.171] [info] [gpu] [t17924] Creating graphics pipeline state with VS 62BD44703E4A15D4, PS 8D2174321ACFAF06
+[2026-10-13 01:58:21.198] [info] [gpu] [t1720] Creating graphics pipeline state with VS 37F8F65287BF91C4
+[2026-10-13 01:58:21.220] [info] [gpu] [t13748] Creating graphics pipeline state with VS 37F8F65287BF91C4, PS E69B951AB3C923B7
+[2026-10-13 01:58:21.477] [warning] [krnl] [t4024] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-13 01:58:21.477] [warning] [krnl] [t4024] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-13 01:58:21.487] [info] [gpu] [t1720] Creating graphics pipeline state with VS 1E6883FCCDE1F688
+[2026-10-13 01:58:21.500] [info] [gpu] [t6752] Creating graphics pipeline state with VS 1E6883FCCDE1F688, PS A4A965C189287B99
+[2026-10-13 01:58:21.501] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:21.501] [info] [gpu] [t14920] Creating graphics pipeline state with VS B2ABE37696B34964, PS 8BCED964C687816E
+[2026-10-13 01:58:21.502] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:21.502] [info] [gpu] [t21384] Creating graphics pipeline state with VS B2ABE37696B34964, PS 433CAE97C09D209E
+[2026-10-13 01:58:21.503] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:21.503] [info] [gpu] [t20284] Creating graphics pipeline state with VS B2ABE37696B34964, PS 0D35EE0E164B7B00
+[2026-10-13 01:58:21.503] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:21.503] [info] [gpu] [t19592] Creating graphics pipeline state with VS B2ABE37696B34964, PS 0D35EE0E164B7B00
+[2026-10-13 01:58:21.504] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:21.504] [info] [gpu] [t22596] Creating graphics pipeline state with VS B2ABE37696B34964, PS 69B6FCC67C4B1727
+[2026-10-13 01:58:21.504] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:21.504] [info] [gpu] [t3060] Creating graphics pipeline state with VS B2ABE37696B34964, PS 69B6FCC67C4B1727
+[2026-10-13 01:58:21.504] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:21.504] [info] [gpu] [t17924] Creating graphics pipeline state with VS B2ABE37696B34964, PS FEC02D3C5BB7BA61
+[2026-10-13 01:58:21.576] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:21.576] [info] [gpu] [t14920] Creating graphics pipeline state with VS B2ABE37696B34964, PS 9A34669BC8BB0E66
+[2026-10-13 01:58:21.647] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5B9B7484417FB9B6
+[2026-10-13 01:58:21.677] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:21.679] [info] [gpu] [t6752] Creating graphics pipeline state with VS B2ABE37696B34964, PS 1B8AD8E426E9E4FA
+[2026-10-13 01:58:21.945] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:21.945] [info] [gpu] [t20284] Creating graphics pipeline state with VS B2ABE37696B34964, PS 02A62A8574BC958D
+[2026-10-13 01:58:23.650] [info] [apu] [t19648] [audio] SDL en 10 s: 1877 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 01:58:24.678] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 4553 con 4553 contextos descodificados, 36.0 ms (maximo 2.22 ms); locks 4551 con 4551 contextos, 0.5 ms esperando (maximo 0.00 ms)
+[2026-10-13 01:58:24.678] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 01:58:25.625] [info] [sys] [t23244] [guardado] crear «user_settings» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\user_settings
+[2026-10-13 01:58:25.626] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\user_settings' en \Device\Content\12\: 0 entradas en 0.1 ms (escritura)
+[2026-10-13 01:58:25.627] [info] [sys] [t23244] [guardado] cabecera de «user_settings» escrita en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\Headers\00000001\user_settings.header
+[2026-10-13 01:58:25.627] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «save» contenido «user_settings» tipo 00000001 modo 2 -> crear (resultado 00000000)
+[2026-10-13 01:58:25.627] [info] [sys] [t396] [guardado] cerrar «user_settings» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\user_settings -> 1 fichero(s), 2048 B: user_settings (2048 B)
+[2026-10-13 01:58:25.941] [warning] [krnl] [t4024] __imp__NetDll_XNetRegisterKey STUB
+[2026-10-13 01:58:26.007] [warning] [krnl] [t4024] __imp__NetDll_XNetRegisterKey STUB
+[2026-10-13 01:58:26.074] [warning] [krnl] [t4024] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-13 01:58:26.074] [warning] [krnl] [t4024] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-13 01:58:26.457] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:26.457] [info] [gpu] [t19592] Creating graphics pipeline state with VS B2ABE37696B34964, PS 0D35EE0E164B7B00
+[2026-10-13 01:58:26.457] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:26.457] [info] [gpu] [t19592] Creating graphics pipeline state with VS B2ABE37696B34964, PS 69B6FCC67C4B1727
+[2026-10-13 01:58:26.457] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:26.457] [info] [gpu] [t3060] Creating graphics pipeline state with VS B2ABE37696B34964, PS 69B6FCC67C4B1727
+[2026-10-13 01:58:26.457] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:26.457] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:26.457] [info] [gpu] [t13748] Creating graphics pipeline state with VS B2ABE37696B34964, PS FEC02D3C5BB7BA61
+[2026-10-13 01:58:27.290] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:27.290] [info] [gpu] [t14920] Creating graphics pipeline state with VS B2ABE37696B34964, PS 69B6FCC67C4B1727
+[2026-10-13 01:58:27.291] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:27.291] [info] [gpu] [t21384] Creating graphics pipeline state with VS B2ABE37696B34964, PS 8BCED964C687816E
+[2026-10-13 01:58:27.323] [info] [core] [t1720] [presentador] adquisicion anticipada: 2399 de 2400 fotogramas sin esperar (100.0 %)
+[2026-10-13 01:58:28.790] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:28.790] [info] [gpu] [t6752] Creating graphics pipeline state with VS B2ABE37696B34964, PS 9A34669BC8BB0E66
+[2026-10-13 01:58:29.499] [info] [krnl] [t22404] [io] 15 s: 8 aperturas (0 fallan) 1.3 ms en total, peor 0.3 ms, media 0.16 ms; 100 lecturas 9.0 MB en 19.7 ms, peor 2.1 ms
+[2026-10-13 01:58:29.499] [info] [krnl] [t22404] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1814 entradas en el arbol); ventana: 0 aciertos / 2 rellenos / 98 directas, 0.1 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 01:58:29.499] [info] [krnl] [t22404] [io] rangos: 0 releidas de 100 (0 %), 0.0 MB ya leidos antes de 9.0 MB (0 %); 68 seguidas (68 %); 0 desalojos
+[2026-10-13 01:58:29.499] [info] [krnl] [t22404] [io] rangos-cache: 1 aciertos / 27 fallos (4 %), 0.2 MB desde RAM contra 6.9 MB de la SD; 27 entradas vivas (6.9 MB de 64 tope), 0 expulsiones; no cacheadas: 551 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 01:58:33.659] [info] [apu] [t19648] [audio] SDL en 10 s: 1877 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 01:58:34.678] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 7117 con 7117 contextos descodificados, 52.6 ms (maximo 2.18 ms); locks 7114 con 7114 contextos, 0.7 ms esperando (maximo 0.00 ms)
+[2026-10-13 01:58:34.678] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 01:58:37.339] [info] [core] [t1720] [presentador] adquisicion anticipada: 2999 de 3000 fotogramas sin esperar (100.0 %)
+[2026-10-13 01:58:39.924] [warning] [krnl] [t4024] __imp__XamBackgroundDownloadSetMode STUB
+[2026-10-13 01:58:39.957] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 01:58:40.061] [info] [gpu] [t1720] Creating graphics pipeline state with VS A4827826E2589916
+[2026-10-13 01:58:40.063] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_factory_patch.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.068] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.070] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.072] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.074] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_factory_patch.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.077] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.110] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\snd\en\zm_factory_patch.disc.en.sabs' -> 0xc000000f
+[2026-10-13 01:58:40.356] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_factory_patch.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.357] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.358] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.360] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.362] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.395] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\snd\all\zm_factory_patch.disc.all.sabs' -> 0xc000000f
+[2026-10-13 01:58:40.644] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.646] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.648] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.653] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:58:40.687] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\snd\en\zm_factory.disc.en.sabs' -> 0xc000000f
+[2026-10-13 01:58:43.610] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 01:58:43.612] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:58:43.614] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 01:58:43.616] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 01:58:43.655] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\snd\all\zm_factory.disc.all.sabs' -> 0xc000000f
+[2026-10-13 01:58:43.668] [info] [apu] [t19648] [audio] SDL en 10 s: 1877 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 01:58:43.848] [warning] [krnl] [t22404] [io] LENTO: leer 15577088 bytes de 'snd\zm_factory.all.sabl' en 2048 tardo 9.8 ms
+[2026-10-13 01:58:43.959] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5B9B7484417FB9B6
+[2026-10-13 01:58:44.523] [info] [krnl] [t22404] [io] 15 s: 45 aperturas (23 fallan) 2.1 ms en total, peor 0.1 ms, media 0.05 ms; 577 lecturas 74.9 MB en 52.1 ms, peor 9.8 ms
+[2026-10-13 01:58:44.523] [info] [krnl] [t22404] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1814 entradas en el arbol); ventana: 26 aciertos / 12 rellenos / 539 directas, 1.2 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 01:58:44.523] [info] [krnl] [t22404] [io] rangos: 72 releidas de 565 (13 %), 3.4 MB ya leidos antes de 74.9 MB (4 %); 413 seguidas (73 %); 0 desalojos
+[2026-10-13 01:58:44.523] [info] [krnl] [t22404] [io] rangos-cache: 1 aciertos / 27 fallos (4 %), 0.2 MB desde RAM contra 6.9 MB de la SD; 27 entradas vivas (6.9 MB de 64 tope), 0 expulsiones; no cacheadas: 717 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 01:58:44.688] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 4333 con 4333 contextos descodificados, 35.6 ms (maximo 0.20 ms); locks 4337 con 4337 contextos, 0.5 ms esperando (maximo 0.00 ms)
+[2026-10-13 01:58:44.688] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 01:58:50.721] [info] [core] [t1720] [presentador] adquisicion anticipada: 3599 de 3600 fotogramas sin esperar (100.0 %)
+[2026-10-13 01:58:52.838] [info] [gpu] [t1720] Creating graphics pipeline state with VS 1E6883FCCDE1F688
+[2026-10-13 01:58:52.838] [info] [gpu] [t1720] Creating graphics pipeline state with VS BE68717E4DF4E8D8
+[2026-10-13 01:58:52.844] [info] [gpu] [t1720] Creating graphics pipeline state with VS 06CDF0C12D3E39FD
+[2026-10-13 01:58:52.865] [info] [gpu] [t1720] Creating graphics pipeline state with VS 03EEAA01C3B394BF
+[2026-10-13 01:58:52.866] [info] [gpu] [t1720] Creating graphics pipeline state with VS 4CB86BDE396678F7
+[2026-10-13 01:58:52.882] [info] [gpu] [t17924] Creating graphics pipeline state with VS 4CB86BDE396678F7, PS 7680B54AEFF9CCED
+[2026-10-13 01:58:52.883] [info] [gpu] [t1720] Creating graphics pipeline state with VS 4CB86BDE396678F7
+[2026-10-13 01:58:52.883] [info] [gpu] [t20284] Creating graphics pipeline state with VS 4CB86BDE396678F7, PS 7680B54AEFF9CCED
+[2026-10-13 01:58:52.904] [info] [gpu] [t1720] Creating graphics pipeline state with VS 1E6883FCCDE1F688
+[2026-10-13 01:58:52.904] [info] [gpu] [t1720] Creating graphics pipeline state with VS 1E6883FCCDE1F688
+[2026-10-13 01:58:52.917] [info] [gpu] [t1720] Creating graphics pipeline state with VS 06CDF0C12D3E39FD
+[2026-10-13 01:58:52.918] [info] [gpu] [t1720] Creating graphics pipeline state with VS B41F367A5FA62729
+[2026-10-13 01:58:52.956] [info] [gpu] [t1720] Creating graphics pipeline state with VS F4D600A8355A068F
+[2026-10-13 01:58:52.980] [info] [gpu] [t22596] Creating graphics pipeline state with VS F4D600A8355A068F, PS DB821CF7F83819A6
+[2026-10-13 01:58:52.982] [info] [gpu] [t1720] Creating graphics pipeline state with VS 09A04AEBC4107B07
+[2026-10-13 01:58:52.982] [info] [gpu] [t19592] Creating graphics pipeline state with VS 09A04AEBC4107B07, PS F28951C8EF2C5818
+[2026-10-13 01:58:52.983] [info] [gpu] [t1720] Creating graphics pipeline state with VS F943F48D0B6B5C63
+[2026-10-13 01:58:53.013] [info] [gpu] [t3060] Creating graphics pipeline state with VS F943F48D0B6B5C63, PS F28951C8EF2C5818
+[2026-10-13 01:58:53.015] [info] [gpu] [t1720] Creating graphics pipeline state with VS F4D600A8355A068F
+[2026-10-13 01:58:53.015] [info] [gpu] [t13748] Creating graphics pipeline state with VS F4D600A8355A068F, PS F28951C8EF2C5818
+[2026-10-13 01:58:53.018] [info] [gpu] [t1720] Creating graphics pipeline state with VS 09A04AEBC4107B07
+[2026-10-13 01:58:53.018] [info] [gpu] [t14920] Creating graphics pipeline state with VS 09A04AEBC4107B07, PS E5FE84E463A733D3
+[2026-10-13 01:58:53.021] [info] [gpu] [t1720] Creating graphics pipeline state with VS F4D600A8355A068F
+[2026-10-13 01:58:53.021] [info] [gpu] [t21384] Creating graphics pipeline state with VS F4D600A8355A068F, PS E5FE84E463A733D3
+[2026-10-13 01:58:53.025] [info] [gpu] [t1720] Creating graphics pipeline state with VS 53A094C16948F119
+[2026-10-13 01:58:53.062] [info] [gpu] [t6752] Creating graphics pipeline state with VS 53A094C16948F119, PS DC50CA8397B47989
+[2026-10-13 01:58:53.063] [info] [gpu] [t1720] Creating graphics pipeline state with VS D14151EF54CC7B02
+[2026-10-13 01:58:53.096] [info] [gpu] [t20284] Creating graphics pipeline state with VS D14151EF54CC7B02, PS DC50CA8397B47989
+[2026-10-13 01:58:53.097] [info] [gpu] [t1720] Creating graphics pipeline state with VS 53A094C16948F119
+[2026-10-13 01:58:53.097] [info] [gpu] [t1720] Creating graphics pipeline state with VS D14151EF54CC7B02
+[2026-10-13 01:58:53.097] [info] [gpu] [t19592] Creating graphics pipeline state with VS 53A094C16948F119, PS F888F6E9C420F4B8
+[2026-10-13 01:58:53.100] [info] [gpu] [t1720] Creating graphics pipeline state with VS 53A094C16948F119
+[2026-10-13 01:58:53.100] [info] [gpu] [t1720] Creating graphics pipeline state with VS D14151EF54CC7B02
+[2026-10-13 01:58:53.102] [info] [gpu] [t17924] Creating graphics pipeline state with VS D14151EF54CC7B02, PS F888F6E9C420F4B8
+[2026-10-13 01:58:53.102] [info] [gpu] [t1720] Creating graphics pipeline state with VS 09A04AEBC4107B07
+[2026-10-13 01:58:53.102] [info] [gpu] [t1720] Creating graphics pipeline state with VS F4D600A8355A068F
+[2026-10-13 01:58:53.104] [info] [gpu] [t1720] Creating graphics pipeline state with VS 53A094C16948F119
+[2026-10-13 01:58:53.104] [info] [gpu] [t1720] Creating graphics pipeline state with VS D14151EF54CC7B02
+[2026-10-13 01:58:53.106] [info] [gpu] [t1720] Creating graphics pipeline state with VS F10A6DD0F4D5A2BD
+[2026-10-13 01:58:53.140] [info] [gpu] [t1720] Creating graphics pipeline state with VS D4313B5CAC2E830B
+[2026-10-13 01:58:53.176] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5CF0D58610F2A4B3
+[2026-10-13 01:58:53.213] [info] [gpu] [t1720] Creating graphics pipeline state with VS 9DC6185E601F070B
+[2026-10-13 01:58:53.217] [info] [gpu] [t1720] Creating graphics pipeline state with VS 45C22282135783F5
+[2026-10-13 01:58:53.220] [info] [gpu] [t1720] Creating graphics pipeline state with VS FE4B083E1B71A784
+[2026-10-13 01:58:53.261] [info] [gpu] [t1720] Creating graphics pipeline state with VS 45C22282135783F5
+[2026-10-13 01:58:53.264] [info] [gpu] [t1720] Creating graphics pipeline state with VS 1B0769FF54E0B28E
+[2026-10-13 01:58:53.305] [info] [gpu] [t1720] Creating graphics pipeline state with VS 0169CFD9C78AD176
+[2026-10-13 01:58:53.331] [info] [gpu] [t13748] Creating graphics pipeline state with VS 53A094C16948F119, PS 49CDA28C3B6196C5
+[2026-10-13 01:58:53.334] [info] [gpu] [t22596] Creating graphics pipeline state with VS 09A04AEBC4107B07, PS 920B64530007B385
+[2026-10-13 01:58:53.339] [info] [gpu] [t1720] Creating graphics pipeline state with VS 855E8D5EFE527B8A
+[2026-10-13 01:58:53.354] [info] [gpu] [t21384] Creating graphics pipeline state with VS F10A6DD0F4D5A2BD, PS 5BED8D6B23B957EF
+[2026-10-13 01:58:53.370] [info] [gpu] [t14920] Creating graphics pipeline state with VS 1B0769FF54E0B28E, PS 2AA07892D084FDDE
+[2026-10-13 01:58:53.379] [info] [gpu] [t3060] Creating graphics pipeline state with VS 45C22282135783F5, PS D98BF885242EAB82
+[2026-10-13 01:58:53.381] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5F11E5E69CF9936C
+[2026-10-13 01:58:53.461] [info] [gpu] [t1720] Creating graphics pipeline state with VS CD5FE23E64A7D1B9
+[2026-10-13 01:58:53.465] [info] [gpu] [t1720] Creating graphics pipeline state with VS 44A427EF0F7FD36B
+[2026-10-13 01:58:53.518] [info] [gpu] [t1720] Creating graphics pipeline state with VS A6AB92F9F348BF32
+[2026-10-13 01:58:53.548] [info] [gpu] [t21384] Creating graphics pipeline state with VS 0169CFD9C78AD176, PS D9856F58926C7C60
+[2026-10-13 01:58:53.570] [info] [gpu] [t1720] Creating graphics pipeline state with VS 9DC6185E601F070B
+[2026-10-13 01:58:53.572] [info] [gpu] [t1720] Creating graphics pipeline state with VS 45C22282135783F5
+[2026-10-13 01:58:53.574] [info] [gpu] [t1720] Creating graphics pipeline state with VS CD5FE23E64A7D1B9
+[2026-10-13 01:58:53.576] [info] [gpu] [t1720] Creating graphics pipeline state with VS 4318BE16DFCB14A1
+[2026-10-13 01:58:53.587] [info] [gpu] [t19592] Creating graphics pipeline state with VS FE4B083E1B71A784, PS 914ACD31C43D5994
+[2026-10-13 01:58:53.625] [info] [gpu] [t1720] Creating graphics pipeline state with VS B187AE8A8420DC8E
+[2026-10-13 01:58:53.639] [info] [gpu] [t17924] Creating graphics pipeline state with VS 855E8D5EFE527B8A, PS FDA2FA8BED8A6DB9
+[2026-10-13 01:58:53.664] [info] [gpu] [t3060] Creating graphics pipeline state with VS 44A427EF0F7FD36B, PS 7F4C66A9309995F3
+[2026-10-13 01:58:53.674] [info] [gpu] [t1720] Creating graphics pipeline state with VS 44A427EF0F7FD36B
+[2026-10-13 01:58:53.677] [info] [gpu] [t1720] Creating graphics pipeline state with VS CD5FE23E64A7D1B9
+[2026-10-13 01:58:53.678] [info] [apu] [t19648] [audio] SDL en 10 s: 1869 tramas con datos y 8 de silencio por falta de tramas
+[2026-10-13 01:58:53.680] [info] [gpu] [t1720] Creating graphics pipeline state with VS DB25C67283F97DD6
+[2026-10-13 01:58:53.727] [info] [gpu] [t1720] Creating graphics pipeline state with VS F943F48D0B6B5C63
+[2026-10-13 01:58:53.727] [info] [gpu] [t1720] Creating graphics pipeline state with VS F4D600A8355A068F
+[2026-10-13 01:58:53.729] [info] [gpu] [t1720] Creating graphics pipeline state with VS 09A04AEBC4107B07
+[2026-10-13 01:58:53.729] [info] [gpu] [t1720] Creating graphics pipeline state with VS F4D600A8355A068F
+[2026-10-13 01:58:53.733] [info] [gpu] [t1720] Creating graphics pipeline state with VS 9DC6185E601F070B
+[2026-10-13 01:58:53.733] [info] [gpu] [t1720] Creating graphics pipeline state with VS CD5FE23E64A7D1B9
+[2026-10-13 01:58:53.736] [info] [gpu] [t1720] Creating graphics pipeline state with VS 4EE98AE462748098
+[2026-10-13 01:58:53.756] [info] [gpu] [t14920] Creating graphics pipeline state with VS 9DC6185E601F070B, PS EBA50B585E30B067
+[2026-10-13 01:58:53.768] [info] [gpu] [t22596] Creating graphics pipeline state with VS CD5FE23E64A7D1B9, PS BAFCC0EA4B59FBE6
+[2026-10-13 01:58:53.776] [info] [gpu] [t1720] Creating graphics pipeline state with VS 33DC8D6E2BF2A1F4
+[2026-10-13 01:58:53.809] [info] [gpu] [t19592] Creating graphics pipeline state with VS 4318BE16DFCB14A1, PS 51C5AD6094343EE5
+[2026-10-13 01:58:53.814] [info] [gpu] [t1720] Creating graphics pipeline state with VS BCF902D75272007C
+[2026-10-13 01:58:53.871] [info] [gpu] [t1720] Creating graphics pipeline state with VS 14AB5EEFFAC13A2B
+[2026-10-13 01:58:53.871] [info] [gpu] [t6752] Creating graphics pipeline state with VS 45C22282135783F5, PS B6328831C8588982
+[2026-10-13 01:58:53.918] [info] [gpu] [t1720] Creating graphics pipeline state with VS 33DC8D6E2BF2A1F4
+[2026-10-13 01:58:53.919] [info] [gpu] [t1720] Creating graphics pipeline state with VS BCF902D75272007C
+[2026-10-13 01:58:53.921] [info] [gpu] [t1720] Creating graphics pipeline state with VS 14AB5EEFFAC13A2B
+[2026-10-13 01:58:53.923] [info] [gpu] [t1720] Creating graphics pipeline state with VS 78FE049874629131
+[2026-10-13 01:58:53.933] [info] [gpu] [t20284] Creating graphics pipeline state with VS CD5FE23E64A7D1B9, PS E710517E32613788
+[2026-10-13 01:58:53.970] [info] [gpu] [t19592] Creating graphics pipeline state with VS 9DC6185E601F070B, PS BA0F0924429AEF76
+[2026-10-13 01:58:53.977] [info] [gpu] [t1720] Creating graphics pipeline state with VS FC09AFFC47BA81FD
+[2026-10-13 01:58:54.011] [info] [gpu] [t13748] Creating graphics pipeline state with VS 4EE98AE462748098, PS FE2BD59E43670A23
+[2026-10-13 01:58:54.019] [info] [gpu] [t1720] Creating graphics pipeline state with VS 4AE9D82DE06F013B
+[2026-10-13 01:58:54.068] [info] [gpu] [t1720] Creating graphics pipeline state with VS 74A0BA9C6A466F10
+[2026-10-13 01:58:54.115] [info] [gpu] [t1720] Creating graphics pipeline state with VS E4AEBF54E4DB63DA
+[2026-10-13 01:58:54.122] [info] [gpu] [t21384] Creating graphics pipeline state with VS BCF902D75272007C, PS 9655A229AB6889D5
+[2026-10-13 01:58:54.146] [info] [gpu] [t14920] Creating graphics pipeline state with VS 14AB5EEFFAC13A2B, PS 4D3F1C91747B1051
+[2026-10-13 01:58:54.159] [info] [gpu] [t1720] Creating graphics pipeline state with VS FC09AFFC47BA81FD
+[2026-10-13 01:58:54.161] [info] [gpu] [t1720] Creating graphics pipeline state with VS 4AE9D82DE06F013B
+[2026-10-13 01:58:54.163] [info] [gpu] [t1720] Creating graphics pipeline state with VS FC09AFFC47BA81FD
+[2026-10-13 01:58:54.164] [info] [gpu] [t1720] Creating graphics pipeline state with VS 4AE9D82DE06F013B
+[2026-10-13 01:58:54.168] [info] [gpu] [t1720] Creating graphics pipeline state with VS 2C078094CEAACEB6
+[2026-10-13 01:58:54.226] [info] [gpu] [t1720] Creating graphics pipeline state with VS A85D36321E07F0A2
+[2026-10-13 01:58:54.263] [info] [gpu] [t6752] Creating graphics pipeline state with VS 78FE049874629131, PS A7D9FF073DA72530
+[2026-10-13 01:58:54.279] [info] [gpu] [t1720] Creating graphics pipeline state with VS A85D36321E07F0A2
+[2026-10-13 01:58:54.282] [info] [gpu] [t1720] Creating graphics pipeline state with VS AFD94EE38F5B9151
+[2026-10-13 01:58:54.289] [info] [gpu] [t22596] Creating graphics pipeline state with VS BCF902D75272007C, PS 0ADCE788101D3FAB
+[2026-10-13 01:58:54.306] [info] [gpu] [t19592] Creating graphics pipeline state with VS 74A0BA9C6A466F10, PS 04B4C15EAAA259EC
+[2026-10-13 01:58:54.325] [info] [gpu] [t13748] Creating graphics pipeline state with VS 4AE9D82DE06F013B, PS 5693C39AE0CCFB95
+[2026-10-13 01:58:54.332] [info] [gpu] [t1720] Creating graphics pipeline state with VS 9160BAB428C9A12C
+[2026-10-13 01:58:54.348] [info] [gpu] [t3060] Creating graphics pipeline state with VS FC09AFFC47BA81FD, PS 54C8F50575C2D787
+[2026-10-13 01:58:54.357] [info] [gpu] [t14920] Creating graphics pipeline state with VS 2C078094CEAACEB6, PS B84B2DEEA017733A
+[2026-10-13 01:58:54.378] [info] [gpu] [t1720] Creating graphics pipeline state with VS 0480BFAF550D373B
+[2026-10-13 01:58:54.419] [info] [gpu] [t1720] Creating graphics pipeline state with VS 56F3296F267FCC21
+[2026-10-13 01:58:54.466] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5F98ACCDF9914097
+[2026-10-13 01:58:54.489] [info] [gpu] [t21384] Creating graphics pipeline state with VS A85D36321E07F0A2, PS 8103ECB75C8C727B
+[2026-10-13 01:58:54.503] [info] [gpu] [t17924] Creating graphics pipeline state with VS A85D36321E07F0A2, PS B930BBBD9DB36406
+[2026-10-13 01:58:54.512] [info] [gpu] [t1720] Creating graphics pipeline state with VS 76298C1BAA68BE3A
+[2026-10-13 01:58:54.545] [info] [gpu] [t1720] Creating graphics pipeline state with VS E4FE3A9F111C785B
+[2026-10-13 01:58:54.589] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5E4AE89864F186A8
+[2026-10-13 01:58:54.607] [info] [gpu] [t19592] Creating graphics pipeline state with VS AFD94EE38F5B9151, PS 8A77D968A964DDCC
+[2026-10-13 01:58:54.632] [info] [gpu] [t6752] Creating graphics pipeline state with VS 4AE9D82DE06F013B, PS 34C9E88B65A1C517
+[2026-10-13 01:58:54.635] [info] [gpu] [t3060] Creating graphics pipeline state with VS 9160BAB428C9A12C, PS 4D2F27346A771C4C
+[2026-10-13 01:58:54.645] [info] [gpu] [t22596] Creating graphics pipeline state with VS 56F3296F267FCC21, PS 3B3C91EA2FD015D4
+[2026-10-13 01:58:54.677] [info] [gpu] [t1720] Creating graphics pipeline state with VS 0480BFAF550D373B, PS FB30006A2FDCD8CF
+[2026-10-13 01:58:54.691] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 3558 con 3558 contextos descodificados, 31.9 ms (maximo 0.20 ms); locks 3558 con 3558 contextos, 0.4 ms esperando (maximo 0.01 ms)
+[2026-10-13 01:58:54.691] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 01:58:54.712] [warning] [krnl] [t22404] [io] LENTO: leer 32768 bytes de 'snd\zm_factory.all.sabs' en 319488 tardo 12.0 ms
+[2026-10-13 01:58:54.783] [info] [gpu] [t20284] Creating graphics pipeline state with VS E4FE3A9F111C785B, PS 226B2FCADDC2AE5C
+[2026-10-13 01:58:54.840] [info] [gpu] [t17924] Creating graphics pipeline state with VS 5E4AE89864F186A8, PS 192035F5962E29D2
+[2026-10-13 01:58:54.843] [info] [gpu] [t21384] Creating graphics pipeline state with VS 76298C1BAA68BE3A, PS 534E6FA8807B5C49
+[2026-10-13 01:58:54.850] [info] [gpu] [t13748] Creating graphics pipeline state with VS 4AE9D82DE06F013B, PS BD50C8EBC89A2D9B
+[2026-10-13 01:58:54.906] [info] [gpu] [t22596] Creating graphics pipeline state with VS 5F98ACCDF9914097, PS F83FF1C047B6D5D4
+[2026-10-13 01:58:54.927] [info] [gpu] [t14920] Creating graphics pipeline state with VS FC09AFFC47BA81FD, PS ED94E8CB87CDF95A
+[2026-10-13 01:58:54.934] [info] [gpu] [t21384] Creating graphics pipeline state with VS E4AEBF54E4DB63DA, PS 05444E6A579C5801
+[2026-10-13 01:58:54.952] [info] [gpu] [t20284] Creating graphics pipeline state with VS FC09AFFC47BA81FD, PS 012A99E1424BDB53
+[2026-10-13 01:58:54.976] [info] [gpu] [t17924] Creating graphics pipeline state with VS 33DC8D6E2BF2A1F4, PS F12D5F98E91AA99E
+[2026-10-13 01:58:55.035] [info] [gpu] [t19592] Creating graphics pipeline state with VS 14AB5EEFFAC13A2B, PS B748164F25D516A2
+[2026-10-13 01:58:55.090] [info] [gpu] [t3060] Creating graphics pipeline state with VS 33DC8D6E2BF2A1F4, PS 727467801A3052D7
+[2026-10-13 01:58:55.152] [info] [gpu] [t17924] Creating graphics pipeline state with VS F4D600A8355A068F, PS E71181841E588207
+[2026-10-13 01:58:55.152] [info] [gpu] [t1720] Creating graphics pipeline state with VS 09A04AEBC4107B07, PS E71181841E588207
+[2026-10-13 01:58:55.186] [info] [gpu] [t20284] Creating graphics pipeline state with VS F4D600A8355A068F, PS E09F93A47E5AFF9B
+[2026-10-13 01:58:55.216] [info] [gpu] [t13748] Creating graphics pipeline state with VS F943F48D0B6B5C63, PS E09F93A47E5AFF9B
+[2026-10-13 01:58:55.217] [info] [gpu] [t6752] Creating graphics pipeline state with VS DB25C67283F97DD6, PS 75A3301B68369A30
+[2026-10-13 01:58:55.223] [info] [gpu] [t14920] Creating graphics pipeline state with VS CD5FE23E64A7D1B9, PS E710517E32613788
+[2026-10-13 01:58:55.224] [info] [gpu] [t14920] Creating graphics pipeline state with VS 44A427EF0F7FD36B, PS 0A84B1498CEB04BB
+[2026-10-13 01:58:55.247] [info] [gpu] [t19592] Creating graphics pipeline state with VS A6AB92F9F348BF32, PS 7F283179BB664F42
+[2026-10-13 01:58:55.269] [info] [gpu] [t3060] Creating graphics pipeline state with VS B187AE8A8420DC8E, PS 424D253FE91BBD3B
+[2026-10-13 01:58:55.359] [info] [gpu] [t21384] Creating graphics pipeline state with VS CD5FE23E64A7D1B9, PS 6DE1EBAC585DB9AD
+[2026-10-13 01:58:55.469] [info] [gpu] [t22596] Creating graphics pipeline state with VS 5F11E5E69CF9936C, PS C0A3011AA6BE7075
+[2026-10-13 01:58:55.485] [info] [gpu] [t6752] Creating graphics pipeline state with VS 45C22282135783F5, PS E72C32DA51BCE6D5
+[2026-10-13 01:58:55.519] [info] [gpu] [t1720] Creating graphics pipeline state with VS 9DC6185E601F070B, PS 864F973B43B34E1A
+[2026-10-13 01:58:55.530] [info] [gpu] [t20284] Creating graphics pipeline state with VS 5CF0D58610F2A4B3, PS CC81908564C78332
+[2026-10-13 01:58:55.533] [info] [gpu] [t17924] Creating graphics pipeline state with VS D14151EF54CC7B02, PS 44CE251783145B4D
+[2026-10-13 01:58:55.560] [info] [gpu] [t13748] Creating graphics pipeline state with VS D4313B5CAC2E830B, PS 42235F7B92892CB9
+[2026-10-13 01:58:55.603] [info] [gpu] [t3060] Creating graphics pipeline state with VS 53A094C16948F119, PS 44CE251783145B4D
+[2026-10-13 01:58:55.719] [info] [gpu] [t20284] Creating graphics pipeline state with VS D14151EF54CC7B02, PS 49CDA28C3B6196C5
+[2026-10-13 01:58:55.731] [info] [gpu] [t6752] Creating graphics pipeline state with VS F4D600A8355A068F, PS 920B64530007B385
+[2026-10-13 01:58:56.304] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5A9860357D218876
+[2026-10-13 01:58:56.335] [info] [gpu] [t13748] Creating graphics pipeline state with VS 5A9860357D218876, PS EE37076FCFE896CA
+[2026-10-13 01:58:56.828] [info] [gpu] [t1720] Creating graphics pipeline state with VS 2C078094CEAACEB6
+[2026-10-13 01:58:56.828] [info] [gpu] [t14920] Creating graphics pipeline state with VS 2C078094CEAACEB6, PS 8CFEF2A61643BBE9
+[2026-10-13 01:58:56.831] [info] [gpu] [t1720] Creating graphics pipeline state with VS EA805A412AB78E8C
+[2026-10-13 01:58:56.912] [info] [gpu] [t19592] Creating graphics pipeline state with VS EA805A412AB78E8C, PS D78B19269EE2412D
+[2026-10-13 01:58:56.912] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:58:56.912] [info] [gpu] [t17924] Creating graphics pipeline state with VS B2ABE37696B34964, PS EEF09A18F0ADF2F4
+[2026-10-13 01:58:57.316] [info] [gpu] [t1720] Creating graphics pipeline state with VS BE68717E4DF4E8D8
+[2026-10-13 01:58:57.317] [info] [gpu] [t1720] Creating graphics pipeline state with VS 6F159D939461FD69
+[2026-10-13 01:58:57.381] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5F11E5E69CF9936C
+[2026-10-13 01:58:57.381] [info] [gpu] [t6752] Creating graphics pipeline state with VS 5F11E5E69CF9936C, PS 7E5B05B32AE32887
+[2026-10-13 01:58:57.381] [info] [gpu] [t1720] Creating graphics pipeline state with VS 0169CFD9C78AD176
+[2026-10-13 01:58:57.381] [info] [gpu] [t3060] Creating graphics pipeline state with VS 0169CFD9C78AD176, PS D9856F58926C7C60
+[2026-10-13 01:58:57.383] [info] [gpu] [t1720] Creating graphics pipeline state with VS 4DCFCD89CFE19089
+[2026-10-13 01:58:57.464] [info] [gpu] [t20284] Creating graphics pipeline state with VS 4DCFCD89CFE19089, PS 43A5795DC6B98907
+[2026-10-13 01:58:57.464] [info] [gpu] [t1720] Creating graphics pipeline state with VS 06CDF0C12D3E39FD
+[2026-10-13 01:58:57.464] [info] [gpu] [t1720] Creating graphics pipeline state with VS BE68717E4DF4E8D8
+[2026-10-13 01:58:57.464] [info] [gpu] [t1720] Creating graphics pipeline state with VS B41F367A5FA62729
+[2026-10-13 01:58:57.466] [info] [gpu] [t1720] Creating graphics pipeline state with VS 03EEAA01C3B394BF
+[2026-10-13 01:58:57.466] [info] [gpu] [t1720] Creating graphics pipeline state with VS B6C9863F710683EC
+[2026-10-13 01:58:57.474] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5F98ACCDF9914097
+[2026-10-13 01:58:57.474] [info] [gpu] [t21384] Creating graphics pipeline state with VS 5F98ACCDF9914097, PS 2CDA2899D975B69E
+[2026-10-13 01:58:57.474] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5F98ACCDF9914097
+[2026-10-13 01:58:57.506] [info] [gpu] [t13748] Creating graphics pipeline state with VS 5F98ACCDF9914097, PS 2CDA2899D975B69E
+[2026-10-13 01:58:58.173] [info] [gpu] [t1720] Creating graphics pipeline state with VS D693D991583895C6
+[2026-10-13 01:58:58.173] [info] [gpu] [t22596] Creating graphics pipeline state with VS D693D991583895C6, PS 7680B54AEFF9CCED
+[2026-10-13 01:58:58.177] [info] [gpu] [t1720] Creating graphics pipeline state with VS A4CF7CE225AFFB6B
+[2026-10-13 01:58:58.177] [info] [gpu] [t19592] Creating graphics pipeline state with VS A4CF7CE225AFFB6B, PS 424D253FE91BBD3B
+[2026-10-13 01:58:58.825] [info] [gpu] [t1720] Creating graphics pipeline state with VS BE68717E4DF4E8D8
+[2026-10-13 01:58:58.827] [info] [gpu] [t1720] Creating graphics pipeline state with VS BE68717E4DF4E8D8
+[2026-10-13 01:58:58.830] [info] [gpu] [t1720] Creating graphics pipeline state with VS EA29FC1103269FDC
+[2026-10-13 01:58:58.854] [info] [gpu] [t14920] Creating graphics pipeline state with VS EA29FC1103269FDC, PS 061376BBA88729C0
+[2026-10-13 01:58:59.249] [info] [gpu] [t1720] Creating graphics pipeline state with VS 44A427EF0F7FD36B
+[2026-10-13 01:58:59.249] [info] [gpu] [t17924] Creating graphics pipeline state with VS 44A427EF0F7FD36B, PS FFDDF7FE2090707C
+[2026-10-13 01:58:59.258] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5F98ACCDF9914097
+[2026-10-13 01:58:59.258] [info] [gpu] [t6752] Creating graphics pipeline state with VS 5F98ACCDF9914097, PS 952D63C331C5D604
+[2026-10-13 01:58:59.788] [info] [krnl] [t22404] [io] 15 s: 0 aperturas (0 fallan) 0.0 ms en total, peor 0.0 ms, media 0.00 ms; 185 lecturas 19.5 MB en 66.2 ms, peor 12.0 ms
+[2026-10-13 01:58:59.788] [info] [krnl] [t22404] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1814 entradas en el arbol); ventana: 0 aciertos / 6 rellenos / 179 directas, 0.2 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 01:58:59.788] [info] [krnl] [t22404] [io] rangos: 9 releidas de 185 (5 %), 0.3 MB ya leidos antes de 19.5 MB (1 %); 63 seguidas (34 %); 0 desalojos
+[2026-10-13 01:58:59.788] [info] [krnl] [t22404] [io] rangos-cache: 1 aciertos / 30 fallos (3 %), 0.2 MB desde RAM contra 7.7 MB de la SD; 30 entradas vivas (7.7 MB de 64 tope), 0 expulsiones; no cacheadas: 792 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 01:59:00.122] [info] [gpu] [t1720] Creating graphics pipeline state with VS BFD5778EFEB512EC
+[2026-10-13 01:59:00.148] [info] [gpu] [t21384] Creating graphics pipeline state with VS BFD5778EFEB512EC, PS 601FE6CB794D7B59
+[2026-10-13 01:59:00.409] [info] [gpu] [t1720] Creating graphics pipeline state with VS 6F159D939461FD69
+[2026-10-13 01:59:00.414] [info] [gpu] [t1720] Creating graphics pipeline state with VS 4DCFCD89CFE19089
+[2026-10-13 01:59:00.414] [info] [gpu] [t22596] Creating graphics pipeline state with VS 4DCFCD89CFE19089, PS 43A5795DC6B98907
+[2026-10-13 01:59:00.694] [info] [gpu] [t1720] Creating graphics pipeline state with VS 97783BF61DC741B2
+[2026-10-13 01:59:00.713] [info] [gpu] [t19592] Creating graphics pipeline state with VS 97783BF61DC741B2, PS 2F5A3DF2B1FB008E
+[2026-10-13 01:59:01.351] [info] [gpu] [t1720] Creating graphics pipeline state with VS D4EA0071F80668FF
+[2026-10-13 01:59:01.351] [info] [gpu] [t14920] Creating graphics pipeline state with VS D4EA0071F80668FF, PS 6DE1EBAC585DB9AD
+[2026-10-13 01:59:02.019] [info] [gpu] [t1720] Creating graphics pipeline state with VS F4D5FF679E2EA1B6
+[2026-10-13 01:59:02.054] [info] [gpu] [t17924] Creating graphics pipeline state with VS F4D5FF679E2EA1B6, PS 7641A5AB4B69DEE6
+[2026-10-13 01:59:02.336] [info] [gpu] [t1720] Creating graphics pipeline state with VS B41F367A5FA62729
+[2026-10-13 01:59:02.341] [info] [gpu] [t1720] Creating graphics pipeline state with VS A449C4DB69332D56
+[2026-10-13 01:59:02.342] [info] [gpu] [t1720] Creating graphics pipeline state with VS 09A04AEBC4107B07
+[2026-10-13 01:59:02.342] [info] [gpu] [t13748] Creating graphics pipeline state with VS 09A04AEBC4107B07, PS DB821CF7F83819A6
+[2026-10-13 01:59:02.346] [info] [gpu] [t1720] Creating graphics pipeline state with VS BEE9564065C9513A
+[2026-10-13 01:59:02.375] [info] [gpu] [t21384] Creating graphics pipeline state with VS BEE9564065C9513A, PS F888F6E9C420F4B8
+[2026-10-13 01:59:02.378] [info] [gpu] [t1720] Creating graphics pipeline state with VS 09A04AEBC4107B07
+[2026-10-13 01:59:02.378] [info] [gpu] [t22596] Creating graphics pipeline state with VS 09A04AEBC4107B07, PS 8A16B6F4A850FDFD
+[2026-10-13 01:59:02.382] [info] [gpu] [t1720] Creating graphics pipeline state with VS F6AF65505163FED0
+[2026-10-13 01:59:02.409] [info] [gpu] [t3060] Creating graphics pipeline state with VS F6AF65505163FED0, PS FC3D8DD0CC409D46
+[2026-10-13 01:59:02.420] [info] [gpu] [t1720] Creating graphics pipeline state with VS A0EE6935A3A26E1D
+[2026-10-13 01:59:02.454] [info] [gpu] [t19592] Creating graphics pipeline state with VS A0EE6935A3A26E1D, PS 6BAA95299684575D
+[2026-10-13 01:59:02.821] [info] [gpu] [t1720] Creating graphics pipeline state with VS E75BE9C4BC92B961
+[2026-10-13 01:59:02.839] [info] [gpu] [t14920] Creating graphics pipeline state with VS E75BE9C4BC92B961, PS 7680B54AEFF9CCED
+[2026-10-13 01:59:02.853] [info] [gpu] [t1720] Creating graphics pipeline state with VS 7CA2CC38C6D96A7D
+[2026-10-13 01:59:02.875] [info] [gpu] [t6752] Creating graphics pipeline state with VS 7CA2CC38C6D96A7D, PS D7D12A95AA9F53B4
+[2026-10-13 01:59:02.876] [info] [gpu] [t1720] Creating graphics pipeline state with VS A66FC44632E3EB26
+[2026-10-13 01:59:02.876] [info] [gpu] [t17924] Creating graphics pipeline state with VS A66FC44632E3EB26, PS 498E459493A90F08
+[2026-10-13 01:59:02.878] [info] [gpu] [t1720] Creating graphics pipeline state with VS D2B5DAA635B67449
+[2026-10-13 01:59:02.906] [info] [gpu] [t20284] Creating graphics pipeline state with VS D2B5DAA635B67449, PS 83CB4349223BBABE
+[2026-10-13 01:59:02.909] [info] [gpu] [t1720] Creating graphics pipeline state with VS B974A8E00A936C68
+[2026-10-13 01:59:02.945] [info] [gpu] [t13748] Creating graphics pipeline state with VS B974A8E00A936C68, PS 85124EA71147AE03
+[2026-10-13 01:59:02.947] [info] [gpu] [t1720] Creating graphics pipeline state with VS FE4B083E1B71A784
+[2026-10-13 01:59:02.947] [info] [gpu] [t19592] Creating graphics pipeline state with VS FE4B083E1B71A784, PS 35C2DC3E7F5F5AAE
+[2026-10-13 01:59:02.950] [info] [gpu] [t1720] Creating graphics pipeline state with VS FE4B083E1B71A784
+[2026-10-13 01:59:02.950] [info] [gpu] [t3060] Creating graphics pipeline state with VS FE4B083E1B71A784, PS 8666C8686378E9F3
+[2026-10-13 01:59:02.953] [info] [gpu] [t1720] Creating graphics pipeline state with VS F2348729F254D885
+[2026-10-13 01:59:02.990] [info] [gpu] [t22596] Creating graphics pipeline state with VS F2348729F254D885, PS 8C41D2CA128E2904
+[2026-10-13 01:59:02.992] [info] [gpu] [t1720] Creating graphics pipeline state with VS 1B0769FF54E0B28E
+[2026-10-13 01:59:02.993] [info] [gpu] [t21384] Creating graphics pipeline state with VS 1B0769FF54E0B28E, PS F4E797A5C900DE47
+[2026-10-13 01:59:02.996] [info] [gpu] [t1720] Creating graphics pipeline state with VS 59C42980EC02C79A
+[2026-10-13 01:59:03.033] [info] [gpu] [t14920] Creating graphics pipeline state with VS 59C42980EC02C79A, PS A299974EE25BFC8E
+[2026-10-13 01:59:03.035] [info] [gpu] [t1720] Creating graphics pipeline state with VS 288DC80E19E2745F
+[2026-10-13 01:59:03.070] [info] [gpu] [t17924] Creating graphics pipeline state with VS 288DC80E19E2745F, PS 1F964B9C64F65C89
+[2026-10-13 01:59:03.073] [info] [gpu] [t1720] Creating graphics pipeline state with VS 6FA8DC971407F0D7
+[2026-10-13 01:59:03.109] [info] [gpu] [t1720] Creating graphics pipeline state with VS FE4B083E1B71A784
+[2026-10-13 01:59:03.114] [info] [gpu] [t1720] Creating graphics pipeline state with VS 6C86D7859C8F5FCE
+[2026-10-13 01:59:03.147] [info] [gpu] [t1720] Creating graphics pipeline state with VS BEB37EFBFEB94984
+[2026-10-13 01:59:03.183] [info] [gpu] [t1720] Creating graphics pipeline state with VS 2C22CD6D072292A2
+[2026-10-13 01:59:03.189] [info] [gpu] [t6752] Creating graphics pipeline state with VS 6FA8DC971407F0D7, PS 355E1B8570A0FF84
+[2026-10-13 01:59:03.195] [info] [gpu] [t19592] Creating graphics pipeline state with VS 6C86D7859C8F5FCE, PS 5A98764C05CB5ADA
+[2026-10-13 01:59:03.204] [info] [gpu] [t3060] Creating graphics pipeline state with VS FE4B083E1B71A784, PS 29BF423BC93D8814
+[2026-10-13 01:59:03.219] [info] [gpu] [t13748] Creating graphics pipeline state with VS BEB37EFBFEB94984, PS F12D5F98E91AA99E
+[2026-10-13 01:59:03.223] [info] [gpu] [t1720] Creating graphics pipeline state with VS 24247561D4555641
+[2026-10-13 01:59:03.263] [info] [gpu] [t22596] Creating graphics pipeline state with VS 2C22CD6D072292A2, PS 54C8F50575C2D787
+[2026-10-13 01:59:03.269] [info] [gpu] [t20284] Creating graphics pipeline state with VS 24247561D4555641, PS 2C7E3B03A50FACFD
+[2026-10-13 01:59:03.274] [info] [gpu] [t1720] Creating graphics pipeline state with VS E8DB40F26AB7AC96
+[2026-10-13 01:59:03.319] [info] [gpu] [t1720] Creating graphics pipeline state with VS F56D1BA222D83C03
+[2026-10-13 01:59:03.350] [info] [gpu] [t1720] Creating graphics pipeline state with VS 921662E521AEF9BF
+[2026-10-13 01:59:03.367] [info] [gpu] [t6752] Creating graphics pipeline state with VS E8DB40F26AB7AC96, PS A19C23B72B13C40F
+[2026-10-13 01:59:03.380] [info] [gpu] [t19592] Creating graphics pipeline state with VS F56D1BA222D83C03, PS 9655A229AB6889D5
+[2026-10-13 01:59:03.383] [info] [gpu] [t13748] Creating graphics pipeline state with VS 921662E521AEF9BF, PS 3440EE6455D0F8BC
+[2026-10-13 01:59:03.385] [info] [gpu] [t1720] Creating graphics pipeline state with VS 7138D12A08BFA38B
+[2026-10-13 01:59:03.427] [info] [gpu] [t1720] Creating graphics pipeline state with VS 7138D12A08BFA38B, PS CEC0D47679441A15
+[2026-10-13 01:59:03.678] [info] [apu] [t19648] [audio] SDL en 10 s: 1746 tramas con datos y 129 de silencio por falta de tramas
+[2026-10-13 01:59:03.927] [info] [gpu] [t1720] Creating graphics pipeline state with VS A449C4DB69332D56
+[2026-10-13 01:59:03.942] [info] [gpu] [t1720] Creating graphics pipeline state with VS 8732630E42DBC3C8
+[2026-10-13 01:59:03.968] [info] [gpu] [t20284] Creating graphics pipeline state with VS 8732630E42DBC3C8, PS 9224D39CBCED6A82
+[2026-10-13 01:59:03.971] [info] [gpu] [t1720] Creating graphics pipeline state with VS A85D36321E07F0A2
+[2026-10-13 01:59:03.971] [info] [gpu] [t3060] Creating graphics pipeline state with VS A85D36321E07F0A2, PS 6BAA95299684575D
+[2026-10-13 01:59:03.973] [info] [gpu] [t1720] Creating graphics pipeline state with VS E1660B9E515A3D7F
+[2026-10-13 01:59:04.002] [info] [gpu] [t17924] Creating graphics pipeline state with VS E1660B9E515A3D7F, PS 98EAE504320ACAF3
+[2026-10-13 01:59:04.633] [info] [gpu] [t1720] Creating graphics pipeline state with VS F172F1BF55629BCE
+[2026-10-13 01:59:04.633] [info] [gpu] [t21384] Creating graphics pipeline state with VS F172F1BF55629BCE, PS 5BAA61F5823EFAA9
+[2026-10-13 01:59:04.633] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:59:04.633] [info] [gpu] [t14920] Creating graphics pipeline state with VS B2ABE37696B34964, PS B9B2C4CA01B2D352
+[2026-10-13 01:59:04.698] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 16193 con 16193 contextos descodificados, 100.1 ms (maximo 2.18 ms); locks 16178 con 16178 contextos, 1.6 ms esperando (maximo 0.01 ms)
+[2026-10-13 01:59:04.698] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 01:59:04.707] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:59:04.707] [info] [gpu] [t19592] Creating graphics pipeline state with VS B2ABE37696B34964, PS EEF09A18F0ADF2F4
+[2026-10-13 01:59:04.708] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:59:04.708] [info] [gpu] [t6752] Creating graphics pipeline state with VS B2ABE37696B34964, PS 08A28771243863A4
+[2026-10-13 01:59:05.159] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 01:59:05.159] [info] [gpu] [t17924] Creating graphics pipeline state with VS B2ABE37696B34964, PS D393FE516DA36B32
+[2026-10-13 01:59:05.831] [info] [gpu] [t1720] Creating graphics pipeline state with VS 09A04AEBC4107B07
+[2026-10-13 01:59:05.831] [info] [gpu] [t20284] Creating graphics pipeline state with VS 09A04AEBC4107B07, PS E09F93A47E5AFF9B
+[2026-10-13 01:59:06.608] [info] [gpu] [t1720] Creating graphics pipeline state with VS E75BE9C4BC92B961
+[2026-10-13 01:59:06.608] [info] [gpu] [t14920] Creating graphics pipeline state with VS E75BE9C4BC92B961, PS 7680B54AEFF9CCED
+[2026-10-13 01:59:06.617] [info] [gpu] [t1720] Creating graphics pipeline state with VS 929B74D9FD3AF030
+[2026-10-13 01:59:06.646] [info] [gpu] [t21384] Creating graphics pipeline state with VS 929B74D9FD3AF030, PS 9B4E0F11EF590803
+[2026-10-13 01:59:06.649] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5A2069C9748823AF
+[2026-10-13 01:59:06.675] [info] [gpu] [t19592] Creating graphics pipeline state with VS 5A2069C9748823AF, PS 58D496855987098F
+[2026-10-13 01:59:06.678] [info] [gpu] [t1720] Creating graphics pipeline state with VS 45C22282135783F5
+[2026-10-13 01:59:06.679] [info] [gpu] [t13748] Creating graphics pipeline state with VS 45C22282135783F5, PS 68B79EEDCB4C2135
+[2026-10-13 01:59:06.993] [info] [gpu] [t1720] Creating graphics pipeline state with VS 44A427EF0F7FD36B
+[2026-10-13 01:59:06.993] [info] [gpu] [t3060] Creating graphics pipeline state with VS 44A427EF0F7FD36B, PS 95DFD6752EB80EE3
+[2026-10-13 01:59:07.001] [info] [gpu] [t1720] Creating graphics pipeline state with VS 14096998BB2BCBDA
+[2026-10-13 01:59:07.039] [info] [gpu] [t17924] Creating graphics pipeline state with VS 14096998BB2BCBDA, PS 01B257822EC3D0B4
+[2026-10-13 01:59:07.442] [info] [gpu] [t1720] Creating graphics pipeline state with VS F4D600A8355A068F
+[2026-10-13 01:59:07.442] [info] [gpu] [t20284] Creating graphics pipeline state with VS F4D600A8355A068F, PS 635D252B42BA22A4
+[2026-10-13 01:59:07.446] [info] [gpu] [t1720] Creating graphics pipeline state with VS 24F4093B9C073DF8
+[2026-10-13 01:59:07.483] [info] [gpu] [t14920] Creating graphics pipeline state with VS 24F4093B9C073DF8, PS BD50C8EBC89A2D9B
+[2026-10-13 01:59:07.485] [info] [gpu] [t1720] Creating graphics pipeline state with VS 74A0BA9C6A466F10
+[2026-10-13 01:59:07.485] [info] [gpu] [t6752] Creating graphics pipeline state with VS 74A0BA9C6A466F10, PS 3E05BA789C770E82
+[2026-10-13 01:59:07.488] [info] [gpu] [t1720] Creating graphics pipeline state with VS AC0C782F84B3527E
+[2026-10-13 01:59:07.526] [info] [gpu] [t21384] Creating graphics pipeline state with VS AC0C782F84B3527E, PS CD9258321DD1B080
+[2026-10-13 01:59:07.852] [info] [gpu] [t1720] Creating graphics pipeline state with VS 6F159D939461FD69
+[2026-10-13 01:59:07.859] [info] [gpu] [t1720] Creating graphics pipeline state with VS D14151EF54CC7B02
+[2026-10-13 01:59:07.859] [info] [gpu] [t19592] Creating graphics pipeline state with VS D14151EF54CC7B02, PS 08DE7EEC871203F2
+[2026-10-13 01:59:07.867] [info] [gpu] [t1720] Creating graphics pipeline state with VS E4AEBF54E4DB63DA
+[2026-10-13 01:59:07.867] [info] [gpu] [t22596] Creating graphics pipeline state with VS E4AEBF54E4DB63DA, PS 1DB95C9265A78C81
+[2026-10-13 01:59:08.239] [info] [gpu] [t1720] Creating graphics pipeline state with VS 240E3AD3CD897C4E
+[2026-10-13 01:59:08.273] [info] [gpu] [t17924] Creating graphics pipeline state with VS 240E3AD3CD897C4E, PS 665A6999E167141E
+[2026-10-13 01:59:08.279] [info] [gpu] [t1720] Creating graphics pipeline state with VS 44A427EF0F7FD36B
+[2026-10-13 01:59:08.279] [info] [gpu] [t13748] Creating graphics pipeline state with VS 44A427EF0F7FD36B, PS BCDC6110101B5F77
+[2026-10-13 01:59:08.281] [info] [gpu] [t1720] Creating graphics pipeline state with VS CD5FE23E64A7D1B9
+[2026-10-13 01:59:08.281] [info] [gpu] [t14920] Creating graphics pipeline state with VS CD5FE23E64A7D1B9, PS E00FF56F53100C40
+[2026-10-13 01:59:08.285] [info] [gpu] [t1720] Creating graphics pipeline state with VS 45C22282135783F5
+[2026-10-13 01:59:08.285] [info] [gpu] [t6752] Creating graphics pipeline state with VS 45C22282135783F5, PS B029EA618A9CF29F
+[2026-10-13 01:59:08.288] [info] [gpu] [t1720] Creating graphics pipeline state with VS D0A98147FEAA6B9B
+[2026-10-13 01:59:08.312] [info] [gpu] [t20284] Creating graphics pipeline state with VS D0A98147FEAA6B9B, PS 98EAE504320ACAF3
+[2026-10-13 01:59:08.314] [info] [gpu] [t1720] Creating graphics pipeline state with VS 44A427EF0F7FD36B
+[2026-10-13 01:59:08.351] [info] [gpu] [t21384] Creating graphics pipeline state with VS 44A427EF0F7FD36B, PS FBFF97610DF7D1CF
+[2026-10-13 01:59:09.032] [info] [gpu] [t1720] Creating graphics pipeline state with VS AE96967B6530D4A5
+[2026-10-13 01:59:09.062] [info] [gpu] [t19592] Creating graphics pipeline state with VS AE96967B6530D4A5, PS 1B204BC2B3840AE0
+[2026-10-13 01:59:09.678] [info] [gpu] [t1720] Creating graphics pipeline state with VS 4318BE16DFCB14A1
+[2026-10-13 01:59:09.678] [info] [gpu] [t3060] Creating graphics pipeline state with VS 4318BE16DFCB14A1, PS 30E84E242B1A1D99
+[2026-10-13 01:59:10.616] [info] [gpu] [t1720] Creating graphics pipeline state with VS AF384A04655783BD
+[2026-10-13 01:59:10.685] [info] [gpu] [t6752] Creating graphics pipeline state with VS AF384A04655783BD, PS 216FF6F109333B05
+[2026-10-13 01:59:10.687] [info] [gpu] [t1720] Creating graphics pipeline state with VS 7A6A8FEFD7F45E6E
+[2026-10-13 01:59:10.765] [info] [gpu] [t17924] Creating graphics pipeline state with VS 7A6A8FEFD7F45E6E, PS 00962B0B94695B9D
+[2026-10-13 01:59:11.090] [info] [gpu] [t1720] Creating graphics pipeline state with VS 9DC6185E601F070B
+[2026-10-13 01:59:11.090] [info] [gpu] [t13748] Creating graphics pipeline state with VS 9DC6185E601F070B, PS 835F7548B9A65D4E
+[2026-10-13 01:59:11.336] [info] [gpu] [t1720] Creating graphics pipeline state with VS A1D07B486B250D0B
+[2026-10-13 01:59:11.407] [info] [gpu] [t22596] Creating graphics pipeline state with VS A1D07B486B250D0B, PS 46673BCD43D20295
+[2026-10-13 01:59:11.961] [info] [gpu] [t1720] Creating graphics pipeline state with VS 152171D29E1E083E
+[2026-10-13 01:59:12.036] [info] [gpu] [t20284] Creating graphics pipeline state with VS 152171D29E1E083E, PS 5F562BA3BD8C2BBE
+[2026-10-13 01:59:12.718] [info] [gpu] [t1720] Creating graphics pipeline state with VS B187AE8A8420DC8E
+[2026-10-13 01:59:12.718] [info] [gpu] [t14920] Creating graphics pipeline state with VS B187AE8A8420DC8E, PS C4D9676209880633
+[2026-10-13 01:59:12.890] [info] [gpu] [t1720] Creating graphics pipeline state with VS B09ED8DB9D1BF38A
+[2026-10-13 01:59:12.918] [info] [gpu] [t17924] Creating graphics pipeline state with VS B09ED8DB9D1BF38A, PS EAFBEDB5CBDE1BD8
+[2026-10-13 01:59:12.921] [info] [gpu] [t1720] Creating graphics pipeline state with VS A0EE6935A3A26E1D
+[2026-10-13 01:59:12.921] [info] [gpu] [t21384] Creating graphics pipeline state with VS A0EE6935A3A26E1D, PS B930BBBD9DB36406
+[2026-10-13 01:59:13.364] [info] [gpu] [t1720] Creating graphics pipeline state with VS D0A98147FEAA6B9B
+[2026-10-13 01:59:13.364] [info] [gpu] [t19592] Creating graphics pipeline state with VS D0A98147FEAA6B9B, PS 51C5AD6094343EE5
+[2026-10-13 01:59:13.476] [info] [gpu] [t1720] Creating graphics pipeline state with VS 088112B204BA3EFB
+[2026-10-13 01:59:13.500] [info] [gpu] [t22596] Creating graphics pipeline state with VS 088112B204BA3EFB, PS 5B2E4FEC12DDBBFA
+[2026-10-13 01:59:13.504] [info] [gpu] [t1720] Creating graphics pipeline state with VS 96F3550D025983BD
+[2026-10-13 01:59:13.535] [info] [gpu] [t3060] Creating graphics pipeline state with VS 96F3550D025983BD, PS AE12204CDAE744AE
+[2026-10-13 01:59:13.688] [info] [apu] [t19648] [audio] SDL en 10 s: 1877 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 01:59:13.889] [info] [gpu] [t1720] Creating graphics pipeline state with VS 0D620EFD4CCBC1E7
+[2026-10-13 01:59:13.922] [info] [gpu] [t6752] Creating graphics pipeline state with VS 0D620EFD4CCBC1E7, PS B32D71FD7A91B779
+[2026-10-13 01:59:14.070] [info] [gpu] [t1720] Creating graphics pipeline state with VS F95547A7C458095B
+[2026-10-13 01:59:14.098] [info] [gpu] [t13748] Creating graphics pipeline state with VS F95547A7C458095B, PS 3EFA3CA3D76BDA18
+[2026-10-13 01:59:14.251] [info] [gpu] [t1720] Creating graphics pipeline state with VS 0CC810F20DF88CA7
+[2026-10-13 01:59:14.251] [info] [gpu] [t17924] Creating graphics pipeline state with VS 0CC810F20DF88CA7, PS 56DBCFB2FA2300FC
+[2026-10-13 01:59:14.256] [info] [gpu] [t1720] Creating graphics pipeline state with VS CD5FE23E64A7D1B9
+[2026-10-13 01:59:14.256] [info] [gpu] [t19592] Creating graphics pipeline state with VS CD5FE23E64A7D1B9, PS 8232EB52C7CC680B
+[2026-10-13 01:59:14.257] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5F11E5E69CF9936C
+[2026-10-13 01:59:14.257] [info] [gpu] [t20284] Creating graphics pipeline state with VS 5F11E5E69CF9936C, PS 7E5B05B32AE32887
+[2026-10-13 01:59:14.267] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5A9860357D218876
+[2026-10-13 01:59:14.267] [info] [gpu] [t3060] Creating graphics pipeline state with VS 5A9860357D218876, PS 8C6FB02A76B0C9E0
+[2026-10-13 01:59:14.698] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 23795 con 23795 contextos descodificados, 135.0 ms (maximo 0.27 ms); locks 23791 con 23791 contextos, 2.2 ms esperando (maximo 0.00 ms)
+[2026-10-13 01:59:14.698] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 01:59:14.785] [info] [gpu] [t1720] Creating graphics pipeline state with VS 83FBB7ECF62A6D48
+[2026-10-13 01:59:14.785] [info] [gpu] [t14920] Creating graphics pipeline state with VS 83FBB7ECF62A6D48, PS 034723007A15358A
+[2026-10-13 01:59:14.787] [info] [gpu] [t1720] Creating graphics pipeline state with VS 45C22282135783F5
+[2026-10-13 01:59:14.787] [info] [gpu] [t6752] Creating graphics pipeline state with VS 45C22282135783F5, PS FF38A235861AD76A
+[2026-10-13 01:59:14.788] [info] [krnl] [t22404] [io] 15 s: 0 aperturas (0 fallan) 0.0 ms en total, peor 0.0 ms, media 0.00 ms; 354 lecturas 18.5 MB en 77.1 ms, peor 6.8 ms
+[2026-10-13 01:59:14.788] [info] [krnl] [t22404] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1814 entradas en el arbol); ventana: 0 aciertos / 3 rellenos / 351 directas, 0.2 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 01:59:14.788] [info] [krnl] [t22404] [io] rangos: 107 releidas de 354 (30 %), 3.3 MB ya leidos antes de 18.5 MB (18 %); 12 seguidas (3 %); 0 desalojos
+[2026-10-13 01:59:14.788] [info] [krnl] [t22404] [io] rangos-cache: 1 aciertos / 30 fallos (3 %), 0.2 MB desde RAM contra 7.7 MB de la SD; 30 entradas vivas (7.7 MB de 64 tope), 0 expulsiones; no cacheadas: 800 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 01:59:14.792] [info] [gpu] [t1720] Creating graphics pipeline state with VS F94BE93D2602B6F0
+[2026-10-13 01:59:14.792] [info] [gpu] [t21384] Creating graphics pipeline state with VS F94BE93D2602B6F0, PS 4D9E5572E546943F
+[2026-10-13 01:59:14.800] [info] [gpu] [t1720] Creating graphics pipeline state with VS 4318BE16DFCB14A1
+[2026-10-13 01:59:14.800] [info] [gpu] [t13748] Creating graphics pipeline state with VS 4318BE16DFCB14A1, PS 31769EF0F50321FB
+[2026-10-13 01:59:14.804] [info] [gpu] [t1720] Creating graphics pipeline state with VS 2842F1A357308EAA
+[2026-10-13 01:59:14.804] [info] [gpu] [t17924] Creating graphics pipeline state with VS 2842F1A357308EAA, PS BD826AA502533BFF
+[2026-10-13 01:59:14.812] [info] [gpu] [t1720] Creating graphics pipeline state with VS AFD94EE38F5B9151
+[2026-10-13 01:59:14.812] [info] [gpu] [t20284] Creating graphics pipeline state with VS AFD94EE38F5B9151, PS 8C6FB02A76B0C9E0
+[2026-10-13 01:59:14.816] [info] [gpu] [t1720] Creating graphics pipeline state with VS 42A8E0DBA1391F4E
+[2026-10-13 01:59:14.846] [info] [gpu] [t22596] Creating graphics pipeline state with VS 42A8E0DBA1391F4E, PS A85963C3C5A387FD
+[2026-10-13 01:59:16.200] [info] [gpu] [t1720] Creating graphics pipeline state with VS A4CF7CE225AFFB6B
+[2026-10-13 01:59:16.226] [info] [gpu] [t19592] Creating graphics pipeline state with VS A4CF7CE225AFFB6B, PS FE2BD59E43670A23
+[2026-10-13 01:59:16.659] [info] [gpu] [t1720] Creating graphics pipeline state with VS FE4B083E1B71A784
+[2026-10-13 01:59:16.659] [info] [gpu] [t14920] Creating graphics pipeline state with VS FE4B083E1B71A784, PS 1A77BFE7F1F3720A
+[2026-10-13 01:59:16.660] [info] [gpu] [t1720] Creating graphics pipeline state with VS FE4B083E1B71A784
+[2026-10-13 01:59:16.660] [info] [gpu] [t13748] Creating graphics pipeline state with VS FE4B083E1B71A784, PS 90BE7856E8826530
+[2026-10-13 01:59:19.144] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5F98ACCDF9914097
+[2026-10-13 01:59:19.144] [info] [gpu] [t17924] Creating graphics pipeline state with VS 5F98ACCDF9914097, PS E8879FBD5BE06218
+[2026-10-13 01:59:19.653] [info] [gpu] [t1720] Creating graphics pipeline state with VS A6536EF5554578F9
+[2026-10-13 01:59:19.738] [info] [gpu] [t22596] Creating graphics pipeline state with VS A6536EF5554578F9, PS 15026AA671045382
+[2026-10-13 01:59:20.226] [info] [gpu] [t1720] Creating graphics pipeline state with VS BB02A7C264BF131C
+[2026-10-13 01:59:20.258] [info] [gpu] [t3060] Creating graphics pipeline state with VS BB02A7C264BF131C, PS 59A6822C769BAAC5
+[2026-10-13 01:59:20.263] [info] [gpu] [t1720] Creating graphics pipeline state with VS F0E9DB0F2111DC4F
+[2026-10-13 01:59:20.297] [info] [gpu] [t19592] Creating graphics pipeline state with VS F0E9DB0F2111DC4F, PS 28DEC81014806481
+[2026-10-13 01:59:20.299] [info] [gpu] [t1720] Creating graphics pipeline state with VS F4D600A8355A068F
+[2026-10-13 01:59:20.299] [info] [gpu] [t6752] Creating graphics pipeline state with VS F4D600A8355A068F, PS 75B8A3E7F030C360
+[2026-10-13 01:59:20.306] [info] [gpu] [t1720] Creating graphics pipeline state with VS FE4B083E1B71A784
+[2026-10-13 01:59:20.306] [info] [gpu] [t14920] Creating graphics pipeline state with VS FE4B083E1B71A784, PS BA6E07A797FD8AFC
+[2026-10-13 01:59:20.308] [info] [gpu] [t1720] Creating graphics pipeline state with VS FE4B083E1B71A784
+[2026-10-13 01:59:20.308] [info] [gpu] [t13748] Creating graphics pipeline state with VS FE4B083E1B71A784, PS B983F08A777F4AFB
+[2026-10-13 01:59:20.310] [info] [gpu] [t1720] Creating graphics pipeline state with VS 8220CE0A4D76C429
+[2026-10-13 01:59:20.310] [info] [gpu] [t20284] Creating graphics pipeline state with VS 8220CE0A4D76C429, PS 92E2E3F11572B7FB
+[2026-10-13 01:59:20.312] [info] [gpu] [t1720] Creating graphics pipeline state with VS 45C22282135783F5
+[2026-10-13 01:59:20.312] [info] [gpu] [t17924] Creating graphics pipeline state with VS 45C22282135783F5, PS 7BA794D0B96C5EA6
+[2026-10-13 01:59:20.315] [info] [gpu] [t1720] Creating graphics pipeline state with VS 79D388E6FCBF5FDE
+[2026-10-13 01:59:20.357] [info] [gpu] [t21384] Creating graphics pipeline state with VS 79D388E6FCBF5FDE, PS 93CC7C0FFEE333D4
+[2026-10-13 01:59:20.359] [info] [gpu] [t1720] Creating graphics pipeline state with VS A85D36321E07F0A2
+[2026-10-13 01:59:20.359] [info] [gpu] [t22596] Creating graphics pipeline state with VS A85D36321E07F0A2, PS B92F3EF837BDD9C1
+[2026-10-13 01:59:20.367] [info] [gpu] [t1720] Creating graphics pipeline state with VS 56F3296F267FCC21
+[2026-10-13 01:59:20.368] [info] [gpu] [t1720] Creating graphics pipeline state with VS 56F3296F267FCC21, PS 7641A5AB4B69DEE6
+[2026-10-13 01:59:21.945] [info] [gpu] [t1720] Creating graphics pipeline state with VS D0A98147FEAA6B9B
+[2026-10-13 01:59:21.945] [info] [gpu] [t13748] Creating graphics pipeline state with VS D0A98147FEAA6B9B, PS 31769EF0F50321FB
+[2026-10-13 01:59:22.571] [info] [core] [t1720] [presentador] adquisicion anticipada: 4199 de 4200 fotogramas sin esperar (100.0 %)
+[2026-10-13 01:59:22.585] [info] [gpu] [t1720] Creating graphics pipeline state with VS 56F3296F267FCC21
+[2026-10-13 01:59:22.585] [info] [gpu] [t21384] Creating graphics pipeline state with VS 56F3296F267FCC21, PS DDF9F562E24A0BC2
+[2026-10-13 01:59:22.918] [info] [gpu] [t1720] Creating graphics pipeline state with VS 9DC6185E601F070B
+[2026-10-13 01:59:22.918] [info] [gpu] [t20284] Creating graphics pipeline state with VS 9DC6185E601F070B, PS 407E708F74FAEB4E
+[2026-10-13 01:59:23.635] [info] [gpu] [t1720] Creating graphics pipeline state with VS 7A6A8FEFD7F45E6E
+[2026-10-13 01:59:23.635] [info] [gpu] [t22596] Creating graphics pipeline state with VS 7A6A8FEFD7F45E6E, PS 7A78D812CD1A8619
+[2026-10-13 01:59:23.697] [info] [apu] [t19648] [audio] SDL en 10 s: 1876 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 01:59:24.000] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5F98ACCDF9914097
+[2026-10-13 01:59:24.000] [info] [gpu] [t3060] Creating graphics pipeline state with VS 5F98ACCDF9914097, PS F0D176D4DA6CB5D9
+[2026-10-13 01:59:24.604] [info] [gpu] [t1720] Creating graphics pipeline state with VS A1D07B486B250D0B
+[2026-10-13 01:59:24.604] [info] [gpu] [t13748] Creating graphics pipeline state with VS A1D07B486B250D0B, PS 4D152CA0E1F8497D
+[2026-10-13 01:59:24.606] [info] [gpu] [t1720] Creating graphics pipeline state with VS 4DCFCD89CFE19089
+[2026-10-13 01:59:24.607] [info] [gpu] [t14920] Creating graphics pipeline state with VS 4DCFCD89CFE19089, PS EFFD716FC1DB9E7D
+[2026-10-13 01:59:24.707] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 28352 con 28352 contextos descodificados, 173.7 ms (maximo 1.75 ms); locks 28347 con 28347 contextos, 5.1 ms esperando (maximo 2.18 ms)
+[2026-10-13 01:59:24.707] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 01:59:25.129] [info] [gpu] [t1720] Creating graphics pipeline state with VS D4313B5CAC2E830B
+[2026-10-13 01:59:25.129] [info] [gpu] [t6752] Creating graphics pipeline state with VS D4313B5CAC2E830B, PS 21F713616F3A62D1
+[2026-10-13 01:59:25.130] [info] [gpu] [t1720] Creating graphics pipeline state with VS AF384A04655783BD
+[2026-10-13 01:59:25.130] [info] [gpu] [t20284] Creating graphics pipeline state with VS AF384A04655783BD, PS 9E0A3B556F9CF2F1
+[2026-10-13 01:59:25.132] [info] [gpu] [t1720] Creating graphics pipeline state with VS 7A6A8FEFD7F45E6E
+[2026-10-13 01:59:25.132] [info] [gpu] [t17924] Creating graphics pipeline state with VS 7A6A8FEFD7F45E6E, PS 6A072CED669BDE7F
+[2026-10-13 01:59:25.135] [info] [gpu] [t1720] Creating graphics pipeline state with VS 7F0F4305510007DA
+[2026-10-13 01:59:25.217] [info] [gpu] [t22596] Creating graphics pipeline state with VS 7F0F4305510007DA, PS 71ADC5EC173A556A
+[2026-10-13 01:59:25.518] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5939F34F5DEC713F
+[2026-10-13 01:59:25.591] [info] [gpu] [t3060] Creating graphics pipeline state with VS 5939F34F5DEC713F, PS DC720BC1D0D8A91D
+[2026-10-13 01:59:26.419] [info] [gpu] [t1720] Creating graphics pipeline state with VS 5F11E5E69CF9936C
+[2026-10-13 01:59:26.419] [info] [gpu] [t14920] Creating graphics pipeline state with VS 5F11E5E69CF9936C, PS 651099887BB1D92B
+[2026-10-13 01:59:26.423] [info] [gpu] [t1720] Creating graphics pipeline state with VS 78FE049874629131
+[2026-10-13 01:59:26.423] [info] [gpu] [t13748] Creating graphics pipeline state with VS 78FE049874629131, PS 0A4C9F0548963C7A
+[2026-10-13 01:59:29.838] [info] [krnl] [t22404] [io] 15 s: 0 aperturas (0 fallan) 0.0 ms en total, peor 0.0 ms, media 0.00 ms; 319 lecturas 19.4 MB en 63.0 ms, peor 0.6 ms
+[2026-10-13 01:59:29.838] [info] [krnl] [t22404] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1814 entradas en el arbol); ventana: 0 aciertos / 1 rellenos / 318 directas, 0.0 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 01:59:29.838] [info] [krnl] [t22404] [io] rangos: 73 releidas de 319 (23 %), 2.3 MB ya leidos antes de 19.4 MB (12 %); 10 seguidas (3 %); 0 desalojos
+[2026-10-13 01:59:29.838] [info] [krnl] [t22404] [io] rangos-cache: 1 aciertos / 30 fallos (3 %), 0.2 MB desde RAM contra 7.7 MB de la SD; 30 entradas vivas (7.7 MB de 64 tope), 0 expulsiones; no cacheadas: 805 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 01:59:33.707] [info] [apu] [t19648] [audio] SDL en 10 s: 1877 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 01:59:34.707] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 23626 con 23626 contextos descodificados, 161.0 ms (maximo 1.98 ms); locks 23631 con 23631 contextos, 2.4 ms esperando (maximo 0.05 ms)
+[2026-10-13 01:59:34.707] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 01:59:43.717] [info] [apu] [t19648] [audio] SDL en 10 s: 1877 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 01:59:44.707] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 22521 con 22521 contextos descodificados, 151.6 ms (maximo 0.37 ms); locks 22523 con 22523 contextos, 2.5 ms esperando (maximo 0.16 ms)
+[2026-10-13 01:59:44.707] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 01:59:44.908] [info] [krnl] [t22404] [io] 15 s: 0 aperturas (0 fallan) 0.0 ms en total, peor 0.0 ms, media 0.00 ms; 286 lecturas 18.5 MB en 86.4 ms, peor 2.6 ms
+[2026-10-13 01:59:44.908] [info] [krnl] [t22404] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1814 entradas en el arbol); ventana: 0 aciertos / 2 rellenos / 284 directas, 0.1 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 01:59:44.908] [info] [krnl] [t22404] [io] rangos: 57 releidas de 286 (20 %), 1.8 MB ya leidos antes de 18.5 MB (9 %); 4 seguidas (1 %); 1 desalojos
+[2026-10-13 01:59:44.908] [info] [krnl] [t22404] [io] rangos-cache: 1 aciertos / 30 fallos (3 %), 0.2 MB desde RAM contra 7.7 MB de la SD; 30 entradas vivas (7.7 MB de 64 tope), 0 expulsiones; no cacheadas: 806 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 01:59:46.644] [info] [core] [t1720] [presentador] adquisicion anticipada: 4799 de 4800 fotogramas sin esperar (100.0 %)
+[2026-10-13 01:59:53.727] [info] [apu] [t19648] [audio] SDL en 10 s: 1877 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 01:59:54.707] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 22782 con 22782 contextos descodificados, 157.0 ms (maximo 1.73 ms); locks 22774 con 22774 contextos, 2.3 ms esperando (maximo 0.00 ms)
+[2026-10-13 01:59:54.707] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 02:00:00.007] [info] [krnl] [t22404] [io] 15 s: 0 aperturas (0 fallan) 0.0 ms en total, peor 0.0 ms, media 0.00 ms; 300 lecturas 23.0 MB en 73.5 ms, peor 2.3 ms
+[2026-10-13 02:00:00.007] [info] [krnl] [t22404] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1814 entradas en el arbol); ventana: 0 aciertos / 0 rellenos / 300 directas, 0.0 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 02:00:00.007] [info] [krnl] [t22404] [io] rangos: 67 releidas de 300 (22 %), 2.1 MB ya leidos antes de 23.0 MB (9 %); 7 seguidas (2 %); 1 desalojos
+[2026-10-13 02:00:00.007] [info] [krnl] [t22404] [io] rangos-cache: 1 aciertos / 30 fallos (3 %), 0.2 MB desde RAM contra 7.7 MB de la SD; 30 entradas vivas (7.7 MB de 64 tope), 0 expulsiones; no cacheadas: 809 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 02:00:00.703] [info] [gpu] [t1720] Creating graphics pipeline state with VS BE68717E4DF4E8D8
+[2026-10-13 02:00:00.706] [info] [gpu] [t1720] Creating graphics pipeline state with VS A449C4DB69332D56
+[2026-10-13 02:00:00.708] [info] [gpu] [t1720] Creating graphics pipeline state with VS 6F159D939461FD69
+[2026-10-13 02:00:00.991] [info] [sys] [t23244] [guardado] crear «stats_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline
+[2026-10-13 02:00:00.992] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline' en \Device\Content\13\: 0 entradas en 0.1 ms (escritura)
+[2026-10-13 02:00:00.992] [info] [sys] [t23244] [guardado] cabecera de «stats_zm_offline» escrita en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\Headers\00000001\stats_zm_offline.header
+[2026-10-13 02:00:00.992] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «save» contenido «stats_zm_offline» tipo 00000001 modo 2 -> crear (resultado 00000000)
+[2026-10-13 02:00:00.993] [info] [sys] [t396] [guardado] cerrar «stats_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline -> 1 fichero(s), 55296 B: stats_zm_offline (55296 B)
+[2026-10-13 02:00:03.737] [info] [apu] [t19648] [audio] SDL en 10 s: 1877 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 02:00:04.707] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 23942 con 23942 contextos descodificados, 173.1 ms (maximo 0.44 ms); locks 23943 con 23943 contextos, 2.4 ms esperando (maximo 0.01 ms)
+[2026-10-13 02:00:04.707] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 02:00:06.049] [info] [core] [t1720] [presentador] adquisicion anticipada: 5399 de 5400 fotogramas sin esperar (100.0 %)
+[2026-10-13 02:00:07.000] [info] [gpu] [t1720] Creating graphics pipeline state with VS 288DC80E19E2745F
+[2026-10-13 02:00:07.000] [info] [gpu] [t6752] Creating graphics pipeline state with VS 288DC80E19E2745F, PS B59C4DE99E58A45C
+[2026-10-13 02:00:07.012] [info] [gpu] [t1720] Creating graphics pipeline state with VS 56F3296F267FCC21
+[2026-10-13 02:00:07.012] [info] [gpu] [t17924] Creating graphics pipeline state with VS 56F3296F267FCC21, PS E1D765A4C3435750
+[2026-10-13 02:00:07.678] [info] [gpu] [t1720] Creating graphics pipeline state with VS 3864B87FD52F1739
+[2026-10-13 02:00:07.700] [info] [gpu] [t22596] Creating graphics pipeline state with VS 3864B87FD52F1739, PS BE707342CC683036
+[2026-10-13 02:00:09.670] [info] [gpu] [t1720] Creating graphics pipeline state with VS C1284C03C4F5AD43
+[2026-10-13 02:00:09.735] [info] [gpu] [t3060] Creating graphics pipeline state with VS C1284C03C4F5AD43, PS 3712724D77AFBD65
+[2026-10-13 02:00:13.513] [info] [gpu] [t1720] Creating graphics pipeline state with VS 010470EBF0B01F83
+[2026-10-13 02:00:13.579] [info] [gpu] [t13748] Creating graphics pipeline state with VS 010470EBF0B01F83, PS 707BE72210002BA7
+[2026-10-13 02:00:13.747] [info] [apu] [t19648] [audio] SDL en 10 s: 1877 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 02:00:14.707] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 25798 con 25798 contextos descodificados, 166.6 ms (maximo 1.88 ms); locks 25801 con 25801 contextos, 2.7 ms esperando (maximo 0.12 ms)
+[2026-10-13 02:00:14.707] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 02:00:15.019] [info] [krnl] [t22404] [io] 15 s: 1 aperturas (0 fallan) 0.3 ms en total, peor 0.3 ms, media 0.34 ms; 314 lecturas 22.8 MB en 68.9 ms, peor 2.3 ms
+[2026-10-13 02:00:15.019] [info] [krnl] [t22404] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1814 entradas en el arbol); ventana: 0 aciertos / 1 rellenos / 313 directas, 0.0 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 02:00:15.019] [info] [krnl] [t22404] [io] rangos: 112 releidas de 314 (36 %), 5.0 MB ya leidos antes de 22.8 MB (22 %); 14 seguidas (4 %); 1 desalojos
+[2026-10-13 02:00:15.019] [info] [krnl] [t22404] [io] rangos-cache: 1 aciertos / 30 fallos (3 %), 0.2 MB desde RAM contra 7.7 MB de la SD; 30 entradas vivas (7.7 MB de 64 tope), 0 expulsiones; no cacheadas: 816 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 02:00:22.705] [warning] [krnl] [t4024] __imp__XamBackgroundDownloadSetMode STUB
+[2026-10-13 02:00:23.036] [warning] [krnl] [t22404] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 02:00:23.209] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_frontend_patch.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.215] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.216] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.219] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_frontend_patch.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.221] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.385] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_frontend_patch.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.386] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.387] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.388] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.428] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_frontend.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.432] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.434] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.436] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.438] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_frontend.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.440] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.747] [info] [apu] [t19648] [audio] SDL en 10 s: 1875 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 02:00:23.957] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_zm_frontend.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.958] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.961] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.963] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 02:00:23.965] [warning] [krnl] [t22404] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 02:00:24.708] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 20397 con 20397 contextos descodificados, 121.8 ms (maximo 0.32 ms); locks 20422 con 20422 contextos, 2.1 ms esperando (maximo 0.02 ms)
+[2026-10-13 02:00:24.708] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 02:00:24.946] [info] [sys] [t23244] [guardado] crear «stats_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline
+[2026-10-13 02:00:24.947] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline' en \Device\Content\14\: 0 entradas en 0.1 ms (escritura)
+[2026-10-13 02:00:24.947] [info] [sys] [t23244] [guardado] cabecera de «stats_zm_offline» escrita en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\Headers\00000001\stats_zm_offline.header
+[2026-10-13 02:00:24.947] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «save» contenido «stats_zm_offline» tipo 00000001 modo 2 -> crear (resultado 00000000)
+[2026-10-13 02:00:24.948] [info] [sys] [t396] [guardado] cerrar «stats_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline -> 1 fichero(s), 55296 B: stats_zm_offline (55296 B)
+[2026-10-13 02:00:25.049] [info] [sys] [t23244] [guardado] crear «loadouts_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_zm_offline
+[2026-10-13 02:00:25.050] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_zm_offline' en \Device\Content\15\: 0 entradas en 0.1 ms (escritura)
+[2026-10-13 02:00:25.050] [info] [sys] [t23244] [guardado] cabecera de «loadouts_zm_offline» escrita en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\Headers\00000001\loadouts_zm_offline.header
+[2026-10-13 02:00:25.050] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «save» contenido «loadouts_zm_offline» tipo 00000001 modo 2 -> crear (resultado 00000000)
+[2026-10-13 02:00:25.051] [info] [sys] [t396] [guardado] cerrar «loadouts_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_zm_offline -> 1 fichero(s), 7168 B: loadouts_zm_offline (7168 B)
+[2026-10-13 02:00:26.334] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 02:00:26.334] [info] [gpu] [t20284] Creating graphics pipeline state with VS B2ABE37696B34964, PS 8BCED964C687816E
+[2026-10-13 02:00:26.334] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 02:00:26.334] [info] [gpu] [t17924] Creating graphics pipeline state with VS B2ABE37696B34964, PS 69B6FCC67C4B1727
+[2026-10-13 02:00:26.432] [info] [sys] [t23244] [guardado] crear «stats_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline
+[2026-10-13 02:00:26.433] [info] [fs] [t23244] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline' en \Device\Content\16\: 0 entradas en 0.1 ms (escritura)
+[2026-10-13 02:00:26.433] [info] [sys] [t23244] [guardado] cabecera de «stats_zm_offline» escrita en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\Headers\00000001\stats_zm_offline.header
+[2026-10-13 02:00:26.433] [info] [krnl] [t23244] [guardado] XamContentCreate raiz «save» contenido «stats_zm_offline» tipo 00000001 modo 2 -> crear (resultado 00000000)
+[2026-10-13 02:00:26.434] [info] [sys] [t396] [guardado] cerrar «stats_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline -> 1 fichero(s), 55296 B: stats_zm_offline (55296 B)
+[2026-10-13 02:00:26.650] [info] [gpu] [t1720] Creating graphics pipeline state with VS B2ABE37696B34964
+[2026-10-13 02:00:26.650] [info] [gpu] [t6752] Creating graphics pipeline state with VS B2ABE37696B34964, PS 5BAA61F5823EFAA9
+[2026-10-13 02:00:27.567] [info] [core] [t1720] [presentador] adquisicion anticipada: 5999 de 6000 fotogramas sin esperar (100.0 %)
+[2026-10-13 02:00:31.037] [info] [krnl] [t22404] [io] 15 s: 39 aperturas (20 fallan) 2.2 ms en total, peor 0.3 ms, media 0.06 ms; 669 lecturas 94.8 MB en 32.2 ms, peor 2.0 ms
+[2026-10-13 02:00:31.037] [info] [krnl] [t22404] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1814 entradas en el arbol); ventana: 23 aciertos / 7 rellenos / 622 directas, 1.0 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 02:00:31.037] [info] [krnl] [t22404] [io] rangos: 572 releidas de 657 (87 %), 86.1 MB ya leidos antes de 94.8 MB (91 %); 109 seguidas (17 %); 2 desalojos
+[2026-10-13 02:00:31.037] [info] [krnl] [t22404] [io] rangos-cache: 18 aciertos / 30 fallos (38 %), 4.5 MB desde RAM contra 7.7 MB de la SD; 30 entradas vivas (7.7 MB de 64 tope), 0 expulsiones; no cacheadas: 950 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 02:00:33.757] [info] [apu] [t19648] [audio] SDL en 10 s: 1877 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 02:00:34.717] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 3276 con 3276 contextos descodificados, 31.0 ms (maximo 0.29 ms); locks 3273 con 3273 contextos, 0.4 ms esperando (maximo 0.00 ms)
+[2026-10-13 02:00:34.717] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 02:00:37.568] [info] [core] [t1720] [presentador] adquisicion anticipada: 6599 de 6600 fotogramas sin esperar (100.0 %)
+[2026-10-13 02:00:43.767] [info] [apu] [t19648] [audio] SDL en 10 s: 1877 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 02:00:44.718] [info] [core] [t21704] [xma] en el hilo que llama, 10.0 s: kicks 3405 con 3405 contextos descodificados, 30.1 ms (maximo 0.20 ms); locks 3405 con 3405 contextos, 0.4 ms esperando (maximo 0.00 ms)
+[2026-10-13 02:00:44.719] [info] [core] [t21704] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 02:00:45.988] [info] [core] [t19832] Window closing, shutting down...
+[2026-10-13 02:00:45.989] [info] [core] [t19588] Execution complete
+[2026-10-13 02:00:46.188] [info] [core] [t19832] Title terminated; hard-exiting process.
