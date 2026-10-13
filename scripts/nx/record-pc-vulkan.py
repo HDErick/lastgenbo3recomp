@@ -28,6 +28,8 @@ if args.native:
               'nx/native/native_gpu.cpp', 'nx/native/CMakeLists.txt',
               'nx/native/memexport_copy.h', 'nx/native/bc_decode.h', 'nx/native/physical_access.h', 'nx/native/present.hlsl',
               'nx/native/rectangle_shader.cpp', 'nx/native/rectangle_shader.h', 'nx/native/edram_clear.h',
+              'nx/native/texture_upload.cpp', 'nx/native/texture_upload.h',
+              'nx/native/resolve_ownership.h',
               'scripts/nx/embed-native-shaders.py', 'scripts/nx/prepare-mw2-shader-tools.py',
               'nx/shader-tools/mw2_vertex_ranges.cpp.inc',
               'nx/shader-tools/mw2_position.cpp.inc',
@@ -36,7 +38,11 @@ if args.native:
               'tools/bo3-mw2-shader-translator/runtime/gpu/vulkan/shader_translator.cpp',
               'tools/bo3-mw2-shader-translator/runtime/gpu/vulkan/shader_translator.h',
               'tools/nx-sdk/src/graphics/util/draw.cpp',
-              'tools/nx-sdk/include/rex/graphics/util/draw.h']
+              'tools/nx-sdk/include/rex/graphics/util/draw.h',
+              'tools/nx-sdk/src/graphics/pipeline/texture/util.cpp',
+              'tools/nx-sdk/include/rex/graphics/pipeline/texture/util.h',
+              'tools/nx-sdk/include/rex/graphics/xenos.h',
+              'tools/nx-sdk/include/rex/ui/vulkan/api.h']
 for name in names:
     path = root / name
     with path.open('rb') as stream:

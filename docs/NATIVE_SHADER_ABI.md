@@ -61,6 +61,14 @@ type or assume an inactive predicate makes an incompatible descriptor legal.
 Texture ownership, upload, transitions, sampler overrides and typed fallback
 images must be implemented in the native cache.
 
+The prepared build 43 runtime now binds the union of required slot/kind pairs
+using these binding numbers. It provides real cube and volume uploads with mip
+levels, and uses a real volume's base Z slice for compatible 2D access. Typed
+zero descriptors follow SDK semantics only for unbound/incompatible dimensions;
+unsupported compatible data is still refused. Per-instruction sampler overrides,
+some conversions and native resolved-output readers remain incomplete. This
+build has CPU fixture validation; no game test was launched at the user's request.
+
 Push constants at bytes 0..15 hold pixel alpha function/reference, color exponent
 scale and gamma-target flag. Bytes 16..31 hold vertex XY scale/offset from the
 SDK host viewport normalization. Bytes 32..47 hold float4 `{Z scale, Z offset,
@@ -82,8 +90,10 @@ finish reading every input owed to earlier draws. Do not adopt MW2's fixed
 
 ## Remaining binding and execution gates
 
-- The three mixed PS programs translate using separate typed bindings. Implement
-  their compatible backing views and texture-cache ownership rules at runtime.
+- The three mixed PS programs translate using separate typed bindings. The
+  prepared runtime now supplies compatible backing views and typed null
+  descriptors; driver execution, conversions and resolved-output ownership
+  still need validation/implementation.
 - Two VS programs export to guest memory. They validate structurally but drop
   writes in MW2's implementation. A native backend must refuse those modules
   until their writes or a verified BO3 equivalent copy path are supported. The

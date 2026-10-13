@@ -15,7 +15,8 @@ float4 DepthPS(Vertex input) : SV_Target0 {
   sceneDepth.GetDimensions(width, height, samples);
   uint2 pixel = min(uint2(input.uv * float2(width, height)), uint2(width - 1, height - 1));
   float depth = sceneDepth.Load(pixel, 0);
-  // Clear depth 1 is black; a nonlinear display makes geometry near 1 visible.
-  float shade = pow(saturate(1.0 - depth), 0.2);
+  // BO3 scene depth is reversed: clear zero is black, nearer surfaces brighter.
+  // Nonlinear contrast exposes the small values of distant geometry.
+  float shade = pow(saturate(depth), 0.2);
   return float4(shade, shade, shade, 1);
 }

@@ -1,0 +1,434 @@
+CMake Warning at C:/bo3recomp/tools/nx-sdk/cmake/rex_version.cmake:33 (message):
+  rex_compute_version: no v* tag reachable from HEAD.  Falling back to
+  0.10.0.0-dev.unknown.  If this is a CI build, ensure tags are fetched
+  (fetch-depth: 0 + fetch-tags: true).  If this is a fork, push tags with:
+  git push <fork-remote> --tags
+Call Stack (most recent call first):
+  C:/bo3recomp/tools/nx-sdk/cmake/rex_version.cmake:165 (rex_compute_version)
+  C:/bo3recomp/tools/nx-sdk/CMakeLists.txt:207 (rex_resolve_version)
+
+
+-- xxHash build type: Release
+-- Architecture: x86
+-- {fmt} version: 12.1.0
+-- Build type: Release
+-- Build spdlog: 1.17.0
+-- Build type: Release
+-- Generating install
+-- Vulkan stack: SDK 1.4.357.0
+-- Checking for module 'libusb-1.0>=1.0.16'
+--   Package 'libusb-1.0' not found
+-- Could NOT find LibUSB (missing: LibUSB_LIBRARY LibUSB_INCLUDE_PATH) (found version "LibUSB_VERSION-NOTFOUND")
+-- 
+-- SDL3 was configured with the following options:
+-- 
+-- Platform: Windows-10.0.26200
+-- 64-bit:   TRUE
+-- Compiler: C:/bo3recomp/tools/llvm-20.1.8/bin/clang.exe
+-- Revision: SDL-3.5.0-HEAD-HASH-NOTFOUND
+-- Vendor:   
+-- 
+-- Subsystems:
+--   Audio:    ON
+--   Video:    ON
+--   GPU:      ON
+--   Render:   OFF
+--   Camera:   OFF
+--   Joystick: ON
+--   Haptic:   OFF
+--   Hidapi:   ON
+--   Power:    OFF
+--   Sensor:   OFF
+--   Dialog:   ON
+--   Tray:     OFF
+-- 
+-- Options:
+--   SDL_ALSA                    (Wanted: OFF): OFF
+--   SDL_ALSA_SHARED             (Wanted: OFF): OFF
+--   SDL_ALTIVEC                 (Wanted: OFF): OFF
+--   SDL_ARMNEON                 (Wanted: OFF): OFF
+--   SDL_ASAN                    (Wanted: OFF): OFF
+--   SDL_ASSEMBLY                (Wanted: ON): ON
+--   SDL_ASSERTIONS              (Wanted: auto): auto
+--   SDL_AVX                     (Wanted: ON): ON
+--   SDL_AVX2                    (Wanted: ON): ON
+--   SDL_AVX512F                 (Wanted: ON): ON
+--   SDL_BACKGROUNDING_SIGNAL    (Wanted: OFF): OFF
+--   SDL_CCACHE                  (Wanted: OFF): OFF
+--   SDL_CLANG_TIDY              (Wanted: OFF): OFF
+--   SDL_CLOCK_GETTIME           (Wanted: OFF): OFF
+--   SDL_COCOA                   (Wanted: OFF): OFF
+--   SDL_DBUS                    (Wanted: OFF): OFF
+--   SDL_DEPS_SHARED             (Wanted: ON): OFF
+--   SDL_DIRECTX                 (Wanted: ON): ON
+--   SDL_DISKAUDIO               (Wanted: OFF): OFF
+--   SDL_DLOPEN_NOTES            (Wanted: OFF): OFF
+--   SDL_DUMMYAUDIO              (Wanted: OFF): OFF
+--   SDL_DUMMYCAMERA             (Wanted: OFF): OFF
+--   SDL_DUMMYVIDEO              (Wanted: OFF): OFF
+--   SDL_EXAMPLES                (Wanted: OFF): OFF
+--   SDL_EXAMPLES_LINK_SHARED    (Wanted: OFF): OFF
+--   SDL_FOREGROUNDING_SIGNAL    (Wanted: OFF): OFF
+--   SDL_FRIBIDI                 (Wanted: OFF): OFF
+--   SDL_FRIBIDI_SHARED          (Wanted: OFF): OFF
+--   SDL_GCC_ATOMICS             (Wanted: ON): ON
+--   SDL_GPU_OPENXR              (Wanted: ON): ON
+--   SDL_HIDAPI                  (Wanted: ON): ON
+--   SDL_HIDAPI_JOYSTICK         (Wanted: ON): ON
+--   SDL_HIDAPI_LIBUSB           (Wanted: ON): OFF
+--   SDL_HIDAPI_LIBUSB_SHARED    (Wanted: ON): OFF
+--   SDL_IBUS                    (Wanted: OFF): OFF
+--   SDL_INSTALL                 (Wanted: ON): OFF
+--   SDL_INSTALL_TESTS           (Wanted: OFF): OFF
+--   SDL_JACK                    (Wanted: OFF): OFF
+--   SDL_JACK_SHARED             (Wanted: OFF): OFF
+--   SDL_KMSDRM                  (Wanted: OFF): OFF
+--   SDL_KMSDRM_SHARED           (Wanted: OFF): OFF
+--   SDL_LASX                    (Wanted: OFF): OFF
+--   SDL_LIBC                    (Wanted: ON): ON
+--   SDL_LIBICONV                (Wanted: OFF): OFF
+--   SDL_LIBTHAI                 (Wanted: OFF): OFF
+--   SDL_LIBTHAI_SHARED          (Wanted: OFF): OFF
+--   SDL_LIBUDEV                 (Wanted: ON): OFF
+--   SDL_LIBURING                (Wanted: OFF): OFF
+--   SDL_LSX                     (Wanted: OFF): OFF
+--   SDL_METAL                   (Wanted: OFF): OFF
+--   SDL_MMX                     (Wanted: ON): ON
+--   SDL_OFFSCREEN               (Wanted: ON): ON
+--   SDL_OPENGL                  (Wanted: OFF): OFF
+--   SDL_OPENGLES                (Wanted: OFF): OFF
+--   SDL_OPENVR                  (Wanted: OFF): OFF
+--   SDL_OSS                     (Wanted: OFF): OFF
+--   SDL_PIPEWIRE                (Wanted: OFF): OFF
+--   SDL_PIPEWIRE_SHARED         (Wanted: OFF): OFF
+--   SDL_PTHREADS                (Wanted: OFF): OFF
+--   SDL_PTHREADS_SEM            (Wanted: OFF): OFF
+--   SDL_PULSEAUDIO              (Wanted: OFF): OFF
+--   SDL_PULSEAUDIO_SHARED       (Wanted: OFF): OFF
+--   SDL_RENDER_D3D              (Wanted: OFF): OFF
+--   SDL_RENDER_D3D11            (Wanted: OFF): OFF
+--   SDL_RENDER_D3D12            (Wanted: OFF): OFF
+--   SDL_RENDER_GPU              (Wanted: OFF): OFF
+--   SDL_RENDER_METAL            (Wanted: OFF): OFF
+--   SDL_RENDER_VULKAN           (Wanted: OFF): OFF
+--   SDL_ROCKCHIP                (Wanted: OFF): OFF
+--   SDL_RPATH                   (Wanted: OFF): OFF
+--   SDL_RPI                     (Wanted: OFF): OFF
+--   SDL_SNDIO                   (Wanted: OFF): OFF
+--   SDL_SNDIO_SHARED            (Wanted: OFF): OFF
+--   SDL_SSE                     (Wanted: ON): ON
+--   SDL_SSE2                    (Wanted: ON): ON
+--   SDL_SSE3                    (Wanted: ON): ON
+--   SDL_SSE4_1                  (Wanted: ON): ON
+--   SDL_SSE4_2                  (Wanted: ON): ON
+--   SDL_SYSTEM_ICONV            (Wanted: OFF): OFF
+--   SDL_TESTS                   (Wanted: OFF): OFF
+--   SDL_TESTS_LINK_SHARED       (Wanted: OFF): OFF
+--   SDL_UNINSTALL               (Wanted: OFF): OFF
+--   SDL_VIRTUAL_JOYSTICK        (Wanted: ON): ON
+--   SDL_VIVANTE                 (Wanted: OFF): OFF
+--   SDL_VULKAN                  (Wanted: OFF): OFF
+--   SDL_WASAPI                  (Wanted: ON): ON
+--   SDL_WAYLAND                 (Wanted: OFF): OFF
+--   SDL_WAYLAND_LIBDECOR        (Wanted: OFF): OFF
+--   SDL_WAYLAND_LIBDECOR_SHARED (Wanted: OFF): OFF
+--   SDL_WAYLAND_SHARED          (Wanted: OFF): OFF
+--   SDL_X11                     (Wanted: OFF): OFF
+--   SDL_X11_SHARED              (Wanted: OFF): OFF
+--   SDL_X11_XCURSOR             (Wanted: OFF): OFF
+--   SDL_X11_XDBE                (Wanted: OFF): OFF
+--   SDL_X11_XFIXES              (Wanted: OFF): OFF
+--   SDL_X11_XINPUT              (Wanted: OFF): OFF
+--   SDL_X11_XRANDR              (Wanted: OFF): OFF
+--   SDL_X11_XSCRNSAVER          (Wanted: OFF): OFF
+--   SDL_X11_XSHAPE              (Wanted: OFF): OFF
+--   SDL_X11_XSYNC               (Wanted: OFF): OFF
+--   SDL_X11_XTEST               (Wanted: OFF): OFF
+--   SDL_XINPUT                  (Wanted: ON): ON
+-- 
+--  Build Shared Library: OFF
+--  Build Static Library: ON
+-- 
+-- Enabled backends:
+--   Video drivers: offscreen windows
+--   Render drivers: 
+--   GPU drivers: d3d12 openxr
+--   Audio drivers: dsound wasapi
+--   Joystick drivers: dinput gameinput hidapi rawinput virtual wgi xinput
+--   Camera drivers: dummy
+-- 
+CMake Deprecation Warning at C:/bo3recomp/tools/nx-sdk/thirdparty/glslang/CMakeLists.txt:39 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Warning (dev) at C:/bo3recomp/tools/nx-sdk/thirdparty/glslang/CMakeLists.txt:233 (find_package):
+  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+  the cmake_policy command to set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  C:/bo3recomp/tools/nx-sdk/thirdparty/glslang/CMakeLists.txt:239 (find_host_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- ===========================================
+-- ReXGlue Configuration Summary:
+--   Version: 0.10.0.0-dev.unknown (dev)
+--   Platform: win-amd64
+--   Compiler: Clang 20.1.8
+--   Configurations: 
+--   Output Dir: C:/bo3recomp/tools/nx-sdk/out/win-amd64
+--   C++ Standard: C++23
+--   Graphics: D3D12=OFF Vulkan=ON
+--   FidelityFX: OFF
+--   Tracy: OFF
+--   Perf Counters: OFF
+-- ===========================================
+-- Configuring done (1.0s)
+-- Generating done (0.8s)
+-- Build files have been written to: C:/bo3recomp/build/pc-vulkan
+[0/2] Re-checking globbed directories...
+[1/9] Building CXX object rexglue-sdk/src/ui/CMakeFiles/rexui.dir/overlay/debug_overlay.cpp.obj
+[2/9] Linking CXX shared library C:\bo3recomp\tools\nx-sdk\out\win-amd64\rexruntime.dll
+[3/9] Linking CXX shared library C:\bo3recomp\tools\nx-sdk\out\win-amd64\rexgpu-xenos.dll
+[4/9] Building CXX object bo3-native/CMakeFiles/rexgpu-bo3native.dir/texture_upload.cpp.obj
+[5/9] Building CXX object CMakeFiles/bo3_zm_vulkan.dir/C_/bo3recomp/tools/nx-sdk/src/ui/rex_app.cpp.obj
+[6/9] Building CXX object bo3-native/CMakeFiles/rexgpu-bo3native.dir/native_gpu.cpp.obj
+FAILED: bo3-native/CMakeFiles/rexgpu-bo3native.dir/native_gpu.cpp.obj 
+C:\bo3recomp\tools\llvm-20.1.8\bin\clang++.exe -DNOMINMAX -DREX_HAS_VULKAN=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DWIN32_LEAN_AND_MEAN -Drexgpu_bo3native_EXPORTS -IC:/bo3recomp/tools/bo3-mw2-shader-translator/runtime/gpu/vulkan -IC:/bo3recomp/build/pc-vulkan/bo3-native -IC:/bo3recomp/tools/nx-sdk/thirdparty/renderdoc -IC:/bo3recomp/tools/nx-sdk/thirdparty/crypto -IC:/bo3recomp/tools/nx-sdk/include -IC:/bo3recomp/build/pc-vulkan/rexglue-sdk/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/simde -IC:/bo3recomp/tools/nx-sdk/thirdparty/simde/simde -IC:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/spdlog/include -IC:/bo3recomp/build/pc-vulkan/rexglue-sdk/thirdparty/sdl3/include-revision -IC:/bo3recomp/tools/nx-sdk/thirdparty/sdl3/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-memory-allocator/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/xxHash/cmake_unofficial/.. -isystem C:/bo3recomp/tools/nx-sdk/thirdparty/tomlplusplus/include -isystem C:/bo3recomp/tools/nx-sdk/thirdparty/spirv-tools/include -march=x86-64-v3 -O3 -DNDEBUG -std=gnu++23 -D_DLL -D_MT -Xclang --dependent-lib=msvcrt -ffp-contract=off -fno-strict-aliasing -gcodeview -MD -MT bo3-native/CMakeFiles/rexgpu-bo3native.dir/native_gpu.cpp.obj -MF bo3-native\CMakeFiles\rexgpu-bo3native.dir\native_gpu.cpp.obj.d -o bo3-native/CMakeFiles/rexgpu-bo3native.dir/native_gpu.cpp.obj -c C:/bo3recomp/nx/native/native_gpu.cpp
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:990:50: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ENQUEUE_FEATURES_AMDX'; did you mean 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES_EXT'?
+  990 |     ePhysicalDeviceShaderEnqueueFeaturesAMDX   = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ENQUEUE_FEATURES_AMDX,
+      |                                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                  VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES_EXT
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:1138:5: note: 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES_EXT' declared here
+ 1138 |     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES_EXT = 1000482000,
+      |     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:991:50: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ENQUEUE_PROPERTIES_AMDX'; did you mean 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_AMD'?
+  991 |     ePhysicalDeviceShaderEnqueuePropertiesAMDX = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ENQUEUE_PROPERTIES_AMDX,
+      |                                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                  VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_AMD
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:747:5: note: 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_AMD' declared here
+  747 |     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_AMD = 1000185000,
+      |     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:992:50: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_EXECUTION_GRAPH_PIPELINE_SCRATCH_SIZE_AMDX'
+  992 |     eExecutionGraphPipelineScratchSizeAMDX     = VK_STRUCTURE_TYPE_EXECUTION_GRAPH_PIPELINE_SCRATCH_SIZE_AMDX,
+      |                                                  ^
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:993:50: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_EXECUTION_GRAPH_PIPELINE_CREATE_INFO_AMDX'; did you mean 'VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CREATE_INFO_ARM'?
+  993 |     eExecutionGraphPipelineCreateInfoAMDX      = VK_STRUCTURE_TYPE_EXECUTION_GRAPH_PIPELINE_CREATE_INFO_AMDX,
+      |                                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                  VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CREATE_INFO_ARM
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:1195:5: note: 'VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CREATE_INFO_ARM' declared here
+ 1195 |     VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CREATE_INFO_ARM = 1000507000,
+      |     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:994:50: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_NODE_CREATE_INFO_AMDX'; did you mean 'VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO'?
+  994 |     ePipelineShaderStageNodeCreateInfoAMDX     = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_NODE_CREATE_INFO_AMDX,
+      |                                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                  VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:225:5: note: 'VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO' declared here
+  225 |     VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO = 18,
+      |     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:1056:53: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR'
+ 1056 |     ePhysicalDevicePortabilitySubsetFeaturesKHR   = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR,
+      |                                                     ^
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:1057:53: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_PROPERTIES_KHR'; did you mean 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_KHR'?
+ 1057 |     ePhysicalDevicePortabilitySubsetPropertiesKHR = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_PROPERTIES_KHR,
+      |                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_KHR
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:1379:5: note: 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_KHR' declared here
+ 1379 |     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_KHR = 1000286001,
+      |     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:1229:51: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_CUDA_MODULE_CREATE_INFO_NV'; did you mean 'VK_STRUCTURE_TYPE_CU_MODULE_CREATE_INFO_NVX'?
+ 1229 |     eCudaModuleCreateInfoNV                     = VK_STRUCTURE_TYPE_CUDA_MODULE_CREATE_INFO_NV,
+      |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                   VK_STRUCTURE_TYPE_CU_MODULE_CREATE_INFO_NVX
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:520:5: note: 'VK_STRUCTURE_TYPE_CU_MODULE_CREATE_INFO_NVX' declared here
+  520 |     VK_STRUCTURE_TYPE_CU_MODULE_CREATE_INFO_NVX = 1000029000,
+      |     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:1230:51: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_CUDA_FUNCTION_CREATE_INFO_NV'; did you mean 'VK_STRUCTURE_TYPE_CU_FUNCTION_CREATE_INFO_NVX'?
+ 1230 |     eCudaFunctionCreateInfoNV                   = VK_STRUCTURE_TYPE_CUDA_FUNCTION_CREATE_INFO_NV,
+      |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                   VK_STRUCTURE_TYPE_CU_FUNCTION_CREATE_INFO_NVX
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:521:5: note: 'VK_STRUCTURE_TYPE_CU_FUNCTION_CREATE_INFO_NVX' declared here
+  521 |     VK_STRUCTURE_TYPE_CU_FUNCTION_CREATE_INFO_NVX = 1000029001,
+      |     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:1231:51: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_CUDA_LAUNCH_INFO_NV'; did you mean 'VK_STRUCTURE_TYPE_CU_LAUNCH_INFO_NVX'?
+ 1231 |     eCudaLaunchInfoNV                           = VK_STRUCTURE_TYPE_CUDA_LAUNCH_INFO_NV,
+      |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                   VK_STRUCTURE_TYPE_CU_LAUNCH_INFO_NVX
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:522:5: note: 'VK_STRUCTURE_TYPE_CU_LAUNCH_INFO_NVX' declared here
+  522 |     VK_STRUCTURE_TYPE_CU_LAUNCH_INFO_NVX = 1000029002,
+      |     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:1232:51: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_FEATURES_NV'
+ 1232 |     ePhysicalDeviceCudaKernelLaunchFeaturesNV   = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_FEATURES_NV,
+      |                                                   ^
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:1233:51: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_PROPERTIES_NV'
+ 1233 |     ePhysicalDeviceCudaKernelLaunchPropertiesNV = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_PROPERTIES_NV,
+      |                                                   ^
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:1372:61: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_FEATURES_NV'; did you mean 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_FEATURES_EXT'?
+ 1372 |     ePhysicalDeviceDisplacementMicromapFeaturesNV         = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_FEATURES_NV,
+      |                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                             VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_FEATURES_EXT
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:1017:5: note: 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_FEATURES_EXT' declared here
+ 1017 |     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_FEATURES_EXT = 1000396005,
+      |     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:1373:61: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_PROPERTIES_NV'; did you mean 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES_EXT'?
+ 1373 |     ePhysicalDeviceDisplacementMicromapPropertiesNV       = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_PROPERTIES_NV,
+      |                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                             VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES_EXT
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:1018:5: note: 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES_EXT' declared here
+ 1018 |     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES_EXT = 1000396006,
+      |     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:1374:61: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_DISPLACEMENT_MICROMAP_NV'; did you mean 'VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_EXT'?
+ 1374 |     eAccelerationStructureTrianglesDisplacementMicromapNV = VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_DISPLACEMENT_MICROMAP_NV,
+      |                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                             VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_EXT
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:1021:5: note: 'VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_EXT' declared here
+ 1021 |     VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_EXT = 1000396009,
+      |     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:1476:66: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DENSE_GEOMETRY_FORMAT_FEATURES_AMDX'; did you mean 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_MEMORY_REPORT_FEATURES_EXT'?
+ 1476 |     ePhysicalDeviceDenseGeometryFormatFeaturesAMDX             = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DENSE_GEOMETRY_FORMAT_FEATURES_AMDX,
+      |                                                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                  VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_MEMORY_REPORT_FEATURES_EXT
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:854:5: note: 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_MEMORY_REPORT_FEATURES_EXT' declared here
+  854 |     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_MEMORY_REPORT_FEATURES_EXT = 1000284000,
+      |     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:1477:66: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_DENSE_GEOMETRY_FORMAT_TRIANGLES_DATA_AMDX'; did you mean 'VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA_NV'?
+ 1477 |     eAccelerationStructureDenseGeometryFormatTrianglesDataAMDX = VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_DENSE_GEOMETRY_FORMAT_TRIANGLES_DATA_AMDX,
+      |                                                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                  VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA_NV
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:937:5: note: 'VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA_NV' declared here
+  937 |     VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA_NV = 1000327000,
+      |     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:1754:48: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_SET_PRESENT_CONFIG_NV'; did you mean 'VK_STRUCTURE_TYPE_PRESENT_INFO_KHR'?
+ 1754 |     eSetPresentConfigNV                      = VK_STRUCTURE_TYPE_SET_PRESENT_CONFIG_NV,
+      |                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                VK_STRUCTURE_TYPE_PRESENT_INFO_KHR
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:474:5: note: 'VK_STRUCTURE_TYPE_PRESENT_INFO_KHR' declared here
+  474 |     VK_STRUCTURE_TYPE_PRESENT_INFO_KHR = 1000001001,
+      |     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:20:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/provider.h:16:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/device.h:17:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/instance.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/ui/vulkan/api.h:82:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_to_string.hpp:12:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan.hpp:7825:
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan/vulkan_enums.hpp:1755:48: error: use of undeclared identifier 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_METERING_FEATURES_NV'; did you mean 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_BARRIER_FEATURES_NV'?
+ 1755 |     ePhysicalDevicePresentMeteringFeaturesNV = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_METERING_FEATURES_NV,
+      |                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+      |                                                VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_BARRIER_FEATURES_NV
+
+C:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include\vulkan\vulkan_core.h:862:5: note: 'VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_BARRIER_FEATURES_NV' declared here
+
+  862 |     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_BARRIER_FEATURES_NV = 1000292000,
+
+      |     ^
+
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+
+20 errors generated.
+
+ninja: build stopped: subcommand failed.

@@ -175,6 +175,17 @@ Textures/conversion, mips/cube views, raster/color clears,
 EDRAM overlap/extent aliasing and native guest resolves remain incomplete.
 See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).
 
+**Prepared next renderer build; game launch deferred at user request.** Build 43
+adds real cube/3D backing and typed descriptors, separate and packed mip uploads,
+base-level 3D-as-2D access, capability/bounds checks and fresh base/mip content
+hashes. All 30 texture and 13 resolve-ownership CPU checks pass. F9's reverse-depth
+display now uses a black zero clear. Resolve destination ranges are tracked and
+stale CPU readers rejected; actual resolve conversion/writeback remains unfinished.
+Only verified native CPU-export writes release those ranges so far, so arbitrary
+guest CPU reuse may be conservatively rejected. No game was opened for this work;
+visible color output, regression and performance checks are pending. Details and
+evidence are in [native rendering notes](docs/NATIVE_RENDERING_PC.md).
+
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches
 playable Shadows of Evil, confirmed by the user. The user also confirmed that
 The Giant and Der Eisendrache both load successfully. Earlier builds lost the

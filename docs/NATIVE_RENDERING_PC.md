@@ -291,9 +291,64 @@ Evidence: `analysis/pc_native_backend_boot21_rectangles_coverage.log`,
 The BO2 renderer was reviewed for useful ideas; no code was imported. See
 [BO2 native renderer assessment](../analysis/BO2_NATIVE_REFERENCE.md).
 
+### Prepared texture/resource build (game launch deferred)
+
+The user requested further implementation without opening the game. The native
+runtime now supplies the ABI's 2D, cube and 3D bindings, with real six-face cube
+images and volume images. Image allocation, format capability checks, image
+views and barriers include every mip/array layer. Upload reservation covers
+decoded faces, volume slices and aligned subresources.
+
+`texture_upload.cpp` uses the pinned SDK's guest subresource/layout helpers for
+separate base/mip allocations, non-packed levels, packed tails and 3D tiling.
+It retains BC decoding and the linear-video row path. Both allocation hashes
+are checked on cache hits. The layout cache stores immutable arithmetic only;
+physical permission checks and content hashes remain fresh. Sampler filtering
+uses the fetch settings and normalized LOD bounds. LOD bias remains in the
+translated shader, avoiding a second application in the sampler.
+
+The SDK's dimension rules govern mixed bindings. 2D access to a real 3D texture
+gets a separate base-level, slice-zero image decoded with the **3D** layout.
+Unbound or dimension-incompatible bindings get a correctly typed zero descriptor,
+following the SDK's null-view behavior. A compatible texture with unsupported
+format, signed conversion, stacked layout, border size or volume-filter semantics
+is still rejected; these zero descriptors do not substitute for missing assets.
+
+Resolve ownership now records the SDK's potential destination byte ranges,
+including tiled/partial aliases. Texture, vertex/index and CPU-export readers
+reject intersections with unresolved output. Verified CPU exports release only
+the bytes they actually overwrite. This is a conservative availability gate,
+not completed resolve conversion: shader readers of native output, exponent
+conversion, depth resolves and guest CPU writeback still require implementation.
+Arbitrary guest CPU writes/reallocation are not tracked yet, so reused ranges
+may remain unavailable unnecessarily. This may expose additional skipped draws
+or missing menu effects when testing resumes.
+
+F9 now maps reverse-depth clear zero to black and nearer values brighter; this
+corrects the diagnostic display's previous white background. It does not add
+color rendering.
+
+Build 43 links. The final offline fixtures pass 30 texture checks and 13 ownership
+checks, with no game or GPU rendering launched. They cover row padding, endian
+orders, separate/packed mip storage, cube face/level ordering, linear/tiled volume
+slices, 3D-as-2D access, BC clipping, missing bases, physical/upload bounds and
+partial ownership release, sub-dword endian mip extents and the BC alpha override.
+Tiled fixture creation uses SDK helpers, so these
+tests do not independently verify that SDK's hardware tiling parity. No in-game
+visual improvement or performance claim is established by this prepared build.
+
+Evidence: `analysis/native_texture_upload_tests06.log`,
+`analysis/pc_native_backend_build43.log`,
+`analysis/native_texture_validation01.json`, and
+`analysis/pc_native_provenance27_prepared.json`.
+Reproduce the CPU tests with `scripts/nx/test-native-texture-upload.cmd` after
+the normal PC build. The next stage is native resolve conversion/reader ownership,
+then a user-authorized rendering comparison.
+
 Remaining gates include stencil/clear behavior, resolves and their exponent
 conversion, native-produced texture ownership, target aliasing, MRT/MSAA parity,
-remaining primitive modes, mips, cube/volume views, queries and complete GPU semantics.
+remaining primitive modes, unsupported texture conversions/filter modes, queries
+and complete GPU semantics.
 Presentation currently samples the latest drawn native target as a diagnostic;
 it does not yet follow guest frontbuffer resolves. Unsupported paths are counted
 and skipped, so a visible menu does not establish a complete renderer. Batches
