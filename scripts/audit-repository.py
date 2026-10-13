@@ -11,7 +11,8 @@ tracked = subprocess.check_output([git, '-C', str(root), 'ls-files', '-z'])
 names = set(n.decode('utf-8') for n in (untracked + tracked).split(b'\0') if n)
 files = [dict(path=n, bytes=(root / n).stat().st_size) for n in names if (root / n).is_file()]
 forbidden_roots = {'game_files', 'runtime', 'tools', 'build', '.local', '.aws', '.codex'}
-forbidden_suffixes = {'.xex', '.xexp', '.ff', '.xpak', '.exe', '.dll', '.pdb', '.obj', '.lib'}
+forbidden_suffixes = {'.xex', '.xexp', '.ff', '.xpak', '.exe', '.dll', '.pdb', '.obj', '.lib',
+                      '.nro', '.nacp', '.elf'}
 forbidden = [f['path'] for f in files
              if Path(f['path']).parts[0] in forbidden_roots
              or Path(f['path']).suffix.lower() in forbidden_suffixes]

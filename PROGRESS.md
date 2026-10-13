@@ -4,6 +4,14 @@ Updated October 12, 2026 (America/New_York).
 
 ## Current state
 
+On branch `NX`, Nintendo Switch groundwork has started. The installed devkitA64
+and Mesa/libnx environment builds a diagnostic ARM64 NRO with startup at zero.
+It has not been tested on the console and does not load BO3. The BO3 compile
+probe confirms missing Horizon platform/fiber support in the current desktop
+SDK; a complete runtime port and playable performance are still unproven.
+The user confirmed original Switch/OLED hardware and title takeover.
+See [NX port plan](docs/NX_PORT.md) and `analysis/nx_environment.json`.
+
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches
 playable Shadows of Evil, confirmed by the user. The user also confirmed that
 The Giant and Der Eisendrache both load successfully. Earlier builds lost the

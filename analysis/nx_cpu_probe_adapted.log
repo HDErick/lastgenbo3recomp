@@ -1,0 +1,10 @@
+In file included from C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/system/kernel_state.h:31,
+                 from C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/ppc/function.h:28,
+                 from C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/hook.h:22,
+                 from C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/ppc.h:14,
+                 from C:\bo3recomp\build\nx-cpu-probe\bo3_zm_init.h:24,
+                 from C:\bo3recomp\build\nx-cpu-probe\bo3_zm_recomp.0.cpp:1:
+C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/thread/fiber.h:18:10: fatal error: ucontext.h: No such file or directory
+   18 | #include <ucontext.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.

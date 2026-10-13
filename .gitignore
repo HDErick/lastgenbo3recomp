@@ -32,6 +32,9 @@
 *.exe
 *.dll
 *.pdb
+*.nro
+*.nacp
+*.elf
 *.obj
 *.lib
 *.pyc

@@ -1,0 +1,82 @@
+{
+  "compiler": "aarch64-none-elf-g++.exe (devkitA64) 16.1.0",
+  "source": "app\\generated\\default_zm\\bo3_zm_recomp.0.cpp",
+  "source_sha256": "0a50aba5e15b06dfbd6be857bededae7543d8c8972d31495033fb76bc01b92ef",
+  "functions_in_unit": 274,
+  "scope": "Compile-only sample, not a linked or runnable BO3 port",
+  "stages": [
+    {
+      "name": "baseline",
+      "exit_code": 1,
+      "log": "analysis\\nx_cpu_probe_baseline.log",
+      "command": [
+        "C:\\devkitPro\\devkitA64\\bin\\aarch64-none-elf-g++.exe",
+        "-std=c++23",
+        "-O2",
+        "-march=armv8-a+crc+crypto",
+        "-mtune=cortex-a57",
+        "-mtp=soft",
+        "-ftls-model=local-exec",
+        "-fPIE",
+        "-D__SWITCH__",
+        "-D_GNU_SOURCE",
+        "-DNDEBUG",
+        "-DSPDLOG_FMT_EXTERNAL",
+        "-DSPDLOG_NO_TZ_OFFSET",
+        "-ffp-contract=off",
+        "-fno-strict-aliasing",
+        "-Wno-psabi",
+        "-fmax-errors=5",
+        "-IC:\\bo3recomp\\thirdparty\\rexglue-sdk\\include",
+        "-IC:\\bo3recomp\\thirdparty\\rexglue-sdk\\thirdparty\\simde",
+        "-IC:\\bo3recomp\\thirdparty\\rexglue-sdk\\thirdparty\\fmt\\include",
+        "-IC:\\bo3recomp\\thirdparty\\rexglue-sdk\\thirdparty\\spdlog\\include",
+        "-IC:\\bo3recomp\\thirdparty\\rexglue-sdk\\thirdparty\\tomlplusplus\\include",
+        "-IC:\\devkitPro\\libnx\\include",
+        "-c",
+        "C:\\bo3recomp\\app\\generated\\default_zm\\bo3_zm_recomp.0.cpp",
+        "-o",
+        "C:\\bo3recomp\\build\\nx-cpu-probe\\baseline.o"
+      ]
+    },
+    {
+      "name": "adapted",
+      "exit_code": 1,
+      "log": "analysis\\nx_cpu_probe_adapted.log",
+      "command": [
+        "C:\\devkitPro\\devkitA64\\bin\\aarch64-none-elf-g++.exe",
+        "-IC:\\bo3recomp\\build\\nx-cpu-probe\\include",
+        "-std=c++23",
+        "-O2",
+        "-march=armv8-a+crc+crypto",
+        "-mtune=cortex-a57",
+        "-mtp=soft",
+        "-ftls-model=local-exec",
+        "-fPIE",
+        "-D__SWITCH__",
+        "-D_GNU_SOURCE",
+        "-DNDEBUG",
+        "-DSPDLOG_FMT_EXTERNAL",
+        "-DSPDLOG_NO_TZ_OFFSET",
+        "-ffp-contract=off",
+        "-fno-strict-aliasing",
+        "-Wno-psabi",
+        "-fmax-errors=5",
+        "-IC:\\bo3recomp\\thirdparty\\rexglue-sdk\\include",
+        "-IC:\\bo3recomp\\thirdparty\\rexglue-sdk\\thirdparty\\simde",
+        "-IC:\\bo3recomp\\thirdparty\\rexglue-sdk\\thirdparty\\fmt\\include",
+        "-IC:\\bo3recomp\\thirdparty\\rexglue-sdk\\thirdparty\\spdlog\\include",
+        "-IC:\\bo3recomp\\thirdparty\\rexglue-sdk\\thirdparty\\tomlplusplus\\include",
+        "-IC:\\devkitPro\\libnx\\include",
+        "-c",
+        "C:\\bo3recomp\\build\\nx-cpu-probe\\bo3_zm_recomp.0.cpp",
+        "-o",
+        "C:\\bo3recomp\\build\\nx-cpu-probe\\adapted.o"
+      ]
+    }
+  ],
+  "adapted_changes": [
+    "Build-local Switch platform detection",
+    "Build-local explicit C linkage for GCC weak aliases"
+  ]
+}

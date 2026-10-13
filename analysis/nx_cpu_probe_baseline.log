@@ -1,0 +1,17 @@
+In file included from C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/assert.h:21,
+                 from C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/types.h:23,
+                 from C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/platform/fpscr.h:16,
+                 from C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/ppc/context.h:20,
+                 from C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/hook.h:21,
+                 from C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/ppc.h:14,
+                 from C:\bo3recomp\app\generated\default_zm\bo3_zm_init.h:24,
+                 from C:\bo3recomp\app\generated\default_zm\bo3_zm_recomp.0.cpp:1:
+C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/platform.h:42:2: error: #error Unsupported target OS.
+   42 | #error Unsupported target OS.
+      |  ^~~~~
+In file included from C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/system/kernel_state.h:38,
+                 from C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/ppc/function.h:28,
+                 from C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/hook.h:22:
+C:\bo3recomp\thirdparty\rexglue-sdk\include/rex/platform/dynlib.h:69:2: error: #error No library names provided for the target platform.
+   69 | #error No library names provided for the target platform.
+      |  ^~~~~
