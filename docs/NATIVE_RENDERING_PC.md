@@ -88,6 +88,41 @@ log: `runtime/logs/pc-vulkan-boot04-fsi.log`.
 
 ## Native renderer work order
 
+### Draw capture
+
+Portable RenderDoc 1.46 is installed locally under
+`tools/renderdoc/RenderDoc_1.46_64`. Its official archive SHA256 is
+`9ca4d09ecaba2cc791168660d6fc2a7e3d70fe67146e87ec05c5f8dea70772f7`;
+the DLL has a valid Baldur Scott Karlsson signature. The Android helper has been
+disabled locally because its automatic detection generated recurring adb errors.
+
+Launch a diagnostic test:
+
+```powershell
+.\scripts\nx\launch-pc-vulkan.ps1 -RenderTargetPath fsi -GpuCapture -Background
+```
+
+When positioned at the defect, use the capture hotkey or create
+`build/draw-capture/request.txt`. The host writes the saved path into
+`build/draw-capture/status.txt`. `scripts/nx/inspect-gpu-capture.py` runs through
+RenderDoc's embedded Python (`qrenderdoc --python`) and exports an action/resource
+inventory into ignored build output. System Python cannot load this portable
+package's embedded RenderDoc module. Raw captures, shader exports and textures
+are excluded from Git.
+
+The first replay localizes the squares to the glow/bloom chain, including a
+160x90 effect texture carrying the same block pattern. The precise corruption
+mechanism is still under investigation. See
+[capture findings](../analysis/VULKAN_WHITE_SQUARES.md).
+
+### Implementation sequence
+
+The first BO3-specific foundation is recorded in
+[native foundation and reference review](../analysis/BO3_NATIVE_FOUNDATION.md).
+Run `launch-pc-vulkan.ps1 -RenderTargetPath fsi -D3DTrace -Background` to collect
+the forwarding XDK census and full shader containers. This build still draws
+through Xenos emulation; the census is preparation for the native backend.
+
 1. Establish the emulated Vulkan baseline on PC and retain frame captures.
 2. Capture BO3 shaders, patched variants, command packets and resource usage.
 3. Identify and verify BO3's XDK shader/draw/flip functions and device offsets.

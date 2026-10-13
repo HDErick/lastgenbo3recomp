@@ -38,6 +38,7 @@
 *.obj
 *.lib
 *.pyc
+*.rdc
 *.zip
 *.7z
 # This dependency's nested ignore rules re-include its prebuilt sample binary.

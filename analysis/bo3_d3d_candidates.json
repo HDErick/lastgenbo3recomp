@@ -1,0 +1,510 @@
+{
+  "mode": "zombies",
+  "reference_map": "C:\\BO2recomp\\Project BO2\\rfazio\\t6\\default_mp.map",
+  "reference_map_sha256": "357b8336747ad9e67dd72ba22564409fdd0e6c55b7a4de8c0f478e02de391c4c",
+  "reference_functions": 29873,
+  "target_functions": 34327,
+  "method": "instruction-comment sequence; registers retained, numeric immediates normalized; maximum 600 instructions",
+  "limitations": [
+    "BO2 renderer is broken and unused",
+    "scores are not address verification",
+    "split functions and changed register allocation can lower scores"
+  ],
+  "functions": [
+    {
+      "name": "D3DDevice_BeginCommandBuffer",
+      "reference": "0x8216D5C0",
+      "reference_instructions": 348,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826F2C98",
+          "ratio": 0.90244,
+          "instruction_count": 308
+        },
+        {
+          "address": "0x826EB998",
+          "ratio": 0.18388,
+          "instruction_count": 359
+        },
+        {
+          "address": "0x826F40F0",
+          "ratio": 0.18278,
+          "instruction_count": 407
+        },
+        {
+          "address": "0x827822D0",
+          "ratio": 0.13103,
+          "instruction_count": 232
+        },
+        {
+          "address": "0x8270B6C0",
+          "ratio": 0.12683,
+          "instruction_count": 267
+        }
+      ]
+    },
+    {
+      "name": "D3DDevice_CreatePixelShader",
+      "reference": "0x82169908",
+      "reference_instructions": 60,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826F00F0",
+          "ratio": 1.0,
+          "instruction_count": 60
+        },
+        {
+          "address": "0x826F0318",
+          "ratio": 0.88333,
+          "instruction_count": 60
+        },
+        {
+          "address": "0x826918C0",
+          "ratio": 0.32692,
+          "instruction_count": 44
+        },
+        {
+          "address": "0x827374D8",
+          "ratio": 0.31858,
+          "instruction_count": 53
+        },
+        {
+          "address": "0x825B42B0",
+          "ratio": 0.2963,
+          "instruction_count": 48
+        }
+      ]
+    },
+    {
+      "name": "D3DDevice_CreateVertexShader",
+      "reference": "0x82169CE8",
+      "reference_instructions": 60,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826F0318",
+          "ratio": 1.0,
+          "instruction_count": 60
+        },
+        {
+          "address": "0x826F00F0",
+          "ratio": 0.88333,
+          "instruction_count": 60
+        },
+        {
+          "address": "0x8253D3C8",
+          "ratio": 0.35294,
+          "instruction_count": 59
+        },
+        {
+          "address": "0x8258DD78",
+          "ratio": 0.34711,
+          "instruction_count": 61
+        },
+        {
+          "address": "0x827374D8",
+          "ratio": 0.33628,
+          "instruction_count": 53
+        }
+      ]
+    },
+    {
+      "name": "D3DDevice_DrawIndexedVertices",
+      "reference": "0x8216B1C8",
+      "reference_instructions": 285,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826F95A8",
+          "ratio": 1.0,
+          "instruction_count": 285
+        },
+        {
+          "address": "0x826F9190",
+          "ratio": 0.75824,
+          "instruction_count": 261
+        },
+        {
+          "address": "0x826F8BB0",
+          "ratio": 0.67633,
+          "instruction_count": 336
+        },
+        {
+          "address": "0x826F86A8",
+          "ratio": 0.61905,
+          "instruction_count": 303
+        },
+        {
+          "address": "0x826F3CD0",
+          "ratio": 0.59016,
+          "instruction_count": 264
+        }
+      ]
+    },
+    {
+      "name": "D3DDevice_DrawIndexedVerticesUP",
+      "reference": "0x8216AD10",
+      "reference_instructions": 40,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826F90F0",
+          "ratio": 1.0,
+          "instruction_count": 40
+        },
+        {
+          "address": "0x827C0298",
+          "ratio": 0.38806,
+          "instruction_count": 27
+        },
+        {
+          "address": "0x824876F8",
+          "ratio": 0.30952,
+          "instruction_count": 44
+        },
+        {
+          "address": "0x82357730",
+          "ratio": 0.30769,
+          "instruction_count": 25
+        },
+        {
+          "address": "0x828000B8",
+          "ratio": 0.30556,
+          "instruction_count": 32
+        }
+      ]
+    },
+    {
+      "name": "D3DDevice_DrawVertices",
+      "reference": "0x8216ADB0",
+      "reference_instructions": 261,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826F9190",
+          "ratio": 1.0,
+          "instruction_count": 261
+        },
+        {
+          "address": "0x826F86A8",
+          "ratio": 0.7766,
+          "instruction_count": 303
+        },
+        {
+          "address": "0x826F95A8",
+          "ratio": 0.75824,
+          "instruction_count": 285
+        },
+        {
+          "address": "0x826F8BB0",
+          "ratio": 0.61642,
+          "instruction_count": 336
+        },
+        {
+          "address": "0x826F3CD0",
+          "ratio": 0.58286,
+          "instruction_count": 264
+        }
+      ]
+    },
+    {
+      "name": "D3DDevice_DrawVerticesUP",
+      "reference": "0x8216A788",
+      "reference_instructions": 18,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826F8B68",
+          "ratio": 1.0,
+          "instruction_count": 18
+        },
+        {
+          "address": "0x8290D1C8",
+          "ratio": 0.58824,
+          "instruction_count": 16
+        },
+        {
+          "address": "0x8278D518",
+          "ratio": 0.55556,
+          "instruction_count": 18
+        },
+        {
+          "address": "0x82A850B8",
+          "ratio": 0.52632,
+          "instruction_count": 20
+        },
+        {
+          "address": "0x82781858",
+          "ratio": 0.51282,
+          "instruction_count": 21
+        }
+      ]
+    },
+    {
+      "name": "D3DDevice_GetPixelShader",
+      "reference": "0x82169BB8",
+      "reference_instructions": 13,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826DCBD8",
+          "ratio": 0.69565,
+          "instruction_count": 10
+        },
+        {
+          "address": "0x8240C110",
+          "ratio": 0.66667,
+          "instruction_count": 14
+        },
+        {
+          "address": "0x826EFCC0",
+          "ratio": 0.64286,
+          "instruction_count": 15
+        },
+        {
+          "address": "0x826E8EE8",
+          "ratio": 0.64286,
+          "instruction_count": 15
+        },
+        {
+          "address": "0x8243E790",
+          "ratio": 0.64286,
+          "instruction_count": 15
+        }
+      ]
+    },
+    {
+      "name": "D3DDevice_GetVertexShader",
+      "reference": "0x82169FA8",
+      "reference_instructions": 13,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826DCBD8",
+          "ratio": 0.69565,
+          "instruction_count": 10
+        },
+        {
+          "address": "0x8240C110",
+          "ratio": 0.66667,
+          "instruction_count": 14
+        },
+        {
+          "address": "0x826EFCC0",
+          "ratio": 0.64286,
+          "instruction_count": 15
+        },
+        {
+          "address": "0x826E8EE8",
+          "ratio": 0.64286,
+          "instruction_count": 15
+        },
+        {
+          "address": "0x8243E790",
+          "ratio": 0.64286,
+          "instruction_count": 15
+        }
+      ]
+    },
+    {
+      "name": "D3DDevice_Resolve",
+      "reference": "0x8216D108",
+      "reference_instructions": 19,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826EE3D0",
+          "ratio": 1.0,
+          "instruction_count": 19
+        },
+        {
+          "address": "0x8282CC50",
+          "ratio": 0.66667,
+          "instruction_count": 17
+        },
+        {
+          "address": "0x82818EF0",
+          "ratio": 0.61111,
+          "instruction_count": 17
+        },
+        {
+          "address": "0x8272AC50",
+          "ratio": 0.51163,
+          "instruction_count": 24
+        },
+        {
+          "address": "0x8270B0E0",
+          "ratio": 0.47826,
+          "instruction_count": 27
+        }
+      ]
+    },
+    {
+      "name": "D3DDevice_ResolveEx",
+      "reference": "0x8216BFC0",
+      "reference_instructions": 600,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826ED278",
+          "ratio": 0.73667,
+          "instruction_count": 600
+        },
+        {
+          "address": "0x826EBF38",
+          "ratio": 0.30315,
+          "instruction_count": 416
+        },
+        {
+          "address": "0x827075A8",
+          "ratio": 0.24289,
+          "instruction_count": 561
+        },
+        {
+          "address": "0x826F40F0",
+          "ratio": 0.18868,
+          "instruction_count": 407
+        },
+        {
+          "address": "0x826EAD10",
+          "ratio": 0.13408,
+          "instruction_count": 474
+        }
+      ]
+    },
+    {
+      "name": "D3DDevice_RunCommandBuffer",
+      "reference": "0x8216E108",
+      "reference_instructions": 416,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826F40F0",
+          "ratio": 0.97691,
+          "instruction_count": 407
+        },
+        {
+          "address": "0x826F3620",
+          "ratio": 0.52432,
+          "instruction_count": 427
+        },
+        {
+          "address": "0x826F9190",
+          "ratio": 0.50222,
+          "instruction_count": 261
+        },
+        {
+          "address": "0x826F3CD0",
+          "ratio": 0.5,
+          "instruction_count": 264
+        },
+        {
+          "address": "0x826F95A8",
+          "ratio": 0.48217,
+          "instruction_count": 285
+        }
+      ]
+    },
+    {
+      "name": "D3DDevice_SetPixelShader",
+      "reference": "0x821699F8",
+      "reference_instructions": 111,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826EF888",
+          "ratio": 1.0,
+          "instruction_count": 111
+        },
+        {
+          "address": "0x826EFA90",
+          "ratio": 0.89381,
+          "instruction_count": 115
+        },
+        {
+          "address": "0x826E8C68",
+          "ratio": 0.34973,
+          "instruction_count": 72
+        },
+        {
+          "address": "0x822BBF78",
+          "ratio": 0.19556,
+          "instruction_count": 114
+        },
+        {
+          "address": "0x827341E0",
+          "ratio": 0.18478,
+          "instruction_count": 73
+        }
+      ]
+    },
+    {
+      "name": "D3DDevice_SetVertexShader",
+      "reference": "0x82169DD8",
+      "reference_instructions": 115,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826EFA90",
+          "ratio": 1.0,
+          "instruction_count": 115
+        },
+        {
+          "address": "0x826EF888",
+          "ratio": 0.89381,
+          "instruction_count": 111
+        },
+        {
+          "address": "0x826E8C68",
+          "ratio": 0.38503,
+          "instruction_count": 72
+        },
+        {
+          "address": "0x8232A3A8",
+          "ratio": 0.19704,
+          "instruction_count": 88
+        },
+        {
+          "address": "0x82459DA0",
+          "ratio": 0.17204,
+          "instruction_count": 71
+        }
+      ]
+    },
+    {
+      "name": "D3DDevice_Swap",
+      "reference": "0x821715A0",
+      "reference_instructions": 524,
+      "status": "unverified candidates; no hook authorized by score",
+      "candidates": [
+        {
+          "address": "0x826EAD10",
+          "ratio": 0.88778,
+          "instruction_count": 474
+        },
+        {
+          "address": "0x822AF1A8",
+          "ratio": 0.14235,
+          "instruction_count": 600
+        },
+        {
+          "address": "0x8221F398",
+          "ratio": 0.12633,
+          "instruction_count": 600
+        },
+        {
+          "address": "0x829E6190",
+          "ratio": 0.11812,
+          "instruction_count": 475
+        },
+        {
+          "address": "0x826ED278",
+          "ratio": 0.11388,
+          "instruction_count": 600
+        }
+      ]
+    }
+  ]
+}

@@ -14,6 +14,8 @@ files = {}
 for name in ['build/pc-vulkan/bo3_zm_vulkan.exe', 'build/pc-vulkan/bo3_zm_vulkan.pdb',
              'build/pc-vulkan/rexruntime.dll', 'build/pc-vulkan/rexgpu-xenos.dll',
              'nx/pc-vulkan/main.cpp', 'nx/pc-vulkan/CMakeLists.txt',
+             'nx/pc-vulkan/draw_capture.cpp', 'nx/pc-vulkan/draw_capture.h',
+             'nx/pc-vulkan/d3d_trace.cpp', 'nx/pc-vulkan/d3d_trace.h',
              'scripts/nx/launch-pc-vulkan.ps1', 'scripts/nx/prepare-runtime.py',
              'analysis/nx_runtime_sources.json', 'build/nx-generated/zombies/bo3_zm_init.h',
              'build/nx-generated/zombies/bo3_zm_init.cpp',

@@ -1,0 +1,15 @@
+{
+  "CreatePixelShader": 1,
+  "CreateVertexShader": 2,
+  "SetPixelShader": 101714,
+  "SetVertexShader": 131005,
+  "LoadShaders": 124047,
+  "DrawVertices": 36166,
+  "DrawIndexedVertices": 0,
+  "DrawVerticesUP": 0,
+  "DrawIndexedVerticesUP": 87940,
+  "Resolve": 14695,
+  "BeginCommandBuffer": 0,
+  "RunCommandBuffer": 0,
+  "Swap": 14760
+}

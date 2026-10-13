@@ -12,9 +12,10 @@ add_subdirectory("${BO3_ROOT}/tools/nx-sdk" rexglue-sdk)
 # The prepared header supplies explicit weak aliases required by SDK 0.10,
 # which no longer defines the old REX_WEAK_FUNC macro. Clang accepts these too.
 include("${BO3_ROOT}/build/nx-generated/zombies/sources.cmake")
-add_executable(bo3_zm_vulkan WIN32 main.cpp "${BO3_ROOT}/app/src/crash_reporter.cpp" ${GENERATED_SOURCES})
+add_executable(bo3_zm_vulkan WIN32 main.cpp draw_capture.cpp d3d_trace.cpp "${BO3_ROOT}/app/src/crash_reporter.cpp" ${GENERATED_SOURCES})
 target_include_directories(bo3_zm_vulkan PRIVATE
     "${BO3_ROOT}/build/nx-generated/zombies" "${BO3_ROOT}/app/src"
+    "${BO3_ROOT}/tools/nx-sdk/thirdparty/renderdoc"
     $<TARGET_PROPERTY:imgui,INTERFACE_INCLUDE_DIRECTORIES>)
 target_link_libraries(bo3_zm_vulkan PRIVATE rex::runtime dbghelp)
 target_link_options(bo3_zm_vulkan PRIVATE "-Xlinker" "/DEBUG")

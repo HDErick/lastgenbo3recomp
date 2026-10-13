@@ -39,6 +39,17 @@ to late plugin cvars, so that third run also used FBO. The launcher is corrected
 and a new build logs actual renderer selection. Confirmed FSI also loaded The
 Giant and ended normally after about 3 minutes; an automatic gameplay capture
 shows the same square effects. The defect therefore affects both paths.
+A RenderDoc gameplay capture replayed successfully and localizes the square
+pattern to the glow/bloom processing chain: the earlier scene image is clear,
+while a 160x90 effect texture carries the same block pattern as the later output.
+The exact shader/state/format defect remains unconfirmed. Menu playback does
+not validate 3D rendering. See [Vulkan square investigation](analysis/VULKAN_WHITE_SQUARES.md).
+Further capture analysis finds varied, finite FP16 EDRAM values becoming binary
+UNORM values through the bloom resolve/upload chain. This investigation is
+paused for native development. NFSMW-NX, Mass Effect and SA2 references were
+reviewed; BO3-specific forwarding D3D/shader-discovery hooks have built and a
+live discovery test is pending. The BO2 native renderer is confirmed broken
+and is not the renderer base. See [native foundation](analysis/BO3_NATIVE_FOUNDATION.md).
 A BO3 native renderer is not yet
 implemented. See [PC native rendering work](docs/NATIVE_RENDERING_PC.md).
 

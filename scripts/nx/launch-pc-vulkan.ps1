@@ -3,6 +3,8 @@ param(
     [ValidateSet('fbo', 'fsi')][string]$RenderTargetPath = 'fbo',
     [switch]$CaptureFrames,
     [switch]$DumpShaders,
+    [switch]$GpuCapture,
+    [switch]$D3DTrace,
     [switch]$Background
 )
 $ErrorActionPreference = 'Stop'
@@ -29,17 +31,64 @@ $arguments = @(
 if ($DumpShaders) {
     $arguments += ('--dump_shaders=' + (Join-Path $projectRoot 'runtime/shader-dumps/pc-vulkan'))
 }
+$captureEnvironment = @{}
+foreach ($name in 'BO3_SAMPLE_SECS','BO3_CAPTURE_FRAMES','BO3_DUMP_IMAGE',
+    'BO3_GPU_CAPTURE_DIR','BO3_RENDERDOC_DLL','VK_LAYER_PATH','VK_INSTANCE_LAYERS',
+    'ENABLE_VULKAN_RENDERDOC_CAPTURE','VK_ADD_IMPLICIT_LAYER_PATH','BO3_D3D_TRACE_DIR') {
+    $captureEnvironment[$name] = [Environment]::GetEnvironmentVariable($name, 'Process')
+}
+try {
 $env:BO3_SAMPLE_SECS = $null
 $env:BO3_CAPTURE_FRAMES = if ($CaptureFrames) { '1' } else { $null }
 $env:BO3_DUMP_IMAGE = $null
+$env:BO3_GPU_CAPTURE_DIR = $null
+$env:BO3_RENDERDOC_DLL = $null
+$env:BO3_D3D_TRACE_DIR = if ($D3DTrace) { Join-Path $projectRoot 'runtime/native-discovery' } else { $null }
+if ($GpuCapture) {
+    $renderDocRoot = Join-Path $projectRoot 'tools/renderdoc/RenderDoc_1.46_64'
+    if (-not (Test-Path -LiteralPath (Join-Path $renderDocRoot 'renderdoc.dll'))) {
+        throw 'Portable RenderDoc 1.46 is missing under tools/renderdoc'
+    }
+    $captureRoot = Join-Path $projectRoot 'build/draw-capture'
+    New-Item -ItemType Directory -Path $captureRoot -Force | Out-Null
+    $env:BO3_GPU_CAPTURE_DIR = $captureRoot
+    $env:BO3_RENDERDOC_DLL = Join-Path $renderDocRoot 'renderdoc.dll'
+    # Discover the capture manifest as an implicit layer, as RenderDoc expects.
+    # Preserve normal layer search paths; no system-wide registration needed.
+    $env:VK_ADD_IMPLICIT_LAYER_PATH = $renderDocRoot
+    $env:ENABLE_VULKAN_RENDERDOC_CAPTURE = '1'
+    $arguments += '--gpu_debug_markers'
+}
+$launchExecutable = $executable
+$launchArguments = $arguments
+if ($GpuCapture) {
+    $launchExecutable = Join-Path $renderDocRoot 'renderdoccmd.exe'
+    $launchArguments = @('capture', '-d', (Split-Path $executable), '-c',
+        (Join-Path $captureRoot 'white-squares'), '--opt-capture-callstacks',
+        '--opt-capture-callstacks-only-actions', $executable) + $arguments
+}
 if ($Background) {
-    $quotedArguments = $arguments | ForEach-Object { '"' + $_.Replace('"', '\"') + '"' }
-    $process = Start-Process -FilePath $executable -ArgumentList $quotedArguments `
+    $quotedArguments = $launchArguments | ForEach-Object { '"' + $_.Replace('"', '\"') + '"' }
+    $launchTime = Get-Date
+    $process = Start-Process -FilePath $launchExecutable -ArgumentList $quotedArguments `
         -WorkingDirectory (Split-Path $executable) -WindowStyle Hidden -PassThru `
         -RedirectStandardOutput ($logPath + '.stdout') -RedirectStandardError ($logPath + '.stderr')
+    if ($GpuCapture) {
+        for ($attempt = 0; $attempt -lt 30; $attempt++) {
+            $target = Get-Process -Name bo3_zm_vulkan -ErrorAction SilentlyContinue |
+                Where-Object { $_.StartTime -ge $launchTime } | Select-Object -First 1
+            if ($target) { $process = $target; break }
+            Start-Sleep -Milliseconds 100
+        }
+    }
     $process.Id | Set-Content (Join-Path $projectRoot 'runtime/logs/pc-vulkan-process-id.txt')
     Write-Output "Started PC Vulkan PID $($process.Id), log $logPath"
 } else {
-    & $executable @arguments
+    & $launchExecutable @launchArguments
     exit $LASTEXITCODE
+}
+} finally {
+    foreach ($name in $captureEnvironment.Keys) {
+        [Environment]::SetEnvironmentVariable($name, $captureEnvironment[$name], 'Process')
+    }
 }
