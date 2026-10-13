@@ -60,7 +60,12 @@ implemented. See [PC native rendering work](docs/NATIVE_RENDERING_PC.md).
 MW2's custom PM4-to-Vulkan renderer has also been reviewed. Its raw-buffer vertex
 fetching is a useful candidate for the patched-VS problem, but its unsupported
 texture-weight operations and renderer limits prevent wholesale adoption. The
-next proposed gate is an offline comparison against our captured GPU programs.
+offline comparison now covers 149 vertex and 306 pixel programs. The separate
+BO3 prototype adds the observed GetWeights operation and cleanly validates
+450/455 loaded programs. Three pixel programs require mixed 2D/3D texture views,
+and two vertex programs drop memory exports; all five remain explicitly blocked.
+The first native prototype will use shader-based vertex fetching and exact
+loaded-program identities. No native game frame has been rendered yet.
 See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).
 
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches

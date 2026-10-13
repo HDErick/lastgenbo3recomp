@@ -185,6 +185,16 @@ test its raw vertex-fetch translator against our 455 GPU-loaded programs before
 choosing how to handle patched VS declarations. It already has known BO3 gaps
 (GetTextureWeights, possible depth/MRT/memory-export requirements); it is not a
 replacement runtime or an established BO3 renderer base.
+That comparison is now completed: the actual corpus is 149 VS plus 306 PS.
+The unmodified MW2 translator cleanly validates 147 VS/188 PS. A separate BO3
+GetWeights prototype cleanly validates 147 VS/303 PS while preserving all
+335 previously clean modules byte-for-byte. Three mixed-dimensional PS and two
+memory-export VS remain unsupported. Shader-based vertex fetching is selected
+for the first native correctness prototype; the descriptor/data contract and
+live native backend still need implementation. See the linked assessment for
+the limitations and exact records.
+The [initial shader interface](../docs/NATIVE_SHADER_ABI.md) records the tested
+binding layout and the remaining data/lifetime requirements for integration.
 
 1. Link GPU-loaded vertex variants to verified originals and compatible input
    declarations; cover the unmatched programs and unresolved translations.

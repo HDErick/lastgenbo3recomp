@@ -1,0 +1,2969 @@
+{
+  "source": "runtime/shader-dumps/native-discovery03; Windows little-endian dwords",
+  "field_reference": "Pinned MW2 xenos_ucode.h; CF exec address/count/sequence and Fetch fields",
+  "scope": "Static unique GetWeights instruction sites before first end, not executed instruction counts or draw state; all captured programs first end is unconditional ExecEnd",
+  "program_count": 117,
+  "instruction_counts": {
+    "normalized_2d_linear_no_lod_xy": 141
+  },
+  "programs": [
+    {
+      "file": "shader_01B257822EC3D0B4.ucode.bin.frag",
+      "sha256": "63463ba44c62672f59b03e4df6642d630f596147e21c3a900275be101adda701",
+      "sites": [
+        {
+          "instruction": 62,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_027B9C11D0FCDCED.ucode.bin.frag",
+      "sha256": "38af6e30116e7e2878ea2f74e24788d3c11a9d0f744dd8528ceef4705f79f0f9",
+      "sites": [
+        {
+          "instruction": 50,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 127,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_029E56AF6DE869B1.ucode.bin.frag",
+      "sha256": "3d55a4ba70bfa6a152dd7ac93e26c33b63aceac5407bf90f2ff414dd3bb5bca2",
+      "sites": [
+        {
+          "instruction": 63,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 142,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_05444E6A579C5801.ucode.bin.frag",
+      "sha256": "ce825a0d76d2f26194318283c4c0c26f69ad390f449eafb4e229240ed7d5f7f9",
+      "sites": [
+        {
+          "instruction": 23,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_061376BBA88729C0.ucode.bin.frag",
+      "sha256": "fbf61b29b661d8c5db1e9cccd46bce9e49c26ac9e759c8a822a6605d828614ce",
+      "sites": [
+        {
+          "instruction": 53,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_06CA1EE527140746.ucode.bin.frag",
+      "sha256": "8d05c86c3eefd737c98ca4cf50e07a31bcdc5200a9ad0abfc5bd2c6e444cb986",
+      "sites": [
+        {
+          "instruction": 73,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_08DE7EEC871203F2.ucode.bin.frag",
+      "sha256": "2d6f9d31b3694a3568d147b1d64d344219a602a8615002df46d4665f45708a3c",
+      "sites": [
+        {
+          "instruction": 28,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_09FB42160878682E.ucode.bin.frag",
+      "sha256": "a2b1ca13b8cc0508598dfecd044eff18ac80ebb986e0852fefc73efeedced099",
+      "sites": [
+        {
+          "instruction": 61,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_0A4C9F0548963C7A.ucode.bin.frag",
+      "sha256": "230a360adbd6e997375d05d7baf0920d571b0a83fa15d98bb325a14b9a75304d",
+      "sites": [
+        {
+          "instruction": 22,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_0A84B1498CEB04BB.ucode.bin.frag",
+      "sha256": "5143e8f88d95e8d4683a9d495233d1d4a65adb9cdc4f1b446c8abfe2bb953086",
+      "sites": [
+        {
+          "instruction": 63,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_0ADCE788101D3FAB.ucode.bin.frag",
+      "sha256": "30897a5b49cda6f6b12b2f7b9e747a729b36f9d1fbbd095a9fd6781a7c4a508a",
+      "sites": [
+        {
+          "instruction": 49,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_0BBC70DB9B5469BE.ucode.bin.frag",
+      "sha256": "0c75f53a0d622a9aaebe0d071d6dad49fb760590db444eaa061d4c3e46e7acd7",
+      "sites": [
+        {
+          "instruction": 95,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_15026AA671045382.ucode.bin.frag",
+      "sha256": "ef0d0b626187f56c48db75f8fd920451e9ff4b8278f64f9b19ea62a98d766221",
+      "sites": [
+        {
+          "instruction": 54,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_1DB95C9265A78C81.ucode.bin.frag",
+      "sha256": "eb142338866815322ba526b9758d97aa167e0fee287772900514bd46555654dd",
+      "sites": [
+        {
+          "instruction": 24,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_1F964B9C64F65C89.ucode.bin.frag",
+      "sha256": "fc0e23cf8bca6e394afb5728efa05ea58a734559f3e98cdea2a687145d3c0762",
+      "sites": [
+        {
+          "instruction": 61,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_23E25F68F184738F.ucode.bin.frag",
+      "sha256": "1f4c1fd600499686e88996b12ec4984ab715d961c260c338b96c2ae619102e09",
+      "sites": [
+        {
+          "instruction": 55,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_2482E4C1B7F1A4B0.ucode.bin.frag",
+      "sha256": "c4ac03b7f7be06c964209a53b63ddf728923eb3485df3efdc5f9bdc74d70fff4",
+      "sites": [
+        {
+          "instruction": 76,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 155,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_28DEC81014806481.ucode.bin.frag",
+      "sha256": "699b08128f5d6ba053d0a21721bd5708c50406954fbf339837078d6de1c376d3",
+      "sites": [
+        {
+          "instruction": 100,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_2B305DA6DE0ECD3C.ucode.bin.frag",
+      "sha256": "f251fd5301bca72218bcf55872b64e46dc9ef688ec0c106c5c37dab2393e652e",
+      "sites": [
+        {
+          "instruction": 63,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 145,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_2CDA2899D975B69E.ucode.bin.frag",
+      "sha256": "e54252ce6194005dd1fd4ea68a414574aba5ac4f6e50d9c498ad54aa16086dd2",
+      "sites": [
+        {
+          "instruction": 58,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_2FB2CF9D725AFF03.ucode.bin.frag",
+      "sha256": "030f2728294aa503306a01a2ec53e9c5df62c11565e9519d7f2243cff40fec51",
+      "sites": [
+        {
+          "instruction": 68,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 144,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_339E6797AECBCE36.ucode.bin.frag",
+      "sha256": "1ae8322e09d28501deb9b5676c4d8e8747f3471fb16940b01ecb35ce2e26b672",
+      "sites": [
+        {
+          "instruction": 61,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_34C9E88B65A1C517.ucode.bin.frag",
+      "sha256": "b84392092c3cc457e86e5373db7547c703bb681956b5ba28326ade7f1460feb3",
+      "sites": [
+        {
+          "instruction": 70,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_390311300B447207.ucode.bin.frag",
+      "sha256": "4146460cd2fd2e655734eb0c3c905580f10324f1ba91eb6dd5dd838d60500dda",
+      "sites": [
+        {
+          "instruction": 63,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 145,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_3DB944286709DE59.ucode.bin.frag",
+      "sha256": "04aa496dacafd1d70fc937e14ec01e5760acbdc0b02f6624cf24c6707d42d71d",
+      "sites": [
+        {
+          "instruction": 43,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_424D253FE91BBD3B.ucode.bin.frag",
+      "sha256": "b8f75d28f944c2d53c7af8eeef71d0ae9feefecaeece4bd01e64ef55a1fed4fb",
+      "sites": [
+        {
+          "instruction": 43,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_429B972EEDBEADEA.ucode.bin.frag",
+      "sha256": "79faead62e25854c1340b5d792ecf88286c4174e1b8e335a9608322cb824c462",
+      "sites": [
+        {
+          "instruction": 24,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_43A5795DC6B98907.ucode.bin.frag",
+      "sha256": "43193e0b39f1b1dc379460de3f43d68cf4c3e195e6cb4d3ca1ab40bb581b858a",
+      "sites": [
+        {
+          "instruction": 58,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_44CE251783145B4D.ucode.bin.frag",
+      "sha256": "48b5badf19ca5239586c9ba6341ea15024227fa0a4d3affbbfabf855b1a03394",
+      "sites": [
+        {
+          "instruction": 26,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_46387CD0E5171C35.ucode.bin.frag",
+      "sha256": "4f74d4eafc9e15724c2e5c84a001d849a876dd1dc5a5269bfe0bdf297d57625a",
+      "sites": [
+        {
+          "instruction": 70,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 146,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_46673BCD43D20295.ucode.bin.frag",
+      "sha256": "5f798b437f37c554beaee02b3b63f811aff43a33e4a11e489916bd024f8a0ba3",
+      "sites": [
+        {
+          "instruction": 58,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_49CDA28C3B6196C5.ucode.bin.frag",
+      "sha256": "f1f349005b1228da34623200f8c33ebc6d18b5d8ab5360db3bf49962a9f335d5",
+      "sites": [
+        {
+          "instruction": 63,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_4D152CA0E1F8497D.ucode.bin.frag",
+      "sha256": "e30c9f6d283eea1b3855ebaffafeebf170f9bbab798a5d8c3c291aa153cdd87e",
+      "sites": [
+        {
+          "instruction": 22,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_4D9E5572E546943F.ucode.bin.frag",
+      "sha256": "0df31278a8243e07f1b9dfa213ad1d97253c5563490b65890ce1a4cb341597b6",
+      "sites": [
+        {
+          "instruction": 60,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_501C315E672292B8.ucode.bin.frag",
+      "sha256": "9061a362766ced4ef1f9593ff53e4380ae25819629c69b87a2c1f828be6c2657",
+      "sites": [
+        {
+          "instruction": 57,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_50702B2C2BE381EA.ucode.bin.frag",
+      "sha256": "7827ebf8c0153777a7c18c185fdbe7ed981b8852ccd5883ded6f5c82873e8acc",
+      "sites": [
+        {
+          "instruction": 63,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 139,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_54700C55EF41ADD4.ucode.bin.frag",
+      "sha256": "c7a5a5a6dcde7acde135d1ba4bd84963acc65cdab6fb17b7800ea7c7012b9057",
+      "sites": [
+        {
+          "instruction": 61,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 138,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_5693C39AE0CCFB95.ucode.bin.frag",
+      "sha256": "61a4714f6dede086c672cb7e39896dcf2cdc202952128d3b086ebbad62e80c30",
+      "sites": [
+        {
+          "instruction": 63,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_56DBCFB2FA2300FC.ucode.bin.frag",
+      "sha256": "a92c8ff5b6d010b800ed3f89828a5207e1deb64b76215c6990cb100d051b4cd7",
+      "sites": [
+        {
+          "instruction": 53,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_58D496855987098F.ucode.bin.frag",
+      "sha256": "5a1a3764c324107b3a494b7db06af0606b3adea5a74ba3de68ac00d3e6b69908",
+      "sites": [
+        {
+          "instruction": 52,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_5BA33CB62639088D.ucode.bin.frag",
+      "sha256": "c81032340fca35462134b90834c58918efde7c30a82e2f4132947e4d8190f3c2",
+      "sites": [
+        {
+          "instruction": 70,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 153,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_5F562BA3BD8C2BBE.ucode.bin.frag",
+      "sha256": "795adada11dd929110c9f91bb0ffa539f6966a2431ebb4737c1b224547169a7f",
+      "sites": [
+        {
+          "instruction": 69,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_64F9865C804030F2.ucode.bin.frag",
+      "sha256": "feda02b0541b857ae95ced3ea835ca62a528121e46019cae4aa187c7c489d880",
+      "sites": [
+        {
+          "instruction": 69,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 153,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_651099887BB1D92B.ucode.bin.frag",
+      "sha256": "1e8074c265f365dd278fdaed91fd4bd21481db5d6cc32cde28edcd5ba279ca0b",
+      "sites": [
+        {
+          "instruction": 19,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_665A6999E167141E.ucode.bin.frag",
+      "sha256": "cc73811fdd3fec4eee8df5e49f6ff1f51040559ab14b55dfce0846ba60f757da",
+      "sites": [
+        {
+          "instruction": 52,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_6CDF44CB309E86CB.ucode.bin.frag",
+      "sha256": "7af1e12714f4bc32f0884d8c693297dba856a85955f65dba32eccacf71859830",
+      "sites": [
+        {
+          "instruction": 24,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_6DE1EBAC585DB9AD.ucode.bin.frag",
+      "sha256": "2ebc6950b18858eb25fd3893771e2cb328f51c09e8094b4cfacd5ddd95d2d224",
+      "sites": [
+        {
+          "instruction": 54,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_707BE72210002BA7.ucode.bin.frag",
+      "sha256": "551af1abcf75f96e9acbda44a5c9da22556793cd7adcb4aadd128ee2e3ed8e9f",
+      "sites": [
+        {
+          "instruction": 43,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_710B1D99A89F9D8B.ucode.bin.frag",
+      "sha256": "ab0514e603e370adf67c1d59dd69efae65e88bed6b251bb5e2eec99487682f88",
+      "sites": [
+        {
+          "instruction": 109,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_75A3301B68369A30.ucode.bin.frag",
+      "sha256": "93131548a06d20270cf9828910c0e6493b6023e426121cc88569fac2ce47d314",
+      "sites": [
+        {
+          "instruction": 20,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_79614D7AC629BA41.ucode.bin.frag",
+      "sha256": "cef7320a5927013ed4816bf88e3877c8df7544ddecb4eac2b3a436fc8164325b",
+      "sites": [
+        {
+          "instruction": 64,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 143,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_79DC948F424DEDC3.ucode.bin.frag",
+      "sha256": "a353c51878dc8918801e903cbabcf570d2ec3ac05f93447ea3af1d0324ad3771",
+      "sites": [
+        {
+          "instruction": 69,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 148,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_7E5B05B32AE32887.ucode.bin.frag",
+      "sha256": "a0255d99676203cdde33c52ecdccfb78eabcd3376455ece881fb5ac30a08f22f",
+      "sites": [
+        {
+          "instruction": 60,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_7F283179BB664F42.ucode.bin.frag",
+      "sha256": "34080113bb7e05c24169e6d2cec3ba37880dc0acf642396a291eecab7aab7eaf",
+      "sites": [
+        {
+          "instruction": 98,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_7F4C66A9309995F3.ucode.bin.frag",
+      "sha256": "ac2186b26789308aa252dd6ac2b6aeac50de4352cf7020efbb7ab22b1e29ee4a",
+      "sites": [
+        {
+          "instruction": 54,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_8232EB52C7CC680B.ucode.bin.frag",
+      "sha256": "98bd10c6fe7a5995820a767403e98658fad2952b083ff044a320e64b711c26b4",
+      "sites": [
+        {
+          "instruction": 62,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_8A77D968A964DDCC.ucode.bin.frag",
+      "sha256": "9dfc1e248ddfc974d1c54cc6c1f9277d976094b9691b6211c6c885a1a240bcee",
+      "sites": [
+        {
+          "instruction": 24,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_8C6FB02A76B0C9E0.ucode.bin.frag",
+      "sha256": "c667f8f349b0b5f65ff37a4d7398957f3011914a4a7babc29d87caa4e09a452b",
+      "sites": [
+        {
+          "instruction": 63,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_8CFEF2A61643BBE9.ucode.bin.frag",
+      "sha256": "d4e29c8a20bf1e18ce0cb968749e18b1fecf5a1abc01185b67fa110e2bb3ef52",
+      "sites": [
+        {
+          "instruction": 54,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_907E85CE777D6F4A.ucode.bin.frag",
+      "sha256": "b593f5b2b22bb5d6734eb639abc9561eee0076bf124988df9df663f34a8766c2",
+      "sites": [
+        {
+          "instruction": 26,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_9224D39CBCED6A82.ucode.bin.frag",
+      "sha256": "cbc54844a0aa6a514da1a49f269e89552ca7d401a61e8dae2aeeb8675a292fcd",
+      "sites": [
+        {
+          "instruction": 95,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_952D63C331C5D604.ucode.bin.frag",
+      "sha256": "52e53b5adc47836f3470777785b4cf692ce96c40d5820e406bdf73dbcd5214cf",
+      "sites": [
+        {
+          "instruction": 59,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_95DFD6752EB80EE3.ucode.bin.frag",
+      "sha256": "8967c11f821bef4820a2881c544ae700d1c088eeb9ee759c197b352e38c3710b",
+      "sites": [
+        {
+          "instruction": 62,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_9655A229AB6889D5.ucode.bin.frag",
+      "sha256": "4656ef3090259c895e04f8eed202dc80402afa24df72fe7d774fc71abc713e12",
+      "sites": [
+        {
+          "instruction": 54,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_9A7BFB53B5BBFA9D.ucode.bin.frag",
+      "sha256": "8bb655a489a4ff6077b2c260df9d194c67fc2a4e89037292f2533d8584547c25",
+      "sites": [
+        {
+          "instruction": 51,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_A19C23B72B13C40F.ucode.bin.frag",
+      "sha256": "0468687f84719ba4c5607c27dee1281b8206be834629b5fa36738eb385b4b479",
+      "sites": [
+        {
+          "instruction": 69,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_A32F9BD1468198B5.ucode.bin.frag",
+      "sha256": "392480bbf6b49a1dac2f4ca4862767f1b74f8293ab924f10969ab7a25ffb34f3",
+      "sites": [
+        {
+          "instruction": 19,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_A7D9FF073DA72530.ucode.bin.frag",
+      "sha256": "374faf6b5cfce6edc5075bcb10fe136ad6e0aed1ea06d8637f2af394c9f64c4a",
+      "sites": [
+        {
+          "instruction": 18,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_A85963C3C5A387FD.ucode.bin.frag",
+      "sha256": "a80e3817078d3d8be6442a078e41b0c824c48a9d849356a016276c4d1658ae0a",
+      "sites": [
+        {
+          "instruction": 65,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_AA6E92135376FF94.ucode.bin.frag",
+      "sha256": "95f438a324f14acac3b2f05626166ed354bc96e31717a0fadc8a9ee7c3804a1e",
+      "sites": [
+        {
+          "instruction": 63,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_ACDA3544BC577A73.ucode.bin.frag",
+      "sha256": "6ccfbaa5aeaf3c6f427c896440678cbc51051d88f9f1e3725215ec0e8c211211",
+      "sites": [
+        {
+          "instruction": 63,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 146,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_B0B6D0F7886EE991.ucode.bin.frag",
+      "sha256": "aee3ee90ee4e5b0fc9c9198e4c7aad078d0b69506c8b2d53d150bafe1b88878e",
+      "sites": [
+        {
+          "instruction": 27,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_B1398134025C11C2.ucode.bin.frag",
+      "sha256": "008863311535f2f19eaf19f2b01958fdd44ad3e59c5e43607d18d4ff5aa343ce",
+      "sites": [
+        {
+          "instruction": 65,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_B59C4DE99E58A45C.ucode.bin.frag",
+      "sha256": "f689c566d2734d7964e6718842bf473785d6d17e785e7e607359e0043a55ea74",
+      "sites": [
+        {
+          "instruction": 69,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_B84B2DEEA017733A.ucode.bin.frag",
+      "sha256": "7b0a6283657d3d0c37d8ea350f713838a2a2bc4ee0b909a2c5240764dd9f7edc",
+      "sites": [
+        {
+          "instruction": 62,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_BA6D23C5B7EFA722.ucode.bin.frag",
+      "sha256": "fab97f8d0a6110c87030cc8135b92f1503a5a9911bce1ae60ab80746979c3e5a",
+      "sites": [
+        {
+          "instruction": 53,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_BA9B59848E82E5E5.ucode.bin.frag",
+      "sha256": "d1ff52f6adbf34d6bb75553ba6af708473df725b9a6838f2aac0650ef2b8917f",
+      "sites": [
+        {
+          "instruction": 75,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 152,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_BAFCC0EA4B59FBE6.ucode.bin.frag",
+      "sha256": "0b304e547b67e7040fc990d00fdaacee87c70fbf0cf192aa37471d9e80f80071",
+      "sites": [
+        {
+          "instruction": 23,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_BBBE1F550E81B15D.ucode.bin.frag",
+      "sha256": "f30b7b2c9cc2323b0e1a9be37fa14b9035f6c8cc81e34fb8af90e8529c681541",
+      "sites": [
+        {
+          "instruction": 25,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_BCDC6110101B5F77.ucode.bin.frag",
+      "sha256": "27e072582efad1f5644bc3da8c45ed877306bb2036e6c9ed18de4a2f0ee83839",
+      "sites": [
+        {
+          "instruction": 69,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_BD50C8EBC89A2D9B.ucode.bin.frag",
+      "sha256": "5f00f2b7d59abeb1db87fe6dada783cba2595d1d7d18ff80903ccf1b8ae46012",
+      "sites": [
+        {
+          "instruction": 57,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_BF5075F5D675B551.ucode.bin.frag",
+      "sha256": "cf092d703481872c616cd86c761634ccf7f65fbd94560d045c0857d21555218e",
+      "sites": [
+        {
+          "instruction": 63,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 147,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_C0A3011AA6BE7075.ucode.bin.frag",
+      "sha256": "eda7db30a5b6e3ee95bfa9b21cfdfc1a4c38f697d57829e2f53bda2892b39f9e",
+      "sites": [
+        {
+          "instruction": 58,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_C16155BED2CE869F.ucode.bin.frag",
+      "sha256": "80ccd86b29c89c4fd1818269a1bd85649d5f483ffe307db589e816bba31e7059",
+      "sites": [
+        {
+          "instruction": 64,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 144,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_C3DB03E95B1175D4.ucode.bin.frag",
+      "sha256": "3346bf1c774f8b045bc53afb86317d8ac2ecf68c395af48c954439661db3db6e",
+      "sites": [
+        {
+          "instruction": 66,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 142,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_C3E1C07F26790D6C.ucode.bin.frag",
+      "sha256": "105f575531b5c64b44c579cc53297c6093ef4e27d85a2b17cec684aecca1b821",
+      "sites": [
+        {
+          "instruction": 19,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_C85D07B46E2BE9CE.ucode.bin.frag",
+      "sha256": "41421e8c41cb2a2a717da878929fb0e675327310f3effb4b667e9e90085a3c4c",
+      "sites": [
+        {
+          "instruction": 69,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 146,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_CD47856D004FE550.ucode.bin.frag",
+      "sha256": "f7d985a1cc3ce7c59a6f7bfcbfc9eb539637ac08530fc7bfd8d53ad78cee147b",
+      "sites": [
+        {
+          "instruction": 25,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_CEEDDA81EE22C2D2.ucode.bin.frag",
+      "sha256": "94460e04d2a622e92b9ab7783ae97f8004b54a80cb4e4d5cf9e188ea890ea62d",
+      "sites": [
+        {
+          "instruction": 61,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 140,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_CF9C16D23F274E93.ucode.bin.frag",
+      "sha256": "6df8b4c5199e24b3141b304c351eaec0df9591895d3c7383e3794547462ce27a",
+      "sites": [
+        {
+          "instruction": 58,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_D3FA0BA2BB8B3B84.ucode.bin.frag",
+      "sha256": "b11e5bd019f10952af915b364b30501f75ee6646975d4ce347f9b5d1017eb8da",
+      "sites": [
+        {
+          "instruction": 104,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_D7D12A95AA9F53B4.ucode.bin.frag",
+      "sha256": "7329631128194b8a1931794138910700ca14dff36b7cd10c9344060c8c703fbb",
+      "sites": [
+        {
+          "instruction": 49,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_D9856F58926C7C60.ucode.bin.frag",
+      "sha256": "da27e995b1cbde4be9f351e58eadfcb2191c8437a94e8f0dfa5b02af112b8300",
+      "sites": [
+        {
+          "instruction": 54,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_D9A84E1FCEAEC679.ucode.bin.frag",
+      "sha256": "bbf1b1f917fe88f6495797364a77453e319fcda24c5b200d8cb44297cb007477",
+      "sites": [
+        {
+          "instruction": 66,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 142,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_DA1C11E5471AC80A.ucode.bin.frag",
+      "sha256": "4491cea9d8b9803df274c17fcfd28b2ec92b1e257f5b9e0007481a9623cfa3ce",
+      "sites": [
+        {
+          "instruction": 57,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_DC50CA8397B47989.ucode.bin.frag",
+      "sha256": "e714ccc778a552c92b6bd906d7f87a8766243560c691aef6883c3cee58cd99e0",
+      "sites": [
+        {
+          "instruction": 66,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_E00FF56F53100C40.ucode.bin.frag",
+      "sha256": "71bb97206a6af5ae9865bc2d0712204019c1858dc6f17d40580c07020d87a4e6",
+      "sites": [
+        {
+          "instruction": 70,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_E51032FE78B75BFD.ucode.bin.frag",
+      "sha256": "c52540ea9482cb4de58453041c8a019b5777338e8b02c3d2eef8eb77be03d0dc",
+      "sites": [
+        {
+          "instruction": 62,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 139,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_E710517E32613788.ucode.bin.frag",
+      "sha256": "4766c3faa1692ce50d0c2d33a4ef2ee5750c7011c6185fbe235b8965ecf3c4a0",
+      "sites": [
+        {
+          "instruction": 63,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_E79718094D0022F9.ucode.bin.frag",
+      "sha256": "a601acd433a651b7a054314aef686e5d59d72a313a77293ffc37526ab3d4062c",
+      "sites": [
+        {
+          "instruction": 61,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_E8879FBD5BE06218.ucode.bin.frag",
+      "sha256": "fd805abfb2d0e0d16c45bf82c42c554593bca07a8255756fdf2aaa6e4f2488f7",
+      "sites": [
+        {
+          "instruction": 57,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_EAFBEDB5CBDE1BD8.ucode.bin.frag",
+      "sha256": "4f42b8a076fc2eeac7a439857fbfd2f2a70192492c0fef55ebcc4895f1f4bccb",
+      "sites": [
+        {
+          "instruction": 43,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_EB8776F7D9117D55.ucode.bin.frag",
+      "sha256": "64b454d669a0683d4dca15362a7eb7d6807d4394d7367b7bd06bd76c329f4e7e",
+      "sites": [
+        {
+          "instruction": 25,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_EE37076FCFE896CA.ucode.bin.frag",
+      "sha256": "c173462ee13a58fc1061ada9a8e865af68cf229cfb3d71900eccdfebb5b8bbf0",
+      "sites": [
+        {
+          "instruction": 54,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_EE4AC307EC991B0A.ucode.bin.frag",
+      "sha256": "a2ed5e9138b3f8e10661240d049e527d019123765d6bb80c74fdf55292450c2e",
+      "sites": [
+        {
+          "instruction": 78,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 155,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_EFFD716FC1DB9E7D.ucode.bin.frag",
+      "sha256": "fa4a1e040021612822f1cc1c26c4a7ee935be2f5a7e075f499f8e63d27b97952",
+      "sites": [
+        {
+          "instruction": 19,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_F0D176D4DA6CB5D9.ucode.bin.frag",
+      "sha256": "d8ebc560a1ebb891249f535207dfcce72cfbed4d7f8b76c175986e0a30dd643f",
+      "sites": [
+        {
+          "instruction": 66,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_F4497CDA9FBC1852.ucode.bin.frag",
+      "sha256": "192e4e2a52966e2d39cda8372b265ac5f1fb0481f8365b6d768616a137fba067",
+      "sites": [
+        {
+          "instruction": 63,
+          "slot": 16,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        },
+        {
+          "instruction": 142,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_F83FF1C047B6D5D4.ucode.bin.frag",
+      "sha256": "0f0e636f7d27ff31749f356b017de551c7ac4d8352ac96d85d1a482aba4904a3",
+      "sites": [
+        {
+          "instruction": 63,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_F888F6E9C420F4B8.ucode.bin.frag",
+      "sha256": "85ac9df09764dfcc67db81ab88643a32a961b0e3ba30769a0915ffa13780294b",
+      "sites": [
+        {
+          "instruction": 61,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_FA1FEF69257A18F9.ucode.bin.frag",
+      "sha256": "41e5d4b80a825f21db0fd713f46bfd27d604a57598abea6e8657a0ce855abe67",
+      "sites": [
+        {
+          "instruction": 73,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_FB30006A2FDCD8CF.ucode.bin.frag",
+      "sha256": "702d4139aabb8c6d65976c47c4eedd37e1a535449e07f2679abbaca2155d2d79",
+      "sites": [
+        {
+          "instruction": 54,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_FBFF97610DF7D1CF.ucode.bin.frag",
+      "sha256": "5f8ab3677fa376e3ab80b004ae36bdf76e5a7524c35609822f1184fb809ddd8a",
+      "sites": [
+        {
+          "instruction": 59,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_FC9E469320A7B3B7.ucode.bin.frag",
+      "sha256": "c345d38ad1af2cdf3c9725feb09356c1d0ead142cff9967f77707e6b3f535364",
+      "sites": [
+        {
+          "instruction": 22,
+          "slot": 14,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_FDA2FA8BED8A6DB9.ucode.bin.frag",
+      "sha256": "6b5993ff79d8a836707bb3d6266131b6285c431f2765e69e7e782de35f1df9ff",
+      "sites": [
+        {
+          "instruction": 94,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_FE2BD59E43670A23.ucode.bin.frag",
+      "sha256": "66fef0c19dee4da06935bd3914e7b2ff84dab94071f9e0e4ccab7868a5f1a3f3",
+      "sites": [
+        {
+          "instruction": 44,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    },
+    {
+      "file": "shader_FFDDF7FE2090707C.ucode.bin.frag",
+      "sha256": "de2e7210bc09a9fa602907d144bce1c774ae8fefb123036ef4b87c782a988929",
+      "sites": [
+        {
+          "instruction": 57,
+          "slot": 12,
+          "dimension": 1,
+          "computed_lod": false,
+          "register_lod": false,
+          "unnormalized": false,
+          "lod_bias_sixteenths": 0,
+          "mag_filter": 1,
+          "min_filter": 1,
+          "offset_half_texels": [
+            -1,
+            -1
+          ],
+          "result_reads_zw": false
+        }
+      ]
+    }
+  ]
+}

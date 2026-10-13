@@ -95,3 +95,26 @@ Structural SPIR-V validation does not prove shader semantics, renderer descripto
 layouts, constant-bank contents or correct pixels. The native renderer and
 package/loader remain to be implemented. The emulated Vulkan bloom regression
 and older model-color flashing remain documented separately.
+
+## GPU-program translator comparison
+
+The [MW2 comparison](../analysis/MW2_NATIVE_REFERENCE.md) tests the actual loaded
+programs, without needing their original vertex declarations. The corpus is
+149 VS and 306 PS. MW2's unchanged translator cleanly validates 335 programs.
+The separate BO3 GetWeights prototype validates 450; three mixed-view PS and
+two memory-export VS remain blocked. These modules use a different binding
+interface from the SA2-derived library above; they cannot be mixed unchanged.
+
+```powershell
+& $python scripts/nx/prepare-mw2-shader-tools.py
+& C:\Windows\System32\cmd.exe /d /c scripts\nx\build-mw2-shader-tools.cmd
+& $python scripts/nx/compare-mw2-translator.py --output build/native-shaders/mw2-comparison01
+& $python scripts/nx/prepare-mw2-shader-tools.py --adapt-bo3
+& C:\Windows\System32\cmd.exe /d /c "scripts\nx\build-mw2-shader-tools.cmd bo3"
+& $python scripts/nx/compare-mw2-translator.py --bo3-prototype --output build/native-shaders/mw2-comparison02
+```
+
+Use fresh output folders. Each comparison retains metadata and validation errors;
+code 2 reports incomplete/unsafe coverage. Sources/licenses are kept under ignored
+tools, with both original and staged source hashes in analysis. SPIR-V validity
+does not establish correct GPU results, native rendering or Switch FPS.

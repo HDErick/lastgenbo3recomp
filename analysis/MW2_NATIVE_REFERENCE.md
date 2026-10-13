@@ -34,7 +34,7 @@ correctness for BO3 or remove the need to track fetch constants and buffer life.
 
 **GPU-loaded shader identity.** Translation consumes the microcode from IM_LOAD
 or IM_LOAD_IMMEDIATE, so a patched program has its own exact identity. This is
-directly relevant to our 150 loaded VS programs, none of which matches captured
+directly relevant to our 149 loaded VS programs, none of which matches captured
 container microcode exactly. Similarity matching is not sufficient identity.
 
 **Guest completion and resource lifetime.** The renderer snapshots/uploads data
@@ -75,7 +75,7 @@ an optional capability until verified on both PC and Switch.
 
 1. **Compare vertex translation offline.** Build a small isolated driver for
    MW2's translator and run the 455 captured GPU-loaded programs through it,
-   checking SPIR-V and recording unsupported operations. Focus on the 150 VS
+   checking SPIR-V and recording unsupported operations. Focus on the 149 VS
    programs. Compare its raw vertex-fetch approach with adapting our current
    translator. This requires no new gameplay capture initially.
 2. **Fix the native shader interface.** Choose one consistent constant, texture
@@ -97,3 +97,70 @@ an optional capability until verified on both PC and Switch.
    Start from bounded allocations and supported features; do not predict FPS
    from these reference projects or prioritize final optimization before a
    correct native frame exists.
+
+## Offline comparison completed
+
+The isolated Windows driver builds the pinned, unmodified MW2 translator without
+its runtime, Vulkan presentation or game. It accepts explicit shader stage and
+the SDK's little-endian microcode dumps. Each program is translated in a separate
+process and every emitted module is checked with spirv-val for Vulkan 1.2/scalar
+layout. Source hashes, tool hashes, metadata and all failures are retained.
+
+The 455-program corpus contains **149 VS and 306 PS**. The prior 150-VS statement
+was an incorrect inference from 455 minus the 305 exact pixel-container matches:
+one additional pixel program also lacked a container match.
+
+| Translator | Clean VS validation | Clean PS validation | Remaining cases |
+| --- | ---: | ---: | --- |
+| Pinned MW2, unchanged | 147 | 188 | 117 PS reject GetWeights; 1 PS fails SPIR-V image-query typing; 2 VS drop memory exports |
+| Separately staged BO3 prototype | 147 | 303 | 3 PS require mixed 2D/3D texture views; 2 VS drop memory exports |
+
+The prototype implements only the GetWeights profile observed in this capture:
+141 instructions across the 117 rejected pixel programs, all normalized 2D,
+linear mag/min filtering, no computed/register LOD and only X/Y weight results.
+It derives guest size from the 2D fetch constant, retains predicate/swizzle
+handling, and uses the staged SDK/Xenia level-zero fraction/rounding rules.
+Broader profiles are refused. General mip-LOD/filter semantics, other maps and
+numerical GPU parity are unverified.
+
+The prototype also refuses mixed-dimensional image slots explicitly. The original
+translator assumes one image dimensionality per slot and lets the final fetch
+overwrite that choice. BO3 program `7A64BBF119546D8B` uses slot 13 for tfetch2D
+and tfetch3D; the original generated a 2-component image-size result for a 3D
+image. Two further mixed-slot programs (`B1398134025C11C2`, `BA9B59848E82E5E5`)
+were masked by their earlier GetWeights rejection. These need a texture-view
+binding design; changing the vector size alone would not implement their intent.
+
+Two VS (`5B9B7484417FB9B6`, `A4827826E2589916`) respectively drop 20 and 10
+memory exports. They are flagged separately and cannot be treated as correct
+native replacements. Their guest memory-write behavior needs implementation or
+a verified equivalent copy path. No MW2-specific image-copy hooks were copied.
+
+**All 335 modules that cleanly validated in the original comparison remain
+byte-identical in the prototype.** The change newly validates 115 pixel programs;
+450 of 455 programs now validate without dropped exports. Pixel metadata in
+this capture only reports color output zero, but that does not establish
+whole-game MRT/depth requirements.
+
+Evidence: `analysis/bo3_mw2_comparison01.json`,
+`analysis/bo3_mw2_comparison02.json`, `analysis/bo3_mw2_comparison_delta02.json`,
+`analysis/bo3_getweights_census03.json`,
+`analysis/mw2_shader_tool_sources.json`,
+`analysis/mw2_shader_tool_staged_sources.json` and the two tool build logs.
+Raw programs/SPIR-V stay under ignored build/runtime directories.
+
+### Decision for the next implementation gate
+
+Use exact GPU-loaded programs and shader-based vertex fetching for the first
+native correctness prototype. This avoids making original container declarations
+a prerequisite for the 147 observed raster vertex programs. It does not resolve
+the remaining two memory-export VS or prove software fetching will be fast on
+Maxwell; common fetches can be optimized after correctness is measured.
+
+Before live native rendering, define a consistent binding contract for guest
+float/fetch/bool/loop registers, buffer snapshots and mixed texture views. The
+existing SA2-derived modules use a different interface and cannot simply be
+paired with these vertex modules. Preserve both libraries as comparison corpora.
+Next, implement the texture-view and memory-export cases and the native command
+backend, retaining explicit unsupported reports. There is still no native game
+frame, driver-execution validation or Switch performance result from this test.

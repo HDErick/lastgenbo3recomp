@@ -1,0 +1,74 @@
+{
+  "repository": "PaulCombal/mw2-recompiled",
+  "commit": "1d7171213c87b532039b234e61af29d94010262a",
+  "license": "GPL-3.0-only; LICENSE retained next to sources",
+  "adaptation": "Observed BO3 2D getWeights profile; refuse mixed sampler dimensionality",
+  "files": {
+    "LICENSE": {
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    "runtime/gpu/vulkan/shader_translator.cpp": {
+      "bytes": 119932,
+      "sha256": "46f6ccdd97702585da2215a30c46f36d9bbfebffb26822f777cecd5a9fb49185"
+    },
+    "runtime/gpu/vulkan/shader_translator.h": {
+      "bytes": 3186,
+      "sha256": "ed8524cf88800f249c4034527597ce5f1b811a5ede3486b4ecaf7805e9ef0532"
+    },
+    "runtime/gpu/vulkan/bindings.h": {
+      "bytes": 2621,
+      "sha256": "a92deb39efe1189e9cc8304749d861fe21e463d343ec43a9a10afa6826c8efd6"
+    },
+    "runtime/gpu/vulkan/spirv.cpp": {
+      "bytes": 6685,
+      "sha256": "c2246e778fe09239bba45e84238eba2895f4891031b7d5b3ce20378fb2cb959d"
+    },
+    "runtime/gpu/vulkan/spirv.h": {
+      "bytes": 7718,
+      "sha256": "9a87e703917d04251d1ad772200454c9ba7ca0684acce0d98453fe099e8947f1"
+    },
+    "runtime/gpu/vulkan/xenos_ucode.h": {
+      "bytes": 15906,
+      "sha256": "aca37a0fa0bbf9c7769913ef311be58810801bd3128104a0f955c3be46cc2743"
+    }
+  },
+  "reference": {
+    "repository": "PaulCombal/mw2-recompiled",
+    "commit": "1d7171213c87b532039b234e61af29d94010262a",
+    "license": "GPL-3.0-only; LICENSE retained next to sources",
+    "adaptation": "Unmodified translator, isolated BO3 little-endian SDK dump driver; scale 1",
+    "files": {
+      "LICENSE": {
+        "bytes": 35149,
+        "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+      },
+      "runtime/gpu/vulkan/shader_translator.cpp": {
+        "bytes": 116282,
+        "sha256": "3ed522c52298ef6950fc43ca8cc1b69e8b7c014476789c63b1379a7dee378885"
+      },
+      "runtime/gpu/vulkan/shader_translator.h": {
+        "bytes": 3186,
+        "sha256": "ed8524cf88800f249c4034527597ce5f1b811a5ede3486b4ecaf7805e9ef0532"
+      },
+      "runtime/gpu/vulkan/bindings.h": {
+        "bytes": 2621,
+        "sha256": "a92deb39efe1189e9cc8304749d861fe21e463d343ec43a9a10afa6826c8efd6"
+      },
+      "runtime/gpu/vulkan/spirv.cpp": {
+        "bytes": 6685,
+        "sha256": "c2246e778fe09239bba45e84238eba2895f4891031b7d5b3ce20378fb2cb959d"
+      },
+      "runtime/gpu/vulkan/spirv.h": {
+        "bytes": 7718,
+        "sha256": "9a87e703917d04251d1ad772200454c9ba7ca0684acce0d98453fe099e8947f1"
+      },
+      "runtime/gpu/vulkan/xenos_ucode.h": {
+        "bytes": 15906,
+        "sha256": "aca37a0fa0bbf9c7769913ef311be58810801bd3128104a0f955c3be46cc2743"
+      }
+    }
+  },
+  "source_root": "tools/bo3-mw2-shader-translator",
+  "patch_sha256": "a2cad0213dc7cdf7c4d06f66605447695f96bae72892a7f64e72f0b67ef3af84"
+}
