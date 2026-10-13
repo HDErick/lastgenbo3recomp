@@ -83,7 +83,9 @@ base zero and valid c0 stream prefixes. Their common output profile is:
 - Numeric format 2: unsigned integer.
 - Endian 1: swap bytes within 16-bit words.
 - No red/blue swap.
-- Point-list, non-indexed draws in EDRAM mode 4 (export-only).
+- Point-list, non-indexed draws in EDRAM mode 4 (color/depth).
+- Vertex export mode 7 (multipass) suppresses rasterization. The earlier
+  description of EDRAM mode 4 as export-only was incorrect.
 - Full vertex fetch slot 95, confirming the binary operands.
 
 The two-block program's samples have 4,352 or 14,400 invocations and respectively
@@ -106,6 +108,49 @@ crash report. It had been launched on the tool's isolated desktop; its samples
 are startup/export state, not confirmed map gameplay. The agent stopped that
 process and a second isolated test, preserving all captures. The launcher now
 requests a normal window, and capture03 was launched on the interactive desktop.
-Computer Use verified its visible Press A to Start screen. Map gameplay and
-normal-close confirmation remain pending. Record:
+Computer Use verified its visible Press A to Start screen. The user then
+confirmed closing the test without a crash. The log records Window closing,
+Execution complete and Title terminated at 11:13:33, and the process is gone.
+No new crash/abort report was created. The latest response does not separately
+confirm which map was played. Record:
 `analysis/pc_vulkan_native_memexport_provenance03.json`.
+
+## Offline copy-range model
+
+Capture03 also has 32 complete snapshots, matching both exact program identities.
+`scripts/nx/plan-memexport-copies.py` now models all 32 with strict checks for the
+reviewed program, constants, auto-index/point-list state, raster suppression,
+fetch byte order, source bounds, physical limits and source/destination overlap.
+Unsupported state is reported explicitly; no guest writes are performed.
+
+| Program | Invocations | Modeled bytes written | Clipped elements | Untouched destination bytes |
+| --- | ---: | ---: | ---: | ---: |
+| A4827826E2589916 | 14,400 | 921,600 | 0 | 0 |
+| A4827826E2589916 | 4,352 | 278,528 | 0 | 0 |
+| 5B9B7484417FB9B6 | 64 | 4,096 | 512 | 4,096 |
+| 5B9B7484417FB9B6 | 32 | 2,048 | 256 | 2,048 |
+
+The two-block path models one contiguous copy. The four-block path has 128-byte
+ranges spaced 256 bytes apart; bounds clip later invocations. Do not overwrite
+the 128-byte gaps. This is the address model's prediction, not a GPU-output
+measurement. Reserved stream format bits vary in captured draws and are correctly
+ignored; numeric format, channel swap, endian and actual format remain guarded.
+
+For this observed uint16 profile, input 8-in-32 byte conversion plus yxwz
+swizzle and output 8-in-16 conversion compose to byte identity. The offline
+reference checks all 65,536 uint16 values and each raw bit position. Six tests
+also check contiguous/strided ranges, partial bounds, ignored bits and rejected
+states/overlap. These checks do not exercise the GPU, actual resource contents
+or synchronization.
+
+```powershell
+python scripts/nx/test-memexport-copy-plan.py
+python scripts/nx/plan-memexport-copies.py --input runtime/native-memexport03/memexport --output analysis/bo3_memexport_copy_plan03.json
+```
+
+Evidence: `analysis/bo3_memexport_state03.json`,
+`analysis/bo3_memexport_copy_plan03.json`, `analysis/bo3_memexport_copy_model_tests01.log`
+and `analysis/pc_vulkan_native_memexport03.log`.
+Next verify actual input/output bytes against the emulated GPU result, then
+implement the bounded copy operation with correct resource ownership, visibility
+and completion in the native backend. Both shader replacements remain blocked.

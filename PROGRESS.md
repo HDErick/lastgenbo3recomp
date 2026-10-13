@@ -68,9 +68,13 @@ instructions apart from required binding decorations. Two vertex programs still
 drop memory exports and remain blocked; actual native texture-view ownership
 also needs implementation. A bounded GPU-thread probe captured 16 draw-state
 samples of each remaining program: both use unsigned 16-bit exports, 8-in-16
-endian conversion, no red/blue swap and export-only draw mode. This supports
-investigating a dedicated copy path but does not prove byte equivalence or
-completion semantics. See [memory-export gate](analysis/BO3_MEMEXPORT.md).
+endian conversion and no red/blue swap. EDRAM mode 4 is color/depth; vertex
+export mode 7 suppresses rasterization. The visible repeat test closed normally,
+confirmed by the user and shutdown log, with no new crash report. Its 32 states
+fit a guarded offline copy-range model: contiguous for one program and strided
+with bounds clipping for the other. Six model tests pass. Actual GPU output
+bytes and ownership/completion remain unverified, so runtime replacements stay
+blocked. See [memory-export gate](analysis/BO3_MEMEXPORT.md).
 The first native prototype will use shader-based vertex fetching and exact
 loaded-program identities. No native game frame has been rendered yet.
 See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).

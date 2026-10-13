@@ -63,7 +63,9 @@ for path in sorted(args.input.glob('*.json')):
              'vertex_fetch_words': {str(slot): [f'{word:08X}' for word in regs[0x4800 + slot * 2:0x4802 + slot * 2]]
                                     for slot in full_fetch_slots},
              'index_offset': regs[0x2102], 'draw_initiator': f'{regs[0x21fc]:08X}',
-             'edram_mode': regs[0x2208] & 7}
+             'edram_mode': regs[0x2208] & 7,
+             'vs_export_mode': (regs[0x2180] >> 24) & 7,
+             'rasterization_disabled_by_vs_export': (regs[0x2180] >> 24) & 7 == 7}
     entries.append(entry)
 if not entries:
     raise SystemExit('No complete GPU-consumed memexport snapshots found')

@@ -4,7 +4,7 @@
     "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490": 16,
     "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5": 16
   },
-  "script_sha256": "1eebabb6ab1d09369fc39c33a4e7f949dae1015d50f1950b48003f9f8b0c4d59",
+  "script_sha256": "b1fe277890c3933366f57c40314cfc9d5d6275ca4cf572cac624fcdaf67b8ef9",
   "limitations": "Draw-entry register state only; eA after shader arithmetic, input/index bytes, output bytes and completion are not captured. CPU copy equivalence is not proven.",
   "entries": [
     {
@@ -65,7 +65,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00400081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -125,7 +127,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00400081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -185,7 +189,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00400081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -245,7 +251,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00400081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -305,7 +313,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00200081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -365,7 +375,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00200081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -425,7 +437,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00200081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -485,7 +499,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00200081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -545,7 +561,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00200081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -605,7 +623,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00200081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -665,7 +685,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00200081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -725,7 +747,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00200081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -785,7 +809,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00200081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -845,7 +871,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00200081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -905,7 +933,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00200081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -965,7 +995,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "00200081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1025,7 +1057,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "38400081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1085,7 +1119,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "11000081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1145,7 +1181,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "11000081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1205,7 +1243,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "38400081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1265,7 +1305,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "38400081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1325,7 +1367,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "11000081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1385,7 +1429,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "11000081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1445,7 +1491,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "38400081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1505,7 +1553,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "38400081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1565,7 +1615,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "11000081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1625,7 +1677,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "11000081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1685,7 +1739,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "38400081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1745,7 +1801,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "38400081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1805,7 +1863,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "11000081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1865,7 +1925,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "11000081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     },
     {
       "version": 1,
@@ -1925,7 +1987,9 @@
       },
       "index_offset": 0,
       "draw_initiator": "38400081",
-      "edram_mode": 4
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
     }
   ]
 }

@@ -1,0 +1,1995 @@
+{
+  "samples": 32,
+  "programs": {
+    "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490": 16,
+    "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5": 16
+  },
+  "script_sha256": "b1fe277890c3933366f57c40314cfc9d5d6275ca4cf572cac624fcdaf67b8ef9",
+  "limitations": "Draw-entry register state only; eA after shader arithmetic, input/index bytes, output bytes and completion are not captured. CPU copy equivalence is not proven.",
+  "entries": [
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 1,
+      "primitive": 1,
+      "count": 64,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_01.regs.bin",
+      "microcode": "5B9B7484417FB9B6_01.ucode.bin.vert",
+      "register_sha256": "53334c5f09d8cebec9bfb500e5337f635591c2008bbcd362496b0f73efd4cba8",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "42F01400",
+          "4B000000",
+          "4B021A01",
+          "4B000400"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 197152768,
+        "element_count": 1024,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0BBF8003",
+          "10002002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 2,
+      "primitive": 1,
+      "count": 64,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_02.regs.bin",
+      "microcode": "5B9B7484417FB9B6_02.ucode.bin.vert",
+      "register_sha256": "59cbd22856a49f05dfd0e6bfb3909f9bb6222e2dd4bd30bed4eea6327a2ec48b",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "42F01C20",
+          "4B000000",
+          "4B021A01",
+          "4B000400"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 197161088,
+        "element_count": 1024,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0BBFA083",
+          "10002002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 3,
+      "primitive": 1,
+      "count": 64,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_03.regs.bin",
+      "microcode": "5B9B7484417FB9B6_03.ucode.bin.vert",
+      "register_sha256": "b026a790869c61c5245f9ce76f6aa567d15848910ff46929894035ca09c7b61c",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "42F02400",
+          "4B000000",
+          "4B021A01",
+          "4B000400"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 197169152,
+        "element_count": 1024,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0BBFC003",
+          "10002002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 4,
+      "primitive": 1,
+      "count": 64,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_04.regs.bin",
+      "microcode": "5B9B7484417FB9B6_04.ucode.bin.vert",
+      "register_sha256": "802b792f49abd4935d985e6060562c53b85acb20498ff0b571d8010162e1da11",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "42F02C20",
+          "4B000000",
+          "4B021A01",
+          "4B000400"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 197177472,
+        "element_count": 1024,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0BBFE083",
+          "10002002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 5,
+      "primitive": 1,
+      "count": 32,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_05.regs.bin",
+      "microcode": "5B9B7484417FB9B6_05.ucode.bin.vert",
+      "register_sha256": "a535c9f63da8d3b50acaf47e5bd3795bf07ead70249e7c35ba534272d12bf553",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "42F03400",
+          "4B000000",
+          "4B021A01",
+          "4B000200"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 197185536,
+        "element_count": 512,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0BC00003",
+          "10001002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00200081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 6,
+      "primitive": 1,
+      "count": 64,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_06.regs.bin",
+      "microcode": "5B9B7484417FB9B6_06.ucode.bin.vert",
+      "register_sha256": "cea6ed64d7e0153947282e4348fe496f95cbc07a527fa02e02bb008c882a2320",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "43041000",
+          "4B000000",
+          "4B021A01",
+          "4B000400"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 202391552,
+        "element_count": 1024,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0C0F7003",
+          "10002002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 7,
+      "primitive": 1,
+      "count": 64,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_07.regs.bin",
+      "microcode": "5B9B7484417FB9B6_07.ucode.bin.vert",
+      "register_sha256": "49fc5e0b8dcccf26f023aec7c4738e828f3c8c40af1dcf695d5aaf63db9d5783",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "43041820",
+          "4B000000",
+          "4B021A01",
+          "4B000400"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 202399872,
+        "element_count": 1024,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0C0F9083",
+          "10002002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 8,
+      "primitive": 1,
+      "count": 64,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_08.regs.bin",
+      "microcode": "5B9B7484417FB9B6_08.ucode.bin.vert",
+      "register_sha256": "9ba938dc3077ff0e7f0b8aec4013580e2532eef11f632cc3f5363ea0829a1e54",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "43042000",
+          "4B000000",
+          "4B021A01",
+          "4B000400"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 202407936,
+        "element_count": 1024,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0C0FB003",
+          "10002002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 9,
+      "primitive": 1,
+      "count": 64,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_09.regs.bin",
+      "microcode": "5B9B7484417FB9B6_09.ucode.bin.vert",
+      "register_sha256": "aa19e55ee5f718a14a2a48306e26c9a47c478f1647ef012fc7dff3248402ebaa",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "43042820",
+          "4B000000",
+          "4B021A01",
+          "4B000400"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 202416256,
+        "element_count": 1024,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0C0FD083",
+          "10002002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 10,
+      "primitive": 1,
+      "count": 32,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_10.regs.bin",
+      "microcode": "5B9B7484417FB9B6_10.ucode.bin.vert",
+      "register_sha256": "7ab3700bdc0ab0e00f8ddbb1473a5ada3bc755cf79e5912053d808a26ead087a",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "43043000",
+          "4B000000",
+          "4B021A01",
+          "4B000200"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 202424320,
+        "element_count": 512,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0C0FF003",
+          "10001002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00200081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 11,
+      "primitive": 1,
+      "count": 32,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_11.regs.bin",
+      "microcode": "5B9B7484417FB9B6_11.ucode.bin.vert",
+      "register_sha256": "1adb063fa28103a13c289e015350cefe249e0020ac51b2de909507ec6e9ceaac",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "42F04C00",
+          "4B000000",
+          "4B021A01",
+          "4B000200"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 197210112,
+        "element_count": 512,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0A010003",
+          "10001002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00200081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 12,
+      "primitive": 1,
+      "count": 32,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_12.regs.bin",
+      "microcode": "5B9B7484417FB9B6_12.ucode.bin.vert",
+      "register_sha256": "d963b22b5db8a465bef001bf13557308f8e02aa2234f34231fc155b48722534f",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "42F05020",
+          "4B000000",
+          "4B021A01",
+          "4B000200"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 197214336,
+        "element_count": 512,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0A011083",
+          "10001002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00200081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 13,
+      "primitive": 1,
+      "count": 32,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_13.regs.bin",
+      "microcode": "5B9B7484417FB9B6_13.ucode.bin.vert",
+      "register_sha256": "f54ea264893fb4b843a8d01273013075fcc2495014f5cddcc8f648492d49898f",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "42F05400",
+          "4B000000",
+          "4B021A01",
+          "4B000200"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 197218304,
+        "element_count": 512,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0A012003",
+          "10001002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00200081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 14,
+      "primitive": 1,
+      "count": 32,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_14.regs.bin",
+      "microcode": "5B9B7484417FB9B6_14.ucode.bin.vert",
+      "register_sha256": "95ea75355643b7d9c10d9c1be50855394a449e7e428f24960c9bf0c2de4deae1",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "42F05820",
+          "4B000000",
+          "4B021A01",
+          "4B000200"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 197222528,
+        "element_count": 512,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0A013083",
+          "10001002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00200081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 15,
+      "primitive": 1,
+      "count": 32,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_15.regs.bin",
+      "microcode": "5B9B7484417FB9B6_15.ucode.bin.vert",
+      "register_sha256": "11d6d9dc993bd633d907b539f7341c5d7982407306ebf1a87e14d4cf9fec5172",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "42F05C00",
+          "4B000000",
+          "4B021A01",
+          "4B000200"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 197226496,
+        "element_count": 512,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0A014003",
+          "10001002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00200081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "5B9B7484417FB9B6",
+      "sample": 16,
+      "primitive": 1,
+      "count": 32,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "5B9B7484417FB9B6_16.regs.bin",
+      "microcode": "5B9B7484417FB9B6_16.ucode.bin.vert",
+      "register_sha256": "1226ebe2ce4271dde5004b2649746b1d3224ead25e29387401fe8c6c63fbe6cc",
+      "canonical_microcode_sha256": "0c9ced036fbfff79ae9c6c9d83eb256c58aa57e98d7c504e1699f0430182e490",
+      "matched_program": "shader_5B9B7484417FB9B6.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "42F07C00",
+          "4B000000",
+          "4B021A01",
+          "4B000200"
+        ],
+        "254": [
+          "42000000",
+          "41400000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 197259264,
+        "element_count": 512,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "0BC18003",
+          "10001002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "00200081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 1,
+      "primitive": 1,
+      "count": 14400,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_01.regs.bin",
+      "microcode": "A4827826E2589916_01.ucode.bin.vert",
+      "register_sha256": "93c08d06233ac94c8aea5b10184f9419aaaf9f603e756f8520f5b0c44309f025",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "466D0000",
+          "4B000000",
+          "4B021A01",
+          "4B01C200"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 431226880,
+        "element_count": 115200,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "1A00A003",
+          "100E1002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "38400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 2,
+      "primitive": 1,
+      "count": 4352,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_02.regs.bin",
+      "microcode": "A4827826E2589916_02.ucode.bin.vert",
+      "register_sha256": "daeee753ae967b43e84e026e3060872328a4d3712395062b8b850ef9062ad9b5",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "46708400",
+          "4B000000",
+          "4B021A01",
+          "4B008800"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 432148480,
+        "element_count": 34816,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "1A0EB003",
+          "10044002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "11000081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 3,
+      "primitive": 1,
+      "count": 4352,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_03.regs.bin",
+      "microcode": "A4827826E2589916_03.ucode.bin.vert",
+      "register_sha256": "c9eea3c4cea391f2e19c3b6deee7ff55e7216b4622a7e93e10422756178f5b3e",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "46719400",
+          "4B000000",
+          "4B021A01",
+          "4B008800"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 432427008,
+        "element_count": 34816,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "1A12F003",
+          "10044002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "11000081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 4,
+      "primitive": 1,
+      "count": 14400,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_04.regs.bin",
+      "microcode": "A4827826E2589916_04.ucode.bin.vert",
+      "register_sha256": "70758ec174d9644bded22ff627fbfd958ce9deadaff83bc4dc393ddead8699d3",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "4672A400",
+          "4B000000",
+          "4B021A01",
+          "4B01C200"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 432705536,
+        "element_count": 115200,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "1A173003",
+          "100E1002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "38400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 5,
+      "primitive": 1,
+      "count": 14400,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_05.regs.bin",
+      "microcode": "A4827826E2589916_05.ucode.bin.vert",
+      "register_sha256": "770d285cc3925cb55a158ea13c99bee2aef7c1b67b459102c33703bb2cacd562",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "466D0000",
+          "4B000000",
+          "4B02DAF9",
+          "4B01C200"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 431226880,
+        "element_count": 115200,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "19DC0003",
+          "100E1002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "38400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 6,
+      "primitive": 1,
+      "count": 4352,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_06.regs.bin",
+      "microcode": "A4827826E2589916_06.ucode.bin.vert",
+      "register_sha256": "e0b35c2331c435b5e206af3600c9a3f6e9e3ae183da56e937949db6d54f7ccb3",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "46708400",
+          "4B000000",
+          "4B02DAF9",
+          "4B008800"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 432148480,
+        "element_count": 34816,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "19EA1003",
+          "10044002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "11000081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 7,
+      "primitive": 1,
+      "count": 4352,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_07.regs.bin",
+      "microcode": "A4827826E2589916_07.ucode.bin.vert",
+      "register_sha256": "f1d4b5c0218c3b9f70baaf66456f3701faf25e388600e11aa23b39965fec8a27",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "46719400",
+          "4B000000",
+          "4B02DAF9",
+          "4B008800"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 432427008,
+        "element_count": 34816,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "19EE5003",
+          "10044002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "11000081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 8,
+      "primitive": 1,
+      "count": 14400,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_08.regs.bin",
+      "microcode": "A4827826E2589916_08.ucode.bin.vert",
+      "register_sha256": "82627415d89c51de14f9491128f7613c886a93ac5400770b22bab25db5bfcb04",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "4672A400",
+          "4B000000",
+          "4B02DAF9",
+          "4B01C200"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 432705536,
+        "element_count": 115200,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "19F29003",
+          "100E1002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "38400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 9,
+      "primitive": 1,
+      "count": 14400,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_09.regs.bin",
+      "microcode": "A4827826E2589916_09.ucode.bin.vert",
+      "register_sha256": "3ca87fb372920452ef27099a99da55b3a4e31c849004716cd1c47d021b5e0739",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "466D0000",
+          "4B000000",
+          "4B02DAF9",
+          "4B01C200"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 431226880,
+        "element_count": 115200,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "1A00A003",
+          "100E1002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "38400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 10,
+      "primitive": 1,
+      "count": 4352,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_10.regs.bin",
+      "microcode": "A4827826E2589916_10.ucode.bin.vert",
+      "register_sha256": "72090f2f933dd414ca45b48c6fcb5fde6b7043f776401988982069e667e157ba",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "46708400",
+          "4B000000",
+          "4B02DAF9",
+          "4B008800"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 432148480,
+        "element_count": 34816,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "1A0EB003",
+          "10044002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "11000081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 11,
+      "primitive": 1,
+      "count": 4352,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_11.regs.bin",
+      "microcode": "A4827826E2589916_11.ucode.bin.vert",
+      "register_sha256": "095dfc72485568b1aeb9051f3b639a47610f3752a2fa67883fc404c43b6e9ce8",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "46719400",
+          "4B000000",
+          "4B02DAF9",
+          "4B008800"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 432427008,
+        "element_count": 34816,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "1A12F003",
+          "10044002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "11000081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 12,
+      "primitive": 1,
+      "count": 14400,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_12.regs.bin",
+      "microcode": "A4827826E2589916_12.ucode.bin.vert",
+      "register_sha256": "4955d80a5bcddb26c49ea70c70a963565a60b898d2a6ca6efabc42944f9f26f9",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "4672A400",
+          "4B000000",
+          "4B02DAF9",
+          "4B01C200"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 432705536,
+        "element_count": 115200,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "1A173003",
+          "100E1002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "38400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 13,
+      "primitive": 1,
+      "count": 14400,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_13.regs.bin",
+      "microcode": "A4827826E2589916_13.ucode.bin.vert",
+      "register_sha256": "9211f32903e12fcc762d1babe4eb7fa52eda26a1c3b1381762eb0606ede7901c",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "466D0000",
+          "4B000000",
+          "4B02DAF9",
+          "4B01C200"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 431226880,
+        "element_count": 115200,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "19DC0003",
+          "100E1002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "38400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 14,
+      "primitive": 1,
+      "count": 4352,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_14.regs.bin",
+      "microcode": "A4827826E2589916_14.ucode.bin.vert",
+      "register_sha256": "0a0b5e69ef2b603964c00a905b4b2b01f61c77f9ad4fb3f24218097aacaa5fc6",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "46708400",
+          "4B000000",
+          "4B02DAF9",
+          "4B008800"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 432148480,
+        "element_count": 34816,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "19EA1003",
+          "10044002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "11000081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 15,
+      "primitive": 1,
+      "count": 4352,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_15.regs.bin",
+      "microcode": "A4827826E2589916_15.ucode.bin.vert",
+      "register_sha256": "4f0d1ea7c57aa9285a617b404d7e5fbe6a05ffe99695d628e98f529577d9448e",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "46719400",
+          "4B000000",
+          "4B02DAF9",
+          "4B008800"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 432427008,
+        "element_count": 34816,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "19EE5003",
+          "10044002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "11000081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    },
+    {
+      "version": 1,
+      "word_order": "little-endian",
+      "shader_key": "A4827826E2589916",
+      "sample": 16,
+      "primitive": 1,
+      "count": 14400,
+      "explicit_major": false,
+      "indexed": false,
+      "index_address": 0,
+      "index_count": 0,
+      "index_format": 0,
+      "index_endian": 0,
+      "index_bytes": 0,
+      "registers": "A4827826E2589916_16.regs.bin",
+      "microcode": "A4827826E2589916_16.ucode.bin.vert",
+      "register_sha256": "5fb86cf13bcd7f4240d3404f37b0d38ae4a1936cf8af63074c39eac48dbe9c84",
+      "canonical_microcode_sha256": "d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5",
+      "matched_program": "shader_A4827826E2589916.ucode.bin.vert",
+      "reviewed_copy_program": true,
+      "vs_constant_base": 0,
+      "constants": {
+        "0": [
+          "4672A400",
+          "4B000000",
+          "4B02DAF9",
+          "4B01C200"
+        ],
+        "254": [
+          "00000000",
+          "00000000",
+          "00000000",
+          "00000000"
+        ],
+        "255": [
+          "00000000",
+          "3F800000",
+          "40800000",
+          "41000000"
+        ]
+      },
+      "stream_c0_candidate": {
+        "valid_prefixes": true,
+        "base_address": 432705536,
+        "element_count": 115200,
+        "format": 26,
+        "number_format": 2,
+        "endian": 1,
+        "swap_red_blue": false
+      },
+      "vertex_fetch_words": {
+        "95": [
+          "19F29003",
+          "100E1002"
+        ]
+      },
+      "index_offset": 0,
+      "draw_initiator": "38400081",
+      "edram_mode": 4,
+      "vs_export_mode": 7,
+      "rasterization_disabled_by_vs_export": true
+    }
+  ]
+}

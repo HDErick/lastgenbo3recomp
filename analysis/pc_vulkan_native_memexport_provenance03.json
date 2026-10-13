@@ -3,7 +3,7 @@
   "compiler": "Clang 20.1.8, x86-64-v3 Windows Release",
   "renderer": "Xenos emulation via Vulkan; BO3 native renderer not yet implemented",
   "build_log": "analysis/pc_vulkan_native_memexport_build01.log",
-  "hardware_status": "Capture03 launched on interactive desktop; visible Press A to Start screen verified using Computer Use. Earlier isolated processes stopped by agent; no crash evidence. Map gameplay and normal-close confirmation pending.",
+  "hardware_status": "Visible title screen verified; user confirmed closing without crash. Log records orderly window close/execution complete/title termination at 11:13:33; process exited and no new crash report. Capture03 contains 32 complete register/program snapshots. Map/gameplay not separately confirmed by the latest response.",
   "files": {
     "build/pc-vulkan/bo3_zm_vulkan.exe": {
       "bytes": 58063360,
