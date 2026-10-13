@@ -36,7 +36,10 @@ FBO failed with device loss on Intel Arc B580 in two controls. A third run loade
 The Giant and ended normally, with large white effect squares reported and
 shown in the user's screenshot. The intended FSI setting was passed incorrectly
 to late plugin cvars, so that third run also used FBO. The launcher is corrected
-and a new build logs actual renderer selection. A BO3 native renderer is not yet
+and a new build logs actual renderer selection. Confirmed FSI also loaded The
+Giant and ended normally after about 3 minutes; an automatic gameplay capture
+shows the same square effects. The defect therefore affects both paths.
+A BO3 native renderer is not yet
 implemented. See [PC native rendering work](docs/NATIVE_RENDERING_PC.md).
 
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches

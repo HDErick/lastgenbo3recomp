@@ -3,7 +3,7 @@
   "compiler": "Clang 20.1.8, x86-64-v3 Windows Release",
   "renderer": "Xenos emulation via Vulkan; BO3 native renderer not yet implemented",
   "build_log": "analysis/pc_vulkan_build04.log",
-  "hardware_status": "Corrected FSI selected in boot04; visual comparison pending",
+  "hardware_status": "Corrected FSI boot04 loads The Giant; automatic frame120 confirms white effect squares persist; orderly exit after about 3 minutes",
   "files": {
     "build/pc-vulkan/bo3_zm_vulkan.exe": {
       "bytes": 58010112,

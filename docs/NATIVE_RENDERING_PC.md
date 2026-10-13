@@ -64,9 +64,20 @@ Build04 includes that diagnostic and is the corrected FSI comparison.
 Boot04 logs `requested='fsi', selected=fsi, FSI supported=true`, confirming the
 actual backend. Shader dumping now writes microcode and disassembly into the
 intended ignored runtime directory, and scheduled guest-frame captures work.
-The user's comparison of the square effects is pending. Binary/source hashes
+The automatic 120-second capture shows The Giant gameplay with the same pale
+square effects under confirmed FSI. Terrain, weapon and HUD remain recognizable.
+Thus the defect is present in both FBO and FSI; changing render-target paths did
+not remove it. The user also observes squares at windows, consistent with glow
+or other light sprites as well as particles. A shared effect shader, texture
+sampling/alpha or draw-state issue is plausible; the responsible draw is not
+identified. Do not infer a general lighting failure or hide the effects as a fix.
+Boot04 ended with orderly window close and guest exit after about 3 minutes.
+Binary/source hashes
 are in `analysis/pc_vulkan_provenance04.json`; the log snapshot is
 `analysis/pc_vulkan_boot04_fsi_snapshot.log`.
+The complete run is `analysis/pc_vulkan_boot04_fsi.log`; the inspected capture
+is kept locally at `runtime/logs/pc-vulkan-boot04-fsi-frame120.png`. The second
+user screenshot is `runtime/logs/pc-vulkan-white-squares-window.png`.
 
 Evidence: `analysis/pc_vulkan_build01.log`, `analysis/pc_vulkan_boot01.log`,
 `analysis/pc_vulkan_boot02.log`, their stderr reports and
