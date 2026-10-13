@@ -1,0 +1,56 @@
+{
+  "samples": 8,
+  "passed": 8,
+  "planner_sha256": "db0558a3ce3120a4fc77d3fddaa4bde66e3ce1c9fc2bcb0180eafa459e46e91c",
+  "tool_sha256": "146a0b74245f54c2b7cbfd316d983612dd940dedacf711cd1768a9d1cd75e872",
+  "results": [
+    {
+      "record": "5B9B7484417FB9B6_01.json",
+      "returncode": 0,
+      "output": "Native copy matches GPU bytes; offset/format/bounds rejection passed",
+      "error": ""
+    },
+    {
+      "record": "5B9B7484417FB9B6_02.json",
+      "returncode": 0,
+      "output": "Native copy matches GPU bytes; offset/format/bounds rejection passed",
+      "error": ""
+    },
+    {
+      "record": "5B9B7484417FB9B6_03.json",
+      "returncode": 0,
+      "output": "Native copy matches GPU bytes; offset/format/bounds rejection passed",
+      "error": ""
+    },
+    {
+      "record": "5B9B7484417FB9B6_04.json",
+      "returncode": 0,
+      "output": "Native copy matches GPU bytes; offset/format/bounds rejection passed",
+      "error": ""
+    },
+    {
+      "record": "A4827826E2589916_01.json",
+      "returncode": 0,
+      "output": "Native copy matches GPU bytes; offset/format/bounds rejection passed",
+      "error": ""
+    },
+    {
+      "record": "A4827826E2589916_02.json",
+      "returncode": 0,
+      "output": "Native copy matches GPU bytes; offset/format/bounds rejection passed",
+      "error": ""
+    },
+    {
+      "record": "A4827826E2589916_03.json",
+      "returncode": 0,
+      "output": "Native copy matches GPU bytes; offset/format/bounds rejection passed",
+      "error": ""
+    },
+    {
+      "record": "A4827826E2589916_04.json",
+      "returncode": 0,
+      "output": "Native copy matches GPU bytes; offset/format/bounds rejection passed",
+      "error": ""
+    }
+  ]
+}

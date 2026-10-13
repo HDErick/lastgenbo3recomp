@@ -9,6 +9,7 @@ set(REXGLUE_USE_D3D12 OFF CACHE BOOL "Vulkan-only baseline" FORCE)
 set(REXGLUE_ENABLE_TRACY OFF CACHE BOOL "Initial baseline" FORCE)
 set(REXGLUE_ENABLE_PERF_COUNTERS OFF CACHE BOOL "Initial baseline" FORCE)
 add_subdirectory("${BO3_ROOT}/tools/nx-sdk" rexglue-sdk)
+add_subdirectory("${BO3_ROOT}/nx/native" bo3-native)
 # The prepared header supplies explicit weak aliases required by SDK 0.10,
 # which no longer defines the old REX_WEAK_FUNC macro. Clang accepts these too.
 include("${BO3_ROOT}/build/nx-generated/zombies/sources.cmake")
@@ -21,4 +22,5 @@ target_link_libraries(bo3_zm_vulkan PRIVATE rex::runtime dbghelp)
 target_link_options(bo3_zm_vulkan PRIVATE "-Xlinker" "/DEBUG")
 target_compile_options(bo3_zm_vulkan PRIVATE -ffp-contract=off -fno-strict-aliasing)
 rexglue_configure_target(bo3_zm_vulkan GPU_PLUGINS xenos)
+add_dependencies(bo3_zm_vulkan rexgpu-bo3native)
 set_target_properties(bo3_zm_vulkan PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")

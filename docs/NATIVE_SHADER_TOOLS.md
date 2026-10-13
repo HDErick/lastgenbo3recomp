@@ -2,8 +2,9 @@
 
 October 13, 2026; `native-rendering-pc`.
 
-This is preparation for a native Vulkan renderer. The game test executable
-still uses Xenos emulation. Generated containers, HLSL and SPIR-V are local
+These offline tools prepared the native Vulkan prototype now in `nx/native`.
+The discovery game test executable uses Xenos emulation. Generated containers,
+HLSL and SPIR-V are local
 game-derived data under ignored `runtime/` and `build/`; they are not uploaded.
 
 ## Sources and build
@@ -92,8 +93,10 @@ safe lookup key. Other subprograms, vertex linking/input remaps and command-buff
 replays need verified associations before these modules can render the game.
 
 Structural SPIR-V validation does not prove shader semantics, renderer descriptor
-layouts, constant-bank contents or correct pixels. The native renderer and
-package/loader remain to be implemented. The emulated Vulkan bloom regression
+layouts, constant-bank contents or correct pixels. The separate native prototype
+now loads translated modules directly; a complete package/loader and renderer
+remain unfinished. See [current native status](NATIVE_RENDERING_PC.md).
+The emulated Vulkan bloom regression
 and older model-color flashing remain documented separately.
 
 ## GPU-program translator comparison

@@ -79,7 +79,10 @@ finish reading every input owed to earlier draws. Do not adopt MW2's fixed
   their compatible backing views and texture-cache ownership rules at runtime.
 - Two VS programs export to guest memory. They validate structurally but drop
   writes in MW2's implementation. A native backend must refuse those modules
-  until their writes or a verified BO3 equivalent copy path are supported.
+  until their writes or a verified BO3 equivalent copy path are supported. The
+  native plugin now handles these two exact programs through state-checked CPU
+  copies tested against eight synchronous GPU output captures; it still refuses
+  their dropped-export modules and arbitrary memory-export programs.
 - The SA2-derived HLSL library uses another descriptor/constant interface. Pairing
   those PS modules with these VS requires an explicit adaptation; matching stage
   outputs alone is insufficient.

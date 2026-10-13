@@ -12,9 +12,11 @@
     "Vendored dependency directory checks",
     "Explicit C linkage in generated GCC aliases",
     "Log requested and selected Vulkan render-target path",
-    "Optional bounded GPU-thread memexport register snapshots"
+    "Optional bounded GPU-thread memexport register snapshots",
+    "Optional PC memexport byte capture around synchronous GPU readback"
   ],
   "patch_files": [
+    "include/rex/graphics/bo3_memexport_parity.h",
     "include/rex/graphics/bo3_memexport_probe.h"
   ],
   "desktop_init_sha256": "c4928c3267bca33f038dec15cca91da184378345c9fb924e74a0c9841891cfd8",

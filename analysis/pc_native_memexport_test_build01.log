@@ -1,0 +1,15 @@
+[0/2] Re-checking globbed directories...
+[1/3] Building CXX object bo3-native/CMakeFiles/bo3_native_memexport_test.dir/memexport_test.cpp.obj
+FAILED: bo3-native/CMakeFiles/bo3_native_memexport_test.dir/memexport_test.cpp.obj 
+C:\bo3recomp\tools\llvm-20.1.8\bin\clang++.exe   -march=x86-64-v3 -O3 -DNDEBUG -std=gnu++23 -D_DLL -D_MT -Xclang --dependent-lib=msvcrt -MD -MT bo3-native/CMakeFiles/bo3_native_memexport_test.dir/memexport_test.cpp.obj -MF bo3-native\CMakeFiles\bo3_native_memexport_test.dir\memexport_test.cpp.obj.d -o bo3-native/CMakeFiles/bo3_native_memexport_test.dir/memexport_test.cpp.obj -c C:/bo3recomp/nx/native/memexport_test.cpp
+C:/bo3recomp/nx/native/memexport_test.cpp:18:74: error: no member named 'stoul' in namespace 'std'
+   18 |     auto plan = bo3::native::PlanMemexport(regs.data(), argv[5], 1, std::stoul(argv[6]), false, false);
+      |                                                                     ~~~~~^
+C:/bo3recomp/nx/native/memexport_test.cpp:22:169: error: no member named 'stoul' in namespace 'std'
+   22 |     auto refuses = [&](uint32_t index, uint32_t value) { auto changed = regs; changed[index] = value; try { bo3::native::PlanMemexport(changed.data(), argv[5], 1, std::stoul(argv[6]), false, false); } catch (const std::exception&) { return true; } return false; };
+
+      |                                                                                                                                                                    ~~~~~^
+
+2 errors generated.
+
+ninja: build stopped: subcommand failed.

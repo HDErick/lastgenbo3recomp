@@ -2,6 +2,13 @@
 
 October 13, 2026; `native-rendering-pc`.
 
+Current milestone: `nx/native` now implements a separate Vulkan draw prototype,
+with live translated modules, limited 2D/BC textures and two GPU-verified CPU
+memory-export replacements. The user confirms visible frontend/menu options.
+Performance progressively worsens and native gameplay remains unvalidated.
+The investigation and work order below record the earlier foundation stage;
+see [current status and remaining gates](../docs/NATIVE_RENDERING_PC.md).
+
 ## Reference review
 
 The user's references have been reviewed and pinned locally:

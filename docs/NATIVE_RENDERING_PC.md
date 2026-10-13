@@ -8,8 +8,99 @@ Switch startup/application logs were received.
 `nx/pc-vulkan` builds BO3 Zombies on Windows with the same pinned SDK source
 used by the Switch build (`tools/nx-sdk`, NFSMW-NX revision
 `be2d4c67ab42d6d629746a01dbf03cef824c8d2d`). Vulkan is enabled and D3D12 is
-disabled. This first target still uses the Xenos emulation renderer; a BO3
-native renderer is not implemented yet.
+disabled. The default target uses the Xenos emulation renderer. A separate
+native Vulkan GPU plugin is now available as an incomplete correctness prototype.
+
+## Native plugin milestone (October 13)
+
+`nx/native` builds `rexgpu-bo3native.dll`. Launch it with:
+
+```powershell
+scripts/nx/launch-pc-vulkan.ps1 -Native -Background -LogName pc-native.log
+```
+
+The plugin reuses RexGlue's PM4 parser, kernel integration and Vulkan presenter;
+it owns its targets, shader modules, pipelines, uploads and submissions. It does
+not instantiate the Xenos Vulkan command processor or its EDRAM draw backend.
+Shaders use the MW2-derived BO3 ABI and shader-based vertex fetching. The
+combined plugin has GPL-3.0-only provenance; its license is in `nx/native/LICENSE`.
+The original SDK components retain their license notices.
+
+Two exact memory-export programs now use bounded CPU copies. Eight captures
+matched completed emulated GPU readback byte for byte, including untouched
+destination gaps. Seven captures had nonzero writes. The actual C++ planner
+also matches all eight captures and rejects altered offset/format/bounds state.
+Program SHA-256, draw state, constants, byte order, physical bounds and overlap
+are checked before writes. Prior native submissions retire before CPU writes;
+source bytes are snapshotted and texture contents are rehashed at draw entry.
+See [memory-export evidence](../analysis/BO3_MEMEXPORT.md).
+
+Native runs 06 and 07 ended with orderly window closure. The user clarified that
+the last two runs showed visible frontend output through the loading screen and
+were closed because performance was too poor to test further. They reported an
+earlier loading crash; it has not yet been tied to a captured fatal report.
+The early zero-RGB readbacks sampled only the first five startup draws and do
+not establish a persistent black screen. Visible native 3D gameplay is unproven.
+
+Run 08's slow interval recorded 2.13 swaps/s, with 10.64 seconds spent in export
+processing over 14.11 seconds, versus 2.6 ms shader translation and 8.8 ms
+pipeline creation. This is frontend evidence, not an in-game FPS benchmark.
+Texture uploads now share the draw submission; startup image readbacks require
+`-NativeReadback`. Linear texture rows use dword endian conversion. The copy
+planner now calculates contiguous exports directly, stops at export bounds and
+snapshots only used source extents into reusable storage. Run 09 tests these
+changes with BC1/BC2/BC3 texture decoding for the missing HUD textures. The user
+confirmed that menu options are now visible, but performance starts better and
+progressively worsens. Run 09 closed normally at the user's request. A comparable
+interval fell from 13.33 to 3.04 swaps/s, with export elapsed time rising from
+283 ms to 7,998 ms despite similar source volume. A later frontend interval
+reached 1.17 swaps/s with increased draw/submission counts. These scopes measure
+elapsed time, not CPU execution time; scheduling and memory waits are unresolved.
+Build 14 splits export planning, permission guards, snapshotting and writes, and
+records Windows thread CPU time to distinguish execution from elapsed waits.
+
+Run 10 isolated an export bottleneck: in a 15.35-second interval, permission
+guards spent 11,750 ms, versus 4.7 ms snapshotting and 6.0 ms writing; export
+thread CPU time was 11,078 ms. The expensive path was repeated Windows
+`VirtualQuery` region scanning, rather than shader compilation or copy volume.
+Build 15 checks fresh, committed physical-heap allocation/protection regions
+through RexGlue's locked page table instead. It caches no permissions, rejects
+reserved/inaccessible ranges and keeps source snapshots and write bounds.
+Ten tests cover unaligned boundaries, read-only pages, reserved pages, no-access
+pages, overflow and the exclusive heap end. In run 11, the user confirmed much
+faster intro playback, navigable menus despite slowing after profile loading,
+and a working map-load cutscene. Map previews may be invisible; gameplay loads
+with a black 3D scene and visible HUD. This does not validate native gameplay.
+The run ended with orderly window closure. Permission guards now take roughly
+one millisecond per 30 swaps. Later menu intervals still fall to roughly 5–6
+swaps/s, with 4–6 seconds in queue/fence work and 2,250–2,520 submissions per
+30 swaps. Shader/pipeline work is negligible in these warmed intervals.
+Builds 16/17 batch up to 32 draws with distinct upload ranges and descriptor sets,
+attachment dependencies, and completion fences before storage reuse. It flushes
+before CPU memory exports, copies, presentation, readback, new-target clears or
+upload exhaustion. Early unsupported packets do not flush an untouched batch.
+Run 12 is the batching comparison. Recent warmed intervals record about 20–24
+swaps/s, with roughly 400–500 submissions per 30 swaps rather than 2,250–2,520
+in the earlier menu run. This is a presentation-rate observation across user
+navigation, not a matched-scene benchmark. Display confirmation is pending.
+
+Remaining gates include stencil/clear behavior, resolves and their exponent
+conversion, native-produced texture ownership, target aliasing, MRT/MSAA,
+rectangle primitives, mips, cube/volume views, queries and complete GPU semantics.
+Presentation currently samples the latest drawn native target as a diagnostic;
+it does not yet follow guest frontbuffer resolves. Unsupported paths are counted
+and skipped, so a visible menu does not establish a complete renderer. Batches
+still wait synchronously at their boundaries; overlapping frame slots and Switch
+performance are unproven.
+
+Sources and test evidence: `analysis/bo3_memexport_parity01.json`,
+`analysis/bo3_native_memexport_tests02.json`, `analysis/native_bc_tests01.log`,
+`analysis/pc_native_backend_boot06.log` through `boot09.log`, and
+`analysis/pc_native_provenance09.json`. Profiling evidence:
+`analysis/pc_native_backend_boot10.log`, `analysis/native_physical_access_tests01.log`,
+`analysis/pc_native_backend_boot11.log`, `analysis/pc_native_provenance11.json`,
+`analysis/pc_native_provenance12.json`,
+`analysis/pc_native_backend_boot12_snapshot.log` (partial live-run snapshot).
 
 Run `scripts/nx/prepare-runtime.py` if the ignored SDK/generated staging is
 missing, then `scripts/nx/build-pc-vulkan.cmd`. The executable is

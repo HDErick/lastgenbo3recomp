@@ -70,11 +70,16 @@ for name, path in inputs.items():
         include = '#include <rex/graphics/vulkan/command_processor.h>'
         anchor = '  if (memexport_used_vertex) {\n'
         assert source.count(include) == 1 and source.count(anchor) == 1
-        source = source.replace(include, include + '\n#include <rex/graphics/bo3_memexport_probe.h>', 1)
+        source = source.replace(include, include + '\n#include <rex/graphics/bo3_memexport_probe.h>\n#include <rex/graphics/bo3_memexport_parity.h>', 1)
         source = source.replace(anchor, '''  if (memexport_used_vertex) {
     bo3::CaptureMemexportState(regs, *vertex_shader, uint32_t(prim_type), index_count,
                               index_buffer_info, major_mode_explicit);
+    bo3::CaptureMemexportBefore(regs, *vertex_shader, *memory_, uint32_t(prim_type), index_count,
+                               index_buffer_info, major_mode_explicit);
 ''', 1)
+        parity_anchor = '  dfn.vkUnmapMemory(device, readback_memory);'
+        assert source.count(parity_anchor) == 1
+        source = source.replace(parity_anchor, '  bo3::CaptureMemexportAfter(*memory_);\n' + parity_anchor, 1)
         data = source.encode()
     write_if_changed(target / name, data)
 
@@ -94,7 +99,8 @@ provenance = {'reference_repository': 'https://github.com/StevensND/nfsmw-nx',
               'dependency_snapshot': json.loads((root / 'thirdparty/rexglue-sdk/SOURCE_SNAPSHOT.json').read_text()),
               'adaptations': ['Vendored dependency directory checks', 'Explicit C linkage in generated GCC aliases',
                               'Log requested and selected Vulkan render-target path',
-                              'Optional bounded GPU-thread memexport register snapshots'],
+                              'Optional bounded GPU-thread memexport register snapshots',
+                              'Optional PC memexport byte capture around synchronous GPU readback'],
               'patch_files': [p.relative_to(patches).as_posix() for p in patches.rglob('*') if p.is_file()] if patches.exists() else [],
               'desktop_init_sha256': hashlib.sha256((root / 'app/generated/default_zm/bo3_zm_init.h').read_bytes()).hexdigest(),
               'nx_init_sha256': hashlib.sha256(header_path.read_bytes()).hexdigest()}

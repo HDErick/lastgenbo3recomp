@@ -55,8 +55,9 @@ vertex variant identity, FETCH declarations and several translator failures
 remain unresolved. See [shader tools](docs/NATIVE_SHADER_TOOLS.md).
 The BO2 native renderer is confirmed broken
 and is not the renderer base. See [native foundation](analysis/BO3_NATIVE_FOUNDATION.md).
-A BO3 native renderer is not yet
-implemented. See [PC native rendering work](docs/NATIVE_RENDERING_PC.md).
+A separate BO3 native Vulkan prototype is now implemented in `nx/native`, using
+its own draw backend and RexGlue command parsing/presentation. See
+[PC native rendering work](docs/NATIVE_RENDERING_PC.md).
 MW2's custom PM4-to-Vulkan renderer has also been reviewed. Its raw-buffer vertex
 fetching is a useful candidate for the patched-VS problem, but its unsupported
 texture-weight operations and renderer limits prevent wholesale adoption. The
@@ -73,10 +74,33 @@ export mode 7 suppresses rasterization. The visible repeat test closed normally,
 confirmed by the user and shutdown log, with no new crash report. Its 32 states
 fit a guarded offline copy-range model: contiguous for one program and strided
 with bounds clipping for the other. Six model tests pass. Actual GPU output
-bytes and ownership/completion remain unverified, so runtime replacements stay
-blocked. See [memory-export gate](analysis/BO3_MEMEXPORT.md).
-The first native prototype will use shader-based vertex fetching and exact
-loaded-program identities. No native game frame has been rendered yet.
+bytes were subsequently compared against synchronous GPU readback: all eight
+captures match, seven with nonzero writes. Both exact programs now have bounded,
+state-checked CPU replacements in the native prototype; the actual C++ planner
+passes all eight captured outputs. See [memory-export gate](analysis/BO3_MEMEXPORT.md).
+The native prototype submits draws and the user reports visible frontend output
+through the loading screen. Runs 06/07 were user-closed because they were too
+slow to test further; an earlier reported loading crash remains unattributed.
+No complete native 3D gameplay frame has been validated. Run 08 identified export
+processing as the main measured slowdown (10.64 s of a 14.11 s interval), with
+shader translation/pipeline creation taking milliseconds. Reduced copy planning
+and snapshots plus BC texture decoding made menu options visible in run 09,
+confirmed by the user. Performance still progressively worsens. Comparable
+intervals fell from 13.33 to 3.04 swaps/s as export elapsed time grew despite
+similar copied volume. Build 14 measures individual export phases and actual
+command-thread CPU time. Run 10 isolated expensive Windows memory-region
+permission queries: 11.75 s in guards versus about 11 ms copying over a 15.35 s
+interval. Build 15 uses fresh committed physical-heap permission checks instead;
+ten boundary/protection cases pass. Run 11 confirms much faster intro playback
+and navigable menus. It reaches gameplay with visible HUD but a black 3D scene;
+map previews may be invisible. Later menu slowdown is dominated by thousands
+of synchronous submissions/fence waits, not shader compilation. Builds 16/17 add
+bounded draw batches with distinct uploads/descriptors and explicit attachment
+ordering. Recent run 12 intervals record about 20–24 swaps/s and substantially
+fewer submissions; visual confirmation remains pending. This is not a controlled
+gameplay benchmark.
+Clears,
+stencil, resolves and further rendering coverage remain incomplete.
 See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).
 
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches

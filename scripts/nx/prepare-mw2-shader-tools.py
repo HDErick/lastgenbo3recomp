@@ -76,6 +76,11 @@ if args.adapt_bo3:
                  'm_textureTypes[slot][kind], { m_textures[slot][kind] }')
     replace_once('m_textureImageTypes[slot], { sampler }',
                  'm_textureImageTypes[slot][kind], { sampler }')
+    # Match DecodeVertexFormat's actual dword loads. A blanket four-word tail
+    # rejects valid last vertices with packed/half/float2 attributes.
+    ranges = root / 'nx/shader-tools/mw2_vertex_ranges.cpp.inc'
+    replace_once('tail = std::max(tail, uint32_t(std::max(f.Offset(), 0)) + 4);',
+                 ranges.read_text().strip())
     cpp.write_text(text, newline='\n')
     header = staged / 'runtime/gpu/vulkan/shader_translator.h'
     header_text = header.read_text()
@@ -91,9 +96,10 @@ if args.adapt_bo3:
     header.write_text(header_text, newline='\n')
     provenance = {**manifest, 'reference': manifest,
                   'source_root': 'tools/bo3-mw2-shader-translator',
-                  'adaptation': 'Observed BO3 2D getWeights profile; separate typed texture views (ABI 2)',
+                  'adaptation': 'Observed BO3 2D getWeights profile; typed texture views (ABI 2); exact vertex dword load extents',
                   'patch_sha256': hashlib.sha256(patch.read_bytes()).hexdigest(),
                   'texture_views_patch_sha256': hashlib.sha256(views.read_bytes()).hexdigest(),
+                  'vertex_ranges_patch_sha256': hashlib.sha256(ranges.read_bytes()).hexdigest(),
                   'preparation_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                   'files': {name: {'bytes': (staged / name).stat().st_size,
                                    'sha256': hashlib.sha256((staged / name).read_bytes()).hexdigest()}

@@ -2,8 +2,11 @@
 
 October 13, 2026. Reviewed public `PaulCombal/mw2-recompiled` master at
 `1d7171213c87b532039b234e61af29d94010262a`. Selected docs and sources are pinned
-under ignored `tools/mw2-recompiled-reference/`. No MW2 implementation has
-been imported into BO3 or used to draw BO3 yet.
+under ignored `tools/mw2-recompiled-reference/`. The later BO3 prototype adapts
+this pinned translator, with GPL-3.0-only provenance, in a separate Vulkan draw
+backend. The user confirms visible frontend/menu options; native 3D gameplay is
+not validated. The review below records the earlier assessment and work order.
+See [current status](../docs/NATIVE_RENDERING_PC.md).
 
 ## What it implements
 

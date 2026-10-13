@@ -1,0 +1,558 @@
+[2026-10-13 14:27:59.238] [info] [core] [t21156] Vulkan instance API version 1.4.350. Enabled layers and extensions:
+[2026-10-13 14:27:59.239] [info] [core] [t21156] * VK_KHR_surface
+[2026-10-13 14:27:59.239] [info] [core] [t21156] * VK_KHR_win32_surface
+[2026-10-13 14:27:59.239] [info] [core] [t21156] * VK_EXT_debug_utils
+[2026-10-13 14:27:59.239] [info] [core] [t21156] * VK_KHR_portability_enumeration
+[2026-10-13 14:27:59.240] [warning] [core] [t21156] Available Vulkan physical devices (use the 'vulkan_device' configuration variable to force a specific device):
+[2026-10-13 14:27:59.240] [warning] [core] [t21156] * 0: Intel(R) Arc(TM) B580 Graphics
+[2026-10-13 14:27:59.240] [warning] [core] [t21156] * 1: AMD Radeon(TM) Graphics
+[2026-10-13 14:27:59.240] [info] [core] [t21156] Vulkan device 'Intel(R) Arc(TM) B580 Graphics': API 1.4.356, vendor 0x8086, device 0xE20B, driver version 0x196320
+[2026-10-13 14:27:59.240] [info] [core] [t21156] Enabled Vulkan device extensions:
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * VK_KHR_swapchain
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * VK_EXT_memory_budget
+[2026-10-13 14:27:59.240] [info] [core] [t21156] Vulkan device properties and enabled features:
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * driverID: IntelProprietaryWindows
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * driverName: Intel Corporation
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * driverInfo: 101.8992
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * conformanceVersion: 1.4.0.0
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxImageDimension2D: 16384
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxImageDimension3D: 2048
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxImageDimensionCube: 16384
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxImageArrayLayers: 2048
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxStorageBufferRange: 4294967292
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxSamplerAllocationCount: 4000
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxPerStageDescriptorSamplers: 33554432
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxPerStageDescriptorStorageBuffers: 33554432
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxPerStageDescriptorSampledImages: 33554432
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxPerStageResources: 33554432
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxVertexOutputComponents: 128
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxTessellationEvaluationOutputComponents: 128
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxGeometryInputComponents: 128
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxGeometryOutputComponents: 128
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxFragmentInputComponents: 128
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxFragmentCombinedOutputResources: 33554440
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxSamplerAnisotropy: 16
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxViewportDimensions[0]: 32768
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxViewportDimensions[1]: 32768
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * minUniformBufferOffsetAlignment: 64
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * minStorageBufferOffsetAlignment: 64
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxFramebufferWidth: 16384
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * maxFramebufferHeight: 16384
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * framebufferColorSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * framebufferDepthSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * framebufferStencilSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * framebufferNoAttachmentsSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * sampledImageColorSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * sampledImageIntegerSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * sampledImageDepthSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * sampledImageStencilSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * standardSampleLocations: 1
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * optimalBufferCopyOffsetAlignment: 64
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * optimalBufferCopyRowPitchAlignment: 64
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * nonCoherentAtomSize: 1
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * constantAlphaColorBlendFactors
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * imageViewFormatReinterpretation
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * imageViewFormatSwizzle
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * pointPolygons
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * separateStencilMaskRef
+[2026-10-13 14:27:59.240] [info] [core] [t21156] * shaderSampleRateInterpolationFunctions
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message): Inserted device layer "VK_LAYER_RTSS" (C:\Program Files (x86)\RivaTuner Statistics Server\Vulkan\RTSSVkLayer64.dll) (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message): Inserted device layer "VK_LAYER_OBS_HOOK" (C:\ProgramData\obs-studio-hook\graphics-hook64.dll) (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message): Failed to find vkGetDeviceProcAddr in layer "C:\Windows\System32\DriverStore\FileRepository\u0420529.inf_amd64_94ad5a6c4d1a04e2\B419765\amdvlk64.dll" (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message): vkCreateDevice layer callstack setup to: (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):    <Application> (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):      || (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):    <Loader> (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):      || (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):    VK_LAYER_OBS_HOOK (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):            Type: Implicit (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):            Enabled By: Implicit Layer (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):                Disable Env Var:  DISABLE_VULKAN_OBS_CAPTURE (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):            Manifest: C:\ProgramData\obs-studio-hook\obs-vulkan64.json (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):            Library:  C:\ProgramData\obs-studio-hook\graphics-hook64.dll (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):      || (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):    VK_LAYER_RTSS (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):            Type: Implicit (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):            Enabled By: Implicit Layer (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):                Disable Env Var:  DISABLE_RTSS_LAYER (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):            Manifest: C:\Program Files (x86)\RivaTuner Statistics Server\Vulkan\RTSSVkLayer64.json (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):            Library:  C:\Program Files (x86)\RivaTuner Statistics Server\Vulkan\RTSSVkLayer64.dll (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):      || (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):    <Device> (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.241] [info] [gpu] [t21156] Vulkan Info ({ General }, ID 0: Loader Message):        Using "Intel(R) Arc(TM) B580 Graphics" with driver: "C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch_d.inf_amd64_62b87437c1961b1b\igvk64.dll" (object 0: Instance 0x27de10a2a90)
+[2026-10-13 14:27:59.583] [info] [core] [t21156] VulkanPresenter: Created 2560x1440 swapchain with format 44, color space 0, presentation mode 0 (IMMEDIATE (intervalo 0)), 4 images requested
+[2026-10-13 14:27:59.583] [info] [core] [t21156] Presenter: modo de pintado -> desde el hilo del juego, presentando en el acto (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 14:27:59.583] [info] [sys] [t21156] Guest memory arena mapped: virtual base 0x0000000100000000, physical base 0x0000000200000000
+[2026-10-13 14:27:59.618] [info] [fs] [t21156] [io] montado 'C:\bo3recomp\runtime\game' en \Device\Harddisk0\Partition1: 394 entradas en 1.8 ms (solo lectura)
+[2026-10-13 14:27:59.619] [info] [fs] [t21156] [io] montado 'C:\bo3recomp\runtime\update' en \Device\Harddisk0\PartitionUpdate: 430 entradas en 1.2 ms (solo lectura)
+[2026-10-13 14:27:59.625] [info] [gpu] [t10484] BO3 NATIVE backend active: own Vulkan targets/pipelines/submissions, 16-MiB upload arena; no Xenos draw backend. Device=Intel(R) Arc(TM) B580 Graphics
+[2026-10-13 14:27:59.626] [info] [core] [t21156] Function table initialized for module: code=82140000-82AB5CC0, image=82000000-848D0000
+[2026-10-13 14:27:59.755] [warning] [core] [t21156] SDL GameControllerDB: file 'gamecontrollerdb.txt' does not exist.
+[2026-10-13 14:27:59.755] [info] [core] [t21156] SDL input driver initialized successfully
+[2026-10-13 14:27:59.882] [info] [core] [t21156] XEX patch applied successfully: base version: 0.0.0.5, new version: 0.0.8.5
+[2026-10-13 14:27:59.884] [info] [sys] [t21156] [guardado] cabecera de «A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164» escrita en C:\bo3recomp\runtime\user\0000000000000000\4156091D\Headers\00000002\A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164.header
+[2026-10-13 14:27:59.884] [info] [core] [t21156] BO3 content header A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164: result 00000000, original license FFFFFFFF
+[2026-10-13 14:27:59.885] [info] [sys] [t21156] [guardado] cabecera de «4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341» escrita en C:\bo3recomp\runtime\user\0000000000000000\4156091D\Headers\00000002\4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341.header
+[2026-10-13 14:27:59.885] [info] [core] [t21156] BO3 content header 4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341: result 00000000, original license FFFFFFFF
+[2026-10-13 14:27:59.885] [info] [sys] [t21156] [guardado] cabecera de «2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41» escrita en C:\bo3recomp\runtime\user\0000000000000000\4156091D\Headers\00000002\2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41.header
+[2026-10-13 14:27:59.885] [info] [core] [t21156] BO3 content header 2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41: result 00000000, original license 00000001
+[2026-10-13 14:27:59.886] [info] [sys] [t21156] [guardado] cabecera de «D0288B47455419D4F8862B84CCC508126F84816A41» escrita en C:\bo3recomp\runtime\user\0000000000000000\4156091D\Headers\00000002\D0288B47455419D4F8862B84CCC508126F84816A41.header
+[2026-10-13 14:27:59.886] [info] [core] [t21156] BO3 content header D0288B47455419D4F8862B84CCC508126F84816A41: result 00000000, original license 00000001
+[2026-10-13 14:27:59.886] [info] [sys] [t21156] [guardado] listar tipo 00000002 en C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002: 4 entrada(s)
+[2026-10-13 14:27:59.886] [info] [sys] [t21156] [guardado]   «2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41» (mostrado como «The Giant»)
+[2026-10-13 14:27:59.886] [info] [sys] [t21156] [guardado]   «4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341» (mostrado como «Compatibility Pack 2»)
+[2026-10-13 14:27:59.886] [info] [sys] [t21156] [guardado]   «A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164» (mostrado como «Compatibility Pack 1»)
+[2026-10-13 14:27:59.886] [info] [sys] [t21156] [guardado]   «D0288B47455419D4F8862B84CCC508126F84816A41» (mostrado como «Awakening»)
+[2026-10-13 14:27:59.886] [info] [core] [t21156] BO3 common marketplace packages available: 4
+[2026-10-13 14:27:59.887] [info] [core] [t21156] Presenter: modo de pintado -> en el hilo de la interfaz, a peticion (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 14:27:59.888] [info] [core] [t21156] [presentador] adquisicion esperada en la CPU (present_esperar_adquisicion_en_cpu) = no
+[2026-10-13 14:27:59.888] [info] [core] [t21156] Presenter: modo de pintado -> desde el hilo del juego, presentando en el acto (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 14:27:59.888] [info] [core] [t21156] Initializing shader storage for title 4156091D...
+[2026-10-13 14:27:59.890] [info] [core] [t21156] Presenter: modo de pintado -> en el hilo de la interfaz, a peticion (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 14:27:59.892] [warning] [krnl] [t15040] __imp__XamMediaVerificationCreate STUB
+[2026-10-13 14:27:59.892] [info] [core] [t21156] Presenter: modo de pintado -> desde el hilo del juego, presentando en el acto (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 14:27:59.905] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.906] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.914] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\fc_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.918] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\as_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.927] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\br_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.932] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\ko_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.934] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.936] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\cz_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.938] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\fj_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.944] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\ar_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.945] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\tc_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.947] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\sc_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.949] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\eg_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.950] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\ej_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.952] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\he_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.953] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.955] [warning] [krnl] [t15040] __imp__XGetDisplaySize STUB
+[2026-10-13 14:27:59.955] [info] [gpu] [t15040] SetInterruptCallback(826F0870, BE428F80)
+[2026-10-13 14:27:59.956] [info] [gpu] [t10484] BO3 native shader VS B6C9863F710683EC: 4 instructions -> 848 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 00000000
+[2026-10-13 14:27:59.956] [info] [gpu] [t10484] BO3 native shader PS A4A965C189287B99: 1 instructions -> 906 SPIR-V words; interpolators 0001, colours 1, textures 00000000, vertex fetches 00000000
+[2026-10-13 14:27:59.956] [warning] [gpu] [t10484] BO3 NATIVE unsupported: primitive_1 (packet consumed, draw not submitted)
+[2026-10-13 14:27:59.956] [warning] [gpu] [t10484] BO3 NATIVE unsupported: primitive_1 (packet consumed, draw not submitted)
+[2026-10-13 14:27:59.957] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='update:\discdata\SplashScreen.xpr' -> 0xc000000f
+[2026-10-13 14:27:59.957] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='game:\discdata\SplashScreen.xpr' -> 0xc000000f
+[2026-10-13 14:27:59.958] [info] [gpu] [t10484] BO3 native shader VS 1E6883FCCDE1F688: 5 instructions -> 1854 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 00000001
+[2026-10-13 14:27:59.958] [warning] [gpu] [t10484] BO3 NATIVE unsupported: edram_draw_mode (packet consumed, draw not submitted)
+[2026-10-13 14:27:59.958] [info] [gpu] [t10484] BO3 native shader VS AB1E86137A0240E8: 2 instructions -> 1218 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 00000001
+[2026-10-13 14:27:59.958] [warning] [gpu] [t10484] BO3 NATIVE unsupported: native_resolve_not_implemented (packet consumed, draw not submitted)
+[2026-10-13 14:27:59.958] [warning] [gpu] [t10484] BO3 NATIVE unsupported: native_resolve_not_implemented (packet consumed, draw not submitted)
+[2026-10-13 14:27:59.958] [info] [gpu] [t10484] BO3 NATIVE progress: swaps=1 packets=27 submitted=0 copies=2 exports=0 targets=0 textures=0 pipelines=0 imageMiB=0 frontbuffer=1DB98000
+[2026-10-13 14:27:59.958] [info] [gpu] [t10484] BO3 NATIVE skipped edram_draw_mode: 1
+[2026-10-13 14:27:59.958] [info] [gpu] [t10484] BO3 NATIVE skipped native_resolve_not_implemented: 2
+[2026-10-13 14:27:59.958] [info] [gpu] [t10484] BO3 NATIVE skipped primitive_1: 24
+[2026-10-13 14:27:59.958] [info] [gpu] [t10484] BO3 NATIVE diagnostic presentation ready; guest resolve parity is pending
+[2026-10-13 14:27:59.966] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:27:59.968] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:27:59.970] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:27:59.976] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:27:59.977] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:27:59.990] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:27:59.992] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.992] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:27:59.993] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:27:59.994] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:27:59.996] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:00.001] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\fc_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:28:00.001] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\as_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:28:00.003] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\br_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:28:00.004] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\ko_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:28:00.006] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:28:00.008] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\cz_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:28:00.011] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\fj_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:28:00.012] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\ar_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:28:00.014] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\tc_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:28:00.017] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\sc_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:28:00.018] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\eg_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:28:00.020] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\ej_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:28:00.024] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\he_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:28:00.025] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-13 14:28:00.055] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-13 14:28:00.063] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:00.065] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-13 14:28:00.067] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:00.441] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-13 14:28:00.445] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:00.446] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:00.462] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:28:00.469] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:00.470] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:28:00.472] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:00.969] [info] [gpu] [t10484] BO3 NATIVE timing: 22.21 swaps/s over 1350ms; queue/fence=56.9ms textureCPU=0.0ms exportCPU=0.0ms shader=0.3ms pipeline=0.0ms submissions=29 uploadMiB=0.00 linearMiB=0.00 tiledMiB=0.00 exportSnapshotMiB=0.00
+[2026-10-13 14:28:01.056] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.058] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.060] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.079] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.083] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\zm_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.084] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.086] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.093] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.094] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.117] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.119] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\zm_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.121] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.123] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.125] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.141] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.146] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.147] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.149] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.256] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.258] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.260] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.286] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_ui.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.293] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.295] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_ui.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.297] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.725] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_ui.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.738] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.743] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.794] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.917] [info] [apu] [t15040] audio endpoint 'Speakers (3- PRO X Wireless Gaming Headset)': 2 ch, 48000 Hz, format 0x8120; submitting 2 ch
+[2026-10-13 14:28:01.925] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.927] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:01.930] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:02.156] [info] [gpu] [t10484] BO3 NATIVE timing: 25.28 swaps/s over 1187ms; queue/fence=81.2ms textureCPU=0.0ms exportCPU=0.0ms shader=0.0ms pipeline=0.0ms submissions=30 uploadMiB=0.00 linearMiB=0.00 tiledMiB=0.00 exportSnapshotMiB=0.00
+[2026-10-13 14:28:02.697] [warning] [krnl] [t15040] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-13 14:28:02.697] [warning] [krnl] [t15040] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-13 14:28:02.697] [warning] [krnl] [t15040] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-13 14:28:02.698] [warning] [krnl] [t15040] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-13 14:28:02.699] [info] [core] [t15040] SDL OnControllerDeviceAdded: "Xbox One S Controller", JoystickType(1), GameControllerType(3), VendorID(0x045E), ProductID(0x02E0)
+[2026-10-13 14:28:02.699] [info] [core] [t15040] SDL OnControllerDeviceAdded: connection order 0, device 1.
+[2026-10-13 14:28:02.718] [error] [krnl] [t15040] Unimplemented XLIVEBASE message app=000000FC, msg=0005801E, arg1=3013A000, arg2=7019F1B0
+[2026-10-13 14:28:02.718] [error] [krnl] [t15040] Unimplemented XLIVEBASE message app=000000FC, msg=00058019, arg1=3013A000, arg2=7019F1A0
+[2026-10-13 14:28:02.718] [info] [sys] [t15040] [guardado] listar tipo 00000002 en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000002: 0 entrada(s)
+[2026-10-13 14:28:02.719] [info] [sys] [t15040] [guardado] listar tipo 00000002 en C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002: 4 entrada(s)
+[2026-10-13 14:28:02.719] [info] [sys] [t15040] [guardado]   «2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41» (mostrado como «The Giant»)
+[2026-10-13 14:28:02.719] [info] [sys] [t15040] [guardado]   «4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341» (mostrado como «Compatibility Pack 2»)
+[2026-10-13 14:28:02.719] [info] [sys] [t15040] [guardado]   «A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164» (mostrado como «Compatibility Pack 1»)
+[2026-10-13 14:28:02.719] [info] [sys] [t15040] [guardado]   «D0288B47455419D4F8862B84CCC508126F84816A41» (mostrado como «Awakening»)
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc0zm.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc0zm.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc0mp.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc0mp.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc1.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc1.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc2.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc2.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc3.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc3.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc4.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc4.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlccompat2.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlccompat2.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlccompat1.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlccompat1.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlccompat3.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlccompat3.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD001.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD001.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD002.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD002.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD003.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD003.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD004.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD004.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc0zm.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc0zm.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc0mp.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc0mp.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc1.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc1.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc2.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc2.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc3.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc3.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc4.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlc4.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlccompat2.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlccompat2.txt' -> 0xc000000f
+[2026-10-13 14:28:02.719] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlccompat1.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.720] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlccompat1.txt' -> 0xc000000f
+[2026-10-13 14:28:02.720] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlccompat3.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.720] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\dlccompat3.txt' -> 0xc000000f
+[2026-10-13 14:28:02.720] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD001.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.720] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD001.txt' -> 0xc000000f
+[2026-10-13 14:28:02.720] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD002.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.720] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD002.txt' -> 0xc000000f
+[2026-10-13 14:28:02.720] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD003.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.720] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD003.txt' -> 0xc000000f
+[2026-10-13 14:28:02.720] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD004.fakeid' -> 0xc000000f
+[2026-10-13 14:28:02.720] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:\LQD004.txt' -> 0xc000000f
+[2026-10-13 14:28:02.720] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='D:/product.info' -> 0xc000000f
+[2026-10-13 14:28:02.725] [warning] [gpu] [t10484] BO3 NATIVE unsupported: primitive_8 (packet consumed, draw not submitted)
+[2026-10-13 14:28:02.725] [warning] [gpu] [t10484] BO3 NATIVE unsupported: edram_draw_mode (packet consumed, draw not submitted)
+[2026-10-13 14:28:02.725] [info] [gpu] [t10484] BO3 native shader PS ED858B8CBB74080D: 11 instructions -> 2186 SPIR-V words; interpolators 0007, colours 1, textures 00000002, vertex fetches 00000000
+[2026-10-13 14:28:02.725] [info] [gpu] [t10484] BO3 native shader VS D13651A553173075: 11 instructions -> 2950 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 14:28:02.732] [info] [gpu] [t10484] BO3 native target 1280x720 format 37 color base 1328 depth base 608
+[2026-10-13 14:28:02.732] [info] [gpu] [t10484] BO3 native float24 depth uses D32 storage; packed quantization/clear parity unverified
+[2026-10-13 14:28:02.759] [info] [gpu] [t10484] BO3 NATIVE submitted draw 1: VS D13651A553173075 PS ED858B8CBB74080D 6 vertices 1280x720
+[2026-10-13 14:28:02.759] [info] [gpu] [t10484] BO3 native shader PS 8BCED964C687816E: 2 instructions -> 1255 SPIR-V words; interpolators 0003, colours 1, textures 00000001, vertex fetches 00000000
+[2026-10-13 14:28:02.759] [info] [gpu] [t10484] BO3 native shader VS B2ABE37696B34964: 11 instructions -> 2950 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 14:28:02.770] [warning] [gpu] [t10484] BO3 NATIVE unsupported: texture_mips (packet consumed, draw not submitted)
+[2026-10-13 14:28:02.787] [warning] [gpu] [t10484] BO3 NATIVE unsupported: primitive_8 (packet consumed, draw not submitted)
+[2026-10-13 14:28:02.793] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:02.795] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:02.797] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:02.803] [info] [gpu] [t10484] BO3 NATIVE submitted draw 2: VS D13651A553173075 PS ED858B8CBB74080D 6 vertices 1280x720
+[2026-10-13 14:28:02.813] [warning] [gpu] [t10484] BO3 NATIVE unsupported: texture_mips (packet consumed, draw not submitted)
+[2026-10-13 14:28:02.841] [info] [gpu] [t10484] BO3 NATIVE submitted draw 3: VS D13651A553173075 PS ED858B8CBB74080D 6 vertices 1280x720
+[2026-10-13 14:28:02.886] [info] [gpu] [t10484] BO3 NATIVE submitted draw 4: VS D13651A553173075 PS ED858B8CBB74080D 6 vertices 1280x720
+[2026-10-13 14:28:03.008] [info] [gpu] [t10484] BO3 native shader PS C1B82B817414DB59: 20 instructions -> 3565 SPIR-V words; interpolators 000F, colours 1, textures 0000001E, vertex fetches 00000000
+[2026-10-13 14:28:03.010] [info] [gpu] [t10484] BO3 native shader VS 0B1DA0EBE34144A2: 16 instructions -> 3631 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 14:28:03.043] [info] [gpu] [t10484] BO3 NATIVE submitted draw 5: VS 0B1DA0EBE34144A2 PS C1B82B817414DB59 6 vertices 1280x720
+[2026-10-13 14:28:03.093] [info] [sys] [t20412] [guardado] abrir «2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41» (raiz dlc1) en C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41 -> 28 fichero(s), 169504909 B: bp_zm_factory.ff (175552 B), bp_zm_factory.xpak (786432 B), dlc0zm.id (9 B), ea_zm_factory.ff (175744 B), ea_zm_factory.xpak (786432 B), en_zm_factory.ff (175808 B), en_zm_factory.xpak (786432 B), es_zm_factory.ff (175552 B), es_zm_factory.xpak (786432 B), fj_zm_factory.ff (176768 B), fj_zm_factory.xpak (1835008 B), fr_zm_factory.ff (175616 B), fr_zm_factory.xpak (786432 B), ge_zm_factory.ff (175552 B), ge_zm_factory.xpak (786432 B), it_zm_factory.ff (175552 B), it_zm_factory.xpak (786432 B), ja_zm_factory.ff (176896 B), ja_zm_factory.xpak (1835008 B), ms_zm_factory.ff (175680 B), ms_zm_factory.xpak (786432 B), null (4 B), po_zm_factory.ff (175872 B), po_zm_factory.xpak (786432 B), ru_zm_factory.ff (175616 B), ru_zm_factory.xpak (786432 B), zm_factory.ff (39206272 B), zm_factory.xpak (116654080 B)
+[2026-10-13 14:28:03.093] [info] [fs] [t20412] [io] montado 'C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41' en \Device\Content\1\: 51 entradas en 0.2 ms (escritura)
+[2026-10-13 14:28:03.094] [info] [krnl] [t20412] [guardado] XamContentCreate raiz «dlc1» contenido «2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41» tipo 00000002 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 14:28:03.195] [info] [sys] [t20412] [guardado] abrir «4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341» (raiz dlc2) en C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341 -> 115 fichero(s), 34447388 B: bp_mp_apartments_patch.ff (768 B), bp_mp_chinatown_patch.ff (768 B), bp_mp_havoc_patch.ff (768 B), bp_mp_patch.ff (13056 B), bp_mp_redwood_patch.ff (768 B), bp_mp_sector_patch.ff (768 B), bp_mp_spire_patch.ff (768 B), bp_zm_patch.ff (16960 B), compatpack2.ff (11 B), dlccompat2.id (13 B), ea_mp_apartments_patch.ff (768 B), ea_mp_chinatown_patch.ff (768 B), ea_mp_havoc_patch.ff (768 B), ea_mp_patch.ff (11776 B), ea_mp_redwood_patch.ff (768 B), ea_mp_sector_patch.ff (768 B), ea_mp_spire_patch.ff (768 B), ea_zm_patch.ff (16192 B), en_mp_apartments_patch.ff (768 B), en_mp_chinatown_patch.ff (768 B), en_mp_havoc_patch.ff (768 B), en_mp_patch.ff (11776 B), en_mp_redwood_patch.ff (768 B), en_mp_sector_patch.ff (768 B), en_mp_spire_patch.ff (768 B), en_zm_patch.ff (16192 B), es_mp_apartments_patch.ff (768 B), es_mp_chinatown_patch.ff (768 B), es_mp_havoc_patch.ff (768 B), es_mp_patch.ff (12800 B), es_mp_redwood_patch.ff (768 B), es_mp_sector_patch.ff (768 B), es_mp_spire_patch.ff (768 B), es_zm_patch.ff (16960 B), fj_mp_apartments_patch.ff (768 B), fj_mp_chinatown_patch.ff (768 B), fj_mp_havoc_patch.ff (768 B), fj_mp_patch.ff (13312 B), fj_mp_redwood_patch.ff (768 B), fj_mp_sector_patch.ff (768 B), fj_mp_spire_patch.ff (768 B), fj_zm_patch.ff (18112 B), fr_mp_apartments_patch.ff (768 B), fr_mp_chinatown_patch.ff (768 B), fr_mp_havoc_patch.ff (768 B), fr_mp_patch.ff (13184 B), fr_mp_redwood_patch.ff (768 B), fr_mp_sector_patch.ff (768 B), fr_mp_spire_patch.ff (768 B), fr_zm_patch.ff (17152 B), ge_mp_apartments_patch.ff (768 B), ge_mp_chinatown_patch.ff (768 B), ge_mp_havoc_patch.ff (768 B), ge_mp_patch.ff (13376 B), ge_mp_redwood_patch.ff (768 B), ge_mp_sector_patch.ff (768 B), ge_mp_spire_patch.ff (768 B), ge_zm_patch.ff (17088 B), it_mp_apartments_patch.ff (768 B), it_mp_chinatown_patch.ff (768 B), it_mp_havoc_patch.ff (768 B), it_mp_patch.ff (12608 B), it_mp_redwood_patch.ff (768 B), it_mp_sector_patch.ff (768 B), it_mp_spire_patch.ff (768 B), it_zm_patch.ff (16704 B), ja_mp_apartments_patch.ff (768 B), ja_mp_chinatown_patch.ff (768 B), ja_mp_havoc_patch.ff (768 B), ja_mp_patch.ff (13312 B), ja_mp_redwood_patch.ff (768 B), ja_mp_sector_patch.ff (768 B), ja_mp_spire_patch.ff (768 B), ja_zm_patch.ff (18112 B), mp_apartments_patch.ff (70272 B), mp_apartments_patch.xpak (1572864 B), mp_chinatown_patch.ff (23616 B), mp_chinatown_patch.xpak (2097152 B), mp_havoc_patch.ff (184384 B), mp_havoc_patch.xpak (2621440 B), mp_patch.ff (3753088 B), mp_patch.xpak (14417920 B), mp_redwood_patch.ff (52608 B), mp_redwood_patch.xpak (1310720 B), mp_sector_patch.ff (52672 B), mp_sector_patch.xpak (1835008 B), mp_spire_patch.ff (22656 B), mp_spire_patch.xpak (1310720 B), ms_mp_apartments_patch.ff (768 B), ms_mp_chinatown_patch.ff (768 B), ms_mp_havoc_patch.ff (768 B), ms_mp_patch.ff (12800 B), ms_mp_redwood_patch.ff (768 B), ms_mp_sector_patch.ff (768 B), ms_mp_spire_patch.ff (768 B), ms_zm_patch.ff (16896 B), null (4 B), po_mp_apartments_patch.ff (768 B), po_mp_chinatown_patch.ff (768 B), po_mp_havoc_patch.ff (768 B), po_mp_patch.ff (13440 B), po_mp_redwood_patch.ff (768 B), po_mp_sector_patch.ff (768 B), po_mp_spire_patch.ff (768 B), po_zm_patch.ff (17728 B), ru_mp_apartments_patch.ff (768 B), ru_mp_chinatown_patch.ff (768 B), ru_mp_havoc_patch.ff (768 B), ru_mp_patch.ff (16064 B), ru_mp_redwood_patch.ff (768 B), ru_mp_sector_patch.ff (768 B), ru_mp_spire_patch.ff (768 B), ru_zm_patch.ff (20096 B), zm_patch.ff (2079808 B), zm_patch.xpak (2621440 B)
+[2026-10-13 14:28:03.195] [info] [fs] [t20412] [io] montado 'C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341' en \Device\Content\2\: 115 entradas en 0.3 ms (escritura)
+[2026-10-13 14:28:03.195] [info] [krnl] [t20412] [guardado] XamContentCreate raiz «dlc2» contenido «4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341» tipo 00000002 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 14:28:03.234] [info] [gpu] [t10484] BO3 native shader VS DDED7E538422AE73: 2 instructions -> 859 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 00000000
+[2026-10-13 14:28:03.234] [info] [gpu] [t10484] BO3 native shader PS 3A6876055FEC1674: 1 instructions -> 976 SPIR-V words; interpolators 0001, colours 1, textures 00000000, vertex fetches 00000000
+[2026-10-13 14:28:03.234] [info] [gpu] [t10484] BO3 native shader VS A4827826E2589916: 21 instructions -> 5588 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000, memory export, 10 exports dropped (to memory)
+[2026-10-13 14:28:03.237] [info] [gpu] [t10484] BO3 native verified memexport copy 1: sha=d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5 invocations=14400 bytes=921600 ranges=1
+[2026-10-13 14:28:03.239] [info] [gpu] [t10484] BO3 native verified memexport copy 2: sha=d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5 invocations=4352 bytes=278528 ranges=1
+[2026-10-13 14:28:03.241] [info] [gpu] [t10484] BO3 native verified memexport copy 3: sha=d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5 invocations=4352 bytes=278528 ranges=1
+[2026-10-13 14:28:03.243] [info] [gpu] [t10484] BO3 native verified memexport copy 4: sha=d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5 invocations=14400 bytes=921600 ranges=1
+[2026-10-13 14:28:03.245] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc2:\dlc0zm.id' -> 0xc000000f
+[2026-10-13 14:28:03.245] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc2:\dlc0zm.txt' -> 0xc000000f
+[2026-10-13 14:28:03.245] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc2:\dlc0mp.id' -> 0xc000000f
+[2026-10-13 14:28:03.245] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc2:\dlc0mp.txt' -> 0xc000000f
+[2026-10-13 14:28:03.245] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc2:\dlc1.id' -> 0xc000000f
+[2026-10-13 14:28:03.245] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc2:\dlc1.txt' -> 0xc000000f
+[2026-10-13 14:28:03.245] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc2:\dlc2.id' -> 0xc000000f
+[2026-10-13 14:28:03.245] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc2:\dlc2.txt' -> 0xc000000f
+[2026-10-13 14:28:03.245] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc2:\dlc3.id' -> 0xc000000f
+[2026-10-13 14:28:03.245] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc2:\dlc3.txt' -> 0xc000000f
+[2026-10-13 14:28:03.245] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc2:\dlc4.id' -> 0xc000000f
+[2026-10-13 14:28:03.245] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc2:\dlc4.txt' -> 0xc000000f
+[2026-10-13 14:28:03.298] [info] [sys] [t20412] [guardado] abrir «A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164» (raiz dlc3) en C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164 -> 242 fichero(s), 1827073933 B: bp_mp_apartments.ff (832 B), bp_mp_biodome.ff (832 B), bp_mp_chinatown.ff (832 B), bp_mp_common.ff (303808 B), bp_mp_common_all.ff (704 B), bp_mp_ethiopia.ff (832 B), bp_mp_freerun_01.ff (832 B), bp_mp_freerun_02.ff (832 B), bp_mp_freerun_03.ff (832 B), bp_mp_freerun_04.ff (832 B), bp_mp_havoc.ff (832 B), bp_mp_infection.ff (832 B), bp_mp_metro.ff (832 B), bp_mp_redwood.ff (832 B), bp_mp_sector.ff (832 B), bp_mp_spire.ff (832 B), bp_mp_stronghold.ff (832 B), bp_mp_veiled.ff (832 B), bp_zm_common.ff (49728 B), bp_zm_common_all.ff (704 B), bp_zm_frontend.ff (9216 B), bp_zm_zod.ff (170368 B), dlccompat1.id (13 B), en_mp_apartments.ff (832 B), en_mp_biodome.ff (832 B), en_mp_chinatown.ff (832 B), en_mp_common.ff (303616 B), en_mp_common_all.ff (704 B), en_mp_ethiopia.ff (832 B), en_mp_freerun_01.ff (832 B), en_mp_freerun_02.ff (832 B), en_mp_freerun_03.ff (832 B), en_mp_freerun_04.ff (832 B), en_mp_havoc.ff (832 B), en_mp_infection.ff (832 B), en_mp_metro.ff (832 B), en_mp_redwood.ff (832 B), en_mp_sector.ff (832 B), en_mp_spire.ff (832 B), en_mp_stronghold.ff (832 B), en_mp_veiled.ff (832 B), en_zm_common.ff (49536 B), en_zm_common_all.ff (704 B), en_zm_frontend.ff (9152 B), en_zm_zod.ff (170624 B), es_mp_apartments.ff (832 B), es_mp_biodome.ff (832 B), es_mp_chinatown.ff (832 B), es_mp_common.ff (303744 B), es_mp_common_all.ff (704 B), es_mp_ethiopia.ff (832 B), es_mp_freerun_01.ff (832 B), es_mp_freerun_02.ff (832 B), es_mp_freerun_03.ff (832 B), es_mp_freerun_04.ff (832 B), es_mp_havoc.ff (832 B), es_mp_infection.ff (832 B), es_mp_metro.ff (832 B), es_mp_redwood.ff (832 B), es_mp_sector.ff (832 B), es_mp_spire.ff (832 B), es_mp_stronghold.ff (832 B), es_mp_veiled.ff (832 B), es_zm_common.ff (49728 B), es_zm_common_all.ff (704 B), es_zm_frontend.ff (9216 B), es_zm_zod.ff (170304 B), fr_mp_apartments.ff (832 B), fr_mp_biodome.ff (832 B), fr_mp_chinatown.ff (832 B), fr_mp_common.ff (303744 B), fr_mp_common_all.ff (704 B), fr_mp_ethiopia.ff (832 B), fr_mp_freerun_01.ff (832 B), fr_mp_freerun_02.ff (832 B), fr_mp_freerun_03.ff (832 B), fr_mp_freerun_04.ff (832 B), fr_mp_havoc.ff (832 B), fr_mp_infection.ff (832 B), fr_mp_metro.ff (832 B), fr_mp_redwood.ff (832 B), fr_mp_sector.ff (832 B), fr_mp_spire.ff (832 B), fr_mp_stronghold.ff (832 B), fr_mp_veiled.ff (832 B), fr_zm_common.ff (49792 B), fr_zm_common_all.ff (704 B), fr_zm_frontend.ff (9216 B), fr_zm_zod.ff (170304 B), ge_mp_apartments.ff (832 B), ge_mp_biodome.ff (832 B), ge_mp_chinatown.ff (832 B), ge_mp_common.ff (303872 B), ge_mp_common_all.ff (704 B), ge_mp_ethiopia.ff (832 B), ge_mp_freerun_01.ff (832 B), ge_mp_freerun_02.ff (832 B), ge_mp_freerun_03.ff (832 B), ge_mp_freerun_04.ff (832 B), ge_mp_havoc.ff (832 B), ge_mp_infection.ff (832 B), ge_mp_metro.ff (832 B), ge_mp_redwood.ff (832 B), ge_mp_sector.ff (832 B), ge_mp_spire.ff (832 B), ge_mp_stronghold.ff (832 B), ge_mp_veiled.ff (832 B), ge_zm_common.ff (49664 B), ge_zm_common_all.ff (704 B), ge_zm_frontend.ff (9216 B), ge_zm_zod.ff (170368 B), it_mp_apartments.ff (832 B), it_mp_biodome.ff (832 B), it_mp_chinatown.ff (832 B), it_mp_common.ff (303424 B), it_mp_common_all.ff (704 B), it_mp_ethiopia.ff (832 B), it_mp_freerun_01.ff (832 B), it_mp_freerun_02.ff (832 B), it_mp_freerun_03.ff (832 B), it_mp_freerun_04.ff (832 B), it_mp_havoc.ff (832 B), it_mp_infection.ff (832 B), it_mp_metro.ff (832 B), it_mp_redwood.ff (832 B), it_mp_sector.ff (832 B), it_mp_spire.ff (832 B), it_mp_stronghold.ff (832 B), it_mp_veiled.ff (832 B), it_zm_common.ff (49600 B), it_zm_common_all.ff (704 B), it_zm_frontend.ff (9152 B), it_zm_zod.ff (170304 B), mp_apartments.ff (12284288 B), mp_apartments.xpak (42467328 B), mp_biodome.ff (13233536 B), mp_biodome.xpak (36438016 B), mp_chinatown.ff (15868480 B), mp_chinatown.xpak (56623104 B), mp_common.ff (26691456 B), mp_common.xpak (476315648 B), mp_common_all.ff (704 B), mp_ethiopia.ff (19006272 B), mp_ethiopia.xpak (45613056 B), mp_freerun_01.ff (4579008 B), mp_freerun_01.xpak (1572864 B), mp_freerun_02.ff (5057408 B), mp_freerun_02.xpak (1310720 B), mp_freerun_03.ff (5691968 B), mp_freerun_03.xpak (20185088 B), mp_freerun_04.ff (3870272 B), mp_freerun_04.xpak (1572864 B), mp_frontend.xpak (7864320 B), mp_havoc.ff (13367680 B), mp_havoc.xpak (65798144 B), mp_infection.ff (14006208 B), mp_infection.xpak (50331648 B), mp_metro.ff (11873664 B), mp_metro.xpak (30670848 B), mp_redwood.ff (12977280 B), mp_redwood.xpak (22020096 B), mp_sector.ff (12731264 B), mp_sector.xpak (39583744 B), mp_spire.ff (17997504 B), mp_spire.xpak (31981568 B), mp_stronghold.ff (16505664 B), mp_stronghold.xpak (56360960 B), mp_veiled.ff (20522432 B), mp_veiled.xpak (43778048 B), ms_mp_apartments.ff (832 B), ms_mp_biodome.ff (832 B), ms_mp_chinatown.ff (832 B), ms_mp_common.ff (303616 B), ms_mp_common_all.ff (704 B), ms_mp_ethiopia.ff (832 B), ms_mp_freerun_01.ff (832 B), ms_mp_freerun_02.ff (832 B), ms_mp_freerun_03.ff (832 B), ms_mp_freerun_04.ff (832 B), ms_mp_havoc.ff (832 B), ms_mp_infection.ff (832 B), ms_mp_metro.ff (832 B), ms_mp_redwood.ff (832 B), ms_mp_sector.ff (832 B), ms_mp_spire.ff (832 B), ms_mp_stronghold.ff (832 B), ms_mp_veiled.ff (832 B), ms_zm_common.ff (49728 B), ms_zm_common_all.ff (704 B), ms_zm_frontend.ff (9216 B), ms_zm_zod.ff (170368 B), po_mp_apartments.ff (832 B), po_mp_biodome.ff (832 B), po_mp_chinatown.ff (832 B), po_mp_common.ff (303744 B), po_mp_common_all.ff (704 B), po_mp_ethiopia.ff (832 B), po_mp_freerun_01.ff (832 B), po_mp_freerun_02.ff (832 B), po_mp_freerun_03.ff (832 B), po_mp_freerun_04.ff (832 B), po_mp_havoc.ff (832 B), po_mp_infection.ff (832 B), po_mp_metro.ff (832 B), po_mp_redwood.ff (832 B), po_mp_sector.ff (832 B), po_mp_spire.ff (832 B), po_mp_stronghold.ff (832 B), po_mp_veiled.ff (832 B), po_zm_common.ff (49856 B), po_zm_common_all.ff (704 B), po_zm_frontend.ff (9216 B), po_zm_zod.ff (170624 B), ru_mp_apartments.ff (832 B), ru_mp_biodome.ff (832 B), ru_mp_chinatown.ff (832 B), ru_mp_common.ff (303680 B), ru_mp_common_all.ff (704 B), ru_mp_ethiopia.ff (832 B), ru_mp_freerun_01.ff (832 B), ru_mp_freerun_02.ff (832 B), ru_mp_freerun_03.ff (832 B), ru_mp_freerun_04.ff (832 B), ru_mp_havoc.ff (832 B), ru_mp_infection.ff (832 B), ru_mp_metro.ff (832 B), ru_mp_redwood.ff (832 B), ru_mp_sector.ff (832 B), ru_mp_spire.ff (832 B), ru_mp_stronghold.ff (832 B), ru_mp_veiled.ff (832 B), ru_zm_common.ff (49664 B), ru_zm_common_all.ff (704 B), ru_zm_frontend.ff (9344 B), ru_zm_zod.ff (170432 B), zm_common.ff (15347328 B), zm_common.xpak (314310656 B), zm_common_all.ff (704 B), zm_frontend.ff (2814784 B), zm_frontend.xpak (9437184 B), zm_zod.ff (41028224 B), zm_zod.xpak (182452224 B)
+[2026-10-13 14:28:03.300] [info] [fs] [t20412] [io] montado 'C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164' en \Device\Content\3\: 621 entradas en 1.6 ms (escritura)
+[2026-10-13 14:28:03.302] [info] [krnl] [t20412] [guardado] XamContentCreate raiz «dlc3» contenido «A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164» tipo 00000002 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 14:28:03.344] [info] [gpu] [t10484] BO3 native verified memexport copy 5: sha=d4991999678dd7e26c2c876e06b078cc87b875f5addf173bfdb1beb64eb00bf5 invocations=14400 bytes=921600 ranges=1
+[2026-10-13 14:28:03.354] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc3:\dlc0zm.id' -> 0xc000000f
+[2026-10-13 14:28:03.354] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc3:\dlc0zm.txt' -> 0xc000000f
+[2026-10-13 14:28:03.354] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc3:\dlc0mp.id' -> 0xc000000f
+[2026-10-13 14:28:03.354] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc3:\dlc0mp.txt' -> 0xc000000f
+[2026-10-13 14:28:03.354] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc3:\dlc1.id' -> 0xc000000f
+[2026-10-13 14:28:03.354] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc3:\dlc1.txt' -> 0xc000000f
+[2026-10-13 14:28:03.354] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc3:\dlc2.id' -> 0xc000000f
+[2026-10-13 14:28:03.354] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc3:\dlc2.txt' -> 0xc000000f
+[2026-10-13 14:28:03.354] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc3:\dlc3.id' -> 0xc000000f
+[2026-10-13 14:28:03.354] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc3:\dlc3.txt' -> 0xc000000f
+[2026-10-13 14:28:03.354] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc3:\dlc4.id' -> 0xc000000f
+[2026-10-13 14:28:03.354] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc3:\dlc4.txt' -> 0xc000000f
+[2026-10-13 14:28:03.354] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc3:\dlccompat2.id' -> 0xc000000f
+[2026-10-13 14:28:03.354] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc3:\dlccompat2.txt' -> 0xc000000f
+[2026-10-13 14:28:03.403] [info] [sys] [t20412] [guardado] abrir «D0288B47455419D4F8862B84CCC508126F84816A41» (raiz dlc4) en C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\D0288B47455419D4F8862B84CCC508126F84816A41 -> 84 fichero(s), 517453131 B: bp_mp_crucible.ff (832 B), bp_mp_rise.ff (832 B), bp_mp_skyjacked.ff (832 B), bp_mp_waterpark.ff (832 B), bp_zm_castle.ff (238144 B), bp_zm_castle.xpak (786432 B), dlc1.id (7 B), ea_mp_crucible.ff (832 B), ea_mp_rise.ff (832 B), ea_mp_skyjacked.ff (832 B), ea_mp_waterpark.ff (832 B), ea_zm_castle.ff (201408 B), ea_zm_castle.xpak (786432 B), en_mp_crucible.ff (832 B), en_mp_rise.ff (832 B), en_mp_skyjacked.ff (832 B), en_mp_waterpark.ff (832 B), en_zm_castle.ff (242432 B), en_zm_castle.xpak (786432 B), es_mp_crucible.ff (832 B), es_mp_rise.ff (832 B), es_mp_skyjacked.ff (832 B), es_mp_waterpark.ff (832 B), es_zm_castle.ff (238208 B), es_zm_castle.xpak (786432 B), fj_mp_crucible.ff (832 B), fj_mp_rise.ff (832 B), fj_mp_skyjacked.ff (832 B), fj_mp_waterpark.ff (832 B), fj_zm_castle.ff (239424 B), fj_zm_castle.xpak (1835008 B), fr_mp_crucible.ff (832 B), fr_mp_rise.ff (832 B), fr_mp_skyjacked.ff (832 B), fr_mp_waterpark.ff (832 B), fr_zm_castle.ff (238144 B), fr_zm_castle.xpak (786432 B), ge_mp_crucible.ff (832 B), ge_mp_rise.ff (832 B), ge_mp_skyjacked.ff (832 B), ge_mp_waterpark.ff (832 B), ge_zm_castle.ff (238080 B), ge_zm_castle.xpak (786432 B), it_mp_crucible.ff (832 B), it_mp_rise.ff (832 B), it_mp_skyjacked.ff (832 B), it_mp_waterpark.ff (832 B), it_zm_castle.ff (238272 B), it_zm_castle.xpak (786432 B), ja_mp_crucible.ff (832 B), ja_mp_rise.ff (832 B), ja_mp_skyjacked.ff (832 B), ja_mp_waterpark.ff (832 B), ja_zm_castle.ff (244608 B), ja_zm_castle.xpak (1835008 B), mp_crucible.ff (30882112 B), mp_crucible.xpak (57671680 B), mp_rise.ff (23875584 B), mp_rise.xpak (56098816 B), mp_skyjacked.ff (29404928 B), mp_skyjacked.xpak (44564480 B), mp_waterpark.ff (26062080 B), mp_waterpark.xpak (71827456 B), ms_mp_crucible.ff (832 B), ms_mp_rise.ff (832 B), ms_mp_skyjacked.ff (832 B), ms_mp_waterpark.ff (832 B), ms_zm_castle.ff (238080 B), ms_zm_castle.xpak (786432 B), null (4 B), po_mp_crucible.ff (832 B), po_mp_rise.ff (832 B), po_mp_skyjacked.ff (832 B), po_mp_waterpark.ff (832 B), po_zm_castle.ff (242432 B), po_zm_castle.xpak (786432 B), ru_mp_crucible.ff (832 B), ru_mp_rise.ff (832 B), ru_mp_skyjacked.ff (832 B), ru_mp_waterpark.ff (832 B), ru_zm_castle.ff (238080 B), ru_zm_castle.xpak (786432 B), zm_castle.ff (36563136 B), zm_castle.xpak (126091264 B)
+[2026-10-13 14:28:03.404] [info] [fs] [t20412] [io] montado 'C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002\D0288B47455419D4F8862B84CCC508126F84816A41' en \Device\Content\4\: 197 entradas en 1.2 ms (escritura)
+[2026-10-13 14:28:03.404] [info] [krnl] [t20412] [guardado] XamContentCreate raiz «dlc4» contenido «D0288B47455419D4F8862B84CCC508126F84816A41» tipo 00000002 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 14:28:03.454] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc4:\dlc0zm.id' -> 0xc000000f
+[2026-10-13 14:28:03.454] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc4:\dlc0zm.txt' -> 0xc000000f
+[2026-10-13 14:28:03.454] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc4:\dlc0mp.id' -> 0xc000000f
+[2026-10-13 14:28:03.454] [warning] [krnl] [t15040] [NtCreateFile] FAILED: path='dlc4:\dlc0mp.txt' -> 0xc000000f
+[2026-10-13 14:28:03.916] [info] [gpu] [t10484] BO3 NATIVE timing: 17.05 swaps/s over 1760ms; queue/fence=219.2ms textureCPU=267.1ms exportCPU=61.0ms shader=2.8ms pipeline=0.2ms submissions=75 uploadMiB=13.04 linearMiB=4.83 tiledMiB=8.21 exportSnapshotMiB=16.02
+[2026-10-13 14:28:04.191] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_patch2.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.193] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\zm_patch2.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.195] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.197] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.198] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_patch2.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.203] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.318] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_patch2.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.322] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\zm_patch2.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.323] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.326] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.328] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.371] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_patch.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.375] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.376] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.377] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_patch.xpak' -> 0xc000000f
+[2026-10-13 14:28:04.379] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:05.039] [warning] [krnl] [t19336] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 14:28:05.055] [warning] [gpu] [t10484] BO3 NATIVE unsupported: stencil_state (packet consumed, draw not submitted)
+[2026-10-13 14:28:05.055] [warning] [gpu] [t10484] BO3 NATIVE unsupported: stencil_state (packet consumed, draw not submitted)
+[2026-10-13 14:28:05.214] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_patch.xpak' -> 0xc000000f
+[2026-10-13 14:28:05.216] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:05.218] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:05.220] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:05.609] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:05.615] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:05.617] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:05.620] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:05.621] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:06.987] [info] [gpu] [t10484] BO3 NATIVE timing: 9.77 swaps/s over 3071ms; queue/fence=359.4ms textureCPU=460.5ms exportCPU=1083.6ms shader=0.0ms pipeline=0.0ms submissions=123 uploadMiB=21.09 linearMiB=21.09 tiledMiB=0.00 exportSnapshotMiB=86.41
+[2026-10-13 14:28:06.987] [info] [gpu] [t10484] BO3 NATIVE progress: swaps=120 packets=6507 submitted=133 copies=46 exports=240 targets=1 textures=10 pipelines=4 imageMiB=19 frontbuffer=1D7E8000
+[2026-10-13 14:28:06.987] [info] [gpu] [t10484] BO3 NATIVE skipped edram_draw_mode: 85
+[2026-10-13 14:28:06.987] [info] [gpu] [t10484] BO3 NATIVE skipped native_resolve_not_implemented: 46
+[2026-10-13 14:28:06.987] [info] [gpu] [t10484] BO3 NATIVE skipped primitive_1: 5930
+[2026-10-13 14:28:06.987] [info] [gpu] [t10484] BO3 NATIVE skipped primitive_8: 3
+[2026-10-13 14:28:06.987] [info] [gpu] [t10484] BO3 NATIVE skipped stencil_state: 66
+[2026-10-13 14:28:06.987] [info] [gpu] [t10484] BO3 NATIVE skipped texture_mips: 4
+[2026-10-13 14:28:07.069] [warning] [krnl] [t19336] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 14:28:07.464] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:07.466] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:07.468] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:07.469] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.099] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_frontend_patch.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.104] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.105] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.107] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_frontend_patch.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.109] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.312] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_frontend_patch.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.313] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.315] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.317] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.409] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_frontend.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.417] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.419] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.421] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.423] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_frontend.xpak' -> 0xc000000f
+[2026-10-13 14:28:08.425] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:09.102] [warning] [krnl] [t19336] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 14:28:09.175] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_zm_frontend.xpak' -> 0xc000000f
+[2026-10-13 14:28:09.177] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-13 14:28:09.179] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:09.182] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_zm_common.xpak' -> 0xc000000f
+[2026-10-13 14:28:09.184] [warning] [krnl] [t19336] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 14:28:09.238] [info] [gpu] [t10484] BO3 NATIVE timing: 13.33 swaps/s over 2251ms; queue/fence=472.6ms textureCPU=416.5ms exportCPU=282.6ms shader=0.0ms pipeline=0.0ms submissions=120 uploadMiB=19.78 linearMiB=19.78 tiledMiB=0.00 exportSnapshotMiB=68.67
+[2026-10-13 14:28:10.121] [info] [gpu] [t10484] BO3 native shader VS 5B9B7484417FB9B6: 41 instructions -> 10215 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000, memory export, 20 exports dropped (to memory)
+[2026-10-13 14:28:11.921] [info] [apu] [t5584] [audio] SDL en 10 s: 1868 tramas con datos y 2 de silencio por falta de tramas
+[2026-10-13 14:28:13.019] [info] [core] [t10468] [xma] en el hilo que llama, 10.0 s: kicks 3486 con 3486 contextos descodificados, 26.6 ms (maximo 0.62 ms); locks 3483 con 3483 contextos, 0.4 ms esperando (maximo 0.00 ms)
+[2026-10-13 14:28:13.019] [info] [core] [t10468] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 14:28:13.743] [warning] [krnl] [t19336] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 14:28:16.441] [warning] [krnl] [t19336] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 14:28:16.442] [info] [krnl] [t19336] [io] 15 s: 310 aperturas (221 fallan) 8.5 ms en total, peor 1.4 ms, media 0.03 ms; 679 lecturas 57.2 MB en 20.5 ms, peor 2.0 ms
+[2026-10-13 14:28:16.442] [info] [krnl] [t19336] [io] rutas: 12 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1808 entradas en el arbol); ventana: 101 aciertos / 39 rellenos / 533 directas, 3.8 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 14:28:16.442] [info] [krnl] [t19336] [io] rangos: 148 releidas de 607 (24 %), 7.7 MB ya leidos antes de 57.2 MB (13 %); 322 seguidas (53 %); 0 desalojos
+[2026-10-13 14:28:16.442] [info] [krnl] [t19336] [io] rangos-cache: 6 aciertos / 9 fallos (40 %), 1.5 MB desde RAM contra 2.4 MB de la SD; 9 entradas vivas (2.4 MB de 64 tope), 0 expulsiones; no cacheadas: 308 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 14:28:18.624] [warning] [krnl] [t19336] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 14:28:19.119] [info] [gpu] [t10484] BO3 NATIVE timing: 3.04 swaps/s over 9881ms; queue/fence=460.8ms textureCPU=402.3ms exportCPU=7998.1ms shader=0.3ms pipeline=0.0ms submissions=120 uploadMiB=19.78 linearMiB=19.78 tiledMiB=0.00 exportSnapshotMiB=72.35
+[2026-10-13 14:28:21.390] [warning] [krnl] [t19336] __imp__XamMediaVerificationVerify STUB
+[2026-10-13 14:28:21.926] [info] [apu] [t5584] [audio] SDL en 10 s: 1864 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 14:28:23.040] [info] [core] [t10468] [xma] en el hilo que llama, 10.0 s: kicks 3697 con 3697 contextos descodificados, 27.8 ms (maximo 1.93 ms); locks 3696 con 3696 contextos, 0.4 ms esperando (maximo 0.00 ms)
+[2026-10-13 14:28:23.040] [info] [core] [t10468] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 14:28:24.121] [info] [sys] [t20412] [guardado] abrir «user_settings» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\user_settings -> 1 fichero(s), 2048 B: user_settings (2048 B)
+[2026-10-13 14:28:24.121] [info] [fs] [t20412] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\user_settings' en \Device\Content\5\: 1 entradas en 0.1 ms (escritura)
+[2026-10-13 14:28:24.121] [info] [krnl] [t20412] [guardado] XamContentCreate raiz «save» contenido «user_settings» tipo 00000001 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 14:28:24.121] [info] [sys] [t9584] [guardado] cerrar «user_settings» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\user_settings -> 1 fichero(s), 2048 B: user_settings (2048 B)
+[2026-10-13 14:28:24.222] [info] [sys] [t20412] [guardado] abrir «stats_mp_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_mp_offline -> 1 fichero(s), 62464 B: stats_mp_offline (62464 B)
+[2026-10-13 14:28:24.222] [info] [fs] [t20412] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_mp_offline' en \Device\Content\6\: 1 entradas en 0.1 ms (escritura)
+[2026-10-13 14:28:24.222] [info] [krnl] [t20412] [guardado] XamContentCreate raiz «save» contenido «stats_mp_offline» tipo 00000001 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 14:28:24.223] [info] [sys] [t9584] [guardado] cerrar «stats_mp_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_mp_offline -> 1 fichero(s), 62464 B: stats_mp_offline (62464 B)
+[2026-10-13 14:28:24.324] [info] [sys] [t20412] [guardado] abrir «loadouts_mp_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_mp_offline -> 1 fichero(s), 7168 B: loadouts_mp_offline (7168 B)
+[2026-10-13 14:28:24.324] [info] [fs] [t20412] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_mp_offline' en \Device\Content\7\: 1 entradas en 0.1 ms (escritura)
+[2026-10-13 14:28:24.324] [info] [krnl] [t20412] [guardado] XamContentCreate raiz «save» contenido «loadouts_mp_offline» tipo 00000001 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 14:28:24.325] [info] [sys] [t9584] [guardado] cerrar «loadouts_mp_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_mp_offline -> 1 fichero(s), 7168 B: loadouts_mp_offline (7168 B)
+[2026-10-13 14:28:24.426] [info] [sys] [t20412] [guardado] abrir «stats_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline -> 1 fichero(s), 55296 B: stats_zm_offline (55296 B)
+[2026-10-13 14:28:24.426] [info] [fs] [t20412] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline' en \Device\Content\8\: 1 entradas en 0.1 ms (escritura)
+[2026-10-13 14:28:24.426] [info] [krnl] [t20412] [guardado] XamContentCreate raiz «save» contenido «stats_zm_offline» tipo 00000001 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 14:28:24.426] [info] [sys] [t9584] [guardado] cerrar «stats_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_zm_offline -> 1 fichero(s), 55296 B: stats_zm_offline (55296 B)
+[2026-10-13 14:28:24.527] [info] [sys] [t20412] [guardado] abrir «loadouts_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_zm_offline -> 1 fichero(s), 7168 B: loadouts_zm_offline (7168 B)
+[2026-10-13 14:28:24.527] [info] [fs] [t20412] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_zm_offline' en \Device\Content\9\: 1 entradas en 0.1 ms (escritura)
+[2026-10-13 14:28:24.527] [info] [krnl] [t20412] [guardado] XamContentCreate raiz «save» contenido «loadouts_zm_offline» tipo 00000001 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 14:28:24.527] [info] [sys] [t9584] [guardado] cerrar «loadouts_zm_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\loadouts_zm_offline -> 1 fichero(s), 7168 B: loadouts_zm_offline (7168 B)
+[2026-10-13 14:28:24.628] [info] [sys] [t20412] [guardado] abrir «stats_fr_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_fr_offline -> 1 fichero(s), 61440 B: stats_fr_offline (61440 B)
+[2026-10-13 14:28:24.628] [info] [fs] [t20412] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_fr_offline' en \Device\Content\10\: 1 entradas en 0.1 ms (escritura)
+[2026-10-13 14:28:24.628] [info] [krnl] [t20412] [guardado] XamContentCreate raiz «save» contenido «stats_fr_offline» tipo 00000001 modo 3 -> abrir (resultado 00000000)
+[2026-10-13 14:28:24.628] [info] [sys] [t9584] [guardado] cerrar «stats_fr_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_fr_offline -> 1 fichero(s), 61440 B: stats_fr_offline (61440 B)
+[2026-10-13 14:28:26.276] [info] [gpu] [t10484] BO3 native shader PS EEF09A18F0ADF2F4: 9 instructions -> 1869 SPIR-V words; interpolators 0003, colours 1, textures 00000001, vertex fetches 00000000
+[2026-10-13 14:28:29.865] [info] [sys] [t20412] [guardado] crear «stats_mp_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_mp_offline
+[2026-10-13 14:28:29.866] [info] [fs] [t20412] [io] montado 'C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_mp_offline' en \Device\Content\11\: 0 entradas en 0.1 ms (escritura)
+[2026-10-13 14:28:29.866] [info] [sys] [t20412] [guardado] cabecera de «stats_mp_offline» escrita en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\Headers\00000001\stats_mp_offline.header
+[2026-10-13 14:28:29.866] [info] [krnl] [t20412] [guardado] XamContentCreate raiz «save» contenido «stats_mp_offline» tipo 00000001 modo 2 -> crear (resultado 00000000)
+[2026-10-13 14:28:29.867] [info] [sys] [t9584] [guardado] cerrar «stats_mp_offline» (raiz save) en C:\bo3recomp\runtime\user\B13EBABEBABEBABE\4156091D\00000001\stats_mp_offline -> 1 fichero(s), 62464 B: stats_mp_offline (62464 B)
+[2026-10-13 14:28:31.615] [info] [krnl] [t19336] [io] 15 s: 7 aperturas (0 fallan) 0.9 ms en total, peor 0.3 ms, media 0.12 ms; 43 lecturas 5.0 MB en 3.6 ms, peor 2.2 ms
+[2026-10-13 14:28:31.615] [info] [krnl] [t19336] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1814 entradas en el arbol); ventana: 0 aciertos / 0 rellenos / 40 directas, 0.0 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 14:28:31.615] [info] [krnl] [t19336] [io] rangos: 5 releidas de 43 (12 %), 1.1 MB ya leidos antes de 5.0 MB (21 %); 6 seguidas (14 %); 0 desalojos
+[2026-10-13 14:28:31.615] [info] [krnl] [t19336] [io] rangos-cache: 9 aciertos / 19 fallos (32 %), 2.2 MB desde RAM contra 4.9 MB de la SD; 19 entradas vivas (4.9 MB de 64 tope), 0 expulsiones; no cacheadas: 332 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 14:28:31.902] [info] [gpu] [t10484] BO3 NATIVE timing: 2.35 swaps/s over 12783ms; queue/fence=863.8ms textureCPU=737.5ms exportCPU=9514.3ms shader=0.1ms pipeline=0.1ms submissions=187 uploadMiB=25.06 linearMiB=21.09 tiledMiB=3.97 exportSnapshotMiB=77.57
+[2026-10-13 14:28:31.929] [info] [apu] [t5584] [audio] SDL en 10 s: 1850 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 14:28:33.041] [info] [core] [t10468] [xma] en el hilo que llama, 10.0 s: kicks 3948 con 3948 contextos descodificados, 27.6 ms (maximo 0.17 ms); locks 3949 con 3949 contextos, 0.5 ms esperando (maximo 0.00 ms)
+[2026-10-13 14:28:33.041] [info] [core] [t10468] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 14:28:35.169] [info] [gpu] [t10484] BO3 native shader PS BB111DFB34E9C98B: 1 instructions -> 971 SPIR-V words; interpolators 0001, colours 1, textures 00000000, vertex fetches 00000000
+[2026-10-13 14:28:35.169] [info] [gpu] [t10484] BO3 native shader VS BE68717E4DF4E8D8: 12 instructions -> 2894 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 14:28:35.169] [warning] [gpu] [t10484] BO3 NATIVE unsupported: multisample_target (packet consumed, draw not submitted)
+[2026-10-13 14:28:35.169] [info] [gpu] [t10484] BO3 native shader PS C246810F9448EC02: 1 instructions -> 971 SPIR-V words; interpolators 0001, colours 1, textures 00000000, vertex fetches 00000000
+[2026-10-13 14:28:35.169] [info] [gpu] [t10484] BO3 native shader VS 03EEAA01C3B394BF: 12 instructions -> 2894 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 14:28:35.169] [warning] [gpu] [t10484] BO3 NATIVE unsupported: multisample_target (packet consumed, draw not submitted)
+[2026-10-13 14:28:35.169] [info] [gpu] [t10484] BO3 native shader PS 7908906CB4FF32BB: 59 instructions -> 8369 SPIR-V words; interpolators 3FFF, colours 1, textures 0000A006, vertex fetches 00000000
+[2026-10-13 14:28:35.170] [info] [gpu] [t10484] BO3 native shader VS 6EFA8F94F8E84265: 68 instructions -> 9802 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 14:28:35.170] [info] [gpu] [t10484] BO3 native shader PS BD826AA502533BFF: 76 instructions -> 10560 SPIR-V words; interpolators FFFF, colours 1, textures 0000A006, vertex fetches 00000000
+[2026-10-13 14:28:35.170] [info] [gpu] [t10484] BO3 native shader VS 45C22282135783F5: 71 instructions -> 10630 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 14:28:35.170] [info] [gpu] [t10484] BO3 native shader PS C9B26ED877177A19: 25 instructions -> 3565 SPIR-V words; interpolators 000F, colours 1, textures 00000001, vertex fetches 00000000
+[2026-10-13 14:28:35.170] [info] [gpu] [t10484] BO3 native shader VS 43A0A190216125E2: 13 instructions -> 2996 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 14:28:35.178] [info] [gpu] [t10484] BO3 native target 320x180 format 97 color base 1952 depth base 68
+[2026-10-13 14:28:35.178] [info] [gpu] [t10484] BO3 native float24 depth uses D32 storage; packed quantization/clear parity unverified
+[2026-10-13 14:28:35.189] [warning] [gpu] [t10484] BO3 NATIVE unsupported: texture_format_54 (packet consumed, draw not submitted)
+[2026-10-13 14:28:35.189] [warning] [gpu] [t10484] BO3 NATIVE unsupported: resolve_exponent_11 (packet consumed, draw not submitted)
+[2026-10-13 14:28:35.189] [info] [gpu] [t10484] BO3 native shader PS 5D877A778427732D: 8 instructions -> 2006 SPIR-V words; interpolators 000F, colours 1, textures 00000001, vertex fetches 00000000
+[2026-10-13 14:28:35.189] [info] [gpu] [t10484] BO3 native shader VS 14D6A711E0A9B7DF: 13 instructions -> 2996 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 14:28:35.195] [info] [gpu] [t10484] BO3 native target 160x90 format 97 color base 1928 depth base 68
+[2026-10-13 14:28:35.195] [info] [gpu] [t10484] BO3 native float24 depth uses D32 storage; packed quantization/clear parity unverified
+[2026-10-13 14:28:35.203] [warning] [gpu] [t10484] BO3 NATIVE unsupported: texture_numeric_conversion (packet consumed, draw not submitted)
+[2026-10-13 14:28:35.203] [warning] [gpu] [t10484] BO3 NATIVE unsupported: resolve_exponent_11 (packet consumed, draw not submitted)
+[2026-10-13 14:28:35.204] [info] [gpu] [t10484] BO3 native target 80x45 format 97 color base 1922 depth base 68
+[2026-10-13 14:28:35.204] [info] [gpu] [t10484] BO3 native float24 depth uses D32 storage; packed quantization/clear parity unverified
+[2026-10-13 14:28:35.212] [warning] [gpu] [t10484] BO3 NATIVE unsupported: texture_numeric_conversion (packet consumed, draw not submitted)
+[2026-10-13 14:28:35.212] [info] [gpu] [t10484] BO3 native shader PS 3D10ACD37886E7AB: 10 instructions -> 2427 SPIR-V words; interpolators 003F, colours 1, textures 00000001, vertex fetches 00000000
+[2026-10-13 14:28:35.212] [info] [gpu] [t10484] BO3 native shader VS 9A28E68621D4CA53: 14 instructions -> 3058 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 14:28:35.220] [info] [gpu] [t10484] BO3 native shader PS 75E786D3C622569D: 10 instructions -> 2427 SPIR-V words; interpolators 003F, colours 1, textures 00000001, vertex fetches 00000000
+[2026-10-13 14:28:35.220] [info] [gpu] [t10484] BO3 native shader VS 07849A6916CC7538: 14 instructions -> 3049 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 14:28:35.228] [info] [gpu] [t10484] BO3 native shader PS 03D82507C2227B98: 6 instructions -> 1821 SPIR-V words; interpolators 0007, colours 1, textures 00000003, vertex fetches 00000000
+[2026-10-13 14:28:35.228] [info] [gpu] [t10484] BO3 native shader VS 62BD44703E4A15D4: 13 instructions -> 3006 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 14:28:35.259] [info] [gpu] [t10484] BO3 native shader PS 4817018CD698A824: 43 instructions -> 7019 SPIR-V words; interpolators 01FF, colours 1, textures 00000001, vertex fetches 00000000
+[2026-10-13 14:28:35.259] [info] [gpu] [t10484] BO3 native shader VS DF35E70177804DCE: 15 instructions -> 3160 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 14:28:35.266] [info] [gpu] [t10484] BO3 native target 80x1024 format 37 color base 1984 depth base 68
+[2026-10-13 14:28:35.266] [info] [gpu] [t10484] BO3 native float24 depth uses D32 storage; packed quantization/clear parity unverified
+[2026-10-13 14:28:35.291] [info] [gpu] [t10484] BO3 native shader PS 8D2174321ACFAF06: 14 instructions -> 2489 SPIR-V words; interpolators 0003, colours 1, textures 00000007, vertex fetches 00000000
+[2026-10-13 14:28:35.291] [info] [gpu] [t10484] BO3 native shader PS E69B951AB3C923B7: 15 instructions -> 2989 SPIR-V words; interpolators 003F, colours 1, textures 00000001, vertex fetches 00000000
+[2026-10-13 14:28:35.291] [info] [gpu] [t10484] BO3 native shader VS 37F8F65287BF91C4: 19 instructions -> 3515 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 14:28:35.491] [warning] [gpu] [t10484] BO3 NATIVE unsupported: texture_format_54 (packet consumed, draw not submitted)
+[2026-10-13 14:28:35.656] [warning] [krnl] [t15040] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-13 14:28:35.656] [warning] [krnl] [t15040] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-13 14:28:35.756] [info] [gpu] [t10484] BO3 native target 1040x53 format 37 color base 1164 depth base 1606
+[2026-10-13 14:28:35.756] [info] [gpu] [t10484] BO3 native float24 depth uses D32 storage; packed quantization/clear parity unverified
+[2026-10-13 14:28:35.877] [info] [gpu] [t10484] BO3 native shader PS 433CAE97C09D209E: 6 instructions -> 1604 SPIR-V words; interpolators 0003, colours 1, textures 00000001, vertex fetches 00000000
+[2026-10-13 14:28:35.917] [info] [gpu] [t10484] BO3 native shader PS 0D35EE0E164B7B00: 15 instructions -> 2355 SPIR-V words; interpolators 0007, colours 1, textures 00000001, vertex fetches 00000000
+[2026-10-13 14:28:36.064] [info] [gpu] [t10484] BO3 native shader PS 69B6FCC67C4B1727: 17 instructions -> 3011 SPIR-V words; interpolators 003F, colours 1, textures 00000001, vertex fetches 00000000
+[2026-10-13 14:28:36.396] [info] [gpu] [t10484] BO3 native shader PS FEC02D3C5BB7BA61: 7 instructions -> 1822 SPIR-V words; interpolators 0007, colours 1, textures 00000001, vertex fetches 00000000
+[2026-10-13 14:28:37.854] [info] [gpu] [t10484] BO3 native shader PS 1B8AD8E426E9E4FA: 17 instructions -> 2592 SPIR-V words; interpolators 001F, colours 1, textures 00000001, vertex fetches 00000000
+[2026-10-13 14:28:40.087] [info] [gpu] [t10484] BO3 native shader PS 02A62A8574BC958D: 38 instructions -> 5550 SPIR-V words; interpolators 003F, colours 1, textures 00000003, vertex fetches 00000000
+[2026-10-13 14:28:40.088] [info] [gpu] [t10484] BO3 native target 1040x25 format 37 color base 1164 depth base 1606
+[2026-10-13 14:28:40.088] [info] [gpu] [t10484] BO3 native float24 depth uses D32 storage; packed quantization/clear parity unverified
+[2026-10-13 14:28:41.399] [info] [gpu] [t10484] BO3 native target 1040x47 format 37 color base 1164 depth base 1606
+[2026-10-13 14:28:41.399] [info] [gpu] [t10484] BO3 native float24 depth uses D32 storage; packed quantization/clear parity unverified
+[2026-10-13 14:28:41.433] [info] [gpu] [t10484] BO3 native target 1040x74 format 37 color base 1164 depth base 1606
+[2026-10-13 14:28:41.433] [info] [gpu] [t10484] BO3 native float24 depth uses D32 storage; packed quantization/clear parity unverified
+[2026-10-13 14:28:41.460] [info] [gpu] [t10484] BO3 native target 1040x70 format 37 color base 1164 depth base 1606
+[2026-10-13 14:28:41.460] [info] [gpu] [t10484] BO3 native float24 depth uses D32 storage; packed quantization/clear parity unverified
+[2026-10-13 14:28:41.908] [info] [gpu] [t10484] BO3 native shader PS 9A34669BC8BB0E66: 17 instructions -> 3279 SPIR-V words; interpolators 003F, colours 1, textures 00000001, vertex fetches 00000000
+[2026-10-13 14:28:41.932] [info] [apu] [t5584] [audio] SDL en 10 s: 1853 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 14:28:43.053] [info] [core] [t10468] [xma] en el hilo que llama, 10.0 s: kicks 3974 con 3974 contextos descodificados, 34.5 ms (maximo 2.19 ms); locks 3973 con 3973 contextos, 0.5 ms esperando (maximo 0.00 ms)
+[2026-10-13 14:28:43.053] [info] [core] [t10468] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 14:28:46.619] [info] [krnl] [t19336] [io] 15 s: 0 aperturas (0 fallan) 0.0 ms en total, peor 0.0 ms, media 0.00 ms; 42 lecturas 4.3 MB en 1.4 ms, peor 0.1 ms
+[2026-10-13 14:28:46.619] [info] [krnl] [t19336] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1814 entradas en el arbol); ventana: 0 aciertos / 7 rellenos / 31 directas, 0.2 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 14:28:46.619] [info] [krnl] [t19336] [io] rangos: 6 releidas de 42 (14 %), 1.1 MB ya leidos antes de 4.3 MB (25 %); 10 seguidas (24 %); 0 desalojos
+[2026-10-13 14:28:46.619] [info] [krnl] [t19336] [io] rangos-cache: 13 aciertos / 24 fallos (35 %), 3.2 MB desde RAM contra 6.2 MB de la SD; 24 entradas vivas (6.2 MB de 64 tope), 0 expulsiones; no cacheadas: 351 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 14:28:51.951] [info] [apu] [t5584] [audio] SDL en 10 s: 1860 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 14:28:53.073] [info] [core] [t10468] [xma] en el hilo que llama, 10.0 s: kicks 3965 con 3965 contextos descodificados, 31.1 ms (maximo 2.54 ms); locks 3965 con 3965 contextos, 0.5 ms esperando (maximo 0.06 ms)
+[2026-10-13 14:28:53.073] [info] [core] [t10468] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 14:28:57.461] [info] [gpu] [t10484] BO3 NATIVE timing: 1.17 swaps/s over 25559ms; queue/fence=5722.3ms textureCPU=4309.4ms exportCPU=3512.6ms shader=2.9ms pipeline=5.5ms submissions=1233 uploadMiB=40.29 linearMiB=18.46 tiledMiB=21.84 exportSnapshotMiB=70.25
+[2026-10-13 14:28:57.461] [info] [gpu] [t10484] BO3 NATIVE progress: swaps=240 packets=21258 submitted=1520 copies=416 exports=3178 targets=10 textures=22 pipelines=25 imageMiB=53 frontbuffer=1D7E8000
+[2026-10-13 14:28:57.461] [info] [gpu] [t10484] BO3 NATIVE skipped edram_draw_mode: 341
+[2026-10-13 14:28:57.461] [info] [gpu] [t10484] BO3 NATIVE skipped multisample_target: 90
+[2026-10-13 14:28:57.461] [info] [gpu] [t10484] BO3 NATIVE skipped native_resolve_not_implemented: 272
+[2026-10-13 14:28:57.461] [info] [gpu] [t10484] BO3 NATIVE skipped primitive_1: 15134
+[2026-10-13 14:28:57.461] [info] [gpu] [t10484] BO3 NATIVE skipped primitive_8: 37
+[2026-10-13 14:28:57.461] [info] [gpu] [t10484] BO3 NATIVE skipped resolve_exponent_11: 144
+[2026-10-13 14:28:57.461] [info] [gpu] [t10484] BO3 NATIVE skipped stencil_state: 394
+[2026-10-13 14:28:57.461] [info] [gpu] [t10484] BO3 NATIVE skipped texture_format_54: 18
+[2026-10-13 14:28:57.461] [info] [gpu] [t10484] BO3 NATIVE skipped texture_mips: 4
+[2026-10-13 14:28:57.461] [info] [gpu] [t10484] BO3 NATIVE skipped texture_numeric_conversion: 126
+[2026-10-13 14:29:01.961] [info] [apu] [t5584] [audio] SDL en 10 s: 1848 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 14:29:02.049] [info] [core] [t21156] Window closing, shutting down...
+[2026-10-13 14:29:02.052] [info] [core] [t4688] Execution complete
+[2026-10-13 14:29:02.251] [info] [core] [t21156] Title terminated; hard-exiting process.

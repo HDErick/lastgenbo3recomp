@@ -6,14 +6,25 @@ param(
     [switch]$GpuCapture,
     [switch]$D3DTrace,
     [switch]$MemexportProbe,
+    [switch]$MemexportParity,
+    [switch]$Native,
+    [switch]$NativeNoCull,
+    [switch]$NativeReadback,
     [ValidatePattern('^[A-Za-z0-9_-]+$')][string]$DiscoveryRun = 'native-discovery',
     [switch]$Background
 )
 $ErrorActionPreference = 'Stop'
+if ($NativeNoCull -and -not $Native) { throw 'NativeNoCull requires Native' }
+if ($NativeReadback -and -not $Native) { throw 'NativeReadback requires Native' }
 $projectRoot = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $executable = Join-Path $projectRoot 'build/pc-vulkan/bo3_zm_vulkan.exe'
 $logPath = Join-Path $projectRoot ('runtime/logs/' + $LogName)
 $cacheRoot = Join-Path $projectRoot ('runtime/cache-pc-vulkan-' + $RenderTargetPath)
+if ($Native) {
+    if ($GpuCapture -or $MemexportProbe -or $MemexportParity -or $DumpShaders) { throw 'Native prototype uses its own diagnostics; these Xenos capture modes are unsupported' }
+    $cacheRoot = Join-Path $projectRoot 'runtime/cache-pc-native'
+    if (-not (Test-Path -LiteralPath (Join-Path (Split-Path $executable) 'rexgpu-bo3native.dll'))) { throw 'Build the native GPU plugin first' }
+}
 if (-not (Test-Path -LiteralPath $executable)) { throw 'Build the PC Vulkan baseline first' }
 New-Item -ItemType Directory -Path $cacheRoot -Force | Out-Null
 $arguments = @(
@@ -21,7 +32,7 @@ $arguments = @(
     '--update_data_root', (Join-Path $projectRoot 'runtime/update'),
     '--user_data_root', (Join-Path $projectRoot 'runtime/user'),
     '--cache_root', $cacheRoot,
-    '--gpu_plugin', 'xenos',
+    '--gpu_plugin', $(if ($Native) { 'bo3native' } else { 'xenos' }),
     # GPU-plugin cvars register after CLI parsing; separated values are not
     # replayed by SDK 0.10. Use --name=value for those late registrations.
     "--render_target_path_vulkan=$RenderTargetPath",
@@ -38,7 +49,7 @@ $captureEnvironment = @{}
 foreach ($name in 'BO3_SAMPLE_SECS','BO3_CAPTURE_FRAMES','BO3_DUMP_IMAGE',
     'BO3_GPU_CAPTURE_DIR','BO3_RENDERDOC_DLL','VK_LAYER_PATH','VK_INSTANCE_LAYERS',
     'ENABLE_VULKAN_RENDERDOC_CAPTURE','VK_ADD_IMPLICIT_LAYER_PATH','BO3_D3D_TRACE_DIR',
-    'BO3_MEMEXPORT_PROBE_DIR') {
+    'BO3_MEMEXPORT_PROBE_DIR','BO3_MEMEXPORT_PARITY_DIR','BO3_NATIVE_NO_CULL','BO3_NATIVE_READBACK') {
     $captureEnvironment[$name] = [Environment]::GetEnvironmentVariable($name, 'Process')
 }
 try {
@@ -49,6 +60,9 @@ $env:BO3_GPU_CAPTURE_DIR = $null
 $env:BO3_RENDERDOC_DLL = $null
 $env:BO3_D3D_TRACE_DIR = if ($D3DTrace) { Join-Path $projectRoot ('runtime/' + $DiscoveryRun) } else { $null }
 $env:BO3_MEMEXPORT_PROBE_DIR = $null
+$env:BO3_MEMEXPORT_PARITY_DIR = $null
+$env:BO3_NATIVE_NO_CULL = if ($NativeNoCull) { '1' } else { $null }
+$env:BO3_NATIVE_READBACK = if ($NativeReadback) { '1' } else { $null }
 if ($MemexportProbe) {
     $probeRoot = Join-Path $projectRoot ('runtime/' + $DiscoveryRun + '/memexport')
     if ((Test-Path -LiteralPath $probeRoot) -and
@@ -56,6 +70,12 @@ if ($MemexportProbe) {
         throw 'Use a new DiscoveryRun for memexport snapshots; existing output is preserved'
     }
     $env:BO3_MEMEXPORT_PROBE_DIR = $probeRoot
+}
+if ($MemexportParity) {
+    $parityRoot = Join-Path $projectRoot ('runtime/' + $DiscoveryRun + '/parity')
+    if (Test-Path -LiteralPath $parityRoot) { throw 'Use a fresh DiscoveryRun for parity captures' }
+    $env:BO3_MEMEXPORT_PARITY_DIR = $parityRoot
+    $arguments += @('--readback_memexport=true', '--readback_memexport_fast=false')
 }
 if ($GpuCapture) {
     $renderDocRoot = Join-Path $projectRoot 'tools/renderdoc/RenderDoc_1.46_64'

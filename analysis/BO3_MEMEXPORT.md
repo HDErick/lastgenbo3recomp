@@ -151,6 +151,33 @@ python scripts/nx/plan-memexport-copies.py --input runtime/native-memexport03/me
 Evidence: `analysis/bo3_memexport_state03.json`,
 `analysis/bo3_memexport_copy_plan03.json`, `analysis/bo3_memexport_copy_model_tests01.log`
 and `analysis/pc_vulkan_native_memexport03.log`.
-Next verify actual input/output bytes against the emulated GPU result, then
-implement the bounded copy operation with correct resource ownership, visibility
-and completion in the native backend. Both shader replacements remain blocked.
+## Completed GPU byte comparison and native copy implementation
+
+The optional PC probe now captures source and original destination bytes before
+the emulated draw, then destination bytes after the existing synchronous full
+GPU readback has completed. The launcher uses `-MemexportParity` and explicitly
+disables fast readback. Raw captures remain under ignored `runtime` directories.
+
+`native-export-parity01` contains four samples per program. All eight match the
+modeled output across the complete destination, including untouched gaps.
+Seven samples contain nonzero writes: the contiguous path covers 921,600 and
+278,528-byte video-sized buffers; three strided samples change 542, 942 and 363
+bytes. One strided sample writes zeros. These are sampled states, not exhaustive
+proof for arbitrary export programs. Evidence: `bo3_memexport_parity01.json`
+and `pc_native_export_parity01.log`.
+
+`nx/native/memexport_copy.h` implements only these exact canonical SHA-256
+programs, with the reviewed draw/constants/endian/range/overlap guards. Every
+guard runs before writes. The native backend completes earlier GPU submissions,
+checks writable destination memory, snapshots the used source extent and applies
+the bounded ranges. It preserves gaps and refreshes CPU-backed textures through
+content hashes. No dropped-export SPIR-V module is used for these operations.
+Unknown programs or changed state remain unsupported.
+
+The C++ implementation matches all eight real GPU outputs and rejects altered
+index offset, stream format and source bounds. After the first timing run showed
+heavy export overhead, contiguous planning was reduced to one bounded range;
+strided planning stops at export bounds and scratch storage is reused. The
+optimized implementation still passes all eight captures. Evidence:
+`bo3_native_memexport_tests02.json`. Native frontend output has been observed by
+the user; complete native gameplay and other producer/consumer paths are unproven.

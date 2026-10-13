@@ -2,15 +2,15 @@
   "repository": "PaulCombal/mw2-recompiled",
   "commit": "1d7171213c87b532039b234e61af29d94010262a",
   "license": "GPL-3.0-only; LICENSE retained next to sources",
-  "adaptation": "Observed BO3 2D getWeights profile; separate typed texture views (ABI 2)",
+  "adaptation": "Observed BO3 2D getWeights profile; typed texture views (ABI 2); exact vertex dword load extents",
   "files": {
     "LICENSE": {
       "bytes": 35149,
       "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
     },
     "runtime/gpu/vulkan/shader_translator.cpp": {
-      "bytes": 119836,
-      "sha256": "dca2a5db62ce9993e9c62dcc2ab2ee2ce02f029043bdb975b24cf6c35b6524df"
+      "bytes": 120306,
+      "sha256": "bb962d48f65fd73c2db3332969b67bc199e8ff8468bf0f1e1eef4be884bf7a81"
     },
     "runtime/gpu/vulkan/shader_translator.h": {
       "bytes": 3618,
@@ -72,5 +72,6 @@
   "source_root": "tools/bo3-mw2-shader-translator",
   "patch_sha256": "a2cad0213dc7cdf7c4d06f66605447695f96bae72892a7f64e72f0b67ef3af84",
   "texture_views_patch_sha256": "52bc6748ec572f973678cf0c6aa34d58718f500d13dfa39d24fa835bcc56c524",
-  "preparation_sha256": "33cd2664a6be2acd61c6bdd460141e4c6da7647c6043bce0abbb5b93d11c92fa"
+  "vertex_ranges_patch_sha256": "ee59a5eeecffe4a1047c71a5fdac1223d534695003d8193407c9c30a16a23935",
+  "preparation_sha256": "b203d12356f32cf27faae71086d0ba2de567062571adb8df2df1681746c04cf4"
 }
