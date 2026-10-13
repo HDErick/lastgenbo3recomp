@@ -14,7 +14,11 @@ SDK; a complete runtime port and playable performance are still unproven.
 The user confirmed original Switch/OLED hardware and title takeover.
 See [NX port plan](docs/NX_PORT.md) and `analysis/nx_environment.json`.
 Hardware evidence: `analysis/nx_preflight_hardware01.log` and
-`analysis/nx_preflight_result.json`. Runtime adaptation is the next milestone.
+`analysis/nx_preflight_result.json`. The first complete BO3 Zombies Horizon NRO
+has linked and packaged, using the pinned Switch SDK and Vulkan Xenos backend.
+Startup at zero, linked aliases and the custom exception handler were verified.
+The game NRO has not yet been tested on hardware. See
+[NX runtime build](docs/NX_RUNTIME.md).
 
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches
 playable Shadows of Evil, confirmed by the user. The user also confirmed that

@@ -27,7 +27,8 @@ Completed in this first stage:
   Mesa/NVK. Verified ELF64, AArch64 and `_start` at address zero.
 - Ran a compile-only probe of the first existing Zombies C++ chunk. The current
   SDK rejects the Switch OS. Build-local platform and alias adaptations proceed
-  to a missing `ucontext.h` dependency. No BO3 ARM64 object or game NRO was built.
+  to a missing `ucontext.h` dependency. That probe did not produce a BO3 ARM64
+  object; the subsequent full Horizon build is described in NX_RUNTIME.md.
   Evidence: `analysis/nx_cpu_probe.json` and the two associated compiler logs.
 
 The environment NRO does not load game files, execute BO3, present a Vulkan
@@ -110,6 +111,8 @@ from that total to estimate usable game memory. GPU frame presentation, BO3
 execution, full renderer feature coverage and playable performance are not
 established by this test. The environment milestone has passed; the next work
 is Horizon runtime adaptation.
+That work is now underway; [NX_RUNTIME.md](NX_RUNTIME.md) describes the isolated
+SDK, BO3 host, build scripts and first game-test package.
 
 ## Runtime migration decision
 

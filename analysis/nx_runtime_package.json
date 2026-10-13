@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-13",
+  "content_roots": [
+    {
+      "source": "runtime\\game",
+      "destination": "build\\nx-package\\bo3recomp\\game",
+      "files": 383,
+      "bytes": 4081984263
+    },
+    {
+      "source": "runtime\\update",
+      "destination": "build\\nx-package\\bo3recomp\\update",
+      "files": 429,
+      "bytes": 114824767
+    },
+    {
+      "source": "runtime\\user\\0000000000000000",
+      "destination": "build\\nx-package\\bo3recomp\\user\\0000000000000000",
+      "files": 984,
+      "bytes": 3875936166
+    }
+  ],
+  "missing_or_wrong_size": [],
+  "nro_hash_matches": true,
+  "scope": "All content paths/sizes checked; packaged NRO hash verified"
+}

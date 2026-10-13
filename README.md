@@ -4,7 +4,9 @@ See [PROGRESS.md](PROGRESS.md) for current progress, limitations and next work.
 
 The `NX` branch starts the Nintendo Switch port. See
 [NX port status and plan](docs/NX_PORT.md) for the reference analysis, installed
-toolchain and buildable environment probe. BO3 does not yet run on Switch.
+toolchain and validated environment probe. A first BO3 Zombies NRO now builds;
+see [NX runtime and SD layout](docs/NX_RUNTIME.md). Game boot and playable
+performance on Switch have not been validated.
 
 This project builds the updated Xbox 360 Zombies executable (`default_zm.xex` +
 `default_zm.xexp`) as `build/bo3_zm.exe`, using an isolated copy of the working

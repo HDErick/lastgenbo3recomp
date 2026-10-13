@@ -1,0 +1,7 @@
+# Initial correctness build. No measured BO3 performance tuning yet.
+gpu_plugin = "xenos"
+render_target_path_vulkan = "fbo"
+xam_signin_state = 1
+log_file = "sdmc:/switch/bo3recomp/bo3_zm_nx.log"
+log_level = "info"
+nfsmw_io_rangos_mb = 0
