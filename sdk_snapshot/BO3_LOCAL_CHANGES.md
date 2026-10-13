@@ -17,6 +17,13 @@ changes are confined to the copy in `thirdparty/rexglue-sdk`:
   builds. It is disabled by default. The CSV uses host performance-counter ticks
   to align frames with the read-only external CPU sampler. This is not hardware
   GPU timing or a count of independently displayed frames.
+- `src/graphics/d3d12/command_processor.cpp`: fence-protect readback cache
+  eviction, track resolve readback writes, defer release of resized resolve
+  buffers, and correct the queue-operation HRESULT/event check. Add readback
+  resource names and more complete DRED allocation/breadcrumb logging.
+- `src/graphics/d3d12/shared_memory.cpp` and
+  `src/ui/d3d12/d3d12_upload_buffer_pool.cpp`: name GPU allocations for DRED.
+  See `analysis/GPU_CRASH_FIX.md` for evidence and validation status.
 
 Game-specific discovery boundaries and native CRT jump handling are configured
 in `app/bo3_zm_manifest.toml`. Package headers and optional frame/image capture are

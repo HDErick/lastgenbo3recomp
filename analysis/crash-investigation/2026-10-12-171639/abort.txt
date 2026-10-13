@@ -1,0 +1,13 @@
+SIGABRT on thread 2476
+  #0  0x00007FF7780CB287  bo3_zm!bo3::InstallCrashReporter+0x6A7
+  #1  0x00007FF826441989  ucrtbase!raise+0x1D9
+  #2  0x00007FF826424AB1  ucrtbase!abort+0x31
+  #3  0x00007FFF77FA7AAF  ?!<no symbol>+0x0
+  #4  0x00007FFF77FA65B8  ?!<no symbol>+0x0
+  #5  0x00007FFF7A729ECF  rexruntime!rex::ui::Presenter::PaintFromUIThread+0x26F
+  #6  0x00007FFF7A730B31  rexruntime!rex::ui::Window::OnPaint+0x31
+  #7  0x00007FFF7A737A97  rexruntime!rex::ui::SDLWindowedAppContext::RunMainMessageLoop+0x47
+  #8  0x00007FF77B5DAF75  bo3_zm!wWinMain+0x6C5
+  #9  0x00007FF77B65F38E  bo3_zm!__scrt_common_main_seh+0x106  (D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288)
+  #10 0x00007FF8284AE8D7  KERNEL32!BaseThreadInitThunk+0x17
+  #11 0x00007FF8289EC53C  ntdll!RtlUserThreadStart+0x2C

@@ -81,6 +81,7 @@ GraphicsUploadBufferPool::Page* D3D12UploadBufferPool::CreatePageImplementation(
     return nullptr;
   }
   D3D12_RANGE read_range;
+  buffer->SetName(L"RexGlue Upload Pool Page");
   read_range.Begin = 0;
   read_range.End = 0;
   void* mapping;

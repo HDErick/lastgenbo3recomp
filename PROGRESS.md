@@ -6,10 +6,11 @@ Updated October 12, 2026 (America/New_York).
 
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches
 playable Shadows of Evil, confirmed by the user. The user also confirmed that
-The Giant and Der Eisendrache both load successfully. Gameplay remains unstable:
-multiple tests lost the D3D12 device. No tested GPU configuration is an
-established fix. FPS tests are paused at the user's request while testing DLC
-maps from the menu.
+The Giant and Der Eisendrache both load successfully. Earlier builds lost the
+D3D12 device. A confirmed readback-buffer lifetime defect is now repaired. The
+patched build passed an 8 min 41 s run with DRED and a shorter 86 s control
+without DRED, both loading The Giant and ending normally. Long-session and
+all-map stability remain unverified. FPS testing remains paused.
 
 ## Completed
 
@@ -29,11 +30,19 @@ maps from the menu.
 
 ## Limitations
 
-- **GPU stability:** `DEVICE_HUNG` occurred with automatic ROV, explicit RTV,
+**Validated lifetime repair:** readback cache eviction could release buffers
+whose GPU writes were pending. The rebuilt runtime now protects those entries
+with submission fences. Actual unsafe evictions were prevented with cache sizes
+of 300–432 entries. Both gameplay checks passed; the normal-settings control was
+shorter than five minutes, so extended stability is still open.
+See [GPU crash repair](analysis/GPU_CRASH_FIX.md).
+
+- **GPU stability before the repair:** `DEVICE_HUNG` occurred with automatic ROV, explicit RTV,
   and RTV with alternate resource binding. Short successful runs do not prove
-  stability. The latest two-worker experiment crashed about 11 seconds after
+  stability. The earlier two-worker experiment crashed about 11 seconds after
   launch. DRED showed an unfinished `CopyBufferRegion` operation and page-fault
-  VA `0x0000B80227368000`; the responsible resource/error is unidentified.
+  VA `0x0000B80227368000`. That log did not identify the exact allocation;
+  the subsequent confirmed lifetime defect and repair are described above.
 - **Performance:** a compilation-heavy interval averaged 17.7 guest swaps/s,
   versus 30–33/s in later intervals with less compilation. Pipeline and driver
   workers consumed significant CPU time. The user reports improvement standing
@@ -70,7 +79,7 @@ The project is being versioned in the private repository
 `Wiiucoop/lastgenbo3recomp`. Game content, credentials, caches and compiled tools
 are excluded; source, scripts and progress records are retained.
 
-1. Investigate DRED buffer-copy/page-fault evidence to identify the GPU failure.
-2. Verify extended gameplay stability on the supplied maps.
+1. Verify extended normal-settings gameplay stability on the supplied maps.
+2. Investigate any remaining GPU failure using named DRED resource evidence.
 3. Resume FPS comparisons when requested, separating new content compilation
    from repeated views with a populated cache.

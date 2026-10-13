@@ -29,6 +29,7 @@
 #include <rex/kernel/xboxkrnl/video.h>
 #include <rex/logging.h>
 #include <rex/memory/utils.h>
+#include <rex/string/utf8.h>
 #include <rex/ui/d3d12/d3d12_presenter.h>
 #include <rex/ui/d3d12/d3d12_util.h>
 
@@ -2831,6 +2832,7 @@ bool D3D12CommandProcessor::IssueDraw_MemexportReadbackFastPath(uint32_t total_s
       buffer->Release();
       return false;
     }
+    buffer->SetName(L"RexGlue Memexport Readback");
 
     if (readback.buffers[index]) {
       if (!AwaitAllQueueOperationsCompletion()) {
@@ -2970,8 +2972,11 @@ bool D3D12CommandProcessor::IssueCopy_ReadbackResolvePath() {
         rb.buffers[write_index]->Unmap(0, nullptr);
         rb.mapped_data[write_index] = nullptr;
       }
-      rb.buffers[write_index]->Release();
+      // Deferred commands and earlier submissions may still target the old
+      // allocation. Retain it until the current submission fence completes.
+      resources_for_deletion_.emplace_back(submission_current_, rb.buffers[write_index]);
     }
+    buffer->SetName(L"RexGlue Resolve Readback");
     rb.buffers[write_index] = buffer;
     rb.sizes[write_index] = size;
     D3D12_RANGE read_range = {0, size};
@@ -3113,6 +3118,8 @@ bool D3D12CommandProcessor::IssueCopy_ReadbackResolvePath() {
                                                written_address, written_length);
   }
 
+  rb.submission_written[write_index] = submission_current_;
+  rb.written_size[write_index] = written_length;
   ReadbackResolveMode readback_mode = GetReadbackResolveMode(REXCVAR_GET(d3d12_readback_resolve));
   bool use_delayed_sync =
       readback_mode == ReadbackResolveMode::kFast || readback_mode == ReadbackResolveMode::kSome;
@@ -3158,9 +3165,9 @@ void D3D12CommandProcessor::CheckSubmissionFence(uint64_t await_submission) {
     if (queue_operations_done_since_submission_signal_) {
       UINT64 fence_value = ++queue_operations_since_submission_fence_last_;
       ID3D12CommandQueue* direct_queue = GetD3D12Provider().GetDirectQueue();
-      if (SUCCEEDED(direct_queue->Signal(queue_operations_since_submission_fence_, fence_value) &&
-                    SUCCEEDED(queue_operations_since_submission_fence_->SetEventOnCompletion(
-                        fence_value, fence_completion_event_)))) {
+      if (SUCCEEDED(direct_queue->Signal(queue_operations_since_submission_fence_, fence_value)) &&
+          SUCCEEDED(queue_operations_since_submission_fence_->SetEventOnCompletion(
+              fence_value, fence_completion_event_))) {
         PROFILE_CMD_BUFFER_STALL();
         WaitForSingleObject(fence_completion_event_, INFINITE);
         queue_operations_done_since_submission_signal_ = false;
@@ -3269,8 +3276,7 @@ void D3D12CommandProcessor::LogDeviceRemovalDiagnostics(ID3D12Device* device, HR
   if (SUCCEEDED(dred->GetAutoBreadcrumbsOutput(&breadcrumbs))) {
     for (const D3D12_AUTO_BREADCRUMB_NODE* node = breadcrumbs.pHeadAutoBreadcrumbNode; node;
          node = node->pNext) {
-      if (!node->pLastBreadcrumbValue || !node->pCommandHistory ||
-          *node->pLastBreadcrumbValue == 0) {
+      if (!node->pLastBreadcrumbValue || !node->pCommandHistory || !node->BreadcrumbCount) {
         continue;
       }
       REXGPU_ERROR("DRED breadcrumb: completed {} of {} ops", *node->pLastBreadcrumbValue,
@@ -3279,8 +3285,11 @@ void D3D12CommandProcessor::LogDeviceRemovalDiagnostics(ID3D12Device* device, HR
       uint32_t start = last > 3 ? last - 3 : 0;
       uint32_t end = std::min(last + 1, node->BreadcrumbCount);
       for (uint32_t i = start; i < end; i++) {
-        REXGPU_ERROR("  [{}] op type {}{}", i, static_cast<int>(node->pCommandHistory[i]),
-                     i == last ? " <-- FAULT" : "");
+        const auto op = node->pCommandHistory[i];
+        const char* op_name = op == D3D12_AUTO_BREADCRUMB_OP_COPYBUFFERREGION
+                                  ? " CopyBufferRegion" : "";
+        REXGPU_ERROR("  [{}] op type {}{}{}", i, static_cast<int>(op), op_name,
+                     i == last ? " <-- next uncompleted operation" : "");
       }
     }
   }
@@ -3288,6 +3297,19 @@ void D3D12CommandProcessor::LogDeviceRemovalDiagnostics(ID3D12Device* device, HR
   D3D12_DRED_PAGE_FAULT_OUTPUT page_fault = {};
   if (SUCCEEDED(dred->GetPageFaultAllocationOutput(&page_fault)) && page_fault.PageFaultVA != 0) {
     REXGPU_ERROR("DRED page fault at VA 0x{:016X}", page_fault.PageFaultVA);
+    auto log_allocations = [](const char* state, const D3D12_DRED_ALLOCATION_NODE* node) {
+      for (uint32_t count = 0; node && count < 32; node = node->pNext, ++count) {
+        std::string name = node->ObjectNameA ? node->ObjectNameA : "<unnamed>";
+        if (!node->ObjectNameA && node->ObjectNameW) {
+          name = rex::string::to_utf8(std::u16string_view(
+              reinterpret_cast<const char16_t*>(node->ObjectNameW)));
+        }
+        REXGPU_ERROR("DRED {} allocation: type {} name {}", state,
+                     static_cast<unsigned>(node->AllocationType), name);
+      }
+    };
+    log_allocations("existing", page_fault.pHeadExistingAllocationNode);
+    log_allocations("recently freed", page_fault.pHeadRecentFreedAllocationNode);
   }
 }
 
@@ -4816,6 +4838,19 @@ void D3D12CommandProcessor::EvictOldReadbackBuffers(
     bool evict =
         buffer_map.size() > kMaxReadbackBuffers || readback.last_used_frame < eviction_frame_floor;
     if (!evict) {
+      ++it;
+      continue;
+    }
+    // Cache size is a soft limit: releasing an allocation still referenced by
+    // queued GPU copies causes use-after-free and can remove the D3D12 device.
+    const uint64_t last_write = std::max(readback.submission_written[0],
+                                         readback.submission_written[1]);
+    if (last_write > submission_completed_) {
+      static uint32_t logged_deferrals = 0;
+      if (logged_deferrals++ < 8) {
+        REXGPU_INFO("Readback eviction deferred: write submission {}, completed {}, cache size {}",
+                     last_write, submission_completed_, buffer_map.size());
+      }
       ++it;
       continue;
     }

@@ -20,5 +20,5 @@ result = dict(compiler=subprocess.check_output(
     [str(root / 'tools/llvm-20.1.8/bin/clang++.exe'), '--version'], text=True).strip(),
     sdk=json.loads((root / 'thirdparty/rexglue-sdk/SOURCE_SNAPSHOT.json').read_text()),
     files=files)
-(root / 'analysis/build_provenance.json').write_text(json.dumps(result, indent=2))
+(root / 'analysis/build_provenance.json').write_text(json.dumps(result, indent=2), newline='\n')
 print('Recorded native binaries, toolchain, manifest and runtime image hashes')

@@ -79,6 +79,7 @@ bool D3D12SharedMemory::Initialize() {
     }
   }
   buffer_gpu_address_ = buffer_->GetGPUVirtualAddress();
+  buffer_->SetName(L"RexGlue Shared Guest Memory");
   buffer_uav_writes_commit_needed_ = false;
 
   D3D12_DESCRIPTOR_HEAP_DESC buffer_descriptor_heap_desc;

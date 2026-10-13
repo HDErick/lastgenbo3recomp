@@ -6,7 +6,10 @@ This project builds the updated Xbox 360 Zombies executable (`default_zm.xex` +
 `default_zm.xexp`) as `build/bo3_zm.exe`, using an isolated copy of the working
 BO2 project's RexGlue SDK and its Xenos GPU plugin. It is a development prototype.
 Shadows of Evil reached playable gameplay, confirmed by the user during testing.
-The current build later crashes with a D3D12 `DEVICE_HUNG` graphics-device loss.
+Earlier builds crashed with D3D12 `DEVICE_HUNG`. The current build repairs a
+readback-buffer lifetime defect and passed two The Giant tests, including an
+8 min 41 s run with DRED and a short control without it. Long-session stability
+remains unverified. See [GPU repair](analysis/GPU_CRASH_FIX.md) for details.
 See [boot results](analysis/BOOT_RESULTS.md) for the verified runtime state.
 
 ## Launch
@@ -38,9 +41,9 @@ For a diagnostic launch:
 Logs are in `runtime/logs`. Optional thread samples and crash reports are beside
 the executable in `build`. Optional guest frame captures are PPM files in
 `runtime/cache`. A patched memory image can be captured with `-DumpImagePath`.
-Both instrumented runs and a run without capture/sampling lost the graphics
+Before the lifetime repair, both instrumented runs and a run without capture/sampling lost the graphics
 device. Normal launches leave these optional diagnostics disabled. Their absence
-does not resolve the current GPU hang.
+did not resolve the earlier GPU hang.
 
 Async shader compilation and the persistent shader/pipeline cache are enabled
 by default. Pending pipelines can cause brief missing effects; some shader work

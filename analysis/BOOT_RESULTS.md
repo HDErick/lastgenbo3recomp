@@ -171,6 +171,25 @@ successfully**. `dlc-map-test.log` records The Giant (`zm_factory`) loading from
 02:33:21; no device-removal error appears in this run. This confirms map loading,
 not extended gameplay stability.
 
+## Readback lifetime repair and gameplay checks
+
+The cache's 256-entry limit could release GPU readback buffers whose copy
+submissions were still pending. Eviction now waits for the completion fence.
+The running game exercised this guard with cache sizes of 300–432 and pending
+GPU writes. Resolve replacements also use deferred deletion; a malformed
+queue-fence HRESULT check was corrected. Resource naming and DRED diagnostics
+now report allocations associated with page faults.
+
+`gpu-readback-lifetime-02.log` loaded The Giant, ran for 8 min 41 s overall,
+reloaded the map, and closed normally with no GPU-loss error. The user reported
+that it stayed open. DRED was enabled. The subsequent normal-renderer control
+with DRED disabled lasted 86 s overall and about half a minute after loading
+The Giant; it also closed normally and the user reported playable gameplay.
+The control did not reach the requested five-minute duration. Both runs logged
+prevented premature evictions. This validates the lifetime repair and these
+gameplay checks; extended stability across all maps remains unverified.
+Details and preserved evidence are in `analysis/GPU_CRASH_FIX.md`.
+
 Remaining issues include additional constructed function-pointer targets, online
 APIs, rendering artifacts and mode switching. The generator's existing 20
 `float16_4` packing warnings remain; successful menu rendering does not establish

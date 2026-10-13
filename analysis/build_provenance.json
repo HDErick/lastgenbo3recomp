@@ -8,7 +8,7 @@
   "files": {
     "build/bo3_zm.exe": {
       "bytes": 58003968,
-      "sha256": "47fde8e510669aa9a9afa6857a427e302654af3bd64499dfd7f420d6a9ca928f"
+      "sha256": "bebf12fd0401f54e961b1fd0c7c4288dd4f853c3e8d1a280c765fa63d4534aa8"
     },
     "build/bo3_zm.pdb": {
       "bytes": 6590464,
@@ -16,11 +16,11 @@
     },
     "build/rexruntime.dll": {
       "bytes": 10484224,
-      "sha256": "8f5c80ffcc25715a6e826d160640e0a0d9127faff4823433c56dce1774cd9d4f"
+      "sha256": "41a435438b8f30d47e20b6efaf99b4bee8d280585559801ffa9d76bea5fd0d29"
     },
     "build/rexgpu-xenos.dll": {
-      "bytes": 2886656,
-      "sha256": "f0269d924a7893b4f10589152c11376aa6e9d219b17435d75fd022719758bb31"
+      "bytes": 2892800,
+      "sha256": "ef8d81291f9c1520dd37038db5850bccb6b4d98f81cea72bea757f6693d6fbb4"
     },
     "build/TracyClient.dll": {
       "bytes": 246784,
