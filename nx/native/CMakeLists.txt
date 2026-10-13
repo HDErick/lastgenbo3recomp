@@ -14,9 +14,12 @@ add_library(rexgpu-bo3native SHARED
     "${BO3_SDK}/src/graphics/register_file.cpp"
     "${BO3_SDK}/src/graphics/registers.cpp"
     "${BO3_SDK}/src/graphics/flags.cpp"
+    "${BO3_SDK}/src/graphics/format/ucode.cpp"
     "${BO3_SDK}/src/graphics/sampler_info.cpp"
     "${BO3_SDK}/src/graphics/util/draw.cpp"
-    "${BO3_SDK}/src/graphics/pipeline/shader/shader.cpp")
+    "${BO3_SDK}/src/graphics/pipeline/shader/shader.cpp"
+    "${BO3_SDK}/src/graphics/pipeline/shader/translator.cpp"
+    "${BO3_SDK}/src/graphics/pipeline/shader/translator_disasm.cpp")
 add_custom_command(OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/present_spirv.h"
     COMMAND "${PYTHON_EXECUTABLE}" "${BO3_ROOT}/scripts/nx/embed-native-shaders.py"
         --dxc "${BO3_ROOT}/tools/dxc-1.9.2609/package/bin/x64/dxc.exe"

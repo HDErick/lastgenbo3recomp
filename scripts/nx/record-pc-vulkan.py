@@ -29,6 +29,7 @@ if args.native:
               'nx/native/memexport_copy.h', 'nx/native/bc_decode.h', 'nx/native/physical_access.h', 'nx/native/present.hlsl',
               'scripts/nx/embed-native-shaders.py', 'scripts/nx/prepare-mw2-shader-tools.py',
               'nx/shader-tools/mw2_vertex_ranges.cpp.inc',
+              'nx/shader-tools/mw2_position.cpp.inc',
               'nx/sdk-patches/include/rex/graphics/bo3_memexport_parity.h',
               'analysis/mw2_shader_tool_staged_sources.json',
               'tools/bo3-mw2-shader-translator/runtime/gpu/vulkan/shader_translator.cpp',

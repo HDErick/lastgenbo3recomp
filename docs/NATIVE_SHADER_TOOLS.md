@@ -129,3 +129,12 @@ including both slot-13 variables. The optional previous-module check proves the
 450 prior clean modules have no instruction changes beyond binding decorations.
 The earlier build folders remain local for that comparison; use fresh folders
 when reproducing a new run. See [ABI 2](NATIVE_SHADER_ABI.md).
+
+The native build 26 position adaptation expands the vertex push block to 32
+bytes at offset 16 and implements guest XYZ/W format plus host NDC conversion.
+`analysis/native_position_validation02.json` and its log record structural
+validation of all 455 programs with this change: 453 raster modules and two
+modules with dropped memory exports. The latter still use verified native CPU
+copies and are never bound as GPU raster shaders. Earlier reflected modules
+remain evidence for descriptor ABI 2, but must be regenerated for the updated
+vertex push interface. Correct pixels and Switch performance are still unproven.

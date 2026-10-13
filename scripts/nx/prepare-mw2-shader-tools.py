@@ -81,7 +81,29 @@ if args.adapt_bo3:
     ranges = root / 'nx/shader-tools/mw2_vertex_ranges.cpp.inc'
     replace_once('tail = std::max(tail, uint32_t(std::max(f.Offset(), 0)) + 4);',
                  ranges.read_text().strip())
+    position = root / 'nx/shader-tools/mw2_position.cpp.inc'
+    replace_once('m_ndc = DeclarePushBlock({ m_float4 }, bindings::kVertexPushOffset, "ndc");',
+                 'm_ndc = DeclarePushBlock({ m_float4, m_float4 }, bindings::kVertexPushOffset, "ndc");')
+    replace_once('''        for (uint32_t i = 0; i < members.size(); i++)
+            Module::Emit(m_module.Decorations(), Op::MemberDecorate,
+                         { block, i, uint32_t(Decoration::Offset), offset + 4 * i });''',
+                 '''        uint32_t member_offset = offset, member_index = 0;
+        for (Id member : members)
+        {
+            Module::Emit(m_module.Decorations(), Op::MemberDecorate,
+                         { block, member_index++, uint32_t(Decoration::Offset), member_offset });
+            member_offset += member == m_float4 ? 16 : 4;
+        }''')
+    begin = text.index('        // Window coordinates to clip space, from the transform the pipeline')
+    end = text.index('        // The discard any kill asked for', begin)
+    replace_once(text[begin:end], position.read_text() + '\n')
     cpp.write_text(text, newline='\n')
+    bindings = staged / 'runtime/gpu/vulkan/bindings.h'
+    bindings_text = bindings.read_text()
+    bindings_text = bindings_text.replace('kVertexPushOffset = 16, kVertexPushBytes = 16;',
+                                          'kVertexPushOffset = 16, kVertexPushBytes = 32;', 1)
+    bindings_text = bindings_text.replace('kScaledPushOffset = 32,', 'kScaledPushOffset = 48,', 1)
+    bindings.write_text(bindings_text, newline='\n')
     header = staged / 'runtime/gpu/vulkan/shader_translator.h'
     header_text = header.read_text()
     header_text = header_text.replace('#pragma once', '#pragma once\n#define BO3_MW2_TEXTURE_VIEWS 1', 1)
@@ -96,10 +118,11 @@ if args.adapt_bo3:
     header.write_text(header_text, newline='\n')
     provenance = {**manifest, 'reference': manifest,
                   'source_root': 'tools/bo3-mw2-shader-translator',
-                  'adaptation': 'Observed BO3 2D getWeights profile; typed texture views (ABI 2); exact vertex dword load extents',
+                  'adaptation': 'Observed BO3 2D getWeights profile; typed texture views (ABI 2); exact vertex dword load extents; 48-byte push ABI with full XYZ/W position conversion',
                   'patch_sha256': hashlib.sha256(patch.read_bytes()).hexdigest(),
                   'texture_views_patch_sha256': hashlib.sha256(views.read_bytes()).hexdigest(),
                   'vertex_ranges_patch_sha256': hashlib.sha256(ranges.read_bytes()).hexdigest(),
+                  'position_patch_sha256': hashlib.sha256(position.read_bytes()).hexdigest(),
                   'preparation_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                   'files': {name: {'bytes': (staged / name).stat().st_size,
                                    'sha256': hashlib.sha256((staged / name).read_bytes()).hexdigest()}

@@ -146,9 +146,42 @@ to it; normal/F8 presentation still selects color targets. Logs count accepted
 depth-only draws and identify each target's pass type. Unsupported cube/volume
 shader views are checked before Vulkan object creation, and common omitted
 primitive/mode packets avoid exception unwinding. The build and repository audit
-pass; run 18 is open, with visual confirmation pending. This is a bounded shared
+pass. In run 18 the user reports the view remains black, and F9 ON is logged
+with a current-frame surface. The game closed normally. The log shows zero
+`kDepthOnly` submissions: this scene uses color/depth mode instead. The 880x720
+2x target did receive 51,612 accepted draws in one 120-swap interval, while
+cube/volume and mip bindings excluded many others. The last 30-swap interval
+was 1.83 swaps/s, with 7,780 ms queue/fence time and 1,274 submissions over
+16,377 ms. Shader translation was 13.8 ms; this interval does not attribute the
+slow frame rate to shader compilation. This is a bounded shared
 surface implementation, not general EDRAM overlap/alias handling. Guest clears,
 different-extent depth aliases and native resolves remain unsupported.
+
+Build 26 uses the SDK's host viewport/scissor normalization and extends the VS
+push interface from 32 to 48 bytes. The VS reconstructs W from reciprocal-W
+when required, reverses pre-divided XY/Z, and applies all three host NDC scales
+and offsets. This covers independently disabled viewport axes, negative scales,
+window/half-pixel offsets and guest -W..W Z. The old path only changed XY and
+always treated the exported fourth component as W. Explicit depth clamping,
+user clip planes and exact float24 quantization remain gaps. SDK microcode
+analysis now proves when a color/depth-mode prepass can omit its pixel shader;
+kill, alpha coverage, depth output and memory-export side effects prevent that
+bypass. Omitting a shader also disables color writes, and its unused textures
+are not required. Logs identify the bypass and MSAA pipeline state.
+
+Offline validation caught an overlapping push member in the first attempt;
+the staged declaration now advances float4 members by 16 bytes. The corrected
+453 raster modules and both structurally valid dropped-export modules pass
+`spirv-val`; those two memexport modules remain excluded from native pipelines.
+Build 26 links, and run 19 is open for normal/F9 comparison. Early logs confirm
+accepted PS bypass draws and no backend failure; visual confirmation is pending.
+The live run 19 logs MSAA prepasses with `RB_DEPTHCONTROL=0x002002C7`, a greater
+depth comparison with writes enabled, followed by `0x002002E3` greater-equal
+color passes. The current initial depth is 1 and guest resolve clears are still
+ignored. This is a concrete correctness gap and the next investigation target:
+decode the requested depth/stencil clear and its covered rectangle, preserve
+partial clears, and apply it to matching shared surfaces. Do not substitute a
+per-frame full clear or change the depth comparison as a rendering fix.
 
 Remaining gates include stencil/clear behavior, resolves and their exponent
 conversion, native-produced texture ownership, target aliasing, MRT/MSAA parity,
@@ -175,7 +208,10 @@ Further inputs: `analysis/pc_native_provenance14.json` and
 Further logs and inputs: `analysis/pc_native_backend_boot15.log`,
 `analysis/pc_native_backend_boot16_depth.log`, `analysis/pc_native_provenance16.json`,
 `analysis/pc_native_provenance17.json`, `analysis/pc_native_backend_boot17_depth.log`,
-`analysis/pc_native_backend_build23.log`, `analysis/pc_native_provenance18.json`.
+`analysis/pc_native_backend_build23.log`, `analysis/pc_native_provenance18.json`,
+`analysis/pc_native_backend_boot18_depth_prepass.log`,
+`analysis/pc_native_backend_build26.log`, `analysis/pc_native_provenance19.json`,
+`analysis/native_position_validation02.json` and its validation log.
 
 Run `scripts/nx/prepare-runtime.py` if the ignored SDK/generated staging is
 missing, then `scripts/nx/build-pc-vulkan.cmd`. The executable is

@@ -121,8 +121,16 @@ an active current-frame depth view. It closed normally. Build 23 adds depth-only
 draws without a fragment shader and shares matching depth surfaces across passes
 and color targets. New color targets preserve an existing shared depth surface.
 It also avoids repeated Vulkan object creation on unsupported texture views.
-Build and source audit pass; run 18 is open for normal/F9 comparison, with
-visual confirmation pending. Textures/conversion, mips/cube views, guest clears,
+Build and source audit pass. Run 18 still shows black, including F9; it closes
+normally. No `kDepthOnly` draws submitted, so that addition did not address the
+scene. Thousands of color/depth draws submit while cube/volume/mip bindings
+exclude many others. Build 26 implements full XYZ/W vertex format conversion
+with SDK viewport/scissor normalization and a 48-byte push interface. It also
+uses SDK analysis to omit pixel shaders only for passes with no PS side effects.
+All 455 captured modules pass structural validation; the two dropped-export
+modules remain excluded in favor of verified CPU copies. Run 19 is open with
+early accepted PS bypass draws; normal/F9 visual confirmation is pending.
+Textures/conversion, mips/cube views, guest clears,
 EDRAM overlap/extent aliasing and native guest resolves remain incomplete.
 See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).
 

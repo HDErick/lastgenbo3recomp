@@ -1,9 +1,10 @@
 # Initial BO3 native shader interface
 
-October 13, 2026. This records the tested offline prototype's interface;
-the BO3 native Vulkan backend is not implemented. Typed texture declarations
-now validate offline; live view ownership and memory exports remain gates.
-This is prototype ABI 2, not a finalized runtime interface.
+October 13, 2026. This records the native prototype's interface. The PC backend
+is implemented but still has a black gameplay scene. Typed texture declarations
+validate offline; the live cache currently supports only 2D views. This is the
+prototype's descriptor ABI 2 with an expanded vertex push block, not a finalized
+runtime interface.
 
 ## Program identity
 
@@ -61,9 +62,15 @@ Texture ownership, upload, transitions, sampler overrides and typed fallback
 images must be implemented in the native cache.
 
 Push constants at bytes 0..15 hold pixel alpha function/reference, color exponent
-scale and gamma-target flag. Bytes 16..31 hold vertex XY scale/offset for window
-coordinates. Initial render scale is 1; the optional scaled-target interface is
-not part of this first prototype.
+scale and gamma-target flag. Bytes 16..31 hold vertex XY scale/offset from the
+SDK host viewport normalization. Bytes 32..47 hold float4 `{Z scale, Z offset,
+float(format bits), 0}`; format bits 0, 1, 2 correspond to guest pre-divided XY,
+pre-divided Z and W rather than reciprocal-W. The VS reconstructs W, reverses
+any pre-division, then applies XYZ scale/offset in homogeneous clip coordinates.
+The native pipeline's push range is 48 bytes. Earlier VS modules with only an
+XY transform must be regenerated; descriptor bindings are unchanged. Optional
+scaled-texture push data starts at 48 in staged declarations, but initial render
+scale remains 1 and that optional interface is not active in the native backend.
 
 ## Required upload and lifetime behavior
 
