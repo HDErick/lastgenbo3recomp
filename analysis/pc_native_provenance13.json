@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-13",
+  "compiler": "Clang 20.1.8, x86-64-v3 Windows Release",
+  "renderer": "Separate BO3 native Vulkan correctness prototype",
+  "build_log": "analysis/pc_native_backend_build18.log",
+  "hardware_status": "Native test13: supported host 2x/4x MSAA targets and diagnostic presentation resolves, filled dual-face polygons, dynamic preferred-face depth bias, per-target activity logging. User scene comparison pending.",
+  "files": {
+    "build/pc-vulkan/bo3_zm_vulkan.exe": {
+      "bytes": 58063360,
+      "sha256": "278e3f1ccf59094e2b987101a8339284baab52e2ba8918daf493b7ace6a93656"
+    },
+    "build/pc-vulkan/bo3_zm_vulkan.pdb": {
+      "bytes": 6623232,
+      "sha256": "deb0d9eae940b641031e2f73ed743de64c818cb0a32c24d7474412251ea2eb47"
+    },
+    "build/pc-vulkan/rexruntime.dll": {
+      "bytes": 12502016,
+      "sha256": "a0f985ffdae4695f6d180b608df3bb5df3b4101448f493835661be6fa2a59e6b"
+    },
+    "build/pc-vulkan/rexgpu-xenos.dll": {
+      "bytes": 4765184,
+      "sha256": "ac101c32b44c8f689029a0bb309320fbf567799239d100dacae2a3bb18d85655"
+    },
+    "nx/pc-vulkan/main.cpp": {
+      "bytes": 824,
+      "sha256": "68dde05256f8f71a8ee3d5eceb0f2e2e1e87f8bd93eea48f3ca6bc1cfa602306"
+    },
+    "nx/pc-vulkan/CMakeLists.txt": {
+      "bytes": 1689,
+      "sha256": "0c7862bacd08340ab0ab101bba8719186baeeeb9f28ffae4038c55c5613e53e6"
+    },
+    "nx/pc-vulkan/draw_capture.cpp": {
+      "bytes": 2692,
+      "sha256": "c6c21da3e3a250f4f0a334cc43f0a86ddc8add8df426200c4a3d2d55207d08a1"
+    },
+    "nx/pc-vulkan/draw_capture.h": {
+      "bytes": 178,
+      "sha256": "da9ff997c896d32d1066d1dffd12eccc0c54c6e4cd406adedcf1a996310c0257"
+    },
+    "nx/pc-vulkan/d3d_trace.cpp": {
+      "bytes": 12341,
+      "sha256": "a0c3b9d5b19958702c31c1f0758f5d401a65a8915eba4a47e6e31069e32dcc4c"
+    },
+    "nx/pc-vulkan/d3d_trace.h": {
+      "bytes": 81,
+      "sha256": "e17e9c9ee6192420473a036a9dd728ad6f2a6f2c12fad7acf3bf5b312b7b5235"
+    },
+    "scripts/nx/launch-pc-vulkan.ps1": {
+      "bytes": 6573,
+      "sha256": "806f19352a3d7028d113c91caff6b61f53451cc37819c18519f77f71142392b5"
+    },
+    "scripts/nx/prepare-runtime.py": {
+      "bytes": 6568,
+      "sha256": "5130df572edaecdba22d36be03ce07446ac0bb887c7b2aa535ebfe3411a49750"
+    },
+    "analysis/nx_runtime_sources.json": {
+      "bytes": 1090,
+      "sha256": "a634bb48ed9b8e6114e4f0e9e7d0caa5003785c0da474128f96e870ddd678036"
+    },
+    "build/nx-generated/zombies/bo3_zm_init.h": {
+      "bytes": 1136286,
+      "sha256": "3824ce80dc42c46e1c58927f8c4fd8e905e700fd1ea7cb2d3cb5f8906435a0ec"
+    },
+    "build/nx-generated/zombies/bo3_zm_init.cpp": {
+      "bytes": 1084547,
+      "sha256": "1c45018645686cb41275a88aac00fb165cdec9d81e7ac587a3608f6a36902f61"
+    },
+    "tools/nx-sdk/src/graphics/vulkan/render_target_cache.cpp": {
+      "bytes": 329220,
+      "sha256": "c6dec2b7385d448a7174a2f9a9e94924a55b6c0a9bec2d3638c9956158e5c188"
+    },
+    "tools/nx-sdk/src/graphics/vulkan/command_processor.cpp": {
+      "bytes": 338632,
+      "sha256": "bf61bda69fb8987d6d0cf685155ecd61737aaf6ecda03ff02a080adeefcb2885"
+    },
+    "nx/sdk-patches/include/rex/graphics/bo3_memexport_probe.h": {
+      "bytes": 3590,
+      "sha256": "a20181cb9b9d939e058e8177e494dca4c1b7127b87c12bbd5eb0b69ef985ebd5"
+    },
+    "build/pc-vulkan/rexgpu-bo3native.dll": {
+      "bytes": 1338880,
+      "sha256": "b791ca598a5ce109c11bcb157dfbbadb30b6274c178375fb7b8144ba50cdb55d"
+    },
+    "build/pc-vulkan/rexgpu-bo3native.pdb": {
+      "bytes": 3117056,
+      "sha256": "32299ba7befaabd757e3c0fdaa902383a3b55507575e597e1337db0f948d3e85"
+    },
+    "nx/native/native_gpu.cpp": {
+      "bytes": 72660,
+      "sha256": "2294e6f47cc8dd82e4ba3175f32ce32944e8fa8fc74883079b0f07bac6f29bdb"
+    },
+    "nx/native/CMakeLists.txt": {
+      "bytes": 2432,
+      "sha256": "37dee3fa9f2e2ef73ab0ad505db28f7179b9901642b14304863676a1c8e84396"
+    },
+    "nx/native/memexport_copy.h": {
+      "bytes": 4189,
+      "sha256": "2b3f3d0ab4c4286828879f00da7895ec5400c88da890fa483b37890bddfa8588"
+    },
+    "nx/native/bc_decode.h": {
+      "bytes": 2250,
+      "sha256": "5be82a98dd173d5caf3ae71c2f617217d761453fe361b8bfea28686a9333d41c"
+    },
+    "nx/native/physical_access.h": {
+      "bytes": 1450,
+      "sha256": "96498b45f3d80ba8f850afcf355003e3ec9d50b32556c6ba49cb5bbcfe2a9527"
+    },
+    "nx/native/present.hlsl": {
+      "bytes": 503,
+      "sha256": "b83cbbf0067aeb0b801ec0b7ca0a0e61bba19de797004c28cc102faf8506afb3"
+    },
+    "scripts/nx/embed-native-shaders.py": {
+      "bytes": 1035,
+      "sha256": "fcf9a77b7fb5a0b4b4a23bfd4346ff83029d759f0bcb19c829b72142d26814db"
+    },
+    "scripts/nx/prepare-mw2-shader-tools.py": {
+      "bytes": 7218,
+      "sha256": "b203d12356f32cf27faae71086d0ba2de567062571adb8df2df1681746c04cf4"
+    },
+    "nx/shader-tools/mw2_vertex_ranges.cpp.inc": {
+      "bytes": 532,
+      "sha256": "ee59a5eeecffe4a1047c71a5fdac1223d534695003d8193407c9c30a16a23935"
+    },
+    "nx/sdk-patches/include/rex/graphics/bo3_memexport_parity.h": {
+      "bytes": 4961,
+      "sha256": "026cf751a0a5d9e6119ea6c2536333c00600410c37bfc23e969cb6633015a9d4"
+    },
+    "analysis/mw2_shader_tool_staged_sources.json": {
+      "bytes": 3273,
+      "sha256": "4435b434985750cd4894b0d7326c111a554261c78b9042d8a0653683fa987f34"
+    },
+    "tools/bo3-mw2-shader-translator/runtime/gpu/vulkan/shader_translator.cpp": {
+      "bytes": 120306,
+      "sha256": "bb962d48f65fd73c2db3332969b67bc199e8ff8468bf0f1e1eef4be884bf7a81"
+    },
+    "tools/bo3-mw2-shader-translator/runtime/gpu/vulkan/shader_translator.h": {
+      "bytes": 3618,
+      "sha256": "f3b529f2e6ebd3d86f2ff8ed8a6cf97064b56bccf52f9a302491bae5f6914525"
+    }
+  }
+}

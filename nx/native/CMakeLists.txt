@@ -15,6 +15,7 @@ add_library(rexgpu-bo3native SHARED
     "${BO3_SDK}/src/graphics/registers.cpp"
     "${BO3_SDK}/src/graphics/flags.cpp"
     "${BO3_SDK}/src/graphics/sampler_info.cpp"
+    "${BO3_SDK}/src/graphics/util/draw.cpp"
     "${BO3_SDK}/src/graphics/pipeline/shader/shader.cpp")
 add_custom_command(OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/present_spirv.h"
     COMMAND "${PYTHON_EXECUTABLE}" "${BO3_ROOT}/scripts/nx/embed-native-shaders.py"

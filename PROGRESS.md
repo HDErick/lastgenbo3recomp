@@ -103,6 +103,17 @@ millions of omitted MSAA and polygon-mode/depth-bias draws. A covering pass is
 unconfirmed; implementing the rejected geometry states and correct native target
 resolves/presentation is the next rendering gate. This is not a controlled
 gameplay benchmark.
+Build 18 adds host-supported 2x/4x color/depth targets with diagnostic presentation
+resolve, filled dual-face polygon mode and SDK-aligned dynamic depth bias.
+Run 13 creates an 880x720 2x target on Arc, but the user reports a black scene
+with HUD and worse in-game performance. The log shows newly reached stencil
+and texture rejections, with many submissions. Builds 19/20 add stencil state,
+canonical color aliases, prevalidate textures and discard empty GPU batches.
+Run 14's optional MSAA scene-target view selected a black menu target and hid
+the menu. Build 21 leaves normal presentation active initially; F8 toggles the
+current-frame scene view after entering gameplay. Run 15's comparison is pending.
+Texture formats/conversion, mips/cube views, stencil, clears and native guest
+resolves remain incomplete.
 Clears,
 stencil, resolves and further rendering coverage remain incomplete.
 See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).

@@ -91,8 +91,38 @@ or incorrect diagnostic presentation target remains possible, but no occluding
 draw has been identified. Next implement/validate the observed MSAA and raster
 states, then follow native target resolves and the actual guest frontbuffer.
 
+Build 18 adds actual host-supported 2x/4x color/depth attachments, with sample
+counts in target/pipeline identity and per-format capability checks. Multisample
+diagnostic output is resolved to a separate single-sample image before sampling.
+Filled dual-face polygon mode is accepted; non-filled modes remain unsupported.
+Dynamic depth bias uses the SDK's preferred-face selection and depth/slope units;
+independent per-face bias and float24 quantization are still not reproduced.
+Run 13 logs Intel Arc sample masks `0xF` and creates an 880x720 2x target.
+Per-target activity identifies the latest presented target. The user reported
+the scene still black with HUD, with much worse in-game performance. The run
+closed normally. Warmed intervals fell to 2.5–3.6 swaps/s, with around 1,600–1,760
+submissions per 30 swaps. Stencil rejection became a major uncovered path;
+textures, numeric conversion, mips/cube views and guest resolves remain gaps.
+
+Builds 19/20 add stencil operations and dynamic per-face masks/references,
+following the SDK's device fallback for separate masks. Storage format aliases
+are canonicalized, allowing format 10 to use its underlying 10-bit UNORM target.
+All texture bindings are inspected before uploads/descriptor allocation, and
+command buffers with no GPU work are discarded without submitting or waiting.
+An optional `-NativeSceneView` diagnostic selects a large multisampled target
+only if it received an accepted draw in the current frame; otherwise it uses
+the ordinary latest target. Its image is resolved before presentation. This
+probe may omit HUD/final effects and is not guest frontbuffer/resolve support.
+Run 14 selected a black 880x720 2x menu target (two accepted draws per frame),
+obscuring the menu after profile loading and preventing the map comparison.
+It closed normally. Build 21 keeps normal presentation initially and uses F8
+to toggle this diagnostic while the game window is foreground. Run 15 tests
+normal menu navigation followed by the in-map F8 comparison; feedback is pending. Clearing
+and shared depth/stencil ownership are still incomplete, so accepting stencil
+state alone does not establish correct stencil contents.
+
 Remaining gates include stencil/clear behavior, resolves and their exponent
-conversion, native-produced texture ownership, target aliasing, MRT/MSAA,
+conversion, native-produced texture ownership, target aliasing, MRT/MSAA parity,
 rectangle primitives, mips, cube/volume views, queries and complete GPU semantics.
 Presentation currently samples the latest drawn native target as a diagnostic;
 it does not yet follow guest frontbuffer resolves. Unsupported paths are counted
@@ -109,6 +139,10 @@ Sources and test evidence: `analysis/bo3_memexport_parity01.json`,
 `analysis/pc_native_provenance12.json`,
 `analysis/pc_native_backend_boot12_snapshot.log` (partial live-run snapshot),
 `analysis/pc_native_backend_boot12.log` (complete run).
+Build 18 inputs: `analysis/pc_native_provenance13.json`.
+Further inputs: `analysis/pc_native_provenance14.json` and
+`analysis/pc_native_provenance15.json`. Complete diagnostic logs:
+`analysis/pc_native_backend_boot13.log`, `analysis/pc_native_backend_boot14_scene.log`.
 
 Run `scripts/nx/prepare-runtime.py` if the ignored SDK/generated staging is
 missing, then `scripts/nx/build-pc-vulkan.cmd`. The executable is

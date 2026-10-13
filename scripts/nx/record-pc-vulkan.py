@@ -32,7 +32,9 @@ if args.native:
               'nx/sdk-patches/include/rex/graphics/bo3_memexport_parity.h',
               'analysis/mw2_shader_tool_staged_sources.json',
               'tools/bo3-mw2-shader-translator/runtime/gpu/vulkan/shader_translator.cpp',
-              'tools/bo3-mw2-shader-translator/runtime/gpu/vulkan/shader_translator.h']
+              'tools/bo3-mw2-shader-translator/runtime/gpu/vulkan/shader_translator.h',
+              'tools/nx-sdk/src/graphics/util/draw.cpp',
+              'tools/nx-sdk/include/rex/graphics/util/draw.h']
 for name in names:
     path = root / name
     with path.open('rb') as stream:
