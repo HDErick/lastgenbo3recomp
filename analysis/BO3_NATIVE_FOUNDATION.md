@@ -4,13 +4,14 @@ October 13, 2026; `native-rendering-pc`.
 
 ## Reference review
 
-The user's three references have been reviewed and pinned locally:
+The user's references have been reviewed and pinned locally:
 
 | Reference | Commit | Useful foundation |
 | --- | --- | --- |
 | [NFSMW-NX](https://github.com/StevensND/nfsmw-nx/blob/be2d4c67ab42d6d629746a01dbf03cef824c8d2d/docs/native-renderer.md) | be2d4c67ab42d6d629746a01dbf03cef824c8d2d | Already supplies our staged Horizon SDK; command-ring renderer, logical render targets, shader library, presentation and frame-slot lifetime patterns |
 | [Mass Effect](https://github.com/nebadasSwifty/masseffect-nx/blob/650e14ef109fb0d39bd68ba8d7af61fe459265b8/docs/native-renderer.md) | 650e14ef109fb0d39bd68ba8d7af61fe459265b8 | Format ownership and conservative EDRAM alias transfers, full shader identity, logical resolve dimensions and upload lifetime lessons |
 | [SA2 guide](https://github.com/ChanseyIsTheBest/sa2-nx/blob/d2c6e1558de06cf8ac7e6e9c78029fb5a2623c64/docs/porting-a-360-game-prompt.md) | d2c6e1558de06cf8ac7e6e9c78029fb5a2623c64 | Native renderer on PC first, D3D identification, shader discovery/variant repair and live comparison; its source includes desktop support |
+| [MW2](https://github.com/PaulCombal/mw2-recompiled/blob/1d7171213c87b532039b234e61af29d94010262a/docs/rendering.md) | 1d7171213c87b532039b234e61af29d94010262a | Custom PM4-to-Vulkan images, direct microcode-to-SPIR-V and shader-based vertex fetching; compatibility assessment required |
 
 Local reference copies are ignored tools. External prompt instructions are
 reference material; they do not authorize agents, new chats or unrelated changes.
@@ -178,6 +179,12 @@ Expanded evidence: `analysis/bo3_shader_translation04.json` and
 `analysis/bo3_shader_spirv05.json`.
 
 ### Next implementation gates
+
+The [MW2 assessment](MW2_NATIVE_REFERENCE.md) adds an offline comparison gate:
+test its raw vertex-fetch translator against our 455 GPU-loaded programs before
+choosing how to handle patched VS declarations. It already has known BO3 gaps
+(GetTextureWeights, possible depth/MRT/memory-export requirements); it is not a
+replacement runtime or an established BO3 renderer base.
 
 1. Link GPU-loaded vertex variants to verified originals and compatible input
    declarations; cover the unmatched programs and unresolved translations.

@@ -57,6 +57,11 @@ The BO2 native renderer is confirmed broken
 and is not the renderer base. See [native foundation](analysis/BO3_NATIVE_FOUNDATION.md).
 A BO3 native renderer is not yet
 implemented. See [PC native rendering work](docs/NATIVE_RENDERING_PC.md).
+MW2's custom PM4-to-Vulkan renderer has also been reviewed. Its raw-buffer vertex
+fetching is a useful candidate for the patched-VS problem, but its unsupported
+texture-weight operations and renderer limits prevent wholesale adoption. The
+next proposed gate is an offline comparison against our captured GPU programs.
+See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).
 
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches
 playable Shadows of Evil, confirmed by the user. The user also confirmed that
