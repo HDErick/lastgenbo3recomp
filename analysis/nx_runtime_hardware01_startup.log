@@ -1,0 +1,13 @@
+BO3 NX startup trace01: reached __appInit; SM/FS/SD ready
+23278983321 heap override present result=0x00000001
+23279090340 configured applet type result=0x00000000
+23279171261 before appletInitialize result=0x00000000
+23282066543 appletInitialize result=0x00000000
+23282311613 hidInitialize result=0x00000000
+23282424407 timeInitialize result=0x00000000
+23282569125 before window initialization result=0x00000000
+23282868734 after window initialization result=0x00000000
+23282992909 __appInit complete result=0x00000000
+23283128738 before static constructors result=0x00000000
+23283739270 after static constructors result=0x00000000
+23283848106 entered main result=0x00000000

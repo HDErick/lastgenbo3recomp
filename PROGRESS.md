@@ -17,8 +17,18 @@ Hardware evidence: `analysis/nx_preflight_hardware01.log` and
 `analysis/nx_preflight_result.json`. The first complete BO3 Zombies Horizon NRO
 has linked and packaged, using the pinned Switch SDK and Vulkan Xenos backend.
 Startup at zero, linked aliases and the custom exception handler were verified.
-The game NRO has not yet been tested on hardware. See
+The user identified an incorrect NRO forwarder as the reason the initial launch
+produced no log. After correcting it, the trace01 hardware run produced both
+startup and application logs. Services, static constructors, Vulkan device and
+1280x720 swapchain initialization, and guest-memory mapping are recorded. The
+logs do not yet establish XEX loading or a rendered BO3 frame. Two earlier
+Atmosphere reports show only `hbl` and cannot be attributed conclusively; the
+console clock is March 7, so their filename dates do not exclude this test. See
 [NX runtime build](docs/NX_RUNTIME.md).
+The agreed first-log gate has passed. The next work is an isolated Windows
+Vulkan baseline using the same SDK, then native renderer development on PC
+before pursuing complete Switch gameplay/performance. Evidence is archived as
+`analysis/nx_runtime_hardware01_startup.log` and `analysis/nx_runtime_hardware01.log`.
 
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches
 playable Shadows of Evil, confirmed by the user. The user also confirmed that

@@ -1,9 +1,16 @@
 """Record the exact BO3 NX binary and inputs for hardware crash analysis."""
 from pathlib import Path
+import argparse
 import hashlib
 import json
 import re
 import subprocess
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--output', default='analysis/nx_runtime_provenance.json')
+parser.add_argument('--build-log', default='analysis/nx_runtime_build03.log')
+parser.add_argument('--hardware-status', default='Awaiting hardware test of this binary')
+args = parser.parse_args()
 
 root = Path(__file__).resolve().parents[2]
 devkit = Path('C:/devkitPro/devkitA64/bin')
@@ -15,6 +22,7 @@ files = {}
 for name in ['build/nx-runtime/bo3_zm_nx', 'build/nx-runtime/bo3_zm_nx.nro',
              'build/nx-runtime/bo3_zm_nx.map', 'build/nx-runtime/bo3_zm_nx.nacp',
              'nx/runtime/main.cpp', 'nx/runtime/CMakeLists.txt', 'nx/runtime/bo3_zm_nx.toml',
+             'nx/runtime/startup_trace.c', 'nx/cmake/devkitA64.cmake',
              'app/bo3_zm_manifest.toml', 'runtime/game/default_zm.xex', 'runtime/game/default_zm.xexp',
              'build/nx-generated/zombies/bo3_zm_init.h', 'build/nx-generated/zombies/bo3_zm_init.cpp']:
     path = root / name
@@ -36,7 +44,9 @@ result = {'date': '2026-10-13', 'files': files,
           'horizon_exception_handler_linked': bool(re.search(r'^\w+ T __libnx_exception_handler$', symbols, re.M)),
           'function_mapping_entries': len(re.findall(r'\{ 0x[0-9A-Fa-f]+,', init)),
           'source_provenance': 'analysis/nx_runtime_sources.json',
-          'final_build_log': 'analysis/nx_runtime_build03.log',
-          'hardware_status': 'Game NRO not yet tested; environment preflight passed'}
-(root / 'analysis/nx_runtime_provenance.json').write_text(json.dumps(result, indent=2)+'\n', newline='\n')
+          'startup_trace_linked': all(re.search(rf'^\w+ T {name}$', symbols, re.M)
+                                      for name in ['__appInit', '__wrap_main', '__wrap___libc_init_array']),
+          'final_build_log': args.build_log,
+          'hardware_status': args.hardware_status}
+(root / args.output).write_text(json.dumps(result, indent=2)+'\n', newline='\n')
 print(f'Recorded NX binary provenance; {result["function_mapping_entries"]} function mappings')

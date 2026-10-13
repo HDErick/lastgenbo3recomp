@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
 project(bo3_zm_nx LANGUAGES C CXX)
+option(BO3_NX_STARTUP_TRACE "Write an SD trace before applet/window/static initialization" OFF)
 get_filename_component(BO3_ROOT "../.." ABSOLUTE BASE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -21,6 +22,11 @@ set(BO3_GENERATED ${GENERATED_SOURCES})
 set_source_files_properties("${BO3_ROOT}/build/nx-generated/zombies/bo3_zm_register.cpp"
     PROPERTIES COMPILE_OPTIONS "-O0")
 add_executable(bo3_zm_nx main.cpp ${BO3_GENERATED})
+if(BO3_NX_STARTUP_TRACE)
+    target_sources(bo3_zm_nx PRIVATE startup_trace.c)
+    target_link_options(bo3_zm_nx PRIVATE
+        "LINKER:--wrap=__libc_init_array,--wrap=main")
+endif()
 target_include_directories(bo3_zm_nx PRIVATE "${BO3_ROOT}/build/nx-generated/zombies" "${BO3_ROOT}/app/src")
 target_compile_options(bo3_zm_nx PRIVATE -ffp-contract=off -fno-strict-aliasing -Wno-psabi)
 target_link_libraries(bo3_zm_nx PRIVATE rex::runtime)

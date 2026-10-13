@@ -1,4 +1,4 @@
-param([int]$Jobs = 4, [switch]$ConfigureOnly, [switch]$SkipPrepare)
+param([int]$Jobs = 4, [switch]$ConfigureOnly, [switch]$SkipPrepare, [switch]$StartupTrace)
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $python = 'C:/Users/Erick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe'
@@ -11,9 +11,11 @@ $cmake = "$cmakeRoot/CMake/bin/cmake.exe"
 $ninja = "$cmakeRoot/Ninja/ninja.exe"
 $env:DEVKITPRO = 'C:/devkitPro'
 $env:DEVKITA64 = 'C:/devkitPro/devkitA64'
+$traceOption = if ($StartupTrace) { 'ON' } else { 'OFF' }
 & $cmake -S "$projectRoot/nx/runtime" -B "$projectRoot/build/nx-runtime" -G Ninja `
     "-DCMAKE_TOOLCHAIN_FILE=$projectRoot/nx/cmake/devkitA64.cmake" `
-    "-DCMAKE_MAKE_PROGRAM=$ninja" "-DPYTHON_EXECUTABLE=$python" "-DPython3_EXECUTABLE=$python" -DCMAKE_BUILD_TYPE=Release
+    "-DCMAKE_MAKE_PROGRAM=$ninja" "-DPYTHON_EXECUTABLE=$python" "-DPython3_EXECUTABLE=$python" `
+    "-DBO3_NX_STARTUP_TRACE=$traceOption" -DCMAKE_BUILD_TYPE=Release
 if ($LASTEXITCODE -ne 0) { throw 'NX runtime configure failed' }
 if ($ConfigureOnly) { return }
 & $cmake --build "$projectRoot/build/nx-runtime" --target bo3_zm_nx --parallel $Jobs

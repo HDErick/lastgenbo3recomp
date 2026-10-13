@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-13",
+  "files": {
+    "build/nx-runtime/bo3_zm_nx": {
+      "bytes": 87920768,
+      "sha256": "b71f083ce4b32093d446cf9c7608337b694d1ba082fd92c06e6a6fe5f5fddc1e"
+    },
+    "build/nx-runtime/bo3_zm_nx.nro": {
+      "bytes": 67815621,
+      "sha256": "ddbd0396617dbe76ea143d0091fc93def481b9cfc15d9151e74dff62ca750c1d"
+    },
+    "build/nx-runtime/bo3_zm_nx.map": {
+      "bytes": 36355214,
+      "sha256": "db5d57f632eda7ac2a18d6a2bfeb162cea795732b0a6b060ab54f6bdffcf96be"
+    },
+    "build/nx-runtime/bo3_zm_nx.nacp": {
+      "bytes": 16384,
+      "sha256": "18e7fc89aa1e01b7c430a1cd0579328739acb71fd3df950b0f26bc2353deabd9"
+    },
+    "nx/runtime/main.cpp": {
+      "bytes": 2071,
+      "sha256": "57af06b5d79d1a7c3fc20b0c163e09b89301e6545b9cd19637e2f876e6121fe0"
+    },
+    "nx/runtime/CMakeLists.txt": {
+      "bytes": 2172,
+      "sha256": "a8a37396161ef5a6c3e824f7f181ed364b86f66056d1a3f8cdbb96bbaa4cb9e5"
+    },
+    "nx/runtime/bo3_zm_nx.toml": {
+      "bytes": 237,
+      "sha256": "b75d8009f23e67c37ae41cfd9e01d98b0ab26cb168ff1807179e00678a88b2ef"
+    },
+    "nx/runtime/startup_trace.c": {
+      "bytes": 3180,
+      "sha256": "01b291a4e6be15ec5c99f39593a03e4b462a11e34f35c963cbe24fd0fed7842f"
+    },
+    "nx/cmake/devkitA64.cmake": {
+      "bytes": 1898,
+      "sha256": "b8f1c327308248f66e8438d3e164fcf33a3237921b7dcf86ff2313e59e530ee2"
+    },
+    "app/bo3_zm_manifest.toml": {
+      "bytes": 2472,
+      "sha256": "0532c5b4e743e7c0e560a242b094fc1a7ef3bd865140bb5b2e9dc2299dbee43f"
+    },
+    "runtime/game/default_zm.xex": {
+      "bytes": 13492224,
+      "sha256": "d0eb63c97f69cf14ecaf5171429fa4afcce6f0fd5ca3d774c7a0af343f33fe4e"
+    },
+    "runtime/game/default_zm.xexp": {
+      "bytes": 3416064,
+      "sha256": "a2c170614d5323d2202d551faecb45ca8db958da2b06c5fe1d8d9771e6fbe777"
+    },
+    "build/nx-generated/zombies/bo3_zm_init.h": {
+      "bytes": 1136286,
+      "sha256": "3824ce80dc42c46e1c58927f8c4fd8e905e700fd1ea7cb2d3cb5f8906435a0ec"
+    },
+    "build/nx-generated/zombies/bo3_zm_init.cpp": {
+      "bytes": 1084547,
+      "sha256": "1c45018645686cb41275a88aac00fb165cdec9d81e7ac587a3608f6a36902f61"
+    }
+  },
+  "compiler": "aarch64-none-elf-g++.exe (devkitA64) 16.1.0",
+  "elf_header": "ELF Header:\n  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 \n  Class:                             ELF64\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI Version:                       0\n  Type:                              DYN (Position-Independent Executable file)\n  Machine:                           AArch64\n  Version:                           0x1\n  Entry point address:               0x0\n  Start of program headers:          64 (bytes into file)\n  Start of section headers:          87918208 (bytes into file)\n  Flags:                             0x0\n  Size of this header:               64 (bytes)\n  Size of program headers:           56 (bytes)\n  Number of program headers:         4\n  Size of section headers:           64 (bytes)\n  Number of section headers:         40\n  Section header string table index: 39\n",
+  "section_sizes": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n66515812\t1268840\t6063712\t73848364\t466d62c\tC:\\bo3recomp\\build\\nx-runtime\\bo3_zm_nx\n",
+  "linked_aliases": {
+    "sub_82140000": "00000000004f73f0",
+    "sub_82140018": "00000000004f7440"
+  },
+  "horizon_exception_handler_linked": true,
+  "function_mapping_entries": 34840,
+  "source_provenance": "analysis/nx_runtime_sources.json",
+  "startup_trace_linked": true,
+  "final_build_log": "analysis/nx_runtime_startup_trace01_build.log",
+  "hardware_status": "Hardware01 startup and application logs received after forwarder correction; Vulkan swapchain and guest arena initialized; BO3 title/gameplay not established"
+}

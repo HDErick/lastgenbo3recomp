@@ -157,6 +157,11 @@ evidence that a Switch build can require substantial renderer work; it does not
 predict BO3's speed. Our initial correctness backend should be Vulkan, followed
 by a measured decision about a BO3 native command-ring path.
 
+October 13 steering: first establish an SD startup log from the Switch NRO,
+then develop the Vulkan baseline and native renderer on PC before pursuing
+complete Switch gameplay. PC frame comparisons establish renderer correctness;
+console measurements still determine the needed performance optimizations.
+
 A native path must honor BO3 packet types, formats and synchronization. Color,
 depth, MSAA, memexport, CPU-visible resolves and resource coherency are coverage
 questions, not features we can discard by assumption. Missing packets need

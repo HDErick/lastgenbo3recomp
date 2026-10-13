@@ -131,6 +131,82 @@ against all 1,796 source content paths and sizes, and its NRO hash matches the
 built binary. Evidence: `analysis/nx_runtime_package.json`.
 
 The package's game, update and common content total about 7.52 GiB, plus the NRO.
-The environment preflight passed on hardware; **this BO3 game NRO has not yet
-been tested on hardware**. First boot, menu interaction, image correctness,
+The environment preflight passed on hardware. The first BO3 game NRO hardware
+launch initially failed with no application log reported; the user later
+identified an incorrect NRO forwarder. With the forwarder corrected, the trace
+build produced startup and application logs. First boot into BO3,
+menu interaction, image correctness,
 audio, map loading, memory behavior and performance remain to be established.
+
+### Supplied Atmosphere reports
+
+On October 13 the user supplied these reports in `build/nx-package/bo3recomp`:
+
+- `01772862935_05bf5a68d54b9000.log`
+- `01772866382_056622cebac95000.log`
+
+Both report `0x202 (2002-0001)`, a User Break at `hbl + 0x4040`, one thread,
+and only the `hbl` module with ID
+`20C7654671295934AB14F14187501B8BFE957327000000000000000000000000`.
+Neither contains the BO3 module/build ID
+`c00c58c3d7e9e8ed1cad0874c32ba31d2e2bcf14` or BO3 stack addresses.
+They establish a loader failure, but do not identify the requested NRO or prove
+that either report came from this BO3 launch. A loader failure during a BO3
+launch is still possible; absence of a BO3 module alone cannot rule that out.
+The filename timestamps decode to March 7, 2026, 05:55:35 and 06:53:02 UTC,
+assuming the console clock was correct. The new application log also uses March
+7, confirming the clock differs from the October 13 client date; those filename
+dates cannot establish that the earlier reports are unrelated. The user initially
+suspected unrelated reports and later reported correcting the NRO forwarder.
+These files are not being used as evidence for a BO3 runtime repair.
+
+### Startup trace01 test
+
+Build with `scripts/nx/build-runtime.ps1 -StartupTrace`, then package normally.
+This diagnostic overrides libnx's weak `__appInit` to initialize SM, FS and mount
+SD before applet/HID/time/window initialization. Those services and libnx's
+optional hooks are retained. The changed service order is diagnostic and is not
+a confirmed crash fix. It can be disabled by rebuilding without `-StartupTrace`.
+
+The first file is `sdmc:/switch/bo3recomp/bo3_nx_startup.log`, rewritten per
+launch. Each stage closes its file before continuing. Markers bracket the
+window initialization, all static constructors and entry into the existing
+SDK `main`. This avoids depending on the C++ logger or game configuration to
+record progress. Failure before SM/FS/SD initialization can still prevent a
+file; those service failures retain their raw error code on screen.
+
+The original failed NRO/ELF/map/provenance are preserved locally under
+`build/nx-runtime-baseline01`. The trace build linked, retained `_start=0`, and
+disassembly confirmed `__libnx_init` calls the diagnostic `__appInit` and wraps
+the constructor call; crt0 branches to the main wrapper. Evidence:
+`analysis/nx_runtime_startup_trace01_build.log` and
+`analysis/nx_runtime_startup_trace01_provenance.json`.
+
+The startup-log gate has passed on hardware. The agreed subsequent work
+order is an isolated PC emulated-Vulkan baseline using the Horizon SDK source,
+followed by BO3 shader/command capture and a native Vulkan renderer on PC, then
+Switch integration and measured optimization. Full Switch gameplay is not a
+prerequisite for beginning that PC renderer work.
+
+### Runtime hardware01: first log gate passed
+
+The user corrected the NRO forwarder and returned `bo3_nx_startup.log` and
+`bo3_zm_nx.log`. The startup trace reaches `main` after successful applet, HID,
+time, window and static-constructor initialization. The application log records
+Vulkan initialization on Tegra X1, driverInfo **Mesa 26.2.1
+(git-fe913078f1)**, a 1280x720 handheld swapchain with immediate presentation,
+and mapped guest virtual/physical arenas. This identifies the driver version
+more precisely than the earlier raw version integer; it does not identify all
+local driver patches.
+
+The final line warns about fewer than six processor cores. Source inspection
+shows this is a nonfatal once-only scheduling warning in `XThread::SetAffinity`;
+it is not proof of the reason execution stopped. The supplied log does not
+record XEX loading, translated guest execution, gameplay, or a shutdown/crash
+reason. No SDK crash report was supplied with these two logs.
+
+Archived evidence: `analysis/nx_runtime_hardware01_startup.log` and
+`analysis/nx_runtime_hardware01.log`. The tested package currently matches
+trace01's SHA256 `ddbd0396617dbe76ea143d0091fc93def481b9cfc15d9151e74dff62ca750c1d`.
+The user reported the forwarder correction, so successful logging cannot be
+attributed specifically to the diagnostic service-order change.

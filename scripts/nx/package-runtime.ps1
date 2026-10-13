@@ -24,7 +24,7 @@ if ($IncludeGameFiles) {
 BO3 Zombies NX development build
 
 Copy this bo3recomp folder to sdmc:/switch/bo3recomp.
-Use title takeover. This is the first game build and has not booted on hardware.
+Use title takeover. Game startup has not yet been established on hardware.
 
 Required game content, using the already staged PC runtime:
 runtime/game/*    -> sdmc:/switch/bo3recomp/game/
@@ -36,6 +36,7 @@ Keep the update root separate and preserve all package directory names.
 The optional -IncludeGameFiles packaging argument copies these into this folder.
 
 Logs to return after testing:
+sdmc:/switch/bo3recomp/bo3_nx_startup.log (when built with -StartupTrace)
 sdmc:/switch/bo3recomp/bo3_zm_nx.log
 sdmc:/switch/bo3recomp/logs/rex/ (crash and stderr reports, when present)
 An Atmosphere crash report, if the system reports an error.
