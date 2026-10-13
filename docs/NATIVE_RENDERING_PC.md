@@ -131,10 +131,24 @@ textures, blending or HUD. Clear depth 1 displays black; values nearer zero
 display progressively lighter grayscale with a nonlinear contrast curve.
 Normal presentation remains active initially. The diagnostic presentation
 modules pass `spirv-val --target-env vulkan1.2`. Run 16 closed normally; the user
-did not try F9 and requested reopening. Run 17 reopens the same build for the
-depth comparison. Nonempty depth supports geometry reaching the depth buffer;
-empty depth alone cannot exclude geometry because tests, write enables, clears
-and shared depth ownership remain incomplete. Visual feedback is pending.
+did not try F9 and requested reopening. In run 17 the user reports that F9
+remains black. The log confirms depth view ON with a current-frame scene
+available. This run ended with normal window closure. Empty depth alone cannot
+exclude geometry because depth-only draws, tests, write enables, clears and
+shared depth ownership were incomplete.
+
+Build 23 adds `kDepthOnly` draws with a vertex shader and no fragment/color
+attachment. Matching depth base, format, dimensions and sample count now share
+one depth/stencil surface across color targets and depth-only passes. Creating
+a new color target no longer clears an existing depth surface. F9 can inspect
+the last current-frame large MSAA depth surface even if only a depth pass drew
+to it; normal/F8 presentation still selects color targets. Logs count accepted
+depth-only draws and identify each target's pass type. Unsupported cube/volume
+shader views are checked before Vulkan object creation, and common omitted
+primitive/mode packets avoid exception unwinding. The build and repository audit
+pass; run 18 is open, with visual confirmation pending. This is a bounded shared
+surface implementation, not general EDRAM overlap/alias handling. Guest clears,
+different-extent depth aliases and native resolves remain unsupported.
 
 Remaining gates include stencil/clear behavior, resolves and their exponent
 conversion, native-produced texture ownership, target aliasing, MRT/MSAA parity,
@@ -160,7 +174,8 @@ Further inputs: `analysis/pc_native_provenance14.json` and
 `analysis/pc_native_backend_boot13.log`, `analysis/pc_native_backend_boot14_scene.log`.
 Further logs and inputs: `analysis/pc_native_backend_boot15.log`,
 `analysis/pc_native_backend_boot16_depth.log`, `analysis/pc_native_provenance16.json`,
-`analysis/pc_native_provenance17.json`.
+`analysis/pc_native_provenance17.json`, `analysis/pc_native_backend_boot17_depth.log`,
+`analysis/pc_native_backend_build23.log`, `analysis/pc_native_provenance18.json`.
 
 Run `scripts/nx/prepare-runtime.py` if the ignored SDK/generated staging is
 missing, then `scripts/nx/build-pc-vulkan.cmd`. The executable is

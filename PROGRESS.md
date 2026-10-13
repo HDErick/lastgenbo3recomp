@@ -116,9 +116,14 @@ improved menus and visible map previews, but gameplay remains black with HUD;
 F8 removes the HUD and the selected MSAA target stays black. Build 22 adds an
 F9 depth view to check whether geometry reaches the depth buffer independently
 of game shading. Its SPIR-V validates. Run 16 closed normally without an F9
-comparison; run 17 reopens the same build at the user's request. Feedback is
-pending. Textures/conversion, mips/cube views, clears, shared depth/stencil
-ownership and native guest resolves remain incomplete.
+comparison; in run 17 the user confirms F9 stays black, with the log confirming
+an active current-frame depth view. It closed normally. Build 23 adds depth-only
+draws without a fragment shader and shares matching depth surfaces across passes
+and color targets. New color targets preserve an existing shared depth surface.
+It also avoids repeated Vulkan object creation on unsupported texture views.
+Build and source audit pass; run 18 is open for normal/F9 comparison, with
+visual confirmation pending. Textures/conversion, mips/cube views, guest clears,
+EDRAM overlap/extent aliasing and native guest resolves remain incomplete.
 See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).
 
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches
