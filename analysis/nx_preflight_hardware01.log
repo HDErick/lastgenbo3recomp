@@ -1,0 +1,19 @@
+BO3 NX environment probe (not the game)
+Applet type: 0; title takeover required
+System tick frequency: 19200000 Hz
+svcGetInfo type 0: result=0x0 value=7
+svcGetInfo type 6: result=0x0 value=3343908864
+svcGetInfo type 7: result=0x0 value=3339763712
+UsedMemorySize includes the startup heap; it is not malloc usage.
+Worker creation: 0x0
+Worker start: 0x0
+Worker/NEON result: 28 (expected 28)
+vkCreateInstance: 0
+GPU: NVIDIA Tegra X1 (GM20B) (NVK GM20B), Vulkan 1.3.354, driver 0x06802001
+timestampPeriod (uncalibrated): 1.000000 ns
+Features: int64=1 geometry=1 tessellation=1
+GPU heap 0: 2391 MiB flags=0x1
+Queue family 0: 1 queues flags=0x7
+vkCreateDevice: 0
+Log: sdmc:/switch/bo3recomp/nx-preflight.log
+Press + to exit.

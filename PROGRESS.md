@@ -1,16 +1,20 @@
 # BO3 RexGlue progress and limitations
 
-Updated October 12, 2026 (America/New_York).
+Updated October 13, 2026 (America/New_York).
 
 ## Current state
 
 On branch `NX`, Nintendo Switch groundwork has started. The installed devkitA64
 and Mesa/libnx environment builds a diagnostic ARM64 NRO with startup at zero.
-It has not been tested on the console and does not load BO3. The BO3 compile
+Its first console test passed application mode, three available cores, worker/
+NEON execution and Vulkan instance/device creation. The user confirmed that +
+exited normally. It does not load BO3. The BO3 compile
 probe confirms missing Horizon platform/fiber support in the current desktop
 SDK; a complete runtime port and playable performance are still unproven.
 The user confirmed original Switch/OLED hardware and title takeover.
 See [NX port plan](docs/NX_PORT.md) and `analysis/nx_environment.json`.
+Hardware evidence: `analysis/nx_preflight_hardware01.log` and
+`analysis/nx_preflight_result.json`. Runtime adaptation is the next milestone.
 
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches
 playable Shadows of Evil, confirmed by the user. The user also confirmed that

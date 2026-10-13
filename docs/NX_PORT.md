@@ -31,7 +31,8 @@ Completed in this first stage:
   Evidence: `analysis/nx_cpu_probe.json` and the two associated compiler logs.
 
 The environment NRO does not load game files, execute BO3, present a Vulkan
-frame or measure gameplay. It is ready for a hardware environment check.
+frame or measure gameplay. Its first hardware environment check passed on
+October 13, 2026; details follow below.
 The existing desktop SDK and generated BO3 sources were not altered by the
 compile probe. Its adapted headers live only under ignored `build/`.
 
@@ -79,8 +80,36 @@ host code and the installed dependencies; it does not import NFSMW app sources.
 - Inherited `DEVKITPRO=/opt/devkitpro` is a shell path, unsuitable for native
   Windows CMake. Our script supplies absolute `C:/devkitPro` paths explicitly.
 
-The user confirmed original Switch/OLED hardware with **title takeover**. No
-hardware run or console-specific clock measurement has been completed.
+The user confirmed original Switch/OLED hardware with **title takeover**.
+
+### First console test: October 13, 2026
+
+Archived log: `analysis/nx_preflight_hardware01.log`. Structured results:
+`analysis/nx_preflight_result.json`.
+
+| Check | Result |
+|---|---|
+| Applet mode | 0, `AppletType_Application` in installed libnx; appropriate for title takeover |
+| Available core mask | `0x7`, three application CPU cores |
+| System timer | 19,200,000 Hz; this is not the CPU clock |
+| Worker creation/start | Both succeeded |
+| Worker NEON result | 28, matching the expected value |
+| Vulkan instance/device | Both succeeded (`VK_SUCCESS`) |
+| GPU | NVIDIA Tegra X1 / GM20B, NVK |
+| Reported Vulkan API | 1.3.354 |
+| Raw driver version | `0x06802001`; exact driver patches remain unidentified |
+| GPU heap | 2,391 MiB capacity, not free memory |
+| Queue | One queue in family 0, flags `0x7` (graphics, compute, transfer) |
+| Queried shader features | int64, geometry and tessellation supported |
+| Timestamp period | 1 ns reported; calibration remains pending |
+| Input/exit | User confirmed + exits normally without an error |
+
+The reported total process memory is 3,343,908,864 bytes (3,189 MiB).
+UsedMemorySize includes the startup heap allocation and cannot be subtracted
+from that total to estimate usable game memory. GPU frame presentation, BO3
+execution, full renderer feature coverage and playable performance are not
+established by this test. The environment milestone has passed; the next work
+is Horizon runtime adaptation.
 
 ## Runtime migration decision
 
@@ -170,7 +199,7 @@ remain correct across ARM's ordering rules and GPU cache maintenance.
 
 | Stage | Work | Evidence required |
 |---|---|---|
-| 0: environment | Run the supplied preflight in title takeover | Saved console log, Vulkan/device result, cores, worker result and clean exit |
+| 0: environment — passed | Supplied preflight ran in title takeover | Hardware01 log, Vulkan/device success, three cores, worker result and user-confirmed clean exit |
 | 1: runtime | Stage/reconcile Horizon SDK; compile both image interfaces | Full ARM64 build and retained ELF; no placeholder linkage or fake service success |
 | 2: boot | Preserve update/content mounts and local profile | BO3 startup log, title/menu frame and controller interaction |
 | 3: gameplay | Load Shadows of Evil; then Giant and Der Eisendrache | Gameplay, content mounts, input/audio and repeated load/exit checks |

@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-13",
+  "log": "analysis/nx_preflight_hardware01.log",
+  "log_sha256": "e9589ebf32b28b7712af9540b563673272acb30985cafa903e18ba3de9c2d262",
+  "supplied_build_sha256": "faa1a56cd71a28ca5ae762ed5a014c7cdd7d66b47871e820eb56da2ca3b3c443",
+  "applet_type": 0,
+  "application_mode": true,
+  "tick_frequency_hz": 19200000,
+  "core_mask": 7,
+  "process_memory_total_bytes": 3343908864,
+  "process_memory_used_bytes": 3339763712,
+  "memory_note": "UsedMemorySize includes the claimed startup heap; GPU heap size is capacity, not free memory",
+  "worker_created": true,
+  "worker_started": true,
+  "worker_neon_result": 28,
+  "vulkan_instance_result": 0,
+  "vulkan_device_result": 0,
+  "gpu": "NVIDIA Tegra X1 (GM20B) (NVK GM20B)",
+  "vulkan_api": "1.3.354",
+  "driver_version_raw": "0x06802001",
+  "timestamp_period_ns_uncalibrated": 1.0,
+  "features": {
+    "int64": 1,
+    "geometry": 1,
+    "tessellation": 1
+  },
+  "gpu_heap_mib": 2391,
+  "queue_count": 1,
+  "queue_flags": "0x7",
+  "controller_and_shutdown": {
+    "status": "User confirmed + exits normally without an error",
+    "source": "User reply on October 13, 2026"
+  },
+  "status": "All recorded environment checks passed; user confirmed normal exit",
+  "scope": "Environment only: no BO3 execution, Vulkan frame presentation, GPU timing calibration or game-performance validation"
+}

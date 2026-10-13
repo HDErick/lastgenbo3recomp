@@ -382,7 +382,7 @@
     ]
   },
   "other_projects": {
-    "C:\\T6ZM-Rebuild-NX": "fc70603dc49d46c2c686f7c36f9ecb6da076beb3",
+    "C:\\T6ZM-Rebuild-NX": "3f5665579a11955117b9f21a77aa2634f450b0ed",
     "C:\\KisakBlack-NX": "c40d111b796f391cdbd8198997218c6827a3992b"
   },
   "translations": {
@@ -398,7 +398,7 @@
     }
   },
   "hardware_plan": "Original Switch / OLED, title takeover; confirmed by user",
-  "hardware_validation": "Not run; host compilation does not establish hardware support or frame rate",
+  "hardware_validation": "All recorded environment checks passed; user confirmed normal exit; BO3 not yet run",
   "preflight_build": {
     "artifact": "build\\nx-preflight\\bo3_nx_preflight.nro",
     "bytes": 14883013,
@@ -406,6 +406,7 @@
     "elf_machine": "AArch64",
     "elf_class": "ELF64",
     "start_address": "0x0 (verified by scripts/nx/build-preflight.ps1)",
-    "hardware_test": "Pending"
-  }
+    "hardware_test": "All recorded environment checks passed; user confirmed normal exit"
+  },
+  "hardware_result": "analysis\\nx_preflight_result.json"
 }

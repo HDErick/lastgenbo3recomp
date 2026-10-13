@@ -69,6 +69,14 @@ if nro.is_file():
         'elf_machine': 'AArch64', 'elf_class': 'ELF64',
         'start_address': '0x0 (verified by scripts/nx/build-preflight.ps1)',
         'hardware_test': 'Pending'}
+hardware_result = root / 'analysis/nx_preflight_result.json'
+if hardware_result.is_file():
+    hardware = json.loads(hardware_result.read_text())
+    result['hardware_result'] = str(hardware_result.relative_to(root))
+    result['hardware_validation'] = hardware['status'] + '; BO3 not yet run'
+    if ('preflight_build' in result and
+            result['preflight_build']['sha256'] == hardware['supplied_build_sha256']):
+        result['preflight_build']['hardware_test'] = hardware['status']
 path = root / 'analysis/nx_environment.json'
 path.write_text(json.dumps(result, indent=2) + '\n', newline='\n')
 print(f'Wrote {path.relative_to(root)}')
