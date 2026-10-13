@@ -1,0 +1,38 @@
+{
+  "release": "https://github.com/microsoft/DirectXShaderCompiler/releases/tag/v1.9.2609",
+  "archive_url": "https://github.com/microsoft/DirectXShaderCompiler/releases/download/v1.9.2609/dxc_2026_09_29.zip",
+  "archive_bytes": 32287592,
+  "archive_sha256": "ad31b1fc8443175d204f77a611fdb3ef2ec42759bdc2f1167368de24a4a7e7f1",
+  "archive_digest_source": "GitHub release asset API",
+  "authenticode_dxc": "Valid Microsoft signature checked on this machine",
+  "files": {
+    "package/bin/x64/dxc.exe": {
+      "bytes": 1359640,
+      "sha256": "aa7965b3763d9c710baaa5a28cedcc633449962a75d1391d161a85304a41b3e2"
+    },
+    "package/bin/x64/dxcompiler.dll": {
+      "bytes": 22274872,
+      "sha256": "0689e2fee0a1c9df8662a59680469f24e2a3ad7ce6bbbcc9284f7a83172bfc59"
+    },
+    "package/bin/x64/dxil.dll": {
+      "bytes": 1995584,
+      "sha256": "64be2368211d257a038a7d4ea6bb3e24c878eb8d588c7b8414fccf759b69c2ac"
+    },
+    "package/inc/hlsl/LICENCE.txt": {
+      "bytes": 12716,
+      "sha256": "f47b94fc51b04f4354a6c6f41fb84b0bd22a8ebfcde9f93c1b4d9abd7f6d14c2"
+    },
+    "package/LICENCE-MIT.txt": {
+      "bytes": 1093,
+      "sha256": "903df5512f7d02609fed0c780a9b704f5a3eeb6e4d84ebe42a29845c81899a3c"
+    },
+    "package/LICENSE-LLVM.txt": {
+      "bytes": 1979,
+      "sha256": "729615317e28dd03907e46f0fc3b5e88f7853cee61d1a1471d2749335516b46f"
+    },
+    "package/LICENSE-MS.txt": {
+      "bytes": 13163,
+      "sha256": "734f72f239fe7b07b4c7203f294c1a7ce27095687278bab7e56d630d7c672963"
+    }
+  }
+}

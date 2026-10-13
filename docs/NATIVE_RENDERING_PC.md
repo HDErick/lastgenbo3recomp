@@ -122,6 +122,9 @@ The first BO3-specific foundation is recorded in
 Run `launch-pc-vulkan.ps1 -RenderTargetPath fsi -D3DTrace -Background` to collect
 the forwarding XDK census and full shader containers. This build still draws
 through Xenos emulation; the census is preparation for the native backend.
+The initialization and bound-object capture passed user-confirmed The Giant
+gameplay. The offline translator/validator now builds on Windows; see
+[shader tools and unresolved variants](NATIVE_SHADER_TOOLS.md).
 
 1. Establish the emulated Vulkan baseline on PC and retain frame captures.
 2. Capture BO3 shaders, patched variants, command packets and resource usage.

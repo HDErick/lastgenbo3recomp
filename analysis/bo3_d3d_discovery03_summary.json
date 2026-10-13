@@ -1,0 +1,23 @@
+{
+  "CreatePixelShader": 1,
+  "CreateVertexShader": 2,
+  "SetPixelShader": 146485,
+  "SetVertexShader": 171518,
+  "LoadShaders": 164195,
+  "DrawVertices": 20082,
+  "DrawIndexedVertices": 620791,
+  "DrawVerticesUP": 0,
+  "DrawIndexedVerticesUP": 107121,
+  "Resolve": 22503,
+  "BeginCommandBuffer": 7013,
+  "RunCommandBuffer": 6995,
+  "Swap": 3960,
+  "InitializePixelShader": 2640,
+  "InitializeVertexShader": 358,
+  "BoundVertexObjects": 129,
+  "BoundPixelObjects": 211,
+  "RejectedBoundObjects": 0,
+  "InitializedVertexObjects": 358,
+  "InitializedPixelObjects": 2640,
+  "RejectedInitializers": 0
+}

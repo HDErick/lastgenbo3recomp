@@ -8,6 +8,9 @@ The Giant renders large pale squares under both FBO and confirmed FSI. The
 user observes them at windows and on the glowing upper part of the starting
 pistol. The menus use video playback, according to the user; successful menu
 display does not validate the 3D renderer.
+The user explicitly confirms that these squares did not occur before the Vulkan
+implementation. Track this as a Vulkan regression relative to the earlier
+D3D12 baseline. The older model-color flashing is a separate paused issue.
 
 Portable RenderDoc 1.46 captured a confirmed FSI gameplay frame. Replay on the
 same PC succeeded and reproduced the squares. The capture contains 4,225 draws
@@ -88,6 +91,10 @@ with the user. A native renderer may bypass this emulated resolve path, but
 must correctly implement BO3's FP16-to-fixed resolve and +11 exponent-bias
 contract. Mass Effect's documented native resolve handling is not a universal
 solution for this combination. Use this capture as a targeted correctness test.
+Discovery01 loaded The Giant successfully with the forwarding hooks enabled;
+the user confirmed the same white squares. Those hooks do not implement a
+native renderer and therefore do not test whether replacing Vulkan's emulated
+resolve path repairs the regression.
 
 Inspect the first bright-region draw and the filtering passes: capture shader
 constants, raw normalized 16-bit values and sampler modes. Distinguish negative

@@ -1,0 +1,25 @@
+{
+  "tree_hash_scheme": "Sorted relative POSIX names, uint64le name length + UTF8 name + uint64le data length + file bytes. Excludes .git entries.",
+  "inputs": {
+    "spirv-tools": {
+      "files": 1754,
+      "tree_sha256": "ed92235235a0e9c5fdae5c9b38c38e9cedab37c752925a40c8ed4f4bee05fa3f"
+    },
+    "spirv-headers": {
+      "files": 113,
+      "tree_sha256": "fd551d228352a60f776a094e22f1b79c68202e88be7565de5046ecee89075f9e"
+    },
+    "fmt": {
+      "files": 128,
+      "tree_sha256": "26f41b596c3e3c300cff9b05e7209792ae05478364a8cb83ada4d1215575fcec"
+    },
+    "xxHash": {
+      "files": 87,
+      "tree_sha256": "20ca068908561496b2e3113e4fd9696fe9b021f61e9e044129e5ef7832c895eb"
+    }
+  },
+  "validator_sha256": "20890cdc60c31f6a20e0b26a244c4ea395d677dc434fb436e20bda1ac9f3f1ff",
+  "validator_version": "SPIRV-Tools v2026.2-dev from staged SDK dependency sources",
+  "compiler": "Clang 20.1.8 Windows Release",
+  "build_log": "analysis/native_spirv_validator_build03.log"
+}

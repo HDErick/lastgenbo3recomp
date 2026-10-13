@@ -5,6 +5,7 @@ param(
     [switch]$DumpShaders,
     [switch]$GpuCapture,
     [switch]$D3DTrace,
+    [ValidatePattern('^[A-Za-z0-9_-]+$')][string]$DiscoveryRun = 'native-discovery',
     [switch]$Background
 )
 $ErrorActionPreference = 'Stop'
@@ -29,7 +30,8 @@ $arguments = @(
     '--audio_mute'
 )
 if ($DumpShaders) {
-    $arguments += ('--dump_shaders=' + (Join-Path $projectRoot 'runtime/shader-dumps/pc-vulkan'))
+    $shaderRun = if ($D3DTrace) { $DiscoveryRun } else { 'pc-vulkan' }
+    $arguments += ('--dump_shaders=' + (Join-Path $projectRoot ('runtime/shader-dumps/' + $shaderRun)))
 }
 $captureEnvironment = @{}
 foreach ($name in 'BO3_SAMPLE_SECS','BO3_CAPTURE_FRAMES','BO3_DUMP_IMAGE',
@@ -43,7 +45,7 @@ $env:BO3_CAPTURE_FRAMES = if ($CaptureFrames) { '1' } else { $null }
 $env:BO3_DUMP_IMAGE = $null
 $env:BO3_GPU_CAPTURE_DIR = $null
 $env:BO3_RENDERDOC_DLL = $null
-$env:BO3_D3D_TRACE_DIR = if ($D3DTrace) { Join-Path $projectRoot 'runtime/native-discovery' } else { $null }
+$env:BO3_D3D_TRACE_DIR = if ($D3DTrace) { Join-Path $projectRoot ('runtime/' + $DiscoveryRun) } else { $null }
 if ($GpuCapture) {
     $renderDocRoot = Join-Path $projectRoot 'tools/renderdoc/RenderDoc_1.46_64'
     if (-not (Test-Path -LiteralPath (Join-Path $renderDocRoot 'renderdoc.dll'))) {

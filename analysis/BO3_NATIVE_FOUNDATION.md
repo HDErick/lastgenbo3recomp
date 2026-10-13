@@ -76,15 +76,15 @@ The optional forwarding census is `nx/pc-vulkan/d3d_trace.cpp`, enabled only by
 context. It writes bounded argument/caller records and shader containers into
 ignored `runtime/native-discovery/`. Periodic summaries survive the host's
 hard-exit path. Diagnostic counters/file I/O cannot be used for FPS measurements.
-Build01 and Build02 linked successfully. Live map validation is pending.
+Build01 and Build02 linked successfully. Later gameplay results are below.
 
-Discovery01 is running with confirmed FSI. Live calls reach the shader setters,
+Discovery01 initially ran with confirmed FSI. Live calls reached the shader setters,
 draw-time shader loader, DrawVertices and DrawIndexedVerticesUP, Resolve and
 Swap. The shader loader reads nonzero VS/PS objects at the statically derived
 offsets. The creation hooks dumped three containers: two VS and one PS. All
 three have the expected XDK signature and an exact header+physical size match
-(948, 640 and 156 bytes). The original game continues running. These are
-startup/UI observations; gameplay and command-buffer coverage are pending.
+(948, 640 and 156 bytes). These initial records cover startup/UI;
+later gameplay and command-buffer evidence are below.
 Only three Create* containers despite many draws means creation-only capture
 is not sufficient coverage. Next, capture originals from the bound objects
 before the draw-time patcher, then identify the authoritative loaded variants.
@@ -93,13 +93,97 @@ Evidence: `analysis/bo3_d3d_discovery01_calls.jsonl`,
 `analysis/pc_vulkan_native_trace_provenance01.json`. Counters are a point-in-time
 snapshot, not final run totals or shader-library coverage.
 
-## Next implementation gates
+## Discovery results and implementation gates
 
-1. Verify live shader/create/draw/command-buffer calls on The Giant; validate
-   container headers and compare loaded variants with their originals.
-2. Build BO3's shader translation/package tools. Existing microcode-only Xenos
-   dumps lack the complete container identity/constants required by the native
-   library. Add missing-container and patched-VS discovery counters.
+### Discovery01 gameplay result
+
+The user confirmed The Giant loads and shows the same white squares. The full
+log ends with orderly window close, execution complete and title termination;
+no fatal crash or GPU loss appears. The last periodic snapshot contains
+923,796 indexed draws, 8,866 BeginCommandBuffer and 8,849 RunCommandBuffer calls.
+These counts include startup/menu time and are not per-frame performance data.
+The command-buffer calls confirm that a renderer cannot assume every GPU draw
+comes from a fresh D3D API call. Only three creation containers were captured.
+
+Evidence: `analysis/pc_vulkan_native_discovery01.log`,
+`analysis/bo3_d3d_discovery01_gameplay_calls.jsonl` and
+`analysis/bo3_d3d_discovery01_gameplay_summary.json`.
+
+Discovery02 extends the shader-load hook to inspect each bound object before
+the original patcher runs. Original BO3 initialization bodies prove that the
+header and physical data are separate: VS header at object+872 with physical
+pointer at +32, PS header at +40 with physical pointer at +24. The hook copies
+the two ranges into a container after checking committed/readable pages,
+signature, stage and bounded sizes. First-sighting object addresses are memoized;
+address reuse and authoritative PM4 variant matching remain later validation
+work. Build03 linked successfully. The user confirmed The Giant gameplay and
+the log ends normally. The last periodic snapshot records 135 bound VS objects,
+237 bound PS objects and zero rejected bound objects. The merged discovery01/02
+directory contains 365 unique containers (121 VS, 244 PS), all passing header,
+stage, size, declaration-range and microcode-range checks.
+
+### Discovery03: initialization and GPU programs
+
+Build04 adds forwarding InitializeVertexShader (0x826F0220) and
+InitializePixelShader (0x826EF850) hooks. Both receive object in r3 and physical
+block in r4; reviewed callers and initializer bodies establish this contract.
+Headers are already at object+872/+40. The hook copies before initialization,
+and invalidates the bound-object memo on object reuse. This addresses the
+creation-only coverage gap without changing the guest GPU commands.
+
+The user confirmed The Giant gameplay again; the log ends with orderly window
+close. The last periodic summary reports 358 VS initializations, 2,640 PS
+initializations, 129 bound VS objects, 211 bound PS objects and zero rejected
+objects/initializers. These are object events, not unique shader totals.
+The named run captures 2,897 unique containers (297 VS, 2,600 PS) and 455 unique
+GPU-loaded microcode dumps. Exactly 305 pixel programs match captured container
+microcode. No vertex program matches exactly. Same-length comparisons nominate
+close vertex candidates with 2–18 differing dwords in most cases, consistent
+with patching, but this is not a valid production identity mapping. Three
+loaded vertex programs have no equal-length container candidate. Multiple
+container subprograms, linking and declaration compatibility remain unverified.
+
+Evidence: `analysis/pc_vulkan_native_discovery03.log`,
+`analysis/bo3_d3d_discovery03_*.jsonl`,
+`analysis/bo3_d3d_discovery03_summary.json`,
+`analysis/bo3_shader_microcode_comparison03.json` and
+`analysis/bo3_vertex_variant_candidates03.json`. Summaries are periodic snapshots;
+diagnostic counters are not FPS or precise final event totals.
+
+### Offline shader translation
+
+The SA2-pinned container translator now builds on Windows. A separately staged
+BO3 adaptation repairs the texture-weight emitter's helper argument mismatch:
+GetTextureWeights uses the existing four-argument getWeights2D helper; ordinary
+texture fetches retain their reciprocal-size argument. The helper arithmetic is
+unchanged. The pristine reference, MIT translator license and GPL frontend
+license are retained in ignored tools, with pinned hashes in analysis.
+
+The initial 365-container set yields 352 HLSL shaders and, after that repair,
+350 SPIR-V modules passing Vulkan 1.2/scalar-layout validation. Twelve vertex
+containers fail FETCH/declaration matching, one pixel translation times out,
+and two startup vertex shaders have incomplete explicit Vulkan input locations.
+All failures are retained. The expanded discovery03 set yields 2,845 HLSL
+shaders; 49 vertex containers fail FETCH/declaration matching and three pixel
+translations time out. Of the 2,845 translated shaders, 2,843 compile and pass
+SPIR-V validation; the same two startup VS input-location failures remain.
+Thus 54 of the 2,897 captured containers remain unresolved, before considering
+GPU-loaded vertex variants and renderer ABI verification.
+These offline results do not establish native-renderer ABI compatibility or
+visual correctness, and are not a complete usable game shader package yet.
+
+See [offline shader tools](../docs/NATIVE_SHADER_TOOLS.md) for reproducible
+commands, source hashes and remaining gates.
+Expanded evidence: `analysis/bo3_shader_translation04.json` and
+`analysis/bo3_shader_spirv05.json`.
+
+### Next implementation gates
+
+1. Link GPU-loaded vertex variants to verified originals and compatible input
+   declarations; cover the unmatched programs and unresolved translations.
+2. Finish the native shader ABI and package/loader. Existing microcode-only
+   Xenos dumps lack the full container identity/constants required by the
+   library. Report missing containers/variants explicitly.
 3. Integrate a separate native Vulkan mode on PC, initially handling boot/movie
    output and the first 3D draws, with explicit unsupported-operation reports.
 4. Verify terrain, models, effects and the complete post chain against D3D12 and

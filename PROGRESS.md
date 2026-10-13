@@ -4,7 +4,7 @@ Updated October 13, 2026 (America/New_York).
 
 ## Current state
 
-On branch `NX`, Nintendo Switch groundwork has started. The installed devkitA64
+The `NX` branch contains Nintendo Switch groundwork. The installed devkitA64
 and Mesa/libnx environment builds a diagnostic ARM64 NRO with startup at zero.
 Its first console test passed application mode, three available cores, worker/
 NEON execution and Vulkan instance/device creation. The user confirmed that +
@@ -47,8 +47,13 @@ not validate 3D rendering. See [Vulkan square investigation](analysis/VULKAN_WHI
 Further capture analysis finds varied, finite FP16 EDRAM values becoming binary
 UNORM values through the bloom resolve/upload chain. This investigation is
 paused for native development. NFSMW-NX, Mass Effect and SA2 references were
-reviewed; BO3-specific forwarding D3D/shader-discovery hooks have built and a
-live discovery test is pending. The BO2 native renderer is confirmed broken
+reviewed; BO3-specific forwarding D3D/shader-discovery hooks passed user-confirmed
+The Giant gameplay and normal-close tests. A new initialization/GPU capture
+collected 2,897 unique shader containers and 455 GPU-loaded programs. The
+offline Windows shader tools produce 2,843 validated SPIR-V modules;
+vertex variant identity, FETCH declarations and several translator failures
+remain unresolved. See [shader tools](docs/NATIVE_SHADER_TOOLS.md).
+The BO2 native renderer is confirmed broken
 and is not the renderer base. See [native foundation](analysis/BO3_NATIVE_FOUNDATION.md).
 A BO3 native renderer is not yet
 implemented. See [PC native rendering work](docs/NATIVE_RENDERING_PC.md).

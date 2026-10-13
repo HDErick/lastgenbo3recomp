@@ -1,0 +1,109 @@
+{
+  "reference": {
+    "repository": "ChanseyIsTheBest/sa2-nx",
+    "commit": "d2c6e1558de06cf8ac7e6e9c78029fb5a2623c64",
+    "translator_license": "MIT; shaders/LICENSE.md",
+    "frontend_license": "GPL-3.0; root LICENSE and THIRD_PARTY_NOTICES.md",
+    "files": {
+      "LICENSE": {
+        "bytes": 35149,
+        "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+      },
+      "THIRD_PARTY_NOTICES.md": {
+        "bytes": 7737,
+        "sha256": "0a4f4a4b17f0658b809e82b1d8bb9f7cc54e83bcab43fcd1b08fff354200ed11"
+      },
+      "shaders/LICENSE.md": {
+        "bytes": 1089,
+        "sha256": "bcb33ae2cbc6c0f2818712d806112e774e684fce01ce80573f92adf80b7487f4"
+      },
+      "shaders/tools/masseffect_hlsl.cpp": {
+        "bytes": 4580,
+        "sha256": "5eed08aae55e81fd187a6f90675d8a1cc15a7d73ee365062cd0cb8068c8fbbb1"
+      },
+      "shaders/tools/build_xenos_hlsl.sh": {
+        "bytes": 1018,
+        "sha256": "d56019fb37a4c2177facdf16c26a500cdbc75e0a22aca8772aa03898b79e1540"
+      },
+      "shaders/XenosRecomp/constant_table.h": {
+        "bytes": 1584,
+        "sha256": "675397e4faaec7deb68001e934decca9a1bc08f30ecf58c38bfab8c4688ffbb3"
+      },
+      "shaders/XenosRecomp/pch_min.h": {
+        "bytes": 1086,
+        "sha256": "2fdf784ecef527bc2c78cca37fa0ecb4c92b05d0964705bc5647844148a9980d"
+      },
+      "shaders/XenosRecomp/shader.h": {
+        "bytes": 2188,
+        "sha256": "4e2807363c5e4439d8dd278ee4c865324f80739a03bdccabc5f17c039f426a28"
+      },
+      "shaders/XenosRecomp/shader_code.h": {
+        "bytes": 9810,
+        "sha256": "f7e748314222a92f7ffb60263a19f797184ce0e02fcbecd32bb121e9295d8b58"
+      },
+      "shaders/XenosRecomp/shader_common.h": {
+        "bytes": 23642,
+        "sha256": "1d81bd0a490e71a20323dd93a49753b826aaf8a700f251281a87479c8379f5ef"
+      },
+      "shaders/XenosRecomp/shader_recompiler.cpp": {
+        "bytes": 115618,
+        "sha256": "1ffcf5d5b3017669efd157c6e52311616af18efb86e23e7ad58aed082752c04d"
+      },
+      "shaders/XenosRecomp/shader_recompiler.h": {
+        "bytes": 10771,
+        "sha256": "1fc4eb0aa7e016254ab08f113a2f7463d5edac08b5869ee85d63e5381b991f17"
+      }
+    }
+  },
+  "patch": "GetTextureWeights keeps four-argument helper ABI",
+  "files": {
+    "LICENSE": {
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "bytes": 7737,
+      "sha256": "0a4f4a4b17f0658b809e82b1d8bb9f7cc54e83bcab43fcd1b08fff354200ed11"
+    },
+    "shaders/LICENSE.md": {
+      "bytes": 1089,
+      "sha256": "bcb33ae2cbc6c0f2818712d806112e774e684fce01ce80573f92adf80b7487f4"
+    },
+    "shaders/tools/masseffect_hlsl.cpp": {
+      "bytes": 4580,
+      "sha256": "5eed08aae55e81fd187a6f90675d8a1cc15a7d73ee365062cd0cb8068c8fbbb1"
+    },
+    "shaders/tools/build_xenos_hlsl.sh": {
+      "bytes": 1018,
+      "sha256": "d56019fb37a4c2177facdf16c26a500cdbc75e0a22aca8772aa03898b79e1540"
+    },
+    "shaders/XenosRecomp/constant_table.h": {
+      "bytes": 1584,
+      "sha256": "675397e4faaec7deb68001e934decca9a1bc08f30ecf58c38bfab8c4688ffbb3"
+    },
+    "shaders/XenosRecomp/pch_min.h": {
+      "bytes": 1086,
+      "sha256": "2fdf784ecef527bc2c78cca37fa0ecb4c92b05d0964705bc5647844148a9980d"
+    },
+    "shaders/XenosRecomp/shader.h": {
+      "bytes": 2188,
+      "sha256": "4e2807363c5e4439d8dd278ee4c865324f80739a03bdccabc5f17c039f426a28"
+    },
+    "shaders/XenosRecomp/shader_code.h": {
+      "bytes": 9810,
+      "sha256": "f7e748314222a92f7ffb60263a19f797184ce0e02fcbecd32bb121e9295d8b58"
+    },
+    "shaders/XenosRecomp/shader_common.h": {
+      "bytes": 23642,
+      "sha256": "1d81bd0a490e71a20323dd93a49753b826aaf8a700f251281a87479c8379f5ef"
+    },
+    "shaders/XenosRecomp/shader_recompiler.cpp": {
+      "bytes": 115778,
+      "sha256": "74ab63144e6856a2163d6f6be96af0cd5822c3f8132c41363990bef280dc5035"
+    },
+    "shaders/XenosRecomp/shader_recompiler.h": {
+      "bytes": 10771,
+      "sha256": "1fc4eb0aa7e016254ab08f113a2f7463d5edac08b5869ee85d63e5381b991f17"
+    }
+  }
+}
