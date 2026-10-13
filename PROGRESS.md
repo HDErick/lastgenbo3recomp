@@ -156,11 +156,19 @@ edges; build 35 handles the observed disabled-MSAA-raster pixel-center coverage.
 All 16 mapping/boundary tests pass. Run 25 remained black and identified VF95
 address zero. The captured binary and translator metadata prove this exact
 clear uses VF0 despite the saved text disassembly naming VF95. Build 36 corrects
-the fetch ownership with metadata guards; run 26 is open. Its live log confirms
+the fetch ownership with metadata guards; run 26 is complete. Its log confirms
 base 68 clear-to-zero propagation, and one sampled full-screen MSAA depth pass
-now passes 1,267,200 samples instead of zero. Another sampled pass still passes
-zero; visible gameplay geometry and F9 results remain pending. Runs 24/25 closed
-normally. BO2 was reviewed for ideas
+now passes 1,267,200 samples instead of zero. Later gameplay prepasses also pass
+nonzero samples, including 14,130, 23,735 and 63,767. Some sampled draws still pass
+zero. The user reports normal gameplay still black with HUD; F9 shows a white
+screen and faint gun/viewmodel. The depth display maps the new zero clear to
+white, so this is partial visible depth output rather than a color game frame.
+All 32 sampled scene draws omit the PS and color writes. The last report counts
+112,455 cube/volume-view and 52,778 mip rejections; typed texture/mip backing and
+native resolve ownership are the next color-rendering gates. A reported storage
+selection overwrite warning is recorded separately with no established GPU
+connection. The game was user-closed and the log ends with orderly shutdown.
+Runs 24/25 also closed normally. BO2 was reviewed for ideas
 without importing its broken D3D9 renderer. See
 [BO2 reference notes](analysis/BO2_NATIVE_REFERENCE.md).
 Textures/conversion, mips/cube views, raster/color clears,

@@ -3,7 +3,7 @@
   "compiler": "Clang 20.1.8, x86-64-v3 Windows Release",
   "renderer": "Separate BO3 native Vulkan correctness prototype",
   "build_log": "analysis/pc_native_backend_build36.log",
-  "hardware_status": "Corrected recognized clear VF0 ownership verified against captured binary and metadata; pixel-center coverage and sample aliases; visual test pending",
+  "hardware_status": "User reports normal gameplay black with HUD; F9 white with faint gun/viewmodel. Depth clear propagation active; 20 of 32 sampled scene depth draws have nonzero coverage. Material cube/volume/mip gates remain. User closed; orderly shutdown logged.",
   "files": {
     "build/pc-vulkan/bo3_zm_vulkan.exe": {
       "bytes": 58063360,

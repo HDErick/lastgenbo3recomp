@@ -1437,3 +1437,85 @@
 [2026-10-13 16:25:52.720] [info] [gpu] [t4000] BO3 NATIVE export phases: plan=0.1ms guards=3.1ms snapshot=0.1ms writes=2.2ms exportThreadCPU=0.0ms commandThreadCPU=5093.8ms
 [2026-10-13 16:25:53.548] [info] [gpu] [t4000] BO3 native shader PS 601FE6CB794D7B59: 31 instructions -> 4735 SPIR-V words; interpolators 03FF, colours 1, textures 00002006, vertex fetches 00000000
 [2026-10-13 16:25:53.549] [info] [gpu] [t4000] BO3 native shader VS BFD5778EFEB512EC: 53 instructions -> 8807 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 80000000
+[2026-10-13 16:25:54.752] [info] [gpu] [t4000] BO3 native shader PS DC720BC1D0D8A91D: 47 instructions -> 6772 SPIR-V words; interpolators 03FF, colours 1, textures 00002066, vertex fetches 00000000
+[2026-10-13 16:25:54.752] [info] [gpu] [t4000] BO3 native shader VS 5939F34F5DEC713F: 92 instructions -> 18146 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches C0000000
+[2026-10-13 16:25:54.753] [info] [gpu] [t4000] BO3 native shader PS 9E0A3B556F9CF2F1: 47 instructions -> 6670 SPIR-V words; interpolators 03FF, colours 1, textures 00002026, vertex fetches 00000000
+[2026-10-13 16:25:54.753] [info] [gpu] [t4000] BO3 native shader PS 6A072CED669BDE7F: 54 instructions -> 8063 SPIR-V words; interpolators 07FF, colours 1, textures 0000A026, vertex fetches 00000000
+[2026-10-13 16:25:58.272] [info] [apu] [t20988] [audio] SDL en 10 s: 1840 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 16:25:59.332] [info] [core] [t13236] [xma] en el hilo que llama, 10.0 s: kicks 17869 con 17869 contextos descodificados, 84.9 ms (maximo 4.11 ms); locks 17872 con 17872 contextos, 15.4 ms esperando (maximo 2.20 ms)
+[2026-10-13 16:25:59.332] [info] [core] [t13236] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 16:26:00.522] [info] [gpu] [t4000] BO3 native shader VS D4EA0071F80668FF: 110 instructions -> 20467 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches C0000000
+[2026-10-13 16:26:00.933] [info] [core] [t8920] Presenter: modo de pintado -> en el hilo de la interfaz, a peticion (vsync implicito no, dibujantes de interfaz 1)
+[2026-10-13 16:26:03.617] [info] [gpu] [t4000] BO3 NATIVE timing: 2.75 swaps/s over 10897ms; queue/fence=5115.8ms textureWall=87.0ms exportWall=1.6ms shader=2.4ms pipeline=0.0ms submissions=1162 uploadMiB=1.14 linearMiB=0.00 tiledMiB=1.14 exportSnapshotMiB=0.40
+[2026-10-13 16:26:03.617] [info] [gpu] [t4000] BO3 NATIVE export phases: plan=0.0ms guards=1.4ms snapshot=0.1ms writes=0.1ms exportThreadCPU=0.0ms commandThreadCPU=8046.9ms
+[2026-10-13 16:26:04.442] [info] [core] [t12900] [presentador] adquisicion anticipada: 2399 de 2400 fotogramas sin esperar (100.0 %)
+[2026-10-13 16:26:07.673] [info] [krnl] [t22140] [io] 15 s: 0 aperturas (0 fallan) 0.0 ms en total, peor 0.0 ms, media 0.00 ms; 63 lecturas 2.5 MB en 3.1 ms, peor 1.8 ms
+[2026-10-13 16:26:07.673] [info] [krnl] [t22140] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1814 entradas en el arbol); ventana: 0 aciertos / 1 rellenos / 62 directas, 0.1 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 16:26:07.673] [info] [krnl] [t22140] [io] rangos: 28 releidas de 63 (44 %), 0.9 MB ya leidos antes de 2.5 MB (35 %); 1 seguidas (2 %); 0 desalojos
+[2026-10-13 16:26:07.673] [info] [krnl] [t22140] [io] rangos-cache: 1 aciertos / 29 fallos (3 %), 0.2 MB desde RAM contra 7.4 MB de la SD; 29 entradas vivas (7.4 MB de 64 tope), 0 expulsiones; no cacheadas: 630 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 16:26:08.273] [info] [apu] [t20988] [audio] SDL en 10 s: 1856 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 16:26:08.805] [info] [core] [t12900] [presentador] adquisicion anticipada: 2999 de 3000 fotogramas sin esperar (100.0 %)
+[2026-10-13 16:26:09.345] [info] [core] [t13236] [xma] en el hilo que llama, 10.0 s: kicks 12290 con 12290 contextos descodificados, 6.8 ms (maximo 0.04 ms); locks 12290 con 12290 contextos, 19.6 ms esperando (maximo 2.09 ms)
+[2026-10-13 16:26:09.345] [info] [core] [t13236] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 16:26:13.280] [info] [core] [t12900] [presentador] adquisicion anticipada: 3599 de 3600 fotogramas sin esperar (100.0 %)
+[2026-10-13 16:26:16.611] [info] [gpu] [t4000] BO3 NATIVE timing: 2.31 swaps/s over 12994ms; queue/fence=5832.6ms textureWall=98.9ms exportWall=1.5ms shader=0.0ms pipeline=0.0ms submissions=1211 uploadMiB=0.00 linearMiB=0.00 tiledMiB=0.00 exportSnapshotMiB=0.31
+[2026-10-13 16:26:16.611] [info] [gpu] [t4000] BO3 NATIVE export phases: plan=0.0ms guards=1.3ms snapshot=0.0ms writes=0.1ms exportThreadCPU=0.0ms commandThreadCPU=8406.2ms
+[2026-10-13 16:26:17.922] [info] [core] [t12900] [presentador] adquisicion anticipada: 4199 de 4200 fotogramas sin esperar (100.0 %)
+[2026-10-13 16:26:18.275] [info] [apu] [t20988] [audio] SDL en 10 s: 1826 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 16:26:19.351] [info] [core] [t13236] [xma] en el hilo que llama, 10.0 s: kicks 12170 con 12170 contextos descodificados, 15.2 ms (maximo 4.11 ms); locks 12170 con 12170 contextos, 15.9 ms esperando (maximo 4.14 ms)
+[2026-10-13 16:26:19.351] [info] [core] [t13236] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 16:26:20.288] [info] [gpu] [t4000] BO3 native shader PS 835F7548B9A65D4E: 58 instructions -> 8298 SPIR-V words; interpolators 7FFF, colours 1, textures 0000A01E, vertex fetches 00000000
+[2026-10-13 16:26:22.181] [info] [core] [t12900] [presentador] adquisicion anticipada: 4799 de 4800 fotogramas sin esperar (100.0 %)
+[2026-10-13 16:26:23.411] [info] [krnl] [t22140] [io] 15 s: 0 aperturas (0 fallan) 0.0 ms en total, peor 0.0 ms, media 0.00 ms; 50 lecturas 2.2 MB en 5.2 ms, peor 2.2 ms
+[2026-10-13 16:26:23.411] [info] [krnl] [t22140] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1814 entradas en el arbol); ventana: 0 aciertos / 0 rellenos / 50 directas, 0.0 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 16:26:23.411] [info] [krnl] [t22140] [io] rangos: 17 releidas de 50 (34 %), 0.5 MB ya leidos antes de 2.2 MB (24 %); 2 seguidas (4 %); 0 desalojos
+[2026-10-13 16:26:23.411] [info] [krnl] [t22140] [io] rangos-cache: 1 aciertos / 29 fallos (3 %), 0.2 MB desde RAM contra 7.4 MB de la SD; 29 entradas vivas (7.4 MB de 64 tope), 0 expulsiones; no cacheadas: 631 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 16:26:27.295] [info] [core] [t12900] [presentador] adquisicion anticipada: 5399 de 5400 fotogramas sin esperar (100.0 %)
+[2026-10-13 16:26:28.279] [info] [apu] [t20988] [audio] SDL en 10 s: 1813 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 16:26:29.361] [info] [core] [t13236] [xma] en el hilo que llama, 10.0 s: kicks 12050 con 12050 contextos descodificados, 15.0 ms (maximo 2.06 ms); locks 12050 con 12050 contextos, 19.7 ms esperando (maximo 4.13 ms)
+[2026-10-13 16:26:29.361] [info] [core] [t13236] [xma] reparto (modo 0): trabajador 0 contextos en 0.0 ms (maximo 0.00 ms), respaldo del hilo del kick 0; del kick al dato listo media 0 us y maxima 0.00 ms (0 medidas)
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE timing: 2.17 swaps/s over 13831ms; queue/fence=5800.8ms textureWall=103.7ms exportWall=1.5ms shader=0.3ms pipeline=0.0ms submissions=1230 uploadMiB=0.00 linearMiB=0.00 tiledMiB=0.00 exportSnapshotMiB=0.47
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE export phases: plan=0.0ms guards=1.2ms snapshot=0.1ms writes=0.1ms exportThreadCPU=0.0ms commandThreadCPU=9062.5ms
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE progress: swaps=1920 packets=615121 submitted=278159 depthOnlySubmitted=6191 pixelShaderBypassed=212503 copies=14176 exports=17214 targets=36 depthSurfaces=34 textures=47 pipelines=88 imageMiB=208 frontbuffer=1D7E8000
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE depth clears: requests=0 applied=4381 histories=0
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE rectangles: submitted=7855 shaderVariants=1
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE fast clears: requests=4381 aliasApplications=4381 histories=5
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE skipped memexport_index_offset_or_clamp: 3
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE skipped memexport_overlap: 1
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE skipped native_resolve_not_implemented: 7416
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE skipped primitive_1: 130733
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE skipped resolve_exponent_11: 6760
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE skipped texture_format_54: 1119
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE skipped texture_mips: 52778
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE skipped texture_numeric_conversion: 8483
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE skipped typed_cube_or_volume_texture: 112455
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=0 depth=1984 160x256 format=0 samples=4 draws=96 presented=false depthOnly=true
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=0 depth=1984 320x256 format=37 samples=1 draws=1369 presented=false depthOnly=false
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=0 depth=1984 320x256 format=0 samples=1 draws=96 presented=false depthOnly=true
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=0 depth=1048 400x800 format=0 samples=4 draws=120 presented=false depthOnly=true
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=0 depth=1548 400x800 format=0 samples=4 draws=120 presented=false depthOnly=true
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=0 depth=1164 520x544 format=0 samples=4 draws=120 presented=false depthOnly=true
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=0 depth=608 640x720 format=0 samples=4 draws=240 presented=false depthOnly=true
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=0 depth=1328 640x720 format=0 samples=4 draws=120 presented=false depthOnly=true
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=0 depth=1048 800x800 format=37 samples=1 draws=29209 presented=false depthOnly=false
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=0 depth=1548 800x800 format=37 samples=1 draws=33456 presented=false depthOnly=false
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=1058 depth=68 440x720 format=64 samples=4 draws=120 presented=false depthOnly=false
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=1058 depth=68 880x720 format=64 samples=2 draws=54867 presented=true depthOnly=false
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=1164 depth=1606 1040x37 format=37 samples=1 draws=111 presented=false depthOnly=false
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=1164 depth=1606 1040x100 format=37 samples=1 draws=74 presented=false depthOnly=false
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=1164 depth=1606 1040x101 format=37 samples=1 draws=148 presented=false depthOnly=false
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=1164 depth=1606 1040x121 format=37 samples=1 draws=360 presented=false depthOnly=false
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=1164 depth=1164 1040x544 format=37 samples=1 draws=120 presented=false depthOnly=false
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=1328 depth=608 640x720 format=37 samples=4 draws=0 presented=false depthOnly=false
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=1328 depth=608 1280x720 format=37 samples=1 draws=5289 presented=false depthOnly=false
+[2026-10-13 16:26:30.443] [info] [gpu] [t4000] BO3 NATIVE target activity: base=1984 depth=68 80x1024 format=37 samples=1 draws=120 presented=false depthOnly=false
+[2026-10-13 16:26:31.394] [info] [core] [t12900] [presentador] adquisicion anticipada: 5999 de 6000 fotogramas sin esperar (100.0 %)
+[2026-10-13 16:26:35.413] [info] [core] [t12900] [presentador] adquisicion anticipada: 6599 de 6600 fotogramas sin esperar (100.0 %)
+[2026-10-13 16:26:38.285] [info] [apu] [t20988] [audio] SDL en 10 s: 1853 tramas con datos y 0 de silencio por falta de tramas
+[2026-10-13 16:26:38.635] [info] [krnl] [t22140] [io] 15 s: 0 aperturas (0 fallan) 0.0 ms en total, peor 0.0 ms, media 0.00 ms; 56 lecturas 2.8 MB en 3.5 ms, peor 2.1 ms
+[2026-10-13 16:26:38.635] [info] [krnl] [t22140] [io] rutas: 0 resueltas sin tocar la SD, 0 stats, 0 barridos de directorio (1814 entradas en el arbol); ventana: 0 aciertos / 0 rellenos / 56 directas, 0.0 MB desde RAM, 16 ficheros con ventana
+[2026-10-13 16:26:38.635] [info] [krnl] [t22140] [io] rangos: 22 releidas de 56 (39 %), 0.7 MB ya leidos antes de 2.8 MB (25 %); 0 seguidas (0 %); 0 desalojos
+[2026-10-13 16:26:38.635] [info] [krnl] [t22140] [io] rangos-cache: 1 aciertos / 29 fallos (3 %), 0.2 MB desde RAM contra 7.4 MB de la SD; 29 entradas vivas (7.4 MB de 64 tope), 0 expulsiones; no cacheadas: 631 bajo el suelo de 256 KB, 0 sobre el techo, 0 del barrido de carga (0.0 MB)
+[2026-10-13 16:26:38.946] [info] [core] [t12900] Window closing, shutting down...
+[2026-10-13 16:26:38.953] [info] [core] [t13684] Execution complete
+[2026-10-13 16:26:39.148] [info] [core] [t12900] Title terminated; hard-exiting process.

@@ -256,13 +256,33 @@ that this exact canonical shader uses VF0, stride seven, despite the saved SDK
 text disassembly naming VF95. The native translator metadata independently
 agrees. Build 36 corrects the fetch ownership and verifies that metadata before
 reading the uploaded snapshot. `analysis/native_clear_shader_review01.json`
-records the hashes and slot evidence. Run 26 is open. Its live snapshot confirms
+records the hashes and slot evidence. Run 26 ended after the user closed it. Its log confirms
 base 68 is cleared to zero across sample layouts. The sampled full-screen
 BE68717E4DF4E8D8 depth pass now passes 1,267,200 samples, versus zero in runs
 22–25; the subsequent sampled 03EEAA01C3B394BF pass still passes zero. This is
-actual GPU coverage evidence, but neither pass alone proves world geometry or
-final color. Gameplay geometry and F9 results remain pending. The partial live
-log is `analysis/pc_native_backend_boot26_snapshot.log`; it is not a complete run.
+actual GPU coverage evidence. Later gameplay prepasses with depth state
+0x087087C7 also pass nonzero samples (observed counts include 14,130, 23,735 and
+63,767), versus zero before the repair. This establishes accepted depth-tested
+coverage, but still does not prove the final color or diagnostic view is correct.
+The user reports normal gameplay remains black with HUD, while F9 gives a white
+screen with a faint viewmodel/gun. The display shader maps depth zero to white
+(`pow(1-depth, 0.2)`), explaining the bright background after the reverse-depth
+clear repair. This is partial visible depth output, not a native color frame.
+The complete log is `analysis/pc_native_backend_boot26_clear_vf0.log`; the older
+snapshot is retained separately.
+
+All 32 sampled 880x720 scene draws in this run omit the PS and have color mask
+zero; 20 have nonzero GPU coverage. The final periodic report counts 112,455
+cube/volume-view rejections and 52,778 mip rejections. Color/material draws are
+still blocked by these resource gates, with guest resolves also unsupported.
+Implement typed texture views and their real backing/upload/mip ownership next;
+do not substitute an arbitrary 2D or black image for a required cube/3D texture.
+These are cumulative packet counts, not counts of visible models, and do not
+prove that resource support alone will finish the renderer.
+
+The user also reports a host-looking storage-selection overwrite warning and
+closed the game. No causal link to this GPU change is established. The log ends
+with window closure and title termination; no native backend failure is logged.
 
 Evidence: `analysis/pc_native_backend_boot21_rectangles_coverage.log`,
 `analysis/pc_native_backend_boot22_rectangles_enabled.log`,
