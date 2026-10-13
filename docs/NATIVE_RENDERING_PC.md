@@ -82,7 +82,14 @@ upload exhaustion. Early unsupported packets do not flush an untouched batch.
 Run 12 is the batching comparison. Recent warmed intervals record about 20–24
 swaps/s, with roughly 400–500 submissions per 30 swaps rather than 2,250–2,520
 in the earlier menu run. This is a presentation-rate observation across user
-navigation, not a matched-scene benchmark. Display confirmation is pending.
+navigation, not a matched-scene benchmark. The user confirmed improved performance,
+but gameplay still has a black scene with visible HUD. Run 12 closed normally.
+At swap 2,760 the counters reported 5,390,953 multisample-target rejects and
+1,791,130 polygon-mode/depth-bias rejects, against 84,391 accepted draws from
+7,562,733 packets. Substantial geometry is therefore omitted. A covering pass
+or incorrect diagnostic presentation target remains possible, but no occluding
+draw has been identified. Next implement/validate the observed MSAA and raster
+states, then follow native target resolves and the actual guest frontbuffer.
 
 Remaining gates include stencil/clear behavior, resolves and their exponent
 conversion, native-produced texture ownership, target aliasing, MRT/MSAA,
@@ -100,7 +107,8 @@ Sources and test evidence: `analysis/bo3_memexport_parity01.json`,
 `analysis/pc_native_backend_boot10.log`, `analysis/native_physical_access_tests01.log`,
 `analysis/pc_native_backend_boot11.log`, `analysis/pc_native_provenance11.json`,
 `analysis/pc_native_provenance12.json`,
-`analysis/pc_native_backend_boot12_snapshot.log` (partial live-run snapshot).
+`analysis/pc_native_backend_boot12_snapshot.log` (partial live-run snapshot),
+`analysis/pc_native_backend_boot12.log` (complete run).
 
 Run `scripts/nx/prepare-runtime.py` if the ignored SDK/generated staging is
 missing, then `scripts/nx/build-pc-vulkan.cmd`. The executable is

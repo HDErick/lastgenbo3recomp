@@ -97,7 +97,11 @@ map previews may be invisible. Later menu slowdown is dominated by thousands
 of synchronous submissions/fence waits, not shader compilation. Builds 16/17 add
 bounded draw batches with distinct uploads/descriptors and explicit attachment
 ordering. Recent run 12 intervals record about 20–24 swaps/s and substantially
-fewer submissions; visual confirmation remains pending. This is not a controlled
+fewer submissions; the user confirms improved performance. Gameplay still has
+a black scene and visible HUD. The complete run 12 ends normally and reports
+millions of omitted MSAA and polygon-mode/depth-bias draws. A covering pass is
+unconfirmed; implementing the rejected geometry states and correct native target
+resolves/presentation is the next rendering gate. This is not a controlled
 gameplay benchmark.
 Clears,
 stencil, resolves and further rendering coverage remain incomplete.
