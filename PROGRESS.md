@@ -134,7 +134,14 @@ noticeable regression. Run 19 closes normally. The native test launcher mutes
 audio explicitly, so inaudible audio is not evidence of an audio failure.
 Build 28 adds requested resolve-packet depth/stencil clears for matching shared
 surfaces, preserving partial rectangles and replaying prior clears on new
-images. Run 20 is open for comparison; relevance to gameplay remains unproven.
+images. Run 20 still shows black and closes normally. Its last periodic report
+records zero resolve-clear requests/applications, so the new path was not
+exercised. The main MSAA target received thousands of submitted draws, but many
+cube/volume, mip and rectangle draws were rejected; visible sample writes are
+unproven. Rejected rectangle-list draws/raster clears and color/depth readback
+before final presentation are the next investigation, rather than assuming all
+scene passes render successfully. Greater-depth prepasses still face initial
+depth 1 without supported guest clears. Logs show no native backend failure.
 Textures/conversion, mips/cube views, raster/color clears,
 EDRAM overlap/extent aliasing and native guest resolves remain incomplete.
 See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).

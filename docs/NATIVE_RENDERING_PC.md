@@ -197,9 +197,22 @@ Clears arriving before image creation are replayed from bounded per-surface
 history; newer covering rectangles replace older ones. Resolving to guest
 textures is still rejected separately. Rasterized clear primitives, color
 clears, general EDRAM overlap ownership and float24 values above 1 are not covered
-by this change. Build 28 links; run 20 is open for normal/F9 confirmation. Early
-frontend logs record zero resolve-clear requests, so the path's relevance to
-gameplay must be measured rather than assumed. F9 may see cleared depth if a
+by this change. Build 28 links. In run 20 the user reports the same black output;
+F9 ON is logged with a current-frame surface, followed by normal window closure.
+The last periodic report (swap 3120) still records zero resolve-clear requests
+and applications, so this run did not exercise the new clear path. It counts
+50,088 cube/volume, 15,926 mip, 9,063 rectangle and 182,391 point rejections
+cumulatively; these are packet counters, not counts of visible objects. The
+main 880x720 2x target received 36,365 submitted draws in the last 120-swap
+interval, but submitting draws does not prove samples passed depth/stencil or
+that visible color was written. A 30-swap interval took 20,339 ms, including
+11,194 ms queue/fence time and 1,560 submissions; shader translation was 3.4 ms.
+No native backend/presentation failure is logged. The next investigation is
+rejected rectangle-list state/shaders and raster clear behavior, followed by
+pixel/depth readback before final presentation. Greater-depth prepasses with
+initial depth 1 and no supported guest clears remain a concrete correctness
+gap; rectangle clears are a hypothesis until their actual draws are identified.
+F9 may see cleared depth if a
 resolve-clear happens after the scene draw; its uniform output alone does not
 prove whether the scene wrote depth earlier in that frame.
 
@@ -233,7 +246,8 @@ Further logs and inputs: `analysis/pc_native_backend_boot15.log`,
 `analysis/pc_native_backend_build26.log`, `analysis/pc_native_provenance19.json`,
 `analysis/native_position_validation02.json` and its validation log,
 `analysis/pc_native_backend_boot19_position_format.log`,
-`analysis/pc_native_backend_build28.log`, `analysis/pc_native_provenance20.json`.
+`analysis/pc_native_backend_build28.log`, `analysis/pc_native_provenance20.json`,
+`analysis/pc_native_backend_boot20_depth_clears.log`.
 
 Run `scripts/nx/prepare-runtime.py` if the ignored SDK/generated staging is
 missing, then `scripts/nx/build-pc-vulkan.cmd`. The executable is
