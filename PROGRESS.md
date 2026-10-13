@@ -111,11 +111,14 @@ and texture rejections, with many submissions. Builds 19/20 add stencil state,
 canonical color aliases, prevalidate textures and discard empty GPU batches.
 Run 14's optional MSAA scene-target view selected a black menu target and hid
 the menu. Build 21 leaves normal presentation active initially; F8 toggles the
-current-frame scene view after entering gameplay. Run 15's comparison is pending.
-Texture formats/conversion, mips/cube views, stencil, clears and native guest
-resolves remain incomplete.
-Clears,
-stencil, resolves and further rendering coverage remain incomplete.
+current-frame scene view after entering gameplay. In run 15 the user confirms
+improved menus and visible map previews, but gameplay remains black with HUD;
+F8 removes the HUD and the selected MSAA target stays black. Build 22 adds an
+F9 depth view to check whether geometry reaches the depth buffer independently
+of game shading. Its SPIR-V validates. Run 16 closed normally without an F9
+comparison; run 17 reopens the same build at the user's request. Feedback is
+pending. Textures/conversion, mips/cube views, clears, shared depth/stencil
+ownership and native guest resolves remain incomplete.
 See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).
 
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches

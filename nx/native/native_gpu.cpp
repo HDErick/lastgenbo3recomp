@@ -88,7 +88,7 @@ struct Image {
   VkImageLayout layout = VK_IMAGE_LAYOUT_UNDEFINED;
   VkSampleCountFlagBits samples = VK_SAMPLE_COUNT_1_BIT;
 };
-struct Target { Image color, depth, display; VkRenderPass pass{}; VkFramebuffer framebuffer{}; uint64_t draws = 0; };
+struct Target { Image color, depth, display; VkImageView depth_sampled{}; VkRenderPass pass{}; VkFramebuffer framebuffer{}; uint64_t draws = 0; };
 struct Pipeline {
   VkDescriptorSetLayout sets[3]{};
   VkPipelineLayout layout{};
@@ -135,6 +135,7 @@ class NativeCommandProcessor final : public CommandProcessor {
   bool no_cull_diagnostic_ = false;
   bool scene_view_diagnostic_ = false;
   bool scene_view_enabled_ = false, scene_key_down_ = false;
+  bool depth_view_enabled_ = false, depth_key_down_ = false;
   bool readback_diagnostic_ = false, recording_ = false;
   bool pending_work_ = false;
   uint32_t batch_draws_ = 0;
@@ -150,7 +151,9 @@ class NativeCommandProcessor final : public CommandProcessor {
   double last_thread_ms_ = -1;
   VkRenderPass present_pass_{};
   Pipeline present_;
+  Pipeline present_depth_;
   VkShaderModule present_vs_{}, present_ps_{};
+  VkShaderModule present_depth_ps_{};
   VkSampler present_sampler_{};
   const VulkanDevice::Functions& F() const { return gpu_->functions(); }
   VkDevice D() const { return gpu_->device(); }
@@ -205,7 +208,7 @@ bool NativeCommandProcessor::SetupContext() {
     gpu_ = static_cast<VulkanProvider*>(graphics_system_->provider())->vulkan_device();
     no_cull_diagnostic_ = std::getenv("BO3_NATIVE_NO_CULL") != nullptr;
     scene_view_diagnostic_ = std::getenv("BO3_NATIVE_SCENE_VIEW") != nullptr;
-    if (scene_view_diagnostic_) REXGPU_WARN("BO3 NATIVE diagnostic: F8 toggles current-frame multisampled scene view; normal presentation initially active");
+    if (scene_view_diagnostic_) REXGPU_WARN("BO3 NATIVE diagnostic: F8 toggles scene color, F9 toggles scene depth; normal presentation initially active");
     readback_diagnostic_ = std::getenv("BO3_NATIVE_READBACK") != nullptr;
     if (no_cull_diagnostic_) REXGPU_WARN("BO3 NATIVE diagnostic: culling disabled for comparison");
     clear_depth_ = reinterpret_cast<PFN_vkCmdClearDepthStencilImage>(gpu_->vulkan_instance()->functions().vkGetDeviceProcAddr(gpu_->device(), "vkCmdClearDepthStencilImage"));
@@ -223,9 +226,9 @@ bool NativeCommandProcessor::SetupContext() {
     VkFenceCreateInfo fence{VK_STRUCTURE_TYPE_FENCE_CREATE_INFO};
     Check(F().vkCreateFence(D(), &fence, nullptr, &fence_), "fence");
     const VkDescriptorPoolSize sizes[] = {{VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 5 * kBatchDraws},
-      {VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, kBatchDraws}, {VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 32 * kBatchDraws}};
+      {VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, kBatchDraws}, {VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 32 * kBatchDraws}, {VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, 1}};
     VkDescriptorPoolCreateInfo desc{VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO};
-    desc.maxSets = 3 * kBatchDraws; desc.poolSizeCount = 3; desc.pPoolSizes = sizes;
+    desc.maxSets = 3 * kBatchDraws; desc.poolSizeCount = 4; desc.pPoolSizes = sizes;
     Check(F().vkCreateDescriptorPool(D(), &desc, nullptr, &descriptors_), "descriptor pool");
     VkBufferCreateInfo buffer{VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO};
     buffer.size = kArenaBytes; buffer.usage = VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT | VK_BUFFER_USAGE_STORAGE_BUFFER_BIT |
@@ -393,8 +396,14 @@ Target* NativeCommandProcessor::GetTarget() {
     // in D32; exact Xenos quantization and packed clear/readback remain pending.
     const auto depth_format = uint32_t(depth.depth_format) ? VK_FORMAT_D32_SFLOAT_S8_UINT : VK_FORMAT_D24_UNORM_S8_UINT;
     result->depth = CreateImage(width, height, depth_format,
-        VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT,
+        VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT | (samples != VK_SAMPLE_COUNT_1_BIT ? VK_IMAGE_USAGE_SAMPLED_BIT : 0),
         VK_IMAGE_ASPECT_DEPTH_BIT | VK_IMAGE_ASPECT_STENCIL_BIT, {}, samples);
+    if (samples != VK_SAMPLE_COUNT_1_BIT) {
+      VkImageViewCreateInfo view{VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO};
+      view.image = result->depth.image; view.viewType = VK_IMAGE_VIEW_TYPE_2D; view.format = result->depth.format;
+      view.subresourceRange = {VK_IMAGE_ASPECT_DEPTH_BIT, 0, 1, 0, 1};
+      Check(F().vkCreateImageView(D(), &view, nullptr, &result->depth_sampled), "sampled depth view");
+    }
     VkAttachmentDescription attachments[2]{};
     attachments[0].format = result->color.format; attachments[1].format = result->depth.format;
     for (auto& a : attachments) { a.samples = samples; a.loadOp = VK_ATTACHMENT_LOAD_OP_LOAD; a.storeOp = VK_ATTACHMENT_STORE_OP_STORE; a.stencilLoadOp = VK_ATTACHMENT_LOAD_OP_LOAD; a.stencilStoreOp = VK_ATTACHMENT_STORE_OP_STORE; }
@@ -419,6 +428,7 @@ Target* NativeCommandProcessor::GetTarget() {
   } catch (...) {
     if (result->framebuffer) F().vkDestroyFramebuffer(D(), result->framebuffer, nullptr);
     if (result->pass) F().vkDestroyRenderPass(D(), result->pass, nullptr);
+    if (result->depth_sampled) F().vkDestroyImageView(D(), result->depth_sampled, nullptr);
     DestroyImage(result->color); DestroyImage(result->depth); DestroyImage(result->display); throw;
   }
   auto* pointer = result.get(); targets_.emplace(key, std::move(result));
@@ -860,8 +870,16 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
       REXGPU_INFO("BO3 NATIVE scene view {} at swap {}; current-frame scene available={}", scene_view_enabled_ ? "ON" : "OFF", swaps_, scene_ && scene_draw_swap_ + 1 == swaps_);
     }
     scene_key_down_ = down;
+    const bool depth_down = foreground_pid == GetCurrentProcessId() && (GetAsyncKeyState(VK_F9) & 0x8000);
+    if (depth_down && !depth_key_down_) {
+      depth_view_enabled_ = !depth_view_enabled_;
+      REXGPU_INFO("BO3 NATIVE depth view {} at swap {}; current-frame scene available={}", depth_view_enabled_ ? "ON" : "OFF", swaps_, scene_ && scene_draw_swap_ + 1 == swaps_);
+    }
+    depth_key_down_ = depth_down;
   }
-  auto* presentation_target = scene_view_enabled_ && scene_ && scene_draw_swap_ + 1 == swaps_ ? scene_ : latest_;
+  const bool current_scene = scene_ && scene_draw_swap_ + 1 == swaps_;
+  const bool show_depth = depth_view_enabled_ && current_scene;
+  auto* presentation_target = (scene_view_enabled_ || show_depth) && current_scene ? scene_ : latest_;
   if (swaps_ % 30 == 0) {
     double wall = Milliseconds(last_perf_);
     const double thread_ms = ThreadMilliseconds();
@@ -912,6 +930,15 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
       VkPipelineDynamicStateCreateInfo dynamic{VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO}; dynamic.dynamicStateCount = 2; dynamic.pDynamicStates = dynamics;
       VkGraphicsPipelineCreateInfo info{VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO}; info.stageCount = 2; info.pStages = stages; info.pVertexInputState = &vertex; info.pInputAssemblyState = &input; info.pViewportState = &viewport; info.pRasterizationState = &raster; info.pMultisampleState = &ms; info.pColorBlendState = &bs; info.pDynamicState = &dynamic; info.layout = present_.layout; info.renderPass = present_pass_;
       Check(F().vkCreateGraphicsPipelines(D(), VK_NULL_HANDLE, 1, &info, nullptr, &present_.pipeline), "presentation pipeline");
+      binding.descriptorType = VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE;
+      Check(F().vkCreateDescriptorSetLayout(D(), &sl, nullptr, &present_depth_.sets[0]), "depth texture layout");
+      pl.pSetLayouts = present_depth_.sets;
+      Check(F().vkCreatePipelineLayout(D(), &pl, nullptr, &present_depth_.layout), "depth present layout");
+      module.codeSize = sizeof(kPresentDepthPS); module.pCode = kPresentDepthPS;
+      Check(F().vkCreateShaderModule(D(), &module, nullptr, &present_depth_ps_), "depth diagnostic shader");
+      stages[1].module = present_depth_ps_; stages[1].pName = "DepthPS";
+      info.layout = present_depth_.layout;
+      Check(F().vkCreateGraphicsPipelines(D(), VK_NULL_HANDLE, 1, &info, nullptr, &present_depth_.pipeline), "depth diagnostic pipeline");
       VkSamplerCreateInfo sampler{VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO}; sampler.magFilter = sampler.minFilter = VK_FILTER_NEAREST; sampler.addressModeU = sampler.addressModeV = sampler.addressModeW = VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE;
       Check(F().vkCreateSampler(D(), &sampler, nullptr, &present_sampler_), "present sampler");
       REXGPU_INFO("BO3 NATIVE diagnostic presentation ready; guest resolve parity is pending");
@@ -926,7 +953,10 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
       try {
         Begin();
         Image* source_image = presentation_target ? &presentation_target->color : nullptr;
-        if (presentation_target && presentation_target->color.samples != VK_SAMPLE_COUNT_1_BIT) {
+        if (show_depth) {
+          Transition(presentation_target->depth, VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL, VK_IMAGE_ASPECT_DEPTH_BIT | VK_IMAGE_ASPECT_STENCIL_BIT);
+          source_image = nullptr;
+        } else if (presentation_target && presentation_target->color.samples != VK_SAMPLE_COUNT_1_BIT) {
           Transition(presentation_target->color, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
           Transition(presentation_target->display, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
           VkImageResolve resolve{}; resolve.srcSubresource = resolve.dstSubresource = {VK_IMAGE_ASPECT_COLOR_BIT, 0, 0, 1};
@@ -937,11 +967,12 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
         }
         if (source_image) Transition(*source_image, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
         VkDescriptorSet set{};
+        auto& display_pipeline = show_depth ? present_depth_ : present_;
         if (presentation_target) {
-          VkDescriptorSetAllocateInfo allocation{VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO}; allocation.descriptorPool = descriptors_; allocation.descriptorSetCount = 1; allocation.pSetLayouts = present_.sets;
+          VkDescriptorSetAllocateInfo allocation{VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO}; allocation.descriptorPool = descriptors_; allocation.descriptorSetCount = 1; allocation.pSetLayouts = display_pipeline.sets;
           Check(F().vkAllocateDescriptorSets(D(), &allocation, &set), "present descriptors");
-          VkDescriptorImageInfo source{present_sampler_, source_image->view, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL};
-          VkWriteDescriptorSet write{VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET}; write.dstSet = set; write.descriptorCount = 1; write.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER; write.pImageInfo = &source;
+          VkDescriptorImageInfo source{show_depth ? VK_NULL_HANDLE : present_sampler_, show_depth ? presentation_target->depth_sampled : source_image->view, show_depth ? VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL : VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL};
+          VkWriteDescriptorSet write{VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET}; write.dstSet = set; write.descriptorCount = 1; write.descriptorType = show_depth ? VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE : VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER; write.pImageInfo = &source;
           F().vkUpdateDescriptorSets(D(), 1, &write, 0, nullptr);
         }
         Image output; output.image = context.image(); output.layout = context.image_ever_written_previously() ? VulkanPresenter::kGuestOutputInternalLayout : VK_IMAGE_LAYOUT_UNDEFINED;
@@ -951,7 +982,7 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
         F().vkCmdBeginRenderPass(command_, &render, VK_SUBPASS_CONTENTS_INLINE);
         if (presentation_target) {
           VkViewport viewport{0, 0, float(width), float(height), 0, 1}; VkRect2D scissor{{0, 0}, {width, height}};
-          F().vkCmdBindPipeline(command_, VK_PIPELINE_BIND_POINT_GRAPHICS, present_.pipeline); F().vkCmdBindDescriptorSets(command_, VK_PIPELINE_BIND_POINT_GRAPHICS, present_.layout, 0, 1, &set, 0, nullptr);
+          F().vkCmdBindPipeline(command_, VK_PIPELINE_BIND_POINT_GRAPHICS, display_pipeline.pipeline); F().vkCmdBindDescriptorSets(command_, VK_PIPELINE_BIND_POINT_GRAPHICS, display_pipeline.layout, 0, 1, &set, 0, nullptr);
           F().vkCmdSetViewport(command_, 0, 1, &viewport); F().vkCmdSetScissor(command_, 0, 1, &scissor); F().vkCmdDraw(command_, 3, 1, 0, 0);
         }
         F().vkCmdEndRenderPass(command_); pending_work_ = true; Transition(output, VulkanPresenter::kGuestOutputInternalLayout); Submit();
@@ -975,13 +1006,17 @@ void NativeCommandProcessor::ShutdownContext() {
   pipelines_.clear();
   for (auto& [key, texture] : textures_) if (texture) { if (texture->sampler) F().vkDestroySampler(D(), texture->sampler, nullptr); DestroyImage(texture->image); }
   textures_.clear();
-  for (auto& [key, target] : targets_) { F().vkDestroyFramebuffer(D(), target->framebuffer, nullptr); F().vkDestroyRenderPass(D(), target->pass, nullptr); DestroyImage(target->color); DestroyImage(target->depth); DestroyImage(target->display); }
+  for (auto& [key, target] : targets_) { F().vkDestroyFramebuffer(D(), target->framebuffer, nullptr); F().vkDestroyRenderPass(D(), target->pass, nullptr); if (target->depth_sampled) F().vkDestroyImageView(D(), target->depth_sampled, nullptr); DestroyImage(target->color); DestroyImage(target->depth); DestroyImage(target->display); }
   targets_.clear();
   for (auto& shader : shaders_) if (shader->module) F().vkDestroyShaderModule(D(), shader->module, nullptr);
   shaders_.clear();
   if (present_.pipeline) F().vkDestroyPipeline(D(), present_.pipeline, nullptr);
   if (present_.layout) F().vkDestroyPipelineLayout(D(), present_.layout, nullptr);
   if (present_.sets[0]) F().vkDestroyDescriptorSetLayout(D(), present_.sets[0], nullptr);
+  if (present_depth_.pipeline) F().vkDestroyPipeline(D(), present_depth_.pipeline, nullptr);
+  if (present_depth_.layout) F().vkDestroyPipelineLayout(D(), present_depth_.layout, nullptr);
+  if (present_depth_.sets[0]) F().vkDestroyDescriptorSetLayout(D(), present_depth_.sets[0], nullptr);
+  if (present_depth_ps_) F().vkDestroyShaderModule(D(), present_depth_ps_, nullptr);
   if (present_pass_) F().vkDestroyRenderPass(D(), present_pass_, nullptr);
   if (present_vs_) F().vkDestroyShaderModule(D(), present_vs_, nullptr);
   if (present_ps_) F().vkDestroyShaderModule(D(), present_ps_, nullptr);

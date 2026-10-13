@@ -116,10 +116,25 @@ probe may omit HUD/final effects and is not guest frontbuffer/resolve support.
 Run 14 selected a black 880x720 2x menu target (two accepted draws per frame),
 obscuring the menu after profile loading and preventing the map comparison.
 It closed normally. Build 21 keeps normal presentation initially and uses F8
-to toggle this diagnostic while the game window is foreground. Run 15 tests
-normal menu navigation followed by the in-map F8 comparison; feedback is pending. Clearing
+to toggle this diagnostic while the game window is foreground. In run 15 the
+user confirmed improved menus and visible map previews. Gameplay remains black
+with HUD; F8 removes the HUD and the selected MSAA target is also black. The
+toggle was logged with a current-frame target available, and shutdown was normal.
+This makes a HUD-only cover insufficient to explain that target's black output;
+missing geometry/shading and target ownership/selection remain unresolved. Clearing
 and shared depth/stencil ownership are still incomplete, so accepting stencil
 state alone does not establish correct stencil contents.
+
+Build 22 adds an F9 depth view under `-NativeSceneView`. It samples depth sample
+zero through a depth-only MSAA image view, without the game pixel shader,
+textures, blending or HUD. Clear depth 1 displays black; values nearer zero
+display progressively lighter grayscale with a nonlinear contrast curve.
+Normal presentation remains active initially. The diagnostic presentation
+modules pass `spirv-val --target-env vulkan1.2`. Run 16 closed normally; the user
+did not try F9 and requested reopening. Run 17 reopens the same build for the
+depth comparison. Nonempty depth supports geometry reaching the depth buffer;
+empty depth alone cannot exclude geometry because tests, write enables, clears
+and shared depth ownership remain incomplete. Visual feedback is pending.
 
 Remaining gates include stencil/clear behavior, resolves and their exponent
 conversion, native-produced texture ownership, target aliasing, MRT/MSAA parity,
@@ -143,6 +158,9 @@ Build 18 inputs: `analysis/pc_native_provenance13.json`.
 Further inputs: `analysis/pc_native_provenance14.json` and
 `analysis/pc_native_provenance15.json`. Complete diagnostic logs:
 `analysis/pc_native_backend_boot13.log`, `analysis/pc_native_backend_boot14_scene.log`.
+Further logs and inputs: `analysis/pc_native_backend_boot15.log`,
+`analysis/pc_native_backend_boot16_depth.log`, `analysis/pc_native_provenance16.json`,
+`analysis/pc_native_provenance17.json`.
 
 Run `scripts/nx/prepare-runtime.py` if the ignored SDK/generated staging is
 missing, then `scripts/nx/build-pc-vulkan.cmd`. The executable is
