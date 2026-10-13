@@ -1,0 +1,369 @@
+[2026-10-12 23:10:03.657] [info] [core] [t19420] bo3_mp starting
+[2026-10-12 23:10:03.657] [info] [core] [t19420]   Game directory: C:\bo3recomp\runtime\game
+[2026-10-12 23:10:03.657] [info] [core] [t19420]   User data:      C:\bo3recomp\runtime\user
+[2026-10-12 23:10:03.657] [info] [core] [t19420]   Update data:    C:\bo3recomp\runtime\update
+[2026-10-12 23:10:03.657] [info] [core] [t19420]   Cache root:     C:\bo3recomp\runtime\cache
+[2026-10-12 23:10:03.658] [info] [sys] [t19420] GPU plugin 'xenos' loaded (rexgpu-xenos.dll)
+[2026-10-12 23:10:03.692] [info] [gpu] [t19420] DXGI adapter: Intel(R) Arc(TM) B580 Graphics (vendor 0x8086, device 0xE20B)
+[2026-10-12 23:10:04.050] [info] [gpu] [t19420] Direct3D 12 device and OS features:
+* Max GPU virtual address bits per resource: 44
+* Non-zeroed heap creation: yes
+* Pixel-shader-specified stencil reference: yes
+* Programmable sample positions: tier 1
+* Rasterizer-ordered views: yes
+* Resource binding: tier 3
+* Tiled resources: tier 4
+* Unaligned block-compressed textures: yes
+[2026-10-12 23:10:04.117] [info] [sys] [t19420] FunctionDispatcher initialized
+[2026-10-12 23:10:04.117] [info] [core] [t19420] SDL: Using version 3.5.0
+[2026-10-12 23:10:04.118] [info] [core] [t19420] MnK input driver initialized
+[2026-10-12 23:10:04.118] [info] [sys] [t19420] Input system initialized
+[2026-10-12 23:10:04.150] [info] [sys] [t19420] Audio system initialized
+[2026-10-12 23:10:04.150] [info] [sys] [t9420] XThread::Execute thid 1 (handle=F8000010, 'XMA Decoder (F8000010)', native=000024CC, <host>)
+[2026-10-12 23:10:04.150] [info] [sys] [t19916] XThread::Execute thid 2 (handle=F8000014, 'Audio Worker (F8000014)', native=00004DCC, <host>)
+[2026-10-12 23:10:04.151] [info] [sys] [t19420]   Mounted C:\bo3recomp\runtime\game at \Device\Harddisk0\Partition1
+[2026-10-12 23:10:04.153] [info] [sys] [t19420]   Mounted C:\bo3recomp\runtime\update at update:
+[2026-10-12 23:10:04.154] [info] [sys] [t392] XThread::Execute thid 3 (handle=F8000018, 'GPU Commands (F8000018)', native=00000188, <host>)
+[2026-10-12 23:10:04.154] [info] [sys] [t19420] GPU system initialized (presentation=true)
+[2026-10-12 23:10:04.154] [info] [sys] [t19420] Runtime initialized successfully
+[2026-10-12 23:10:04.155] [info] [sys] [t16968] XThread::Execute thid 4 (handle=F800001C, 'GPU VSync (F800001C)', native=00004248, <host>)
+[2026-10-12 23:10:04.160] [info] [core] [t19420] Function table initialized for module: code=82140000-82AC3EC0, image=82000000-84970000
+[2026-10-12 23:10:04.272] [warning] [core] [t19420] SDL GameControllerDB: file 'gamecontrollerdb.txt' does not exist.
+[2026-10-12 23:10:04.272] [info] [core] [t19420] SDL input driver initialized successfully
+[2026-10-12 23:10:04.272] [info] [sys] [t19420] Loading XEX image: game:\default.xex
+[2026-10-12 23:10:04.418] [info] [core] [t19420] XEX patch applied successfully: base version: 0.0.0.5, new version: 0.0.8.5
+[2026-10-12 23:10:04.420] [info] [sys] [t19420] Achievement store: loaded 32 entries
+[2026-10-12 23:10:04.420] [info] [sys] [t21056] XThread::Execute thid 5 (handle=F8000028, 'Kernel Dispatch (F8000028)', native=00005240, <host>)
+[2026-10-12 23:10:04.421] [info] [core] [t19420] BO3 content header A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164: result 00000000, original license FFFFFFFF
+[2026-10-12 23:10:04.421] [info] [core] [t19420] BO3 content header 4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341: result 00000000, original license FFFFFFFF
+[2026-10-12 23:10:04.422] [info] [core] [t19420] BO3 content header 2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41: result 00000000, original license 00000001
+[2026-10-12 23:10:04.422] [info] [core] [t19420] BO3 content header D0288B47455419D4F8862B84CCC508126F84816A41: result 00000000, original license 00000001
+[2026-10-12 23:10:04.423] [info] [core] [t19420] BO3 common marketplace packages available: 4
+[2026-10-12 23:10:04.426] [info] [sys] [t19420] KernelState: Preparing module launch...
+[2026-10-12 23:10:04.426] [info] [core] [t19420] Initializing shader storage for title 4156091D...
+[2026-10-12 23:10:04.473] [info] [gpu] [t392] Translated 988 shaders from the storage in 41 milliseconds
+[2026-10-12 23:10:04.662] [info] [gpu] [t392] Created 867 graphics pipelines (not including reading the descriptions) from the storage in 188 milliseconds
+[2026-10-12 23:10:04.663] [info] [sys] [t19892] GetProcAddressByOrdinal: XamPartyGetUserList (0AFF) in xam -> thunk at 82AC3EC0
+[2026-10-12 23:10:04.663] [info] [sys] [t19892] GetProcAddressByOrdinal: XamPartySendGameInvites (0B00) in xam -> thunk at 82AC3EC4
+[2026-10-12 23:10:04.663] [info] [sys] [t19892] GetProcAddressByOrdinal: XamPartySetCustomData (0B0B) in xam -> thunk at 82AC3EC8
+[2026-10-12 23:10:04.663] [info] [sys] [t19892] GetProcAddressByOrdinal: XamPartyGetBandwidth (0B10) in xam -> thunk at 82AC3ECC
+[2026-10-12 23:10:04.663] [info] [sys] [t19892] GetProcAddressByOrdinal: XamShowPartyUI (0305) in xam -> thunk at 82AC3ED0
+[2026-10-12 23:10:04.663] [info] [sys] [t19892] GetProcAddressByOrdinal: XamShowCommunitySessionsUI (030B) in xam -> thunk at 82AC3ED4
+[2026-10-12 23:10:04.665] [info] [sys] [t19892] GetProcAddressByOrdinal: XamMediaVerificationCreate (09BB) in xam -> thunk at 82AC3ED8
+[2026-10-12 23:10:04.665] [warning] [krnl] [t19892] __imp__XamMediaVerificationCreate STUB
+[2026-10-12 23:10:04.682] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.683] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.691] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\fc_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.694] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\as_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.699] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\br_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.704] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\ko_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.706] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.708] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\cz_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.710] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\fj_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.716] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\ar_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.718] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\tc_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.720] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\sc_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.721] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\eg_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.722] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\ej_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.724] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\he_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.726] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.727] [warning] [krnl] [t19892] __imp__XGetDisplaySize STUB
+[2026-10-12 23:10:04.728] [info] [gpu] [t19892] SetInterruptCallback(826FDF00, BE068F80)
+[2026-10-12 23:10:04.731] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='update:\discdata\SplashScreen.xpr' -> 0xc000000f
+[2026-10-12 23:10:04.731] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='game:\discdata\SplashScreen.xpr' -> 0xc000000f
+[2026-10-12 23:10:04.739] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:04.741] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:04.743] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:04.749] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:04.750] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:04.764] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:04.766] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:04.766] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.768] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:04.768] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.770] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:04.772] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\fc_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.774] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\as_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.776] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\br_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.778] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\ko_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.780] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.783] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\cz_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.784] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\fj_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.786] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\ar_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.788] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\tc_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.790] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\sc_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.792] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\eg_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.794] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\ej_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.796] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\he_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.798] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-12 23:10:04.825] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-12 23:10:04.830] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:04.832] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-12 23:10:04.833] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.128] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.129] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.131] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.147] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.153] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.155] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.156] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.670] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.672] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.674] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.692] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.694] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\mp_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.696] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.697] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.699] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.779] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.781] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\mp_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.783] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.785] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.799] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.804] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.806] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.807] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.903] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.905] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.907] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.929] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_ui.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.935] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.936] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_ui.xpak' -> 0xc000000f
+[2026-10-12 23:10:05.938] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:06.216] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_ui.xpak' -> 0xc000000f
+[2026-10-12 23:10:06.218] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:06.219] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:06.238] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_common.xpak' -> 0xc000000f
+[2026-10-12 23:10:06.304] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:06.314] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_common.xpak' -> 0xc000000f
+[2026-10-12 23:10:06.316] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:06.662] [info] [sys] [t19892] GetProcAddressByOrdinal: XamVoiceSetMicArrayIdleUsers (048C) in xam -> thunk at 82AC3EDC
+[2026-10-12 23:10:06.662] [warning] [krnl] [t19892] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 23:10:06.662] [warning] [krnl] [t19892] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 23:10:06.662] [warning] [krnl] [t19892] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 23:10:06.662] [warning] [krnl] [t19892] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 23:10:06.664] [info] [core] [t19892] SDL OnControllerDeviceAdded: "Xbox One S Controller", JoystickType(1), GameControllerType(3), VendorID(0x045E), ProductID(0x02E0)
+[2026-10-12 23:10:06.665] [info] [core] [t19892] SDL OnControllerDeviceAdded: Added at index 0.
+[2026-10-12 23:10:06.674] [info] [krnl] [t9740] XamUserCheckPrivilege(user=0, mask=0xfc) -> 1
+[2026-10-12 23:10:06.682] [error] [krnl] [t19892] Unimplemented XLIVEBASE message app=000000FC, msg=0005801E, arg1=301BA000, arg2=7019F1A0
+[2026-10-12 23:10:06.682] [error] [krnl] [t19892] Unimplemented XLIVEBASE message app=000000FC, msg=00058019, arg1=301BA000, arg2=7019F190
+[2026-10-12 23:10:06.682] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc0zm.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc0zm.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc0mp.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc0mp.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc1.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc1.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc2.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc2.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc3.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc3.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc4.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc4.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlccompat2.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlccompat2.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlccompat1.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlccompat1.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlccompat3.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlccompat3.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD001.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD001.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD002.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD002.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD003.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD003.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD004.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD004.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc0zm.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc0zm.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc0mp.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc0mp.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc1.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc1.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc2.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc2.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc3.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc3.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc4.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlc4.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlccompat2.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlccompat2.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlccompat1.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlccompat1.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlccompat3.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\dlccompat3.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD001.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD001.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD002.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD002.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD003.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD003.txt' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD004.fakeid' -> 0xc000000f
+[2026-10-12 23:10:06.683] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:\LQD004.txt' -> 0xc000000f
+[2026-10-12 23:10:06.684] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='D:/product.info' -> 0xc000000f
+[2026-10-12 23:10:06.710] [info] [krnl] [t9740] XamUserCheckPrivilege(user=0, mask=0xfc) -> 1
+[2026-10-12 23:10:07.718] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_common.xpak' -> 0xc000000f
+[2026-10-12 23:10:07.720] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:07.736] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:19.336] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc2:\dlc0zm.id' -> 0xc000000f
+[2026-10-12 23:10:19.336] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc2:\dlc0zm.txt' -> 0xc000000f
+[2026-10-12 23:10:19.336] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc2:\dlc0mp.id' -> 0xc000000f
+[2026-10-12 23:10:19.336] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc2:\dlc0mp.txt' -> 0xc000000f
+[2026-10-12 23:10:19.336] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc2:\dlc1.id' -> 0xc000000f
+[2026-10-12 23:10:19.336] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc2:\dlc1.txt' -> 0xc000000f
+[2026-10-12 23:10:19.336] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc2:\dlc2.id' -> 0xc000000f
+[2026-10-12 23:10:19.336] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc2:\dlc2.txt' -> 0xc000000f
+[2026-10-12 23:10:19.336] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc2:\dlc3.id' -> 0xc000000f
+[2026-10-12 23:10:19.336] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc2:\dlc3.txt' -> 0xc000000f
+[2026-10-12 23:10:19.336] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc2:\dlc4.id' -> 0xc000000f
+[2026-10-12 23:10:19.336] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc2:\dlc4.txt' -> 0xc000000f
+[2026-10-12 23:10:19.454] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc3:\dlc0zm.id' -> 0xc000000f
+[2026-10-12 23:10:19.454] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc3:\dlc0zm.txt' -> 0xc000000f
+[2026-10-12 23:10:19.454] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc3:\dlc0mp.id' -> 0xc000000f
+[2026-10-12 23:10:19.454] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc3:\dlc0mp.txt' -> 0xc000000f
+[2026-10-12 23:10:19.454] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc3:\dlc1.id' -> 0xc000000f
+[2026-10-12 23:10:19.454] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc3:\dlc1.txt' -> 0xc000000f
+[2026-10-12 23:10:19.454] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc3:\dlc2.id' -> 0xc000000f
+[2026-10-12 23:10:19.454] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc3:\dlc2.txt' -> 0xc000000f
+[2026-10-12 23:10:19.454] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc3:\dlc3.id' -> 0xc000000f
+[2026-10-12 23:10:19.454] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc3:\dlc3.txt' -> 0xc000000f
+[2026-10-12 23:10:19.454] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc3:\dlc4.id' -> 0xc000000f
+[2026-10-12 23:10:19.454] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc3:\dlc4.txt' -> 0xc000000f
+[2026-10-12 23:10:19.454] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc3:\dlccompat2.id' -> 0xc000000f
+[2026-10-12 23:10:19.454] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc3:\dlccompat2.txt' -> 0xc000000f
+[2026-10-12 23:10:19.573] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc4:\dlc0zm.id' -> 0xc000000f
+[2026-10-12 23:10:19.573] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc4:\dlc0zm.txt' -> 0xc000000f
+[2026-10-12 23:10:19.573] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc4:\dlc0mp.id' -> 0xc000000f
+[2026-10-12 23:10:19.573] [warning] [krnl] [t19892] [NtCreateFile] FAILED: path='dlc4:\dlc0mp.txt' -> 0xc000000f
+[2026-10-12 23:10:19.671] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_frontend_patch.xpak' -> 0xc000000f
+[2026-10-12 23:10:19.706] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:19.721] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_frontend_patch.xpak' -> 0xc000000f
+[2026-10-12 23:10:19.737] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:19.910] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_frontend_patch.xpak' -> 0xc000000f
+[2026-10-12 23:10:19.921] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:19.937] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:20.090] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_frontend.xpak' -> 0xc000000f
+[2026-10-12 23:10:20.125] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:20.133] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_frontend.xpak' -> 0xc000000f
+[2026-10-12 23:10:20.140] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:20.748] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_frontend.xpak' -> 0xc000000f
+[2026-10-12 23:10:20.749] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:20.751] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:21.106] [info] [sys] [t10984] GetProcAddressByOrdinal: XamMediaVerificationVerify (09BD) in xam -> thunk at 82AC3EE0
+[2026-10-12 23:10:21.106] [warning] [krnl] [t10984] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 23:10:23.107] [warning] [krnl] [t10984] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 23:10:25.134] [warning] [krnl] [t10984] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 23:10:25.881] [info] [krnl] [t19892] XNetGetEthernetLinkStatus(caller=00000001) -> 0xb
+[2026-10-12 23:10:30.680] [info] [krnl] [t19892] XGISessionCreate -> session 007408220355CDFD nonce 023A5013035495B3 status 00000000
+[2026-10-12 23:10:30.813] [info] [krnl] [t19892] XGISessionCreate -> session 0098900864050FF2 nonce 02D6C839640457BC status 00000000
+[2026-10-12 23:10:31.161] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_patch2.xpak' -> 0xc000000f
+[2026-10-12 23:10:31.164] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\mp_patch2.xpak' -> 0xc000000f
+[2026-10-12 23:10:31.164] [warning] [krnl] [t19892] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 23:10:31.164] [warning] [krnl] [t19892] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 23:10:31.167] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:31.181] [info] [krnl] [t9740] XamUserCheckPrivilege(user=0, mask=0xfc) -> 1
+[2026-10-12 23:10:31.181] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_patch2.xpak' -> 0xc000000f
+[2026-10-12 23:10:31.185] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:31.778] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_patch2.xpak' -> 0xc000000f
+[2026-10-12 23:10:31.787] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\mp_patch2.xpak' -> 0xc000000f
+[2026-10-12 23:10:31.803] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:31.807] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:31.958] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_patch.xpak' -> 0xc000000f
+[2026-10-12 23:10:31.983] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:32.002] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_patch.xpak' -> 0xc000000f
+[2026-10-12 23:10:32.005] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:32.106] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\snd\en\mp_common_patch.disc.en.sabs' -> 0xc000000f
+[2026-10-12 23:10:33.125] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_patch.xpak' -> 0xc000000f
+[2026-10-12 23:10:33.127] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:33.142] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:33.213] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\snd\all\mp_common_patch.disc.all.sabs' -> 0xc000000f
+[2026-10-12 23:10:33.498] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_common.xpak' -> 0xc000000f
+[2026-10-12 23:10:33.517] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:33.518] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_common.xpak' -> 0xc000000f
+[2026-10-12 23:10:33.520] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:37.692] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_common.xpak' -> 0xc000000f
+[2026-10-12 23:10:37.699] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:37.701] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:10:43.244] [info] [krnl] [t19892] XNetRegisterKey registered session 0098900864050FF2
+[2026-10-12 23:10:43.340] [info] [krnl] [t19892] XNetRegisterKey registered session 0098900864050FF2
+[2026-10-12 23:10:43.435] [warning] [krnl] [t19892] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 23:10:43.435] [warning] [krnl] [t19892] __imp__XamVoiceSetMicArrayIdleUsers STUB
+[2026-10-12 23:10:43.451] [info] [krnl] [t9740] XamUserCheckPrivilege(user=0, mask=0xfc) -> 1
+[2026-10-12 23:11:06.123] [warning] [krnl] [t19892] __imp__XamBackgroundDownloadSetMode STUB
+[2026-10-12 23:11:06.180] [warning] [krnl] [t10984] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 23:11:06.319] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_skyjacked_patch.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.335] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\mp_skyjacked_patch.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.351] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.371] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.387] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_common.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.403] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_skyjacked_patch.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.418] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.593] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_skyjacked_patch.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.608] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\mp_skyjacked_patch.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.625] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.641] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.657] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_common.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.673] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.720] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_skyjacked.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.755] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.771] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.787] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_common.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.802] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_skyjacked.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.818] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:11:06.987] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\snd\en\mp_skyjacked.disc.en.sabs' -> 0xc000000f
+[2026-10-12 23:11:08.146] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_skyjacked.xpak' -> 0xc000000f
+[2026-10-12 23:11:08.163] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:11:08.183] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:11:08.199] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_common.xpak' -> 0xc000000f
+[2026-10-12 23:11:08.215] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:11:08.387] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\snd\all\mp_skyjacked.disc.all.sabs' -> 0xc000000f
+[2026-10-12 23:11:56.325] [info] [krnl] [t19892] XNetGetEthernetLinkStatus(caller=00000001) -> 0xb
+[2026-10-12 23:11:56.325] [info] [krnl] [t19892] XNetGetEthernetLinkStatus(caller=00000001) -> 0xb
+[2026-10-12 23:12:24.982] [warning] [krnl] [t19892] __imp__XamBackgroundDownloadSetMode STUB
+[2026-10-12 23:12:25.623] [warning] [krnl] [t10984] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 23:12:25.981] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_frontend_patch.xpak' -> 0xc000000f
+[2026-10-12 23:12:26.029] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:26.045] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_frontend_patch.xpak' -> 0xc000000f
+[2026-10-12 23:12:26.060] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:26.304] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_frontend_patch.xpak' -> 0xc000000f
+[2026-10-12 23:12:26.318] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:26.333] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:26.557] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_frontend.xpak' -> 0xc000000f
+[2026-10-12 23:12:26.602] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:26.618] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_frontend.xpak' -> 0xc000000f
+[2026-10-12 23:12:26.634] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:28.181] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_frontend.xpak' -> 0xc000000f
+[2026-10-12 23:12:28.187] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:28.204] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.109] [warning] [krnl] [t19892] __imp__XamBackgroundDownloadSetMode STUB
+[2026-10-12 23:12:52.168] [warning] [krnl] [t10984] __imp__XamMediaVerificationVerify STUB
+[2026-10-12 23:12:52.368] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_skyjacked_patch.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.383] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\mp_skyjacked_patch.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.399] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.415] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.431] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_common.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.447] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_skyjacked_patch.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.463] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.690] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_skyjacked_patch.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.706] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\mp_skyjacked_patch.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.722] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.738] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.754] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_common.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.769] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.834] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_skyjacked.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.881] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.897] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.913] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_common.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.928] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_skyjacked.xpak' -> 0xc000000f
+[2026-10-12 23:12:52.944] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:53.092] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\snd\en\mp_skyjacked.disc.en.sabs' -> 0xc000000f
+[2026-10-12 23:12:54.438] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_skyjacked.xpak' -> 0xc000000f
+[2026-10-12 23:12:54.452] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_core_post_gfx.xpak' -> 0xc000000f
+[2026-10-12 23:12:54.468] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:54.484] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_mp_common.xpak' -> 0xc000000f
+[2026-10-12 23:12:54.501] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-12 23:12:54.669] [warning] [krnl] [t10984] [NtCreateFile] FAILED: path='D:\snd\all\mp_skyjacked.disc.all.sabs' -> 0xc000000f
+[2026-10-12 23:13:07.960] [info] [gpu] [t392] Readback eviction deferred: write submission 42079, completed 42078, cache size 313
+[2026-10-12 23:13:22.809] [info] [gpu] [t392] Readback eviction deferred: write submission 44588, completed 44587, cache size 261
+[2026-10-12 23:13:31.688] [info] [core] [t19420] Window closing, shutting down...
+[2026-10-12 23:13:31.689] [info] [core] [t18668] Execution complete
+[2026-10-12 23:13:31.896] [info] [core] [t19420] Title terminated; hard-exiting process.

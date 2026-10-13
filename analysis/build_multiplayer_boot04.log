@@ -1,0 +1,302 @@
+CMake Warning at C:/bo3recomp/thirdparty/rexglue-sdk/cmake/rex_version.cmake:33 (message):
+  rex_compute_version: no v* tag reachable from HEAD.  Falling back to
+  0.9.0.0-dev.unknown.  If this is a CI build, ensure tags are fetched
+  (fetch-depth: 0 + fetch-tags: true).  If this is a fork, push tags with:
+  git push <fork-remote> --tags
+Call Stack (most recent call first):
+  C:/bo3recomp/thirdparty/rexglue-sdk/cmake/rex_version.cmake:146 (rex_compute_version)
+  C:/bo3recomp/thirdparty/rexglue-sdk/CMakeLists.txt:140 (rex_resolve_version)
+
+
+-- xxHash build type: Release
+-- Architecture: x86
+-- {fmt} version: 12.1.0
+-- Build type: Release
+-- Build spdlog: 1.17.0
+-- Build type: Release
+-- Generating install
+-- Checking for module 'libusb-1.0>=1.0.16'
+--   Package 'libusb-1.0' not found
+-- Could NOT find LibUSB (missing: LibUSB_LIBRARY LibUSB_INCLUDE_PATH) (found version "LibUSB_VERSION-NOTFOUND")
+-- 
+-- SDL3 was configured with the following options:
+-- 
+-- Platform: Windows-10.0.26200
+-- 64-bit:   TRUE
+-- Compiler: C:/bo3recomp/tools/llvm-20.1.8/bin/clang.exe
+-- Revision: SDL-3.5.0-HEAD-HASH-NOTFOUND
+-- Vendor:   
+-- 
+-- Subsystems:
+--   Audio:    ON
+--   Video:    ON
+--   GPU:      ON
+--   Render:   OFF
+--   Camera:   OFF
+--   Joystick: ON
+--   Haptic:   OFF
+--   Hidapi:   ON
+--   Power:    OFF
+--   Sensor:   OFF
+--   Dialog:   OFF
+--   Tray:     OFF
+-- 
+-- Options:
+--   SDL_ALSA                    (Wanted: OFF): OFF
+--   SDL_ALSA_SHARED             (Wanted: OFF): OFF
+--   SDL_ALTIVEC                 (Wanted: OFF): OFF
+--   SDL_ARMNEON                 (Wanted: OFF): OFF
+--   SDL_ASAN                    (Wanted: OFF): OFF
+--   SDL_ASSEMBLY                (Wanted: ON): ON
+--   SDL_ASSERTIONS              (Wanted: auto): auto
+--   SDL_AVX                     (Wanted: ON): ON
+--   SDL_AVX2                    (Wanted: ON): ON
+--   SDL_AVX512F                 (Wanted: ON): ON
+--   SDL_BACKGROUNDING_SIGNAL    (Wanted: OFF): OFF
+--   SDL_CCACHE                  (Wanted: OFF): OFF
+--   SDL_CLANG_TIDY              (Wanted: OFF): OFF
+--   SDL_CLOCK_GETTIME           (Wanted: OFF): OFF
+--   SDL_COCOA                   (Wanted: OFF): OFF
+--   SDL_DBUS                    (Wanted: OFF): OFF
+--   SDL_DEPS_SHARED             (Wanted: ON): OFF
+--   SDL_DIRECTX                 (Wanted: ON): ON
+--   SDL_DISKAUDIO               (Wanted: OFF): OFF
+--   SDL_DLOPEN_NOTES            (Wanted: OFF): OFF
+--   SDL_DUMMYAUDIO              (Wanted: OFF): OFF
+--   SDL_DUMMYCAMERA             (Wanted: OFF): OFF
+--   SDL_DUMMYVIDEO              (Wanted: OFF): OFF
+--   SDL_EXAMPLES                (Wanted: OFF): OFF
+--   SDL_EXAMPLES_LINK_SHARED    (Wanted: OFF): OFF
+--   SDL_FOREGROUNDING_SIGNAL    (Wanted: OFF): OFF
+--   SDL_FRIBIDI                 (Wanted: OFF): OFF
+--   SDL_FRIBIDI_SHARED          (Wanted: OFF): OFF
+--   SDL_GCC_ATOMICS             (Wanted: ON): ON
+--   SDL_GPU_OPENXR              (Wanted: ON): ON
+--   SDL_HIDAPI                  (Wanted: ON): ON
+--   SDL_HIDAPI_JOYSTICK         (Wanted: ON): ON
+--   SDL_HIDAPI_LIBUSB           (Wanted: ON): OFF
+--   SDL_HIDAPI_LIBUSB_SHARED    (Wanted: ON): OFF
+--   SDL_IBUS                    (Wanted: OFF): OFF
+--   SDL_INSTALL                 (Wanted: ON): OFF
+--   SDL_INSTALL_TESTS           (Wanted: OFF): OFF
+--   SDL_JACK                    (Wanted: OFF): OFF
+--   SDL_JACK_SHARED             (Wanted: OFF): OFF
+--   SDL_KMSDRM                  (Wanted: OFF): OFF
+--   SDL_KMSDRM_SHARED           (Wanted: OFF): OFF
+--   SDL_LASX                    (Wanted: OFF): OFF
+--   SDL_LIBC                    (Wanted: ON): ON
+--   SDL_LIBICONV                (Wanted: OFF): OFF
+--   SDL_LIBTHAI                 (Wanted: OFF): OFF
+--   SDL_LIBTHAI_SHARED          (Wanted: OFF): OFF
+--   SDL_LIBUDEV                 (Wanted: ON): OFF
+--   SDL_LIBURING                (Wanted: OFF): OFF
+--   SDL_LSX                     (Wanted: OFF): OFF
+--   SDL_METAL                   (Wanted: OFF): OFF
+--   SDL_MMX                     (Wanted: ON): ON
+--   SDL_OFFSCREEN               (Wanted: ON): ON
+--   SDL_OPENGL                  (Wanted: OFF): OFF
+--   SDL_OPENGLES                (Wanted: OFF): OFF
+--   SDL_OPENVR                  (Wanted: OFF): OFF
+--   SDL_OSS                     (Wanted: OFF): OFF
+--   SDL_PIPEWIRE                (Wanted: OFF): OFF
+--   SDL_PIPEWIRE_SHARED         (Wanted: OFF): OFF
+--   SDL_PTHREADS                (Wanted: OFF): OFF
+--   SDL_PTHREADS_SEM            (Wanted: OFF): OFF
+--   SDL_PULSEAUDIO              (Wanted: OFF): OFF
+--   SDL_PULSEAUDIO_SHARED       (Wanted: OFF): OFF
+--   SDL_RENDER_D3D              (Wanted: OFF): OFF
+--   SDL_RENDER_D3D11            (Wanted: OFF): OFF
+--   SDL_RENDER_D3D12            (Wanted: OFF): OFF
+--   SDL_RENDER_GPU              (Wanted: OFF): OFF
+--   SDL_RENDER_METAL            (Wanted: OFF): OFF
+--   SDL_RENDER_VULKAN           (Wanted: OFF): OFF
+--   SDL_ROCKCHIP                (Wanted: OFF): OFF
+--   SDL_RPATH                   (Wanted: OFF): OFF
+--   SDL_RPI                     (Wanted: OFF): OFF
+--   SDL_SNDIO                   (Wanted: OFF): OFF
+--   SDL_SNDIO_SHARED            (Wanted: OFF): OFF
+--   SDL_SSE                     (Wanted: ON): ON
+--   SDL_SSE2                    (Wanted: ON): ON
+--   SDL_SSE3                    (Wanted: ON): ON
+--   SDL_SSE4_1                  (Wanted: ON): ON
+--   SDL_SSE4_2                  (Wanted: ON): ON
+--   SDL_SYSTEM_ICONV            (Wanted: OFF): OFF
+--   SDL_TESTS                   (Wanted: OFF): OFF
+--   SDL_TESTS_LINK_SHARED       (Wanted: OFF): OFF
+--   SDL_UNINSTALL               (Wanted: OFF): OFF
+--   SDL_VIRTUAL_JOYSTICK        (Wanted: ON): ON
+--   SDL_VIVANTE                 (Wanted: OFF): OFF
+--   SDL_VULKAN                  (Wanted: OFF): OFF
+--   SDL_WASAPI                  (Wanted: ON): ON
+--   SDL_WAYLAND                 (Wanted: OFF): OFF
+--   SDL_WAYLAND_LIBDECOR        (Wanted: OFF): OFF
+--   SDL_WAYLAND_LIBDECOR_SHARED (Wanted: OFF): OFF
+--   SDL_WAYLAND_SHARED          (Wanted: OFF): OFF
+--   SDL_X11                     (Wanted: OFF): OFF
+--   SDL_X11_SHARED              (Wanted: OFF): OFF
+--   SDL_X11_XCURSOR             (Wanted: OFF): OFF
+--   SDL_X11_XDBE                (Wanted: OFF): OFF
+--   SDL_X11_XFIXES              (Wanted: OFF): OFF
+--   SDL_X11_XINPUT              (Wanted: OFF): OFF
+--   SDL_X11_XRANDR              (Wanted: OFF): OFF
+--   SDL_X11_XSCRNSAVER          (Wanted: OFF): OFF
+--   SDL_X11_XSHAPE              (Wanted: OFF): OFF
+--   SDL_X11_XSYNC               (Wanted: OFF): OFF
+--   SDL_X11_XTEST               (Wanted: OFF): OFF
+--   SDL_XINPUT                  (Wanted: ON): ON
+-- 
+--  Build Shared Library: OFF
+--  Build Static Library: ON
+-- 
+-- Enabled backends:
+--   Video drivers: offscreen windows
+--   Render drivers: 
+--   GPU drivers: d3d12 openxr
+--   Audio drivers: dsound wasapi
+--   Joystick drivers: dinput gameinput hidapi rawinput virtual wgi xinput
+--   Camera drivers: dummy
+-- 
+-- ===========================================
+-- ReXGlue Configuration Summary:
+--   Version: 0.9.0.0-dev.unknown
+--   Platform: win-amd64
+--   Compiler: Clang 20.1.8
+--   Configurations: 
+--   Output Dir: C:/bo3recomp/thirdparty/rexglue-sdk/out/win-amd64
+--   C++ Standard: C++23
+--   Graphics: D3D12=ON Vulkan=OFF
+--   FidelityFX: OFF
+--   Tracy: ON
+--   Perf Counters: ON
+-- ===========================================
+-- Using ReXGlue SDK from source tree: C:/bo3recomp/thirdparty/rexglue-sdk
+-- Configuring done (0.7s)
+-- Generating done (0.5s)
+-- Build files have been written to: C:/bo3recomp/build
+[0/2] Re-checking globbed directories...
+[1/94] Building CXX object rexglue-sdk/src/ui/CMakeFiles/rexui.dir/overlay/debug_overlay.cpp.obj
+[2/94] Linking CXX shared library C:\bo3recomp\thirdparty\rexglue-sdk\out\win-amd64\rexruntime.dll
+[3/94] Linking CXX shared library C:\bo3recomp\thirdparty\rexglue-sdk\out\win-amd64\rexgpu-xenos.dll
+[4/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_init.cpp.obj
+[5/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/src/main.cpp.obj
+In file included from C:/bo3recomp/app/multiplayer/src/main.cpp:2:
+In file included from C:/bo3recomp/app/multiplayer/src\bo3_mp_app.h:4:
+C:/bo3recomp/app/multiplayer/../src\bo3_zm_app.h:36:33: warning: 'getenv' is deprecated: This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [-Wdeprecated-declarations]
+   36 |     if (const char* path = std::getenv("BO3_DUMP_IMAGE")) {
+      |                                 ^
+C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\ucrt\stdlib.h:1183:20: note: 'getenv' has been explicitly marked deprecated here
+ 1183 |     _Check_return_ _CRT_INSECURE_DEPRECATE(_dupenv_s)
+      |                    ^
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vcruntime.h:368:55: note: expanded from macro '_CRT_INSECURE_DEPRECATE'
+  368 |         #define _CRT_INSECURE_DEPRECATE(_Replacement) _CRT_DEPRECATE_TEXT(    \
+      |                                                       ^
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vcruntime.h:358:47: note: expanded from macro '_CRT_DEPRECATE_TEXT'
+  358 | #define _CRT_DEPRECATE_TEXT(_Text) __declspec(deprecated(_Text))
+      |                                               ^
+In file included from C:/bo3recomp/app/multiplayer/src/main.cpp:2:
+In file included from C:/bo3recomp/app/multiplayer/src\bo3_mp_app.h:4:
+C:/bo3recomp/app/multiplayer/../src\bo3_zm_app.h:68:15: warning: 'getenv' is deprecated: This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [-Wdeprecated-declarations]
+   68 |     if (!std::getenv("BO3_CAPTURE_FRAMES")) return;
+      |               ^
+C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\ucrt\stdlib.h:1183:20: note: 'getenv' has been explicitly marked deprecated here
+ 1183 |     _Check_return_ _CRT_INSECURE_DEPRECATE(_dupenv_s)
+      |                    ^
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vcruntime.h:368:55: note: expanded from macro '_CRT_INSECURE_DEPRECATE'
+  368 |         #define _CRT_INSECURE_DEPRECATE(_Replacement) _CRT_DEPRECATE_TEXT(    \
+      |                                                       ^
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vcruntime.h:358:47: note: expanded from macro '_CRT_DEPRECATE_TEXT'
+
+  358 | #define _CRT_DEPRECATE_TEXT(_Text) __declspec(deprecated(_Text))
+
+      |                                               ^
+
+2 warnings generated.
+
+[6/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_register.cpp.obj
+[7/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.2.cpp.obj
+[8/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.3.cpp.obj
+[9/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.1.cpp.obj
+[10/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.0.cpp.obj
+[11/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.4.cpp.obj
+[12/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.5.cpp.obj
+[13/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.6.cpp.obj
+[14/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.7.cpp.obj
+[15/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.8.cpp.obj
+[16/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.9.cpp.obj
+[17/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.10.cpp.obj
+[18/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.11.cpp.obj
+[19/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.12.cpp.obj
+[20/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.13.cpp.obj
+[21/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.14.cpp.obj
+[22/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.15.cpp.obj
+[23/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.16.cpp.obj
+[24/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.17.cpp.obj
+[25/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.18.cpp.obj
+[26/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.19.cpp.obj
+[27/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.20.cpp.obj
+[28/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.21.cpp.obj
+[29/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.22.cpp.obj
+[30/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.23.cpp.obj
+[31/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.24.cpp.obj
+[32/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.25.cpp.obj
+[33/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.26.cpp.obj
+[34/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.27.cpp.obj
+[35/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.28.cpp.obj
+[36/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.29.cpp.obj
+[37/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.30.cpp.obj
+[38/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.32.cpp.obj
+[39/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.31.cpp.obj
+[40/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.33.cpp.obj
+[41/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.34.cpp.obj
+[42/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.35.cpp.obj
+[43/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.36.cpp.obj
+[44/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.37.cpp.obj
+[45/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.38.cpp.obj
+[46/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.39.cpp.obj
+[47/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.41.cpp.obj
+[48/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.40.cpp.obj
+[49/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.42.cpp.obj
+[50/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.43.cpp.obj
+[51/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.44.cpp.obj
+[52/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.45.cpp.obj
+[53/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.46.cpp.obj
+[54/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.48.cpp.obj
+[55/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.49.cpp.obj
+[56/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.50.cpp.obj
+[57/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.51.cpp.obj
+[58/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.47.cpp.obj
+[59/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.52.cpp.obj
+[60/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.53.cpp.obj
+[61/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.54.cpp.obj
+[62/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.56.cpp.obj
+[63/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.55.cpp.obj
+[64/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.59.cpp.obj
+[65/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.58.cpp.obj
+[66/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.61.cpp.obj
+[67/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.60.cpp.obj
+[68/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.57.cpp.obj
+[69/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.62.cpp.obj
+[70/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.64.cpp.obj
+[71/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.63.cpp.obj
+[72/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.65.cpp.obj
+[73/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.66.cpp.obj
+[74/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.67.cpp.obj
+[75/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.68.cpp.obj
+[76/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.69.cpp.obj
+[77/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.70.cpp.obj
+[78/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.72.cpp.obj
+[79/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.71.cpp.obj
+[80/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.73.cpp.obj
+[81/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.74.cpp.obj
+[82/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.75.cpp.obj
+[83/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.78.cpp.obj
+[84/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.76.cpp.obj
+[85/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.77.cpp.obj
+[86/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.79.cpp.obj
+[87/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/C_/bo3recomp/thirdparty/rexglue-sdk/src/ui/rex_app.cpp.obj
+[88/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.80.cpp.obj
+[89/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.82.cpp.obj
+[90/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.81.cpp.obj
+[91/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.83.cpp.obj
+[92/94] Building CXX object multiplayer/CMakeFiles/bo3_mp.dir/generated/default/bo3_mp_recomp.84.cpp.obj
+[93/94] Linking CXX executable bo3_mp.exe

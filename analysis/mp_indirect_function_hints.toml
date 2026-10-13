@@ -1,0 +1,16 @@
+# BO3 initialized data dispatch table entries absent from emitted code.
+# Evidence: analysis/mp_indirect_function_candidates.json.
+0x822CB0A8 = { name = "sub_822CB0A8" }
+0x826EC500 = { name = "sub_826EC500" }
+0x826EDCD4 = { name = "sub_826EDCD4" }
+0x826EDE4C = { name = "sub_826EDE4C" }
+0x82738CF0 = { name = "sub_82738CF0" }
+0x82752B08 = { name = "sub_82752B08" }
+0x82755518 = { name = "sub_82755518" }
+0x828EE988 = { name = "sub_828EE988" }
+0x829269B0 = { name = "sub_829269B0" }
+0x82A23278 = { name = "sub_82A23278" }
+0x82A233F0 = { name = "sub_82A233F0" }
+0x82A2375C = { name = "sub_82A2375C" }
+0x82A2389C = { name = "sub_82A2389C" }
+0x82A23F7C = { name = "sub_82A23F7C" }

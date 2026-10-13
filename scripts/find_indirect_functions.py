@@ -1,21 +1,30 @@
-"""Audit .rdata dispatch tables against generated functions for this BO3 image.
+"""Audit initialized data dispatch tables against generated BO3 functions.
 
 Only propose entries at apparent function boundaries in tables that also contain
 registered functions. Interior labels and standalone numeric coincidences are
 excluded. Proposals are evidence for review, not executable patches.
 """
 import bisect
+import argparse
 import json
 import re
 import struct
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--mode', choices=['zombies', 'multiplayer'], default='zombies')
+parser.add_argument('--runtime-entry', action='append', type=lambda value: int(value, 0), default=[])
+args = parser.parse_args()
+multiplayer = args.mode == 'multiplayer'
 BASE = 0x82000000
-image = (ROOT / 'analysis/patched_zm_image.bin').read_bytes()
-generated = ROOT / 'app/generated/default_zm'
+image = (ROOT / ('analysis/patched_mp_image.bin' if multiplayer
+                 else 'analysis/patched_zm_image.bin')).read_bytes()
+generated = ROOT / ('app/multiplayer/generated/default' if multiplayer
+                    else 'app/generated/default_zm')
+project_name = 'bo3_mp' if multiplayer else 'bo3_zm'
 registered = {int(a, 16) for a in re.findall(r'SetFunction\(0x([0-9A-F]+)',
-                  (generated / 'bo3_zm_register.cpp').read_text())}
+                  (generated / f'{project_name}_register.cpp').read_text())}
 pe = struct.unpack_from('<I', image, 60)[0]
 count = struct.unpack_from('<H', image, pe + 6)[0]
 optional_size = struct.unpack_from('<H', image, pe + 20)[0]
@@ -51,7 +60,7 @@ for source in generated.glob('*recomp*.cpp'):
 proposals = {}
 tables = []
 for name, start, size, flags in sections:
-    if name != '.rdata':
+    if name not in ('.rdata', '.data'):
         continue
     position = start
     while position + 4 <= start + size:
@@ -75,17 +84,25 @@ for name, start, size, flags in sections:
         position += 4
 
 # The runtime-reached entry is included regardless of conservative coverage.
-proposals.setdefault(0x827351A8, [0x8200BE34])
+if not multiplayer:
+    proposals.setdefault(0x827351A8, [0x8200BE34])
+for address in args.runtime_entry:
+    if not executable(address):
+        raise SystemExit(f'Runtime entry {address:08X} is outside executable sections')
+    proposals.setdefault(address, [])
 result = dict(image_sha256=__import__('hashlib').sha256(image).hexdigest(),
               registered_count=len(registered), tables=tables,
               proposed={f'{a:08X}': dict(references=[f'{x:08X}' for x in refs],
                                          first_words=[f'{word(a + 4*i):08X}' for i in range(3)])
                         for a, refs in sorted(proposals.items())})
-(ROOT / 'analysis/indirect_function_candidates.json').write_text(json.dumps(result, indent=2))
-lines = ['# BO3 .rdata dispatch table entries absent from emitted code.',
-         '# Evidence: analysis/indirect_function_candidates.json.']
+prefix = 'mp_' if multiplayer else ''
+report_path = ROOT / f'analysis/{prefix}indirect_function_candidates.json'
+report_path.write_text(json.dumps(result, indent=2), newline='\n')
+lines = ['# BO3 initialized data dispatch table entries absent from emitted code.',
+         f'# Evidence: analysis/{prefix}indirect_function_candidates.json.']
 lines.extend(f'0x{a:08X} = {{ name = "sub_{a:08X}" }}' for a in sorted(proposals))
-(ROOT / 'analysis/indirect_function_hints.toml').write_text('\n'.join(lines) + '\n')
+(ROOT / f'analysis/{prefix}indirect_function_hints.toml').write_text('\n'.join(lines) + '\n', newline='\n')
 print(f'{len(tables)} tables; {len(proposals)} candidate functions')
 for address, refs in list(sorted(proposals.items()))[:20]:
-    print(f'{address:08X}: {word(address):08X}, referenced at {refs[0]:08X}')
+    reference = f'{refs[0]:08X}' if refs else 'runtime trace'
+    print(f'{address:08X}: {word(address):08X}, referenced at {reference}')

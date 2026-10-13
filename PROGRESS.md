@@ -11,6 +11,20 @@ D3D12 device. A confirmed readback-buffer lifetime defect is now repaired. The
 patched build passed an 8 min 41 s run with DRED and a shorter 86 s control
 without DRED, both loading The Giant and ending normally. Long-session and
 all-map stability remain unverified. FPS testing remains paused.
+Investigation of model color flashing on The Giant is also paused at the user's
+request so other project work can take priority.
+A separate native multiplayer target for the updated `default.xex` has compiled.
+Its first boot loaded the update and core assets, then reached a missing indirect
+callback. Reviewed multiplayer dispatch entries have been added; the corrected
+build rendered the title screen. Pressing Start/A reached profile loading and
+another missing callback; verified entries from initialized `.data` allowed
+further menu progress in boot03. That run reached another missing callback at
+`0x8257E598`; its verified wrapper and one equivalent Zombies callback are now
+included in the successful 34,996-function build. In boot04 the user reported
+playable multiplayer. Its log references `mp_skyjacked`, runs for about 3 min
+28 s total and ends normally, without a fatal abort or GPU-loss report.
+Extended multiplayer stability, all maps and online play remain unverified.
+See [Multiplayer build](analysis/MULTIPLAYER_BUILD.md).
 
 ## Completed
 
@@ -54,10 +68,30 @@ See [GPU crash repair](analysis/GPU_CRASH_FIX.md).
   assets from `dlc4:` with its title-update patches. This run ended normally;
   extended gameplay stability on these maps has not been established. Evidence:
   `runtime/logs/dlc-map-test.log`.
-- BO3 online services, a multiplayer host and seamless mode switching are not
-  implemented. Audio and controller behavior were not separately validated.
+- BO3 online services and seamless mode switching are not implemented. The native
+  multiplayer host passed a short user-confirmed gameplay test; extended sessions
+  and all maps remain unverified. Audio and controller behavior were not
+  separately validated.
 - Generator float16 packing warnings, further indirect-function targets and
   rendering artifacts require investigation when encountered.
+- **The Giant rendering:** the user reports models flashing different colors,
+  including zombies, barriers, doors and teleporter pads, with terrain unaffected.
+  The cause is unconfirmed; model lighting/vertex data, stale GPU readback data
+  and shader/material/texture state are candidates. Disabling fast GPU readback
+  left the flashing unchanged. RTV improved it but did not eliminate it;
+  disabling async compilation then made no further difference. Source inspection
+  found a vertex-buffer cache that skipped memory-validity checks when addresses
+  and sizes matched. A coherency repair built successfully, but the user reported
+  no visual improvement. Captures show model tint/brightness changes while
+  geometry and texture details remain recognizable. Alternate resource binding
+  improved the flashing but did not eliminate it. A second page-validity coherency
+  repair also built successfully and left the flashing unchanged. The user
+  observes it gets worse when zombies spawn and suspects more models worsen it;
+  that connection is unmeasured. The cause remains unconfirmed, and investigation
+  is paused at the user's request. Both coherency repairs remain in the local
+  build; their performance and extended stability impact are not separately
+  established.
+  See [Rendering issues](analysis/RENDERING_ISSUES.md).
 
 No GPU driver or TDR registry changes were made. The original BO2 project is
 unchanged. The normal launcher retains automatic render-target selection;
@@ -68,6 +102,8 @@ RTV, alternate binding and GPU diagnostics are explicit test settings.
 - [Launch and rebuild](README.md)
 - [Boot fixes and runtime evidence](analysis/BOOT_RESULTS.md)
 - [Measured performance](analysis/PERFORMANCE.md)
+- [Rendering issues](analysis/RENDERING_ISSUES.md)
+- [Multiplayer build](analysis/MULTIPLAYER_BUILD.md)
 - [Initial feasibility](FEASIBILITY.md)
 - [Input verification](analysis/RESULTS.md)
 - [SDK changes](sdk_snapshot/BO3_LOCAL_CHANGES.md)
@@ -83,3 +119,6 @@ are excluded; source, scripts and progress records are retained.
 2. Investigate any remaining GPU failure using named DRED resource evidence.
 3. Resume FPS comparisons when requested, separating new content compilation
    from repeated views with a populated cache.
+4. Resume The Giant model-color investigation when requested, retaining the
+   observed connection with zombie spawning/model population and the recorded
+   comparison results.

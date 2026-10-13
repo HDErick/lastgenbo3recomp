@@ -1,0 +1,1075 @@
+CMake Warning at C:/bo3recomp/thirdparty/rexglue-sdk/cmake/rex_version.cmake:33 (message):
+  rex_compute_version: no v* tag reachable from HEAD.  Falling back to
+  0.9.0.0-dev.unknown.  If this is a CI build, ensure tags are fetched
+  (fetch-depth: 0 + fetch-tags: true).  If this is a fork, push tags with:
+  git push <fork-remote> --tags
+Call Stack (most recent call first):
+  C:/bo3recomp/thirdparty/rexglue-sdk/cmake/rex_version.cmake:146 (rex_compute_version)
+  C:/bo3recomp/thirdparty/rexglue-sdk/CMakeLists.txt:140 (rex_resolve_version)
+
+
+-- xxHash build type: Release
+-- Architecture: x86
+-- {fmt} version: 12.1.0
+-- Build type: Release
+-- Build spdlog: 1.17.0
+-- Build type: Release
+-- Generating install
+-- Checking for module 'libusb-1.0>=1.0.16'
+--   Package 'libusb-1.0' not found
+-- Could NOT find LibUSB (missing: LibUSB_LIBRARY LibUSB_INCLUDE_PATH) (found version "LibUSB_VERSION-NOTFOUND")
+-- 
+-- SDL3 was configured with the following options:
+-- 
+-- Platform: Windows-10.0.26200
+-- 64-bit:   TRUE
+-- Compiler: C:/bo3recomp/tools/llvm-20.1.8/bin/clang.exe
+-- Revision: SDL-3.5.0-HEAD-HASH-NOTFOUND
+-- Vendor:   
+-- 
+-- Subsystems:
+--   Audio:    ON
+--   Video:    ON
+--   GPU:      ON
+--   Render:   OFF
+--   Camera:   OFF
+--   Joystick: ON
+--   Haptic:   OFF
+--   Hidapi:   ON
+--   Power:    OFF
+--   Sensor:   OFF
+--   Dialog:   OFF
+--   Tray:     OFF
+-- 
+-- Options:
+--   SDL_ALSA                    (Wanted: OFF): OFF
+--   SDL_ALSA_SHARED             (Wanted: OFF): OFF
+--   SDL_ALTIVEC                 (Wanted: OFF): OFF
+--   SDL_ARMNEON                 (Wanted: OFF): OFF
+--   SDL_ASAN                    (Wanted: OFF): OFF
+--   SDL_ASSEMBLY                (Wanted: ON): ON
+--   SDL_ASSERTIONS              (Wanted: auto): auto
+--   SDL_AVX                     (Wanted: ON): ON
+--   SDL_AVX2                    (Wanted: ON): ON
+--   SDL_AVX512F                 (Wanted: ON): ON
+--   SDL_BACKGROUNDING_SIGNAL    (Wanted: OFF): OFF
+--   SDL_CCACHE                  (Wanted: OFF): OFF
+--   SDL_CLANG_TIDY              (Wanted: OFF): OFF
+--   SDL_CLOCK_GETTIME           (Wanted: OFF): OFF
+--   SDL_COCOA                   (Wanted: OFF): OFF
+--   SDL_DBUS                    (Wanted: OFF): OFF
+--   SDL_DEPS_SHARED             (Wanted: ON): OFF
+--   SDL_DIRECTX                 (Wanted: ON): ON
+--   SDL_DISKAUDIO               (Wanted: OFF): OFF
+--   SDL_DLOPEN_NOTES            (Wanted: OFF): OFF
+--   SDL_DUMMYAUDIO              (Wanted: OFF): OFF
+--   SDL_DUMMYCAMERA             (Wanted: OFF): OFF
+--   SDL_DUMMYVIDEO              (Wanted: OFF): OFF
+--   SDL_EXAMPLES                (Wanted: OFF): OFF
+--   SDL_EXAMPLES_LINK_SHARED    (Wanted: OFF): OFF
+--   SDL_FOREGROUNDING_SIGNAL    (Wanted: OFF): OFF
+--   SDL_FRIBIDI                 (Wanted: OFF): OFF
+--   SDL_FRIBIDI_SHARED          (Wanted: OFF): OFF
+--   SDL_GCC_ATOMICS             (Wanted: ON): ON
+--   SDL_GPU_OPENXR              (Wanted: ON): ON
+--   SDL_HIDAPI                  (Wanted: ON): ON
+--   SDL_HIDAPI_JOYSTICK         (Wanted: ON): ON
+--   SDL_HIDAPI_LIBUSB           (Wanted: ON): OFF
+--   SDL_HIDAPI_LIBUSB_SHARED    (Wanted: ON): OFF
+--   SDL_IBUS                    (Wanted: OFF): OFF
+--   SDL_INSTALL                 (Wanted: ON): OFF
+--   SDL_INSTALL_TESTS           (Wanted: OFF): OFF
+--   SDL_JACK                    (Wanted: OFF): OFF
+--   SDL_JACK_SHARED             (Wanted: OFF): OFF
+--   SDL_KMSDRM                  (Wanted: OFF): OFF
+--   SDL_KMSDRM_SHARED           (Wanted: OFF): OFF
+--   SDL_LASX                    (Wanted: OFF): OFF
+--   SDL_LIBC                    (Wanted: ON): ON
+--   SDL_LIBICONV                (Wanted: OFF): OFF
+--   SDL_LIBTHAI                 (Wanted: OFF): OFF
+--   SDL_LIBTHAI_SHARED          (Wanted: OFF): OFF
+--   SDL_LIBUDEV                 (Wanted: ON): OFF
+--   SDL_LIBURING                (Wanted: OFF): OFF
+--   SDL_LSX                     (Wanted: OFF): OFF
+--   SDL_METAL                   (Wanted: OFF): OFF
+--   SDL_MMX                     (Wanted: ON): ON
+--   SDL_OFFSCREEN               (Wanted: ON): ON
+--   SDL_OPENGL                  (Wanted: OFF): OFF
+--   SDL_OPENGLES                (Wanted: OFF): OFF
+--   SDL_OPENVR                  (Wanted: OFF): OFF
+--   SDL_OSS                     (Wanted: OFF): OFF
+--   SDL_PIPEWIRE                (Wanted: OFF): OFF
+--   SDL_PIPEWIRE_SHARED         (Wanted: OFF): OFF
+--   SDL_PTHREADS                (Wanted: OFF): OFF
+--   SDL_PTHREADS_SEM            (Wanted: OFF): OFF
+--   SDL_PULSEAUDIO              (Wanted: OFF): OFF
+--   SDL_PULSEAUDIO_SHARED       (Wanted: OFF): OFF
+--   SDL_RENDER_D3D              (Wanted: OFF): OFF
+--   SDL_RENDER_D3D11            (Wanted: OFF): OFF
+--   SDL_RENDER_D3D12            (Wanted: OFF): OFF
+--   SDL_RENDER_GPU              (Wanted: OFF): OFF
+--   SDL_RENDER_METAL            (Wanted: OFF): OFF
+--   SDL_RENDER_VULKAN           (Wanted: OFF): OFF
+--   SDL_ROCKCHIP                (Wanted: OFF): OFF
+--   SDL_RPATH                   (Wanted: OFF): OFF
+--   SDL_RPI                     (Wanted: OFF): OFF
+--   SDL_SNDIO                   (Wanted: OFF): OFF
+--   SDL_SNDIO_SHARED            (Wanted: OFF): OFF
+--   SDL_SSE                     (Wanted: ON): ON
+--   SDL_SSE2                    (Wanted: ON): ON
+--   SDL_SSE3                    (Wanted: ON): ON
+--   SDL_SSE4_1                  (Wanted: ON): ON
+--   SDL_SSE4_2                  (Wanted: ON): ON
+--   SDL_SYSTEM_ICONV            (Wanted: OFF): OFF
+--   SDL_TESTS                   (Wanted: OFF): OFF
+--   SDL_TESTS_LINK_SHARED       (Wanted: OFF): OFF
+--   SDL_UNINSTALL               (Wanted: OFF): OFF
+--   SDL_VIRTUAL_JOYSTICK        (Wanted: ON): ON
+--   SDL_VIVANTE                 (Wanted: OFF): OFF
+--   SDL_VULKAN                  (Wanted: OFF): OFF
+--   SDL_WASAPI                  (Wanted: ON): ON
+--   SDL_WAYLAND                 (Wanted: OFF): OFF
+--   SDL_WAYLAND_LIBDECOR        (Wanted: OFF): OFF
+--   SDL_WAYLAND_LIBDECOR_SHARED (Wanted: OFF): OFF
+--   SDL_WAYLAND_SHARED          (Wanted: OFF): OFF
+--   SDL_X11                     (Wanted: OFF): OFF
+--   SDL_X11_SHARED              (Wanted: OFF): OFF
+--   SDL_X11_XCURSOR             (Wanted: OFF): OFF
+--   SDL_X11_XDBE                (Wanted: OFF): OFF
+--   SDL_X11_XFIXES              (Wanted: OFF): OFF
+--   SDL_X11_XINPUT              (Wanted: OFF): OFF
+--   SDL_X11_XRANDR              (Wanted: OFF): OFF
+--   SDL_X11_XSCRNSAVER          (Wanted: OFF): OFF
+--   SDL_X11_XSHAPE              (Wanted: OFF): OFF
+--   SDL_X11_XSYNC               (Wanted: OFF): OFF
+--   SDL_X11_XTEST               (Wanted: OFF): OFF
+--   SDL_XINPUT                  (Wanted: ON): ON
+-- 
+--  Build Shared Library: OFF
+--  Build Static Library: ON
+-- 
+-- Enabled backends:
+--   Video drivers: offscreen windows
+--   Render drivers: 
+--   GPU drivers: d3d12 openxr
+--   Audio drivers: dsound wasapi
+--   Joystick drivers: dinput gameinput hidapi rawinput virtual wgi xinput
+--   Camera drivers: dummy
+-- 
+-- ===========================================
+-- ReXGlue Configuration Summary:
+--   Version: 0.9.0.0-dev.unknown
+--   Platform: win-amd64
+--   Compiler: Clang 20.1.8
+--   Configurations: 
+--   Output Dir: C:/bo3recomp/thirdparty/rexglue-sdk/out/win-amd64
+--   C++ Standard: C++23
+--   Graphics: D3D12=ON Vulkan=OFF
+--   FidelityFX: OFF
+--   Tracy: ON
+--   Perf Counters: ON
+-- ===========================================
+-- Using ReXGlue SDK from source tree: C:/bo3recomp/thirdparty/rexglue-sdk
+-- Configuring done (0.7s)
+-- Generating done (0.5s)
+-- Build files have been written to: C:/bo3recomp/build
+[0/2] Re-checking globbed directories...
+[1/19] Building CXX object rexglue-sdk/src/ui/CMakeFiles/rexui.dir/overlay/debug_overlay.cpp.obj
+[2/19] Building CXX object rexglue-sdk/src/graphics/CMakeFiles/rexgpu-xenos.dir/shared_memory.cpp.obj
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/shared_memory.cpp:304:62: warning: unused parameter 'offset_allocations' [-Wunused-parameter]
+  304 | bool SharedMemory::AllocateSparseHostGpuMemoryRange(uint32_t offset_allocations,
+      |                                                              ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/shared_memory.cpp:305:62: warning: unused parameter 'length_allocations' [-Wunused-parameter]
+  305 |                                                     uint32_t length_allocations) {
+
+      |                                                              ^
+
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/shared_memory.cpp:19:
+
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/shared_memory.h:173:9: warning: private field 'memory_data_provider_handle_' is not used [-Wunused-private-field]
+
+  173 |   void* memory_data_provider_handle_ = nullptr;
+
+      |         ^
+
+3 warnings generated.
+
+[3/19] Building CXX object rexglue-sdk/src/graphics/CMakeFiles/rexgpu-xenos.dir/util/draw.cpp.obj
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/util/draw.cpp:18:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:22:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/util.h:15:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/info.h:18:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/xenos.h:1621:70: warning: unused parameter 'one_reg' [-Wunused-parameter]
+ 1621 | inline uint32_t MakePacketType0(uint16_t index, uint16_t count, bool one_reg = false) {
+      |                                                                      ^
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/util/draw.cpp:18:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: note: explicitly cast the pointer to silence this warning
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+      |                                                     (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: note: explicitly cast the pointer to silence this warning
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: note: explicitly cast the pointer to silence this warning
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:223:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  223 |     bool base_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:226:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  226 |     bool mips_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureBinding' [-Wnontrivial-memcall]
+
+  467 |       std::memset(this, 0, sizeof(*this));
+
+      |                   ^
+
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: note: explicitly cast the pointer to silence this warning
+
+  467 |       std::memset(this, 0, sizeof(*this));
+
+      |                   ^
+
+      |                   (void*)
+
+7 warnings generated.
+
+[4/19] Building CXX object rexglue-sdk/src/graphics/CMakeFiles/rexgpu-xenos.dir/pipeline/texture/cache.cpp.obj
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/pipeline/texture/cache.cpp:21:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:22:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/util.h:15:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/info.h:18:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/xenos.h:1621:70: warning: unused parameter 'one_reg' [-Wunused-parameter]
+ 1621 | inline uint32_t MakePacketType0(uint16_t index, uint16_t count, bool one_reg = false) {
+      |                                                                      ^
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/pipeline/texture/cache.cpp:21:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: note: explicitly cast the pointer to silence this warning
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+      |                                                     (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: note: explicitly cast the pointer to silence this warning
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: note: explicitly cast the pointer to silence this warning
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:223:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  223 |     bool base_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:226:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  226 |     bool mips_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureBinding' [-Wnontrivial-memcall]
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: note: explicitly cast the pointer to silence this warning
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/pipeline/texture/cache.cpp:686:51: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  686 |     const std::unique_lock<std::recursive_mutex>& global_lock) {
+      |                                                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/pipeline/texture/cache.cpp:747:55: warning: unused parameter 'data' [-Wunused-parameter]
+  747 |                                  void* context, void* data, uint64_t argument,
+      |                                                       ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/pipeline/texture/cache.cpp:748:39: warning: unused parameter 'invalidated_by_gpu' [-Wunused-parameter]
+  748 |                                  bool invalidated_by_gpu) {
+      |                                       ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/pipeline/texture/cache.cpp:1071:51: warning: unused parameter 'global_lock' [-Wunused-parameter]
+ 1071 |     const std::unique_lock<std::recursive_mutex>& global_lock, uint32_t address_first,
+
+      |                                                   ^
+
+11 warnings generated.
+
+[5/19] Building CXX object rexglue-sdk/src/graphics/CMakeFiles/rexgpu-xenos.dir/primitive_processor.cpp.obj
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/primitive_processor.cpp:21:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/shader/shader.h:22:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/format/ucode.h:17:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/xenos.h:1621:70: warning: unused parameter 'one_reg' [-Wunused-parameter]
+ 1621 | inline uint32_t MakePacketType0(uint16_t index, uint16_t count, bool one_reg = false) {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/primitive_processor.cpp:271:43: warning: loop variable 'cache_map_entry' of type 'const std::pair<CacheKey, size_t> &' (aka 'const pair<rex::graphics::PrimitiveProcessor::CacheKey, unsigned long long> &') binds to a temporary constructed from type 'reference' (aka 'std::pair<const rex::graphics::PrimitiveProcessor::CacheKey, unsigned long long> &') [-Wrange-loop-construct]
+  271 |   for (const std::pair<CacheKey, size_t>& cache_map_entry : cache_map_) {
+      |                                           ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/primitive_processor.cpp:271:8: note: use non-reference type 'std::pair<CacheKey, size_t>' (aka 'pair<rex::graphics::PrimitiveProcessor::CacheKey, unsigned long long>') to make construction explicit or type 'const value_type &' (aka 'const std::pair<const rex::graphics::PrimitiveProcessor::CacheKey, unsigned long long> &') to prevent copying
+  271 |   for (const std::pair<CacheKey, size_t>& cache_map_entry : cache_map_) {
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/primitive_processor.cpp:1254:75: warning: unused parameter 'index_transform' [-Wunused-parameter]
+ 1254 |                                          const PassthroughIndexTransform& index_transform) {
+      |                                                                           ^
+
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/primitive_processor.cpp:1264:75: warning: unused parameter 'index_transform' [-Wunused-parameter]
+
+ 1264 |                                          const PassthroughIndexTransform& index_transform) {
+
+      |                                                                           ^
+
+4 warnings generated.
+
+[6/19] Building CXX object rexglue-sdk/src/graphics/CMakeFiles/rexgpu-xenos.dir/d3d12/graphics_system.cpp.obj
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/graphics_system.cpp:14:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:26:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/command_processor.h:24:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/register_file.h:19:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/registers.h:18:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/xenos.h:1621:70: warning: unused parameter 'one_reg' [-Wunused-parameter]
+ 1621 | inline uint32_t MakePacketType0(uint16_t index, uint16_t count, bool one_reg = false) {
+      |                                                                      ^
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/graphics_system.cpp:14:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:27:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/texture_cache.h:24:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: note: explicitly cast the pointer to silence this warning
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+      |                                                     (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: note: explicitly cast the pointer to silence this warning
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: note: explicitly cast the pointer to silence this warning
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:223:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  223 |     bool base_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:226:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  226 |     bool mips_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureBinding' [-Wnontrivial-memcall]
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: note: explicitly cast the pointer to silence this warning
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/graphics_system.cpp:14:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:29:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/render_target/cache.h:188:9: warning: field 'draw_extent_estimator_' will be initialized after field 'draw_resolution_scale_x_' [-Wreorder-ctor]
+  188 |         draw_extent_estimator_(register_file, memory, trace_writer),
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_x_(draw_resolution_scale_x)
+  189 |         draw_resolution_scale_x_(draw_resolution_scale_x),
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_y_(draw_resolution_scale_y)
+  190 |         draw_resolution_scale_y_(draw_resolution_scale_y) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_extent_estimator_(register_file, memory, trace_writer)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/graphics_system.cpp:14:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:37:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:24:89: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   24 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesDefault = {D3D12_HEAP_TYPE_DEFAULT};
+      |                                                                                         ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:25:87: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   25 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesUpload = {D3D12_HEAP_TYPE_UPLOAD};
+      |                                                                                       ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:26:91: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   26 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesReadback = {D3D12_HEAP_TYPE_READBACK};
+
+      |                                                                                           ^
+
+11 warnings generated.
+
+[7/19] Building CXX object rexglue-sdk/src/graphics/CMakeFiles/rexgpu-xenos.dir/pipeline/shader/dxbc_translator_om.cpp.obj
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/pipeline/shader/dxbc_translator_om.cpp:16:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/render_target/cache.h:24:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/shader/shader.h:22:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/format/ucode.h:17:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/xenos.h:1621:70: warning: unused parameter 'one_reg' [-Wunused-parameter]
+ 1621 | inline uint32_t MakePacketType0(uint16_t index, uint16_t count, bool one_reg = false) {
+      |                                                                      ^
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/pipeline/shader/dxbc_translator_om.cpp:16:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/render_target/cache.h:188:9: warning: field 'draw_extent_estimator_' will be initialized after field 'draw_resolution_scale_x_' [-Wreorder-ctor]
+  188 |         draw_extent_estimator_(register_file, memory, trace_writer),
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_x_(draw_resolution_scale_x)
+  189 |         draw_resolution_scale_x_(draw_resolution_scale_x),
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_y_(draw_resolution_scale_y)
+  190 |         draw_resolution_scale_y_(draw_resolution_scale_y) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_extent_estimator_(register_file, memory, trace_writer)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/pipeline/shader/dxbc_translator_om.cpp:18:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: note: explicitly cast the pointer to silence this warning
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+      |                                                     (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: note: explicitly cast the pointer to silence this warning
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: note: explicitly cast the pointer to silence this warning
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:223:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  223 |     bool base_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:226:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  226 |     bool mips_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureBinding' [-Wnontrivial-memcall]
+
+  467 |       std::memset(this, 0, sizeof(*this));
+
+      |                   ^
+
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: note: explicitly cast the pointer to silence this warning
+
+  467 |       std::memset(this, 0, sizeof(*this));
+
+      |                   ^
+
+      |                   (void*)
+
+8 warnings generated.
+
+[8/19] Linking CXX shared library C:\bo3recomp\thirdparty\rexglue-sdk\out\win-amd64\rexruntime.dll
+[9/19] Building CXX object rexglue-sdk/src/graphics/CMakeFiles/rexgpu-xenos.dir/d3d12/command_processor.cpp.obj
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/command_processor.cpp:22:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:26:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/command_processor.h:24:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/register_file.h:19:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/registers.h:18:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/xenos.h:1621:70: warning: unused parameter 'one_reg' [-Wunused-parameter]
+ 1621 | inline uint32_t MakePacketType0(uint16_t index, uint16_t count, bool one_reg = false) {
+      |                                                                      ^
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/command_processor.cpp:22:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:27:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/texture_cache.h:24:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: note: explicitly cast the pointer to silence this warning
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+      |                                                     (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: note: explicitly cast the pointer to silence this warning
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: note: explicitly cast the pointer to silence this warning
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:223:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  223 |     bool base_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:226:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  226 |     bool mips_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureBinding' [-Wnontrivial-memcall]
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: note: explicitly cast the pointer to silence this warning
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/command_processor.cpp:22:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:29:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/render_target/cache.h:188:9: warning: field 'draw_extent_estimator_' will be initialized after field 'draw_resolution_scale_x_' [-Wreorder-ctor]
+  188 |         draw_extent_estimator_(register_file, memory, trace_writer),
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_x_(draw_resolution_scale_x)
+  189 |         draw_resolution_scale_x_(draw_resolution_scale_x),
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_y_(draw_resolution_scale_y)
+  190 |         draw_resolution_scale_y_(draw_resolution_scale_y) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_extent_estimator_(register_file, memory, trace_writer)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/command_processor.cpp:22:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:37:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:24:89: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   24 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesDefault = {D3D12_HEAP_TYPE_DEFAULT};
+      |                                                                                         ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:25:87: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   25 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesUpload = {D3D12_HEAP_TYPE_UPLOAD};
+      |                                                                                       ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:26:91: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   26 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesReadback = {D3D12_HEAP_TYPE_READBACK};
+      |                                                                                           ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/command_processor.cpp:164:48: warning: lambda capture 'kQueryFinished' is not required to be captured for this use [-Wunused-lambda-capture]
+  164 |   auto write_fallback_result = [sample_counts, kQueryFinished]() -> bool {
+      |                                              ~~^~~~~~~~~~~~~~
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/command_processor.cpp:1884:48: warning: unused parameter 'frontbuffer_ptr' [-Wunused-parameter]
+ 1884 | void D3D12CommandProcessor::IssueSwap(uint32_t frontbuffer_ptr, uint32_t frontbuffer_width,
+      |                                                ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/command_processor.cpp:2254:83: warning: unused parameter 'guest_address' [-Wunused-parameter]
+ 2254 | Shader* D3D12CommandProcessor::LoadShader(xenos::ShaderType shader_type, uint32_t guest_address,
+      |                                                                                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/command_processor.cpp:2259:60: warning: unused parameter 'primitive_type' [-Wunused-parameter]
+ 2259 | bool D3D12CommandProcessor::IssueDraw(xenos::PrimitiveType primitive_type, uint32_t index_count,
+      |                                                            ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/command_processor.cpp:2259:85: warning: unused parameter 'index_count' [-Wunused-parameter]
+ 2259 | bool D3D12CommandProcessor::IssueDraw(xenos::PrimitiveType primitive_type, uint32_t index_count,
+      |                                                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/command_processor.cpp:2260:56: warning: unused parameter 'index_buffer_info' [-Wunused-parameter]
+ 2260 |                                       IndexBufferInfo* index_buffer_info,
+      |                                                        ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/command_processor.cpp:2261:44: warning: unused parameter 'major_mode_explicit' [-Wunused-parameter]
+ 2261 |                                       bool major_mode_explicit) {
+      |                                            ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/command_processor.cpp:4973:14: warning: unused parameter 'sample_count_address' [-Wunused-parameter]
+
+ 4973 |     uint32_t sample_count_address, xenos::xe_gpu_depth_sample_counts* sample_counts) {
+
+      |              ^
+
+19 warnings generated.
+
+[10/19] Building CXX object rexglue-sdk/src/graphics/CMakeFiles/rexgpu-xenos.dir/d3d12/primitive_processor.cpp.obj
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/primitive_processor.cpp:18:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:26:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/command_processor.h:24:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/register_file.h:19:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/registers.h:18:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/xenos.h:1621:70: warning: unused parameter 'one_reg' [-Wunused-parameter]
+ 1621 | inline uint32_t MakePacketType0(uint16_t index, uint16_t count, bool one_reg = false) {
+      |                                                                      ^
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/primitive_processor.cpp:18:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:27:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/texture_cache.h:24:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: note: explicitly cast the pointer to silence this warning
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+      |                                                     (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: note: explicitly cast the pointer to silence this warning
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: note: explicitly cast the pointer to silence this warning
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:223:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  223 |     bool base_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:226:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  226 |     bool mips_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureBinding' [-Wnontrivial-memcall]
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: note: explicitly cast the pointer to silence this warning
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/primitive_processor.cpp:18:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:29:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/render_target/cache.h:188:9: warning: field 'draw_extent_estimator_' will be initialized after field 'draw_resolution_scale_x_' [-Wreorder-ctor]
+  188 |         draw_extent_estimator_(register_file, memory, trace_writer),
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_x_(draw_resolution_scale_x)
+  189 |         draw_resolution_scale_x_(draw_resolution_scale_x),
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_y_(draw_resolution_scale_y)
+  190 |         draw_resolution_scale_y_(draw_resolution_scale_y) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_extent_estimator_(register_file, memory, trace_writer)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/primitive_processor.cpp:18:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:37:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:24:89: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   24 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesDefault = {D3D12_HEAP_TYPE_DEFAULT};
+      |                                                                                         ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:25:87: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   25 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesUpload = {D3D12_HEAP_TYPE_UPLOAD};
+      |                                                                                       ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:26:91: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+
+   26 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesReadback = {D3D12_HEAP_TYPE_READBACK};
+
+      |                                                                                           ^
+
+11 warnings generated.
+
+[11/19] Building CXX object rexglue-sdk/src/graphics/CMakeFiles/rexgpu-xenos.dir/d3d12/shared_memory.cpp.obj
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/shared_memory.cpp:18:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:26:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/command_processor.h:24:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/register_file.h:19:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/registers.h:18:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/xenos.h:1621:70: warning: unused parameter 'one_reg' [-Wunused-parameter]
+ 1621 | inline uint32_t MakePacketType0(uint16_t index, uint16_t count, bool one_reg = false) {
+      |                                                                      ^
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/shared_memory.cpp:18:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:27:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/texture_cache.h:24:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: note: explicitly cast the pointer to silence this warning
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+      |                                                     (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: note: explicitly cast the pointer to silence this warning
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: note: explicitly cast the pointer to silence this warning
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:223:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  223 |     bool base_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:226:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  226 |     bool mips_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureBinding' [-Wnontrivial-memcall]
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: note: explicitly cast the pointer to silence this warning
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/shared_memory.cpp:18:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:29:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/render_target/cache.h:188:9: warning: field 'draw_extent_estimator_' will be initialized after field 'draw_resolution_scale_x_' [-Wreorder-ctor]
+  188 |         draw_extent_estimator_(register_file, memory, trace_writer),
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_x_(draw_resolution_scale_x)
+  189 |         draw_resolution_scale_x_(draw_resolution_scale_x),
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_y_(draw_resolution_scale_y)
+  190 |         draw_resolution_scale_y_(draw_resolution_scale_y) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_extent_estimator_(register_file, memory, trace_writer)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/shared_memory.cpp:18:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:37:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:24:89: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   24 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesDefault = {D3D12_HEAP_TYPE_DEFAULT};
+      |                                                                                         ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:25:87: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   25 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesUpload = {D3D12_HEAP_TYPE_UPLOAD};
+      |                                                                                       ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:26:91: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   26 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesReadback = {D3D12_HEAP_TYPE_READBACK};
+
+      |                                                                                           ^
+
+11 warnings generated.
+
+[12/19] Building CXX object rexglue-sdk/src/graphics/CMakeFiles/rexgpu-xenos.dir/d3d12/deferred_command_list.cpp.obj
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/deferred_command_list.cpp:14:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:26:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/command_processor.h:24:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/register_file.h:19:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/registers.h:18:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/xenos.h:1621:70: warning: unused parameter 'one_reg' [-Wunused-parameter]
+ 1621 | inline uint32_t MakePacketType0(uint16_t index, uint16_t count, bool one_reg = false) {
+      |                                                                      ^
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/deferred_command_list.cpp:14:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:27:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/texture_cache.h:24:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: note: explicitly cast the pointer to silence this warning
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+      |                                                     (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: note: explicitly cast the pointer to silence this warning
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: note: explicitly cast the pointer to silence this warning
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:223:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  223 |     bool base_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:226:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  226 |     bool mips_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureBinding' [-Wnontrivial-memcall]
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: note: explicitly cast the pointer to silence this warning
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/deferred_command_list.cpp:14:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:29:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/render_target/cache.h:188:9: warning: field 'draw_extent_estimator_' will be initialized after field 'draw_resolution_scale_x_' [-Wreorder-ctor]
+  188 |         draw_extent_estimator_(register_file, memory, trace_writer),
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_x_(draw_resolution_scale_x)
+  189 |         draw_resolution_scale_x_(draw_resolution_scale_x),
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_y_(draw_resolution_scale_y)
+  190 |         draw_resolution_scale_y_(draw_resolution_scale_y) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_extent_estimator_(register_file, memory, trace_writer)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/deferred_command_list.cpp:14:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:37:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:24:89: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   24 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesDefault = {D3D12_HEAP_TYPE_DEFAULT};
+      |                                                                                         ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:25:87: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   25 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesUpload = {D3D12_HEAP_TYPE_UPLOAD};
+      |                                                                                       ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:26:91: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+
+   26 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesReadback = {D3D12_HEAP_TYPE_READBACK};
+
+      |                                                                                           ^
+
+11 warnings generated.
+
+[13/19] Building CXX object rexglue-sdk/src/graphics/CMakeFiles/rexgpu-xenos.dir/d3d12/texture_cache.cpp.obj
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/texture_cache.cpp:22:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:26:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/command_processor.h:24:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/register_file.h:19:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/registers.h:18:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/xenos.h:1621:70: warning: unused parameter 'one_reg' [-Wunused-parameter]
+ 1621 | inline uint32_t MakePacketType0(uint16_t index, uint16_t count, bool one_reg = false) {
+      |                                                                      ^
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/texture_cache.cpp:22:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:27:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/texture_cache.h:24:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: note: explicitly cast the pointer to silence this warning
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+      |                                                     (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: note: explicitly cast the pointer to silence this warning
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: note: explicitly cast the pointer to silence this warning
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:223:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  223 |     bool base_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:226:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  226 |     bool mips_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureBinding' [-Wnontrivial-memcall]
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: note: explicitly cast the pointer to silence this warning
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/texture_cache.cpp:22:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:29:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/render_target/cache.h:188:9: warning: field 'draw_extent_estimator_' will be initialized after field 'draw_resolution_scale_x_' [-Wreorder-ctor]
+  188 |         draw_extent_estimator_(register_file, memory, trace_writer),
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_x_(draw_resolution_scale_x)
+  189 |         draw_resolution_scale_x_(draw_resolution_scale_x),
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_y_(draw_resolution_scale_y)
+  190 |         draw_resolution_scale_y_(draw_resolution_scale_y) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_extent_estimator_(register_file, memory, trace_writer)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/texture_cache.cpp:22:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:37:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:24:89: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   24 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesDefault = {D3D12_HEAP_TYPE_DEFAULT};
+      |                                                                                         ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:25:87: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   25 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesUpload = {D3D12_HEAP_TYPE_UPLOAD};
+      |                                                                                       ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:26:91: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   26 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesReadback = {D3D12_HEAP_TYPE_READBACK};
+      |                                                                                           ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/texture_cache.cpp:1852:28: warning: variable 'host_slice_size_base' is uninitialized when used here [-Wuninitialized]
+ 1852 |         uint32_t(is_base ? host_slice_size_base : host_slice_sizes_mips[level]);
+      |                            ^~~~~~~~~~~~~~~~~~~~
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/texture_cache.cpp:1638:30: note: initialize the variable 'host_slice_size_base' to silence this warning
+
+ 1638 |   UINT64 host_slice_size_base;
+
+      |                              ^
+
+      |                               = 0
+
+12 warnings generated.
+
+[14/19] Building CXX object CMakeFiles/bo3_zm.dir/C_/bo3recomp/thirdparty/rexglue-sdk/src/ui/rex_app.cpp.obj
+[15/19] Building CXX object rexglue-sdk/src/graphics/CMakeFiles/rexgpu-xenos.dir/d3d12/render_target_cache.cpp.obj
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/render_target_cache.cpp:26:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:26:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/command_processor.h:24:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/register_file.h:19:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/registers.h:18:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/xenos.h:1621:70: warning: unused parameter 'one_reg' [-Wunused-parameter]
+ 1621 | inline uint32_t MakePacketType0(uint16_t index, uint16_t count, bool one_reg = false) {
+      |                                                                      ^
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/render_target_cache.cpp:26:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:27:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/texture_cache.h:24:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: note: explicitly cast the pointer to silence this warning
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+      |                                                     (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: note: explicitly cast the pointer to silence this warning
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: note: explicitly cast the pointer to silence this warning
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:223:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  223 |     bool base_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:226:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  226 |     bool mips_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureBinding' [-Wnontrivial-memcall]
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: note: explicitly cast the pointer to silence this warning
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/render_target_cache.cpp:26:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:29:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/render_target/cache.h:188:9: warning: field 'draw_extent_estimator_' will be initialized after field 'draw_resolution_scale_x_' [-Wreorder-ctor]
+  188 |         draw_extent_estimator_(register_file, memory, trace_writer),
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_x_(draw_resolution_scale_x)
+  189 |         draw_resolution_scale_x_(draw_resolution_scale_x),
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_y_(draw_resolution_scale_y)
+  190 |         draw_resolution_scale_y_(draw_resolution_scale_y) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_extent_estimator_(register_file, memory, trace_writer)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/render_target_cache.cpp:26:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:37:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:24:89: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   24 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesDefault = {D3D12_HEAP_TYPE_DEFAULT};
+      |                                                                                         ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:25:87: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   25 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesUpload = {D3D12_HEAP_TYPE_UPLOAD};
+      |                                                                                       ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:26:91: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+
+   26 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesReadback = {D3D12_HEAP_TYPE_READBACK};
+
+      |                                                                                           ^
+
+11 warnings generated.
+
+[16/19] Building CXX object rexglue-sdk/src/graphics/CMakeFiles/rexgpu-xenos.dir/d3d12/pipeline_cache.cpp.obj
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/pipeline_cache.cpp:33:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:26:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/command_processor.h:24:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/register_file.h:19:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/registers.h:18:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/xenos.h:1621:70: warning: unused parameter 'one_reg' [-Wunused-parameter]
+ 1621 | inline uint32_t MakePacketType0(uint16_t index, uint16_t count, bool one_reg = false) {
+      |                                                                      ^
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/pipeline_cache.cpp:33:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:27:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/texture_cache.h:24:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:167:53: note: explicitly cast the pointer to silence this warning
+  167 |     TextureKey(const TextureKey& key) { std::memcpy(this, &key, sizeof(*this)); }
+      |                                                     ^
+      |                                                     (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:169:19: note: explicitly cast the pointer to silence this warning
+  169 |       std::memcpy(this, &key, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureKey' [-Wnontrivial-memcall]
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:174:19: note: explicitly cast the pointer to silence this warning
+  174 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:223:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  223 |     bool base_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:226:70: warning: unused parameter 'global_lock' [-Wunused-parameter]
+  226 |     bool mips_outdated(const std::unique_lock<std::recursive_mutex>& global_lock) const {
+      |                                                                      ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'rex::graphics::TextureCache::TextureBinding' [-Wnontrivial-memcall]
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/texture/cache.h:467:19: note: explicitly cast the pointer to silence this warning
+  467 |       std::memset(this, 0, sizeof(*this));
+      |                   ^
+      |                   (void*)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/pipeline_cache.cpp:33:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:29:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/pipeline/render_target/cache.h:188:9: warning: field 'draw_extent_estimator_' will be initialized after field 'draw_resolution_scale_x_' [-Wreorder-ctor]
+  188 |         draw_extent_estimator_(register_file, memory, trace_writer),
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_x_(draw_resolution_scale_x)
+  189 |         draw_resolution_scale_x_(draw_resolution_scale_x),
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_resolution_scale_y_(draw_resolution_scale_y)
+  190 |         draw_resolution_scale_y_(draw_resolution_scale_y) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         draw_extent_estimator_(register_file, memory, trace_writer)
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/pipeline_cache.cpp:33:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/command_processor.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/pipeline_cache.h:29:
+In file included from C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/graphics/d3d12/render_target_cache.h:37:
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:24:89: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   24 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesDefault = {D3D12_HEAP_TYPE_DEFAULT};
+      |                                                                                         ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:25:87: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   25 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesUpload = {D3D12_HEAP_TYPE_UPLOAD};
+      |                                                                                       ^
+C:/bo3recomp/thirdparty/rexglue-sdk/include\rex/ui/d3d12/d3d12_util.h:26:91: warning: missing field 'CPUPageProperty' initializer [-Wmissing-field-initializers]
+   26 | inline constexpr D3D12_HEAP_PROPERTIES kHeapPropertiesReadback = {D3D12_HEAP_TYPE_READBACK};
+      |                                                                                           ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/pipeline_cache.cpp:105:32: warning: moving a temporary object prevents copy elision [-Wpessimizing-move]
+  105 |     depth_only_pixel_shader_ = std::move(shader_translator_->CreateDepthOnlyPixelShader());
+      |                                ^
+C:/bo3recomp/thirdparty/rexglue-sdk/src/graphics/d3d12/pipeline_cache.cpp:105:32: note: remove std::move call here
+
+  105 |     depth_only_pixel_shader_ = std::move(shader_translator_->CreateDepthOnlyPixelShader());
+
+      |                                ^~~~~~~~~~                                                ~
+
+12 warnings generated.
+
+[17/19] Linking CXX shared library C:\bo3recomp\thirdparty\rexglue-sdk\out\win-amd64\rexgpu-xenos.dll
+[18/19] Linking CXX executable bo3_zm.exe

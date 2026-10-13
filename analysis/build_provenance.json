@@ -7,20 +7,20 @@
   },
   "files": {
     "build/bo3_zm.exe": {
-      "bytes": 58003968,
-      "sha256": "bebf12fd0401f54e961b1fd0c7c4288dd4f853c3e8d1a280c765fa63d4534aa8"
+      "bytes": 58004480,
+      "sha256": "3aabaf6a473f658319c552146c4c3af5f26176280f3c9834af8703fe6b66e314"
     },
     "build/bo3_zm.pdb": {
       "bytes": 6590464,
-      "sha256": "34b89daa2e280814ff016fe3a2301bb20a6f115ff62868812beb6bdf1a9fdb91"
+      "sha256": "8c3b661a9708ea2bfed8f8f8feb244d74bb3c37e8832f66d6eac8cd4f80bdb91"
     },
     "build/rexruntime.dll": {
       "bytes": 10484224,
-      "sha256": "41a435438b8f30d47e20b6efaf99b4bee8d280585559801ffa9d76bea5fd0d29"
+      "sha256": "a445126d0204456a619155be72679c44719cd5e0a437e4f39959ceac00256b0d"
     },
     "build/rexgpu-xenos.dll": {
-      "bytes": 2892800,
-      "sha256": "ef8d81291f9c1520dd37038db5850bccb6b4d98f81cea72bea757f6693d6fbb4"
+      "bytes": 2889216,
+      "sha256": "70083be0d5dd5f20ead0126dc8dd38a5e21a784f92d05bead5dc363b10711065"
     },
     "build/TracyClient.dll": {
       "bytes": 246784,
@@ -31,8 +31,8 @@
       "sha256": "0532c5b4e743e7c0e560a242b094fc1a7ef3bd865140bb5b2e9dc2299dbee43f"
     },
     "scripts/build.cmd": {
-      "bytes": 1003,
-      "sha256": "d716f6b3c5cc9fa1a053ba92229a795d2a001da42d65dacad19e3633fae3488c"
+      "bytes": 1147,
+      "sha256": "c888d967606a4140b22991bc6384e1ac10b6e7652a1694a95fcefde107539a57"
     },
     "runtime/game/default_zm.xex": {
       "bytes": 13492224,
@@ -49,6 +49,26 @@
     "tools/llvm-20.1.8/bin/clang++.exe": {
       "bytes": 101879296,
       "sha256": "57e32b1ea2456f12f97bf802453171bbff12d56b2c486b4eca0c75343c0cda2c"
+    },
+    "build/bo3_mp.exe": {
+      "bytes": 58315776,
+      "sha256": "2d2b63f83e9fa861656304f05de4099f57840e8f5faffaeb2334b254d715a66e"
+    },
+    "build/bo3_mp.pdb": {
+      "bytes": 6610944,
+      "sha256": "ba139c776770a7ae0cf287537aa47f3def378e99bf71fe04aac74dc7d55ed253"
+    },
+    "app/multiplayer/bo3_mp_manifest.toml": {
+      "bytes": 2754,
+      "sha256": "d03e634f345867fb2f9f91dc016acc445f6d66d57b23b9a943f2ac621f29bee0"
+    },
+    "runtime/game/default.xex": {
+      "bytes": 13426688,
+      "sha256": "e64ed5fa25ca8c97d3970efc9b0d17bc32253cc43dbf9f5f96637aada064d8bb"
+    },
+    "runtime/game/default.xexp": {
+      "bytes": 3424256,
+      "sha256": "d6b76c2ffeb808875a27b2e79e3fe8f992a2290d9f2d58e31e1713257b2f4ac4"
     }
   }
 }

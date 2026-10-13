@@ -196,9 +196,6 @@ class SharedMemory {
   std::atomic<uint64_t*> staging_valid_flags_{nullptr};
   // Subset of valid pages containing data written by the GPU.
   std::vector<uint64_t> system_page_flags_valid_and_gpu_written_;
-  // Dirty state tracking for frame-end page-state refresh.
-  std::atomic<bool> gpu_written_data_dirty_{false};
-  std::atomic<uint32_t> dirty_blocks_{0};
   uint32_t num_system_page_flags_ = 0;
 
   static std::pair<uint32_t, uint32_t> MemoryInvalidationCallbackThunk(

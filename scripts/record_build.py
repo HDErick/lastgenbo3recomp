@@ -10,6 +10,10 @@ paths = ['build/bo3_zm.exe', 'build/bo3_zm.pdb', 'build/rexruntime.dll',
          'app/bo3_zm_manifest.toml', 'scripts/build.cmd',
          'runtime/game/default_zm.xex', 'runtime/game/default_zm.xexp',
          'tools/rexglue-bootstrap/rexglue.exe', 'tools/llvm-20.1.8/bin/clang++.exe']
+if (root / 'build/bo3_mp.exe').exists():
+    paths += ['build/bo3_mp.exe', 'build/bo3_mp.pdb',
+              'app/multiplayer/bo3_mp_manifest.toml',
+              'runtime/game/default.xex', 'runtime/game/default.xexp']
 files = {}
 for relative in paths:
     path = root / relative

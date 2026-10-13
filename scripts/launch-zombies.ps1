@@ -1,4 +1,5 @@
 param(
+    [ValidateSet('bo3_zm', 'bo3_mp')][string]$ExecutableName = 'bo3_zm',
     [string]$LogName = 'zombies.log',
     [string]$LogLevel = 'info',
     [string]$CommandLine = '',
@@ -13,7 +14,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
-$executable = Join-Path $projectRoot 'build\bo3_zm.exe'
+$executable = Join-Path $projectRoot ('build\' + $ExecutableName + '.exe')
 $logPath = Join-Path $projectRoot ('runtime\logs\' + $LogName)
 if (-not $CacheRoot) { $CacheRoot = Join-Path $projectRoot 'runtime\cache' }
 $arguments = @(
@@ -38,7 +39,7 @@ if ($Background) {
     $quotedArguments = $arguments | ForEach-Object { '"' + $_.Replace('"', '\"') + '"' }
     $process = Start-Process -FilePath $executable -ArgumentList $quotedArguments -WorkingDirectory (Split-Path $executable) -WindowStyle Hidden -PassThru -RedirectStandardOutput ($logPath + '.stdout') -RedirectStandardError ($logPath + '.stderr')
     $process.Id | Set-Content (Join-Path $projectRoot 'runtime\logs\last_process_id.txt')
-    Write-Output "Started BO3 Zombies PID $($process.Id), log $logPath"
+    Write-Output "Started BO3 $ExecutableName PID $($process.Id), log $logPath"
 } else {
     & $executable @arguments
     exit $LASTEXITCODE

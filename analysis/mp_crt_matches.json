@@ -1,0 +1,27 @@
+{
+  "longjmp": {
+    "zombies_address": "82A03720",
+    "multiplayer_address": "82A11500",
+    "zombies_instruction_count": 197,
+    "multiplayer_instruction_count": 197,
+    "differences": []
+  },
+  "setjmp": {
+    "zombies_address": "82A52740",
+    "multiplayer_address": "82A60780",
+    "zombies_instruction_count": 179,
+    "multiplayer_instruction_count": 179,
+    "differences": [
+      [
+        0,
+        "lis r4,-31610",
+        "lis r4,-31599"
+      ],
+      [
+        1,
+        "lwz r0,24792(r4)",
+        "lwz r0,-31240(r4)"
+      ]
+    ]
+  }
+}

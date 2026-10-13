@@ -24,6 +24,19 @@ changes are confined to the copy in `thirdparty/rexglue-sdk`:
 - `src/graphics/d3d12/shared_memory.cpp` and
   `src/ui/d3d12/d3d12_upload_buffer_pool.cpp`: name GPU allocations for DRED.
   See `analysis/GPU_CRASH_FIX.md` for evidence and validation status.
+- `src/graphics/d3d12/command_processor.cpp` and its header: remove vertex-buffer
+  address/size and fetch-bit shortcuts that bypassed shared-memory validity
+  checks. Batch used vertex ranges through `RequestRanges` on every draw so
+  unchanged addresses can still receive updated CPU data. The build succeeded;
+  the user reported unchanged color flashing in the comparison. The source
+  coherency defect is repaired but has not explained that symptom.
+  See `analysis/RENDERING_ISSUES.md`.
+- `src/graphics/shared_memory.cpp` and its header: snapshot the full GPU-written
+  page-validity table under the shared critical region at frame end. Remove
+  dirty-block/early-return shortcuts that could retain stale validity or race
+  with CPU invalidation. The build succeeded, but the user reported unchanged
+  model color flashing. Performance and extended stability remain unverified;
+  this investigation is paused. See `analysis/RENDERING_ISSUES.md`.
 
 Game-specific discovery boundaries and native CRT jump handling are configured
 in `app/bo3_zm_manifest.toml`. Package headers and optional frame/image capture are

@@ -23,7 +23,7 @@ oversize = [f for f in files if f['bytes'] >= 100 * 1024 * 1024]
 report = dict(file_count=len(files), bytes=sum(f['bytes'] for f in files),
               largest=sorted(files, key=lambda f: f['bytes'], reverse=True)[:12],
               forbidden_files=forbidden, files_over_100_mib=oversize)
-(root / 'analysis/repository-audit.json').write_text(json.dumps(report, indent=2))
+(root / 'analysis/repository-audit.json').write_text(json.dumps(report, indent=2), newline='\n')
 print(json.dumps(report, indent=2))
 if forbidden or oversize:
     raise SystemExit('Repository contains excluded content or oversized files')

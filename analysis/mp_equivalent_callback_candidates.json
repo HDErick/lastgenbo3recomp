@@ -1,0 +1,21 @@
+{
+  "zombies_callback": "0x82542368",
+  "multiplayer_candidate": "0x825431f8",
+  "bytes_compared": 112,
+  "identical": true,
+  "preceding_mp_word": "0x4bffffdc",
+  "instruction_sha256": "0757d233ad2ababcc9186426d6bb8c990795f27c42ac6f8cbe1a60695f48c377",
+  "status": "Added verified bounded hint in boot04; not yet observed as a runtime failure",
+  "exclusive_end": "0x82543268",
+  "runtime_wrapper": {
+    "multiplayer_callback": "0x8257E598",
+    "zombies_callback": "0x8257CE30",
+    "words": [
+      "0x7CE63B78",
+      "0x480066BC"
+    ],
+    "tail_target": "0x82584C58",
+    "exclusive_end": "0x8257E5A0",
+    "evidence": "analysis/mp_boot03.log"
+  }
+}

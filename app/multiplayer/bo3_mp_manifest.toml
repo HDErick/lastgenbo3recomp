@@ -1,0 +1,67 @@
+[project]
+name = "bo3_mp"
+sdk_version = "0.9.0"
+game_root = "../../runtime/game"
+
+[entrypoint]
+file_path = "../../runtime/game/default.xex"
+out_directory_path = "generated/default"
+# Matched against the verified Zombies CRT instruction sequences. Longjmp has
+# the same 197 instructions; setjmp differs only in its initial global-hook load.
+# Evidence: analysis/mp_crt_matches.json.
+setjmp_address = 0x82A60780
+longjmp_address = 0x82A11500
+
+[entrypoint.functions]
+# Reviewed during the original patched multiplayer translation probe.
+0x82862C38 = { name = "sub_82862C38" }
+0x824DEDD0 = { name = "sub_824DEDD0", end = 0x824DEE78 }
+
+# Reviewed callback tables; exclude exception metadata at the .rdata tail.
+# Evidence: analysis/mp_indirect_function_review.json.
+0x82371FB0 = { name = "sub_82371FB0" }
+0x82377AA0 = { name = "sub_82377AA0" }
+0x82695990 = { name = "sub_82695990" }
+0x8273B278 = { name = "sub_8273B278" }
+0x8273D668 = { name = "sub_8273D668" }
+0x8273D678 = { name = "sub_8273D678" }
+0x8273D680 = { name = "sub_8273D680" }
+0x8273D688 = { name = "sub_8273D688" }
+0x8273D6E0 = { name = "sub_8273D6E0" }
+0x827427F0 = { name = "sub_827427F0" }
+0x82742800 = { name = "sub_82742800" }
+0x82742808 = { name = "sub_82742808" }
+0x82742810 = { name = "sub_82742810" }
+0x82742818 = { name = "sub_82742818" }
+0x82742820 = { name = "sub_82742820" }
+0x82742828 = { name = "sub_82742828" }
+0x82743BD0 = { name = "sub_82743BD0" }
+0x82743BE0 = { name = "sub_82743BE0" }
+0x82743BE8 = { name = "sub_82743BE8" }
+0x82743BF0 = { name = "sub_82743BF0" }
+0x82743BF8 = { name = "sub_82743BF8" }
+0x82743C00 = { name = "sub_82743C00" }
+0x82743C08 = { name = "sub_82743C08" }
+0x82743C10 = { name = "sub_82743C10" }
+0x827443D0 = { name = "sub_827443D0" }
+0x827452F0 = { name = "sub_827452F0" }
+0x82746020 = { name = "sub_82746020" }
+0x82746028 = { name = "sub_82746028" }
+0x82746518 = { name = "sub_82746518" }
+0x82748F38 = { name = "sub_82748F38" }
+0x82756DA8 = { name = "sub_82756DA8" }
+0x82756DB0 = { name = "sub_82756DB0" }
+0x82758620 = { name = "sub_82758620" }
+0x8285BC70 = { name = "sub_8285BC70" }
+
+# Profile-loading callback reached after Start/A. Its 17 instructions end in
+# blr at 0x822CB0E8, followed by padding and the next function prologue.
+0x822CB0A8 = { name = "sub_822CB0A8", end = 0x822CB0EC }
+# Additional callback in an initialized .data dispatch table.
+0x828EE988 = { name = "sub_828EE988" }
+
+# Menu callback reached in boot03: mr r6,r7, then tail branch to 0x82584C58.
+# Matches the verified Zombies wrapper at 0x8257CE30; next prologue is 0x8257E5A0.
+0x8257E598 = { name = "sub_8257E598", end = 0x8257E5A0 }
+# Exact 112-byte counterpart of the previously needed Zombies callback 0x82542368.
+0x825431F8 = { name = "sub_825431F8", end = 0x82543268 }

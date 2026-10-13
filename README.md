@@ -23,8 +23,18 @@ cd C:\bo3recomp
 
 The launcher configures the game, update, user content and cache roots explicitly.
 It selects the Zombies executable directly. BO2's `+zm` mode switch is not required
-to select this executable. Multiplayer translation remains in the analysis probes;
-there is no native BO3 multiplayer target yet.
+to select this executable.
+
+The separate multiplayer target selects `default.xex` directly:
+
+```powershell
+.\scripts\launch-multiplayer.ps1
+```
+
+Multiplayer reached playable gameplay in a short user-confirmed test and closed
+normally. Extended stability and all maps remain unverified.
+Build it with `scripts/build.cmd bo3_mp`; see
+[multiplayer build status](analysis/MULTIPLAYER_BUILD.md) for validation results.
 
 The launcher defaults to a local signed-in profile (`--xam_signin_state 1`). The
 copied BO2 SDK defaults to a Live signed-in profile, which caused this prototype
@@ -41,6 +51,8 @@ For a diagnostic launch:
 Logs are in `runtime/logs`. Optional thread samples and crash reports are beside
 the executable in `build`. Optional guest frame captures are PPM files in
 `runtime/cache`. A patched memory image can be captured with `-DumpImagePath`.
+Frame capture includes short gameplay bursts around 90 seconds and two minutes
+after module launch, allowing comparisons of changing object colors.
 Before the lifetime repair, both instrumented runs and a run without capture/sampling lost the graphics
 device. Normal launches leave these optional diagnostics disabled. Their absence
 did not resolve the earlier GPU hang.

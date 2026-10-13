@@ -29,3 +29,8 @@ target_include_directories(bo3_zm PRIVATE
     $<TARGET_PROPERTY:imgui,INTERFACE_INCLUDE_DIRECTORIES>)
 target_link_libraries(bo3_zm PRIVATE dbghelp)
 target_link_options(bo3_zm PRIVATE "-Xlinker" "/DEBUG")
+
+# Separate guest executable, sharing the SDK and installed content.
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/multiplayer/generated/default/sources.cmake")
+    add_subdirectory(multiplayer)
+endif()

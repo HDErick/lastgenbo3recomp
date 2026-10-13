@@ -67,10 +67,13 @@ class Bo3ZmApp : public rex::ReXApp {
     rex::ReXApp::LaunchModule();
     if (!std::getenv("BO3_CAPTURE_FRAMES")) return;
     capture_thread_ = std::jthread([this](std::stop_token stop) {
-      for (int second = 1; second <= 45 && !stop.stop_requested(); ++second) {
+      for (int second = 1; second <= 125 && !stop.stop_requested(); ++second) {
         std::this_thread::sleep_for(std::chrono::seconds(1));
         if (stop.stop_requested()) return;
-        if (second != 10 && second != 30 && second != 45) continue;
+        // Later bursts allow comparing model colors after entering gameplay.
+        const bool gameplay_burst = (second >= 90 && second <= 95) ||
+                                    (second >= 120 && second <= 125);
+        if (second != 10 && second != 30 && second != 45 && !gameplay_burst) continue;
         auto* presenter = runtime()->graphics_system()->presenter();
         rex::ui::RawImage image;
         if (!presenter || !presenter->CaptureGuestOutput(image)) {

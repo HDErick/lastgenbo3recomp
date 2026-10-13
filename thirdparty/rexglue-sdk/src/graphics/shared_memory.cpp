@@ -37,8 +37,6 @@ void SharedMemory::InitializeCommon() {
   system_page_flags_valid_and_gpu_written_.assign(num_system_page_flags_, 0);
   active_valid_flags_.store(valid_buffer_a_.data(), std::memory_order_relaxed);
   staging_valid_flags_.store(valid_buffer_b_.data(), std::memory_order_relaxed);
-  gpu_written_data_dirty_.store(false, std::memory_order_relaxed);
-  dirty_blocks_.store(0, std::memory_order_relaxed);
 
   memory_invalidation_callback_handle_ =
       memory_.RegisterPhysicalMemoryInvalidationCallback(MemoryInvalidationCallbackThunk, this);
@@ -98,8 +96,6 @@ void SharedMemory::ShutdownCommon() {
   system_page_flags_valid_and_gpu_written_.clear();
   system_page_flags_valid_and_gpu_written_.shrink_to_fit();
   num_system_page_flags_ = 0;
-  gpu_written_data_dirty_.store(false, std::memory_order_relaxed);
-  dirty_blocks_.store(0, std::memory_order_relaxed);
 }
 
 void SharedMemory::InvalidateAllPages() {
@@ -118,47 +114,24 @@ void SharedMemory::InvalidateAllPages() {
                 num_system_page_flags_ * sizeof(uint64_t));
   }
 
-  // Force a refresh on the next frame-end sync.
-  dirty_blocks_.store(UINT32_MAX, std::memory_order_relaxed);
-  gpu_written_data_dirty_.store(true, std::memory_order_relaxed);
 }
 
 void SharedMemory::SetSystemPageBlocksValidWithGpuDataWritten() {
-  if (!gpu_written_data_dirty_.load(std::memory_order_relaxed)) {
-    return;
-  }
-
+  // CPU invalidation modifies both the active table and GPU-written ownership.
+  // Hold the same lock through the snapshot and swap so those updates cannot
+  // be lost or applied to a table that has just become inactive.
+  auto global_lock = global_critical_region_.Acquire();
   uint64_t* staging = staging_valid_flags_.load(std::memory_order_acquire);
   if (!staging || !num_system_page_flags_) {
-    gpu_written_data_dirty_.store(false, std::memory_order_relaxed);
-    dirty_blocks_.store(0, std::memory_order_relaxed);
     return;
   }
-
-  uint32_t dirty_mask = dirty_blocks_.exchange(0, std::memory_order_relaxed);
-  uint32_t dirty_count = rex::bit_count(dirty_mask);
-  if (dirty_count == 0 || dirty_count > 16) {
-    std::memcpy(staging, system_page_flags_valid_and_gpu_written_.data(),
-                num_system_page_flags_ * sizeof(uint64_t));
-  } else {
-    while (dirty_mask) {
-      uint32_t block_index;
-      rex::bit_scan_forward(dirty_mask, &block_index);
-      dirty_mask &= ~(uint32_t(1) << block_index);
-      uint32_t entry_offset = block_index * 64;
-      if (entry_offset >= num_system_page_flags_) {
-        continue;
-      }
-      uint32_t entry_count = std::min(uint32_t(64), num_system_page_flags_ - entry_offset);
-      std::memcpy(staging + entry_offset,
-                  system_page_flags_valid_and_gpu_written_.data() + entry_offset,
-                  entry_count * sizeof(uint64_t));
-    }
-  }
-
+  // Staging is the previous active table and may still contain CPU-uploaded
+  // valid bits. Refresh every block, even if GPU-written ownership is unchanged,
+  // so recycling the table cannot resurrect stale CPU data as valid.
+  std::memcpy(staging, system_page_flags_valid_and_gpu_written_.data(),
+              num_system_page_flags_ * sizeof(uint64_t));
   uint64_t* old_active = active_valid_flags_.exchange(staging, std::memory_order_acq_rel);
   staging_valid_flags_.store(old_active, std::memory_order_release);
-  gpu_written_data_dirty_.store(false, std::memory_order_relaxed);
 }
 
 void SharedMemory::ClearCache() {
@@ -362,13 +335,10 @@ void SharedMemory::MakeRangeValid(uint32_t start, uint32_t length, bool written_
       if (valid_flags) {
         valid_flags[i] |= valid_bits;
       }
-      uint64_t old_gpu_written = system_page_flags_valid_and_gpu_written_[i];
-      uint64_t new_gpu_written =
-          written_by_gpu ? (old_gpu_written | valid_bits) : (old_gpu_written & ~valid_bits);
-      if (new_gpu_written != old_gpu_written) {
-        system_page_flags_valid_and_gpu_written_[i] = new_gpu_written;
-        gpu_written_data_dirty_.store(true, std::memory_order_relaxed);
-        dirty_blocks_.fetch_or(uint32_t(1) << (i >> 6), std::memory_order_relaxed);
+      if (written_by_gpu) {
+        system_page_flags_valid_and_gpu_written_[i] |= valid_bits;
+      } else {
+        system_page_flags_valid_and_gpu_written_[i] &= ~valid_bits;
       }
     }
   }
@@ -621,7 +591,6 @@ std::pair<uint32_t, uint32_t> SharedMemory::MemoryInvalidationCallback(
     }
   }
 
-  uint32_t dirty_blocks_mask = 0;
   uint64_t* valid_flags = active_valid_flags_.load(std::memory_order_relaxed);
   for (uint32_t i = block_first; i <= block_last; ++i) {
     uint64_t invalidate_bits = UINT64_MAX;
@@ -635,10 +604,7 @@ std::pair<uint32_t, uint32_t> SharedMemory::MemoryInvalidationCallback(
       valid_flags[i] &= ~invalidate_bits;
     }
     system_page_flags_valid_and_gpu_written_[i] &= ~invalidate_bits;
-    dirty_blocks_mask |= uint32_t(1) << (i >> 6);
   }
-  gpu_written_data_dirty_.store(true, std::memory_order_relaxed);
-  dirty_blocks_.fetch_or(dirty_blocks_mask, std::memory_order_relaxed);
 
   FireWatches(page_first, page_last, false);
 
