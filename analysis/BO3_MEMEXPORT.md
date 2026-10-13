@@ -97,3 +97,15 @@ Evidence: `analysis/bo3_memexport_state01.json` and
 `analysis/pc_vulkan_native_memexport_provenance01.json`. The game was still open
 when these snapshots were summarized; user gameplay/normal-close confirmation
 is pending. These state samples alone do not establish visual correctness.
+
+### Window visibility correction
+
+The user reported that no game window was open. Investigation found capture01
+still running/responding and continuing audio/presentation logs, with no new
+crash report. It had been launched on the tool's isolated desktop; its samples
+are startup/export state, not confirmed map gameplay. The agent stopped that
+process and a second isolated test, preserving all captures. The launcher now
+requests a normal window, and capture03 was launched on the interactive desktop.
+Computer Use verified its visible Press A to Start screen. Map gameplay and
+normal-close confirmation remain pending. Record:
+`analysis/pc_vulkan_native_memexport_provenance03.json`.

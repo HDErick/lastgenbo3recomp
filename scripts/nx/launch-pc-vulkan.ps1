@@ -81,10 +81,12 @@ if ($GpuCapture) {
         '--opt-capture-callstacks-only-actions', $executable) + $arguments
 }
 if ($Background) {
+    # This is an interactive game. Background means returning control to the
+    # caller, not hiding its window. Agents must launch on the user's desktop.
     $quotedArguments = $launchArguments | ForEach-Object { '"' + $_.Replace('"', '\"') + '"' }
     $launchTime = Get-Date
     $process = Start-Process -FilePath $launchExecutable -ArgumentList $quotedArguments `
-        -WorkingDirectory (Split-Path $executable) -WindowStyle Hidden -PassThru `
+        -WorkingDirectory (Split-Path $executable) -WindowStyle Normal -PassThru `
         -RedirectStandardOutput ($logPath + '.stdout') -RedirectStandardError ($logPath + '.stderr')
     if ($GpuCapture) {
         for ($attempt = 0; $attempt -lt 30; $attempt++) {
