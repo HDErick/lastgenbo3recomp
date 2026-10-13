@@ -216,9 +216,64 @@ F9 may see cleared depth if a
 resolve-clear happens after the scene draw; its uniform output alone does not
 prove whether the scene wrote depth earlier in that frame.
 
+### Rectangle draws and depth-clear alias investigation (runs 21–23)
+
+BO3 rectangle lists now use a generated geometry shader to expand three input
+vertices to four, with the SDK's longest-edge rule and only the VS's available
+interpolators. Four output-interface masks pass SPIR-V validation. Run 21 still
+rejected rectangles because the presentation-only Vulkan device profile had
+not enabled geometry shaders. Run 22 enables the SDK's full graphics feature
+profile; it still uses the separate BO3 command processor. Logs confirm actual
+rectangle execution and precise occlusion-query results.
+
+The optional `-NativeDrawProbe` records the first four draws of each rectangle
+or MSAA pipeline after the existing submission fence. Run 22's main clear passes
+1,267,200 samples, but world prepasses pass zero. The user reports that F9 shows
+the top half white and bottom half black. The selected depth-only clear surface
+is not proof of world geometry; run 23 prefers the current scene color target's
+depth surface instead.
+
+Depth base 68 is cleared through a 440x720 4x view and rendered through an
+880x720 2x view. Both have 880 samples per row and 1,440 sample rows, but the
+cache held separate images. Build 33 recognizes the reviewed XDK constant-depth
+clear VS and optional pass-through PS by SHA-256, checks their state and uploaded
+vertices, and propagates depth/stencil clears between matching sample layouts.
+Partial rectangles are preserved; prior clears are replayed when an alias image
+is created. Eight mapping/rejection cases pass. This does not implement general
+EDRAM overlap, color clear aliasing or arbitrary shader approximation. Run 23
+closed normally with zero recognized clears. The user reports F9 fully black.
+The guard prevented the repair from running, so build 34 adds a bounded
+diagnostic of the observed clear program's failed guard and transformed edges.
+Run 24 closed normally and remained black. It identified half-pixel edges near
+0.5: the SDK enables the D3D pixel-center adjustment. Build 35 uses SDK 16.8
+rounding and the top-left pixel-center rule for the observed clear's disabled
+MSAA raster coverage. Per-sample raster coverage is explicitly refused by this
+whole-pixel clear path. Sixteen mapping/boundary cases pass.
+
+Run 25 remained black and closed normally. Its diagnostic found three identical
+positions and VF95 address zero. A direct review of the captured binary proves
+that this exact canonical shader uses VF0, stride seven, despite the saved SDK
+text disassembly naming VF95. The native translator metadata independently
+agrees. Build 36 corrects the fetch ownership and verifies that metadata before
+reading the uploaded snapshot. `analysis/native_clear_shader_review01.json`
+records the hashes and slot evidence. Run 26 is open. Its live snapshot confirms
+base 68 is cleared to zero across sample layouts. The sampled full-screen
+BE68717E4DF4E8D8 depth pass now passes 1,267,200 samples, versus zero in runs
+22–25; the subsequent sampled 03EEAA01C3B394BF pass still passes zero. This is
+actual GPU coverage evidence, but neither pass alone proves world geometry or
+final color. Gameplay geometry and F9 results remain pending. The partial live
+log is `analysis/pc_native_backend_boot26_snapshot.log`; it is not a complete run.
+
+Evidence: `analysis/pc_native_backend_boot21_rectangles_coverage.log`,
+`analysis/pc_native_backend_boot22_rectangles_enabled.log`,
+`analysis/native_rectangle_validation01.json`,
+`analysis/native_edram_clear_tests01.log`, and provenance manifests 21–23.
+The BO2 renderer was reviewed for useful ideas; no code was imported. See
+[BO2 native renderer assessment](../analysis/BO2_NATIVE_REFERENCE.md).
+
 Remaining gates include stencil/clear behavior, resolves and their exponent
 conversion, native-produced texture ownership, target aliasing, MRT/MSAA parity,
-rectangle primitives, mips, cube/volume views, queries and complete GPU semantics.
+remaining primitive modes, mips, cube/volume views, queries and complete GPU semantics.
 Presentation currently samples the latest drawn native target as a diagnostic;
 it does not yet follow guest frontbuffer resolves. Unsupported paths are counted
 and skipped, so a visible menu does not establish a complete renderer. Batches

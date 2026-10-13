@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-13",
+  "captured_binary_sha256": "2b2fe8f96319434015034dc955df9b2ab30d0e979645821cb592e667c4f58295",
+  "canonical_big_endian_sha256": "abfec28e9858fd1b9b27afd527f08421c38f288e9333cc7fc10d6391ac190fa9",
+  "first_full_fetch_slot": 0,
+  "stride_dwords": 7,
+  "text_disassembly_slot": 95,
+  "finding": "Captured binary and native translation use VF0; saved text disassembly names VF95 and must not determine runtime fetch ownership.",
+  "native_metadata_guard": "vertexFetchSubs=[1,0,0]; VF0 stride=7, tail=7; exact canonical SHA256 required",
+  "runtime_evidence": "analysis/pc_native_backend_boot25_clear_coverage.log reports VF95 address zero and three identical positions."
+}

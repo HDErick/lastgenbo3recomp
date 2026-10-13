@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-13",
+  "masks": [
+    0,
+    1,
+    42405,
+    65535
+  ],
+  "modules": 4,
+  "failures": [],
+  "generator_sha256": "468BE944C502FF34880A770C532AC57E43F4FCD5F82E37B3F6F72080896A3412",
+  "tool_sha256": "46336ECD5EE86CDD97D90531CFFFB3B69C2C6F08230CF6084862C94A897F385D",
+  "validator_sha256": "20890CDC60C31F6A20E0B26A244C4EA395D677DC434FB436E20BDA1AC9F3F1FF",
+  "limitations": "Structural validation of actual runtime modules; no numerical output or Switch performance proven."
+}

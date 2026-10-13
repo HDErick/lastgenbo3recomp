@@ -27,6 +27,7 @@ if args.native:
     names += ['build/pc-vulkan/rexgpu-bo3native.dll', 'build/pc-vulkan/rexgpu-bo3native.pdb',
               'nx/native/native_gpu.cpp', 'nx/native/CMakeLists.txt',
               'nx/native/memexport_copy.h', 'nx/native/bc_decode.h', 'nx/native/physical_access.h', 'nx/native/present.hlsl',
+              'nx/native/rectangle_shader.cpp', 'nx/native/rectangle_shader.h', 'nx/native/edram_clear.h',
               'scripts/nx/embed-native-shaders.py', 'scripts/nx/prepare-mw2-shader-tools.py',
               'nx/shader-tools/mw2_vertex_ranges.cpp.inc',
               'nx/shader-tools/mw2_position.cpp.inc',

@@ -142,6 +142,27 @@ unproven. Rejected rectangle-list draws/raster clears and color/depth readback
 before final presentation are the next investigation, rather than assuming all
 scene passes render successfully. Greater-depth prepasses still face initial
 depth 1 without supported guest clears. Logs show no native backend failure.
+Runs 21/22 add generated rectangle geometry shaders and bounded GPU coverage
+queries. Run 21 lacked the enabled device feature; run 22 executes rectangles.
+The main raster clear passes 1,267,200 samples, while world prepasses pass zero.
+The user reports F9 shows a white top half and black bottom half in run 22.
+Depth base 68 uses a 440x720 4x clear view and an 880x720 2x world view with the
+same sample-row layout, but separate native depth images. Build 33 propagates
+recognized XDK depth/stencil clears across those alias layouts and corrects
+F9's selection to prefer scene depth. Eight mapping cases pass; run 23 is open,
+and the user reports F9 fully black. It closed normally with zero recognized
+clears, so the alias repair was not exercised. Run 24 identified half-pixel
+edges; build 35 handles the observed disabled-MSAA-raster pixel-center coverage.
+All 16 mapping/boundary tests pass. Run 25 remained black and identified VF95
+address zero. The captured binary and translator metadata prove this exact
+clear uses VF0 despite the saved text disassembly naming VF95. Build 36 corrects
+the fetch ownership with metadata guards; run 26 is open. Its live log confirms
+base 68 clear-to-zero propagation, and one sampled full-screen MSAA depth pass
+now passes 1,267,200 samples instead of zero. Another sampled pass still passes
+zero; visible gameplay geometry and F9 results remain pending. Runs 24/25 closed
+normally. BO2 was reviewed for ideas
+without importing its broken D3D9 renderer. See
+[BO2 reference notes](analysis/BO2_NATIVE_REFERENCE.md).
 Textures/conversion, mips/cube views, raster/color clears,
 EDRAM overlap/extent aliasing and native guest resolves remain incomplete.
 See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).

@@ -11,6 +11,7 @@ param(
     [switch]$NativeNoCull,
     [switch]$NativeReadback,
     [switch]$NativeSceneView,
+    [switch]$NativeDrawProbe,
     [ValidatePattern('^[A-Za-z0-9_-]+$')][string]$DiscoveryRun = 'native-discovery',
     [switch]$Background
 )
@@ -18,6 +19,7 @@ $ErrorActionPreference = 'Stop'
 if ($NativeNoCull -and -not $Native) { throw 'NativeNoCull requires Native' }
 if ($NativeReadback -and -not $Native) { throw 'NativeReadback requires Native' }
 if ($NativeSceneView -and -not $Native) { throw 'NativeSceneView requires Native' }
+if ($NativeDrawProbe -and -not $Native) { throw 'NativeDrawProbe requires Native' }
 $projectRoot = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $executable = Join-Path $projectRoot 'build/pc-vulkan/bo3_zm_vulkan.exe'
 $logPath = Join-Path $projectRoot ('runtime/logs/' + $LogName)
@@ -51,7 +53,7 @@ $captureEnvironment = @{}
 foreach ($name in 'BO3_SAMPLE_SECS','BO3_CAPTURE_FRAMES','BO3_DUMP_IMAGE',
     'BO3_GPU_CAPTURE_DIR','BO3_RENDERDOC_DLL','VK_LAYER_PATH','VK_INSTANCE_LAYERS',
     'ENABLE_VULKAN_RENDERDOC_CAPTURE','VK_ADD_IMPLICIT_LAYER_PATH','BO3_D3D_TRACE_DIR',
-    'BO3_MEMEXPORT_PROBE_DIR','BO3_MEMEXPORT_PARITY_DIR','BO3_NATIVE_NO_CULL','BO3_NATIVE_READBACK','BO3_NATIVE_SCENE_VIEW') {
+    'BO3_MEMEXPORT_PROBE_DIR','BO3_MEMEXPORT_PARITY_DIR','BO3_NATIVE_NO_CULL','BO3_NATIVE_READBACK','BO3_NATIVE_SCENE_VIEW','BO3_NATIVE_DRAW_PROBE') {
     $captureEnvironment[$name] = [Environment]::GetEnvironmentVariable($name, 'Process')
 }
 try {
@@ -66,6 +68,7 @@ $env:BO3_MEMEXPORT_PARITY_DIR = $null
 $env:BO3_NATIVE_NO_CULL = if ($NativeNoCull) { '1' } else { $null }
 $env:BO3_NATIVE_READBACK = if ($NativeReadback) { '1' } else { $null }
 $env:BO3_NATIVE_SCENE_VIEW = if ($NativeSceneView) { '1' } else { $null }
+$env:BO3_NATIVE_DRAW_PROBE = if ($NativeDrawProbe) { '1' } else { $null }
 if ($MemexportProbe) {
     $probeRoot = Join-Path $projectRoot ('runtime/' + $DiscoveryRun + '/memexport')
     if ((Test-Path -LiteralPath $probeRoot) -and

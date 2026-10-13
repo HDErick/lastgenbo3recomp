@@ -6,6 +6,7 @@ if(NOT EXISTS "${BO3_TRANSLATOR}/shader_translator.cpp")
 endif()
 add_library(rexgpu-bo3native SHARED
     native_gpu.cpp
+    rectangle_shader.cpp
     "${BO3_SDK}/thirdparty/crypto/sha256.cpp"
     "${CMAKE_CURRENT_BINARY_DIR}/present_spirv.h"
     "${BO3_TRANSLATOR}/shader_translator.cpp" "${BO3_TRANSLATOR}/spirv.cpp"
