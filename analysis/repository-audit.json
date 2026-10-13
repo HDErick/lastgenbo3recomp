@@ -1,6 +1,6 @@
 {
-  "file_count": 18939,
-  "bytes": 703498353,
+  "file_count": 18951,
+  "bytes": 705956916,
   "largest": [
     {
       "path": "thirdparty/rexglue-sdk/thirdparty/vulkan-headers/registry/validusage.json",
@@ -35,6 +35,10 @@
       "bytes": 2319604
     },
     {
+      "path": "analysis/bo3_mw2_comparison03.json",
+      "bytes": 2305394
+    },
+    {
       "path": "app/multiplayer/generated/default/bo3_mp_recomp.19.cpp",
       "bytes": 2097172
     },
@@ -45,10 +49,6 @@
     {
       "path": "app/multiplayer/generated/default/bo3_mp_recomp.52.cpp",
       "bytes": 2097118
-    },
-    {
-      "path": "app/generated/default_zm/bo3_zm_recomp.13.cpp",
-      "bytes": 2097106
     }
   ],
   "forbidden_files": [],

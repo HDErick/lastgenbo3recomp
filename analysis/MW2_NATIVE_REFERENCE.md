@@ -113,7 +113,8 @@ one additional pixel program also lacked a container match.
 | Translator | Clean VS validation | Clean PS validation | Remaining cases |
 | --- | ---: | ---: | --- |
 | Pinned MW2, unchanged | 147 | 188 | 117 PS reject GetWeights; 1 PS fails SPIR-V image-query typing; 2 VS drop memory exports |
-| Separately staged BO3 prototype | 147 | 303 | 3 PS require mixed 2D/3D texture views; 2 VS drop memory exports |
+| BO3 GetWeights prototype (comparison02) | 147 | 303 | 3 PS require mixed 2D/3D texture views; 2 VS drop memory exports |
+| BO3 typed-view prototype (comparison03) | 147 | 306 | 2 VS drop memory exports; live view ownership still needed |
 
 The prototype implements only the GetWeights profile observed in this capture:
 141 instructions across the 117 rejected pixel programs, all normalized 2D,
@@ -123,13 +124,21 @@ handling, and uses the staged SDK/Xenia level-zero fraction/rounding rules.
 Broader profiles are refused. General mip-LOD/filter semantics, other maps and
 numerical GPU parity are unverified.
 
-The prototype also refuses mixed-dimensional image slots explicitly. The original
+The first prototype refused mixed-dimensional image slots explicitly. The original
 translator assumes one image dimensionality per slot and lets the final fetch
 overwrite that choice. BO3 program `7A64BBF119546D8B` uses slot 13 for tfetch2D
 and tfetch3D; the original generated a 2-component image-size result for a 3D
 image. Two further mixed-slot programs (`B1398134025C11C2`, `BA9B59848E82E5E5`)
 were masked by their earlier GetWeights rejection. These need a texture-view
 binding design; changing the vector size alone would not implement their intent.
+
+The next adaptation supplies separate typed variables per slot/kind, with stable
+cross-stage bindings: 2D = slot, cube = slot+32, 3D = slot+64. The three programs
+now validate, using bindings 13 and 77 for their two slot-13 views. Reflection
+checks all 455 emitted modules against metadata and image types. Maximum observed
+texture declarations per stage are 0 in VS and 11 in PS, so runtime layouts can
+be sparse. Real texture views, compatible dimensional conversions and ownership
+have not been implemented in a native cache. This is a shader-side repair only.
 
 Two VS (`5B9B7484417FB9B6`, `A4827826E2589916`) respectively drop 20 and 10
 memory exports. They are flagged separately and cannot be treated as correct
@@ -138,7 +147,10 @@ a verified equivalent copy path. No MW2-specific image-copy hooks were copied.
 
 **All 335 modules that cleanly validated in the original comparison remain
 byte-identical in the prototype.** The change newly validates 115 pixel programs;
-450 of 455 programs now validate without dropped exports. Pixel metadata in
+450 of 455 programs validated without dropped exports in comparison02. The typed
+view adaptation increases that to **453/455**, covering all 306 PS. Of the prior
+450 clean modules, 217 remain byte-identical and 233 differ only in their texture
+binding decorations. No other SPIR-V instruction changes. Pixel metadata in
 this capture only reports color output zero, but that does not establish
 whole-game MRT/depth requirements.
 
@@ -148,6 +160,9 @@ Evidence: `analysis/bo3_mw2_comparison01.json`,
 `analysis/mw2_shader_tool_sources.json`,
 `analysis/mw2_shader_tool_staged_sources.json` and the two tool build logs.
 Raw programs/SPIR-V stay under ignored build/runtime directories.
+New evidence: `analysis/bo3_mw2_comparison03.json`,
+`analysis/bo3_texture_view_validation03.json`, `analysis/mw2_comparison_results03.log`.
+The staged-source manifest records both adaptation helpers and preparation hashes.
 
 ### Decision for the next implementation gate
 
@@ -161,6 +176,9 @@ Before live native rendering, define a consistent binding contract for guest
 float/fetch/bool/loop registers, buffer snapshots and mixed texture views. The
 existing SA2-derived modules use a different interface and cannot simply be
 paired with these vertex modules. Preserve both libraries as comparison corpora.
-Next, implement the texture-view and memory-export cases and the native command
+The typed shader interface is now defined and checked offline. A bounded probe
+has been added at emulated Vulkan IssueDraw, after VS analysis, to capture actual
+memory-export registers and loaded microcode. See [memory exports](BO3_MEMEXPORT.md).
+Next, implement compatible texture views, memory-export behavior and the native command
 backend, retaining explicit unsupported reports. There is still no native game
 frame, driver-execution validation or Switch performance result from this test.

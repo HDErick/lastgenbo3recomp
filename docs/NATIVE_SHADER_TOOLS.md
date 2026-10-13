@@ -101,8 +101,8 @@ and older model-color flashing remain documented separately.
 The [MW2 comparison](../analysis/MW2_NATIVE_REFERENCE.md) tests the actual loaded
 programs, without needing their original vertex declarations. The corpus is
 149 VS and 306 PS. MW2's unchanged translator cleanly validates 335 programs.
-The separate BO3 GetWeights prototype validates 450; three mixed-view PS and
-two memory-export VS remain blocked. These modules use a different binding
+The separate BO3 prototype adds GetWeights and typed texture views and validates
+453; two memory-export VS remain blocked. These modules use a different binding
 interface from the SA2-derived library above; they cannot be mixed unchanged.
 
 ```powershell
@@ -111,10 +111,18 @@ interface from the SA2-derived library above; they cannot be mixed unchanged.
 & $python scripts/nx/compare-mw2-translator.py --output build/native-shaders/mw2-comparison01
 & $python scripts/nx/prepare-mw2-shader-tools.py --adapt-bo3
 & C:\Windows\System32\cmd.exe /d /c "scripts\nx\build-mw2-shader-tools.cmd bo3"
-& $python scripts/nx/compare-mw2-translator.py --bo3-prototype --output build/native-shaders/mw2-comparison02
+& $python scripts/nx/compare-mw2-translator.py --bo3-prototype --output build/native-shaders/mw2-comparison04
+& $python scripts/nx/inspect-native-texture-views.py --input build/native-shaders/mw2-comparison04 --previous analysis/bo3_mw2_comparison02.json --previous-modules build/native-shaders/mw2-comparison03 --output analysis/bo3_texture_view_validation03.json
 ```
 
 Use fresh output folders. Each comparison retains metadata and validation errors;
 code 2 reports incomplete/unsafe coverage. Sources/licenses are kept under ignored
 tools, with both original and staged source hashes in analysis. SPIR-V validity
 does not establish correct GPU results, native rendering or Switch FPS.
+
+Comparison04's manifest is archived as `analysis/bo3_mw2_comparison03.json`.
+The reflection check verifies actual set/binding/image types for all 455 modules,
+including both slot-13 variables. The optional previous-module check proves the
+450 prior clean modules have no instruction changes beyond binding decorations.
+The earlier build folders remain local for that comparison; use fresh folders
+when reproducing a new run. See [ABI 2](NATIVE_SHADER_ABI.md).

@@ -1,8 +1,9 @@
 # Initial BO3 native shader interface
 
 October 13, 2026. This records the tested offline prototype's interface;
-the BO3 native Vulkan backend is not implemented. Mixed texture views and
-memory exports remain implementation gates, so this is not a finalized ABI.
+the BO3 native Vulkan backend is not implemented. Typed texture declarations
+now validate offline; live view ownership and memory exports remain gates.
+This is prototype ABI 2, not a finalized runtime interface.
 
 ## Program identity
 
@@ -26,7 +27,9 @@ This has not been measured on Switch; common cases may later use cheaper paths.
 | 0 | 2 | All 256 boolean constants: 2 uint4 |
 | 0 | 3 | 32 loop constants: 8 uint4 |
 | 0 | 4 | PS float-constant window: 256 float4 |
-| 1 | N | Combined image/sampler for fetch slot N, 0..31 |
+| 1 | N | Combined 2D image/sampler for slot N (also Xenos 1D), 0..31 |
+| 1 | N + 32 | Combined cube image/sampler for slot N |
+| 1 | N + 64 | Combined 3D image/sampler for slot N |
 | 2 | 0 | Upload arena as read-only uint dwords |
 
 Float windows come from the actual SQ_VS_CONST/SQ_PS_CONST register bases.
@@ -34,6 +37,28 @@ Populate fetch constants from the complete guest fetch-register window, not from
 container declarations. Preserve texture fetch dwords. Rewrite only vertex-buffer
 addresses when relocating their data into the arena; the shader addresses dwords.
 GetWeights reads guest 2D size-minus-one fields from fetch dword 2.
+
+`texture_view_masks[N]` names each declared view: bit 0 = 2D, bit 1 = cube,
+bit 2 = 3D. `texture_kinds[N]` remains a single-view summary and is 255 for
+mixed slots; do not use it to allocate bindings. Merge VS/PS masks when building
+a pipeline layout so both stages use the same binding for a given slot/kind.
+Allocate only the union of used bindings, not 96 descriptors. This capture's
+maximum is 11 texture descriptors in a PS and none in a VS; other programs and
+actual device descriptor limits still require checks.
+
+The three mixed PS programs declare 2D slot 13 at binding 13 and 3D slot 13 at
+binding 77. Each instruction loads its correctly typed variable. All 455 modules
+pass descriptor/image-type reflection and structural validation; two still drop
+memory exports and must remain blocked. The previously accepted 450 modules have
+identical SPIR-V after normalizing the changed binding numbers.
+
+Separate descriptors do not establish correct backing images. The staged SDK
+explicitly handles 1D/2D sampling of a 3D texture via a special compatible view
+(`VulkanTextureCache::GetActiveBindingOrNullImageView`). Reproduce and verify
+guest texture layout and conversion semantics; do not bind an arbitrary view
+type or assume an inactive predicate makes an incompatible descriptor legal.
+Texture ownership, upload, transitions, sampler overrides and typed fallback
+images must be implemented in the native cache.
 
 Push constants at bytes 0..15 hold pixel alpha function/reference, color exponent
 scale and gamma-target flag. Bytes 16..31 hold vertex XY scale/offset for window
@@ -50,9 +75,8 @@ finish reading every input owed to earlier draws. Do not adopt MW2's fixed
 
 ## Remaining binding and execution gates
 
-- Three PS programs sample slot 13 as both 2D and 3D. The current one-view-per-slot
-  interface refuses them. Define and implement separate compatible descriptor
-  views plus their texture-cache ownership rules; a type cast cannot fix them.
+- The three mixed PS programs translate using separate typed bindings. Implement
+  their compatible backing views and texture-cache ownership rules at runtime.
 - Two VS programs export to guest memory. They validate structurally but drop
   writes in MW2's implementation. A native backend must refuse those modules
   until their writes or a verified BO3 equivalent copy path are supported.

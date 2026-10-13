@@ -5,6 +5,7 @@ param(
     [switch]$DumpShaders,
     [switch]$GpuCapture,
     [switch]$D3DTrace,
+    [switch]$MemexportProbe,
     [ValidatePattern('^[A-Za-z0-9_-]+$')][string]$DiscoveryRun = 'native-discovery',
     [switch]$Background
 )
@@ -36,7 +37,8 @@ if ($DumpShaders) {
 $captureEnvironment = @{}
 foreach ($name in 'BO3_SAMPLE_SECS','BO3_CAPTURE_FRAMES','BO3_DUMP_IMAGE',
     'BO3_GPU_CAPTURE_DIR','BO3_RENDERDOC_DLL','VK_LAYER_PATH','VK_INSTANCE_LAYERS',
-    'ENABLE_VULKAN_RENDERDOC_CAPTURE','VK_ADD_IMPLICIT_LAYER_PATH','BO3_D3D_TRACE_DIR') {
+    'ENABLE_VULKAN_RENDERDOC_CAPTURE','VK_ADD_IMPLICIT_LAYER_PATH','BO3_D3D_TRACE_DIR',
+    'BO3_MEMEXPORT_PROBE_DIR') {
     $captureEnvironment[$name] = [Environment]::GetEnvironmentVariable($name, 'Process')
 }
 try {
@@ -46,6 +48,15 @@ $env:BO3_DUMP_IMAGE = $null
 $env:BO3_GPU_CAPTURE_DIR = $null
 $env:BO3_RENDERDOC_DLL = $null
 $env:BO3_D3D_TRACE_DIR = if ($D3DTrace) { Join-Path $projectRoot ('runtime/' + $DiscoveryRun) } else { $null }
+$env:BO3_MEMEXPORT_PROBE_DIR = $null
+if ($MemexportProbe) {
+    $probeRoot = Join-Path $projectRoot ('runtime/' + $DiscoveryRun + '/memexport')
+    if ((Test-Path -LiteralPath $probeRoot) -and
+        (Get-ChildItem -LiteralPath $probeRoot -Force | Select-Object -First 1)) {
+        throw 'Use a new DiscoveryRun for memexport snapshots; existing output is preserved'
+    }
+    $env:BO3_MEMEXPORT_PROBE_DIR = $probeRoot
+}
 if ($GpuCapture) {
     $renderDocRoot = Join-Path $projectRoot 'tools/renderdoc/RenderDoc_1.46_64'
     if (-not (Test-Path -LiteralPath (Join-Path $renderDocRoot 'renderdoc.dll'))) {

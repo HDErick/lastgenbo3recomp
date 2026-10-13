@@ -80,6 +80,10 @@ int main(int argc, char** argv) try {
             << ",\"dropped_memory_exports\":" << result.droppedMemoryExports
             << ",\"texture_kinds\":";
   Array(result.textureKinds);
+#ifdef BO3_MW2_TEXTURE_VIEWS
+  std::cout << ",\"texture_view_abi\":2,\"texture_view_masks\":";
+  Array(result.textureViewMasks);
+#endif
   std::cout << ",\"vertex_fetch_subs\":"; Array(result.vertexFetchSubs);
   std::cout << ",\"vertex_fetch_stride\":"; Array(result.vertexFetchStride);
   std::cout << ",\"vertex_fetch_tail\":"; Array(result.vertexFetchTail);

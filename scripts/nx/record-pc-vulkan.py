@@ -19,7 +19,9 @@ for name in ['build/pc-vulkan/bo3_zm_vulkan.exe', 'build/pc-vulkan/bo3_zm_vulkan
              'scripts/nx/launch-pc-vulkan.ps1', 'scripts/nx/prepare-runtime.py',
              'analysis/nx_runtime_sources.json', 'build/nx-generated/zombies/bo3_zm_init.h',
              'build/nx-generated/zombies/bo3_zm_init.cpp',
-             'tools/nx-sdk/src/graphics/vulkan/render_target_cache.cpp']:
+             'tools/nx-sdk/src/graphics/vulkan/render_target_cache.cpp',
+             'tools/nx-sdk/src/graphics/vulkan/command_processor.cpp',
+             'nx/sdk-patches/include/rex/graphics/bo3_memexport_probe.h']:
     path = root / name
     with path.open('rb') as stream:
         digest = hashlib.file_digest(stream, 'sha256').hexdigest()

@@ -61,9 +61,16 @@ MW2's custom PM4-to-Vulkan renderer has also been reviewed. Its raw-buffer verte
 fetching is a useful candidate for the patched-VS problem, but its unsupported
 texture-weight operations and renderer limits prevent wholesale adoption. The
 offline comparison now covers 149 vertex and 306 pixel programs. The separate
-BO3 prototype adds the observed GetWeights operation and cleanly validates
-450/455 loaded programs. Three pixel programs require mixed 2D/3D texture views,
-and two vertex programs drop memory exports; all five remain explicitly blocked.
+BO3 prototype adds the observed GetWeights operation and typed 2D/cube/3D
+texture bindings, and cleanly validates 453/455 loaded programs, including all
+306 pixel programs. The 450 previously accepted modules retain the same
+instructions apart from required binding decorations. Two vertex programs still
+drop memory exports and remain blocked; actual native texture-view ownership
+also needs implementation. A bounded GPU-thread probe captured 16 draw-state
+samples of each remaining program: both use unsigned 16-bit exports, 8-in-16
+endian conversion, no red/blue swap and export-only draw mode. This supports
+investigating a dedicated copy path but does not prove byte equivalence or
+completion semantics. See [memory-export gate](analysis/BO3_MEMEXPORT.md).
 The first native prototype will use shader-based vertex fetching and exact
 loaded-program identities. No native game frame has been rendered yet.
 See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).

@@ -188,7 +188,9 @@ replacement runtime or an established BO3 renderer base.
 That comparison is now completed: the actual corpus is 149 VS plus 306 PS.
 The unmodified MW2 translator cleanly validates 147 VS/188 PS. A separate BO3
 GetWeights prototype cleanly validates 147 VS/303 PS while preserving all
-335 previously clean modules byte-for-byte. Three mixed-dimensional PS and two
+335 previously clean modules byte-for-byte at that stage. The typed-view
+adaptation now validates all 306 PS (453/455 programs overall), with all prior
+450 accepted modules unchanged apart from necessary binding decorations. Two
 memory-export VS remain unsupported. Shader-based vertex fetching is selected
 for the first native correctness prototype; the descriptor/data contract and
 live native backend still need implementation. See the linked assessment for
@@ -196,11 +198,13 @@ the limitations and exact records.
 The [initial shader interface](../docs/NATIVE_SHADER_ABI.md) records the tested
 binding layout and the remaining data/lifetime requirements for integration.
 
-1. Link GPU-loaded vertex variants to verified originals and compatible input
-   declarations; cover the unmatched programs and unresolved translations.
-2. Finish the native shader ABI and package/loader. Existing microcode-only
-   Xenos dumps lack the full container identity/constants required by the
-   library. Report missing containers/variants explicitly.
+1. Implement the two memory-export programs or a verified equivalent copy path.
+   Their actual GPU-consumed format and constants are now captured; see
+   [memory-export gate](BO3_MEMEXPORT.md). Keep exact loaded-program identities.
+2. Finish the native shader package/loader, sparse typed texture bindings and
+   cache ownership. Shader-based vertex fetching removes the need for original
+   container input declarations in the first correctness prototype; real draw
+   constants, resource data, uploads and completion remain required.
 3. Integrate a separate native Vulkan mode on PC, initially handling boot/movie
    output and the first 3D draws, with explicit unsupported-operation reports.
 4. Verify terrain, models, effects and the complete post chain against D3D12 and

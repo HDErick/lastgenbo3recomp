@@ -65,6 +65,17 @@ for name, path in inputs.items():
 
 '''
         data = source.replace(anchor, diagnostic + anchor, 1).encode()
+    if name == 'src/graphics/vulkan/command_processor.cpp':
+        source = data.decode().replace('\r\n', '\n')
+        include = '#include <rex/graphics/vulkan/command_processor.h>'
+        anchor = '  if (memexport_used_vertex) {\n'
+        assert source.count(include) == 1 and source.count(anchor) == 1
+        source = source.replace(include, include + '\n#include <rex/graphics/bo3_memexport_probe.h>', 1)
+        source = source.replace(anchor, '''  if (memexport_used_vertex) {
+    bo3::CaptureMemexportState(regs, *vertex_shader, uint32_t(prim_type), index_count,
+                              index_buffer_info, major_mode_explicit);
+''', 1)
+        data = source.encode()
     write_if_changed(target / name, data)
 
 generated = root / 'build/nx-generated/zombies'
@@ -82,7 +93,8 @@ provenance = {'reference_repository': 'https://github.com/StevensND/nfsmw-nx',
               'dependency_source': 'Vendored desktop SDK dependencies, with reference overrides',
               'dependency_snapshot': json.loads((root / 'thirdparty/rexglue-sdk/SOURCE_SNAPSHOT.json').read_text()),
               'adaptations': ['Vendored dependency directory checks', 'Explicit C linkage in generated GCC aliases',
-                              'Log requested and selected Vulkan render-target path'],
+                              'Log requested and selected Vulkan render-target path',
+                              'Optional bounded GPU-thread memexport register snapshots'],
               'patch_files': [p.relative_to(patches).as_posix() for p in patches.rglob('*') if p.is_file()] if patches.exists() else [],
               'desktop_init_sha256': hashlib.sha256((root / 'app/generated/default_zm/bo3_zm_init.h').read_bytes()).hexdigest(),
               'nx_init_sha256': hashlib.sha256(header_path.read_bytes()).hexdigest()}
