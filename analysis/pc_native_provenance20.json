@@ -1,0 +1,153 @@
+{
+  "date": "2026-10-13",
+  "compiler": "Clang 20.1.8, x86-64-v3 Windows Release",
+  "renderer": "Separate BO3 native Vulkan correctness prototype",
+  "build_log": "analysis/pc_native_backend_build28.log",
+  "hardware_status": "Requested guest depth/stencil resolve clears implemented for matching surfaces; run 20 comparison pending",
+  "files": {
+    "build/pc-vulkan/bo3_zm_vulkan.exe": {
+      "bytes": 58063360,
+      "sha256": "d64fde536d6d177a5780dbb3361ca052ef5b0e6bb3cddb94ab5cd89c925eed4c"
+    },
+    "build/pc-vulkan/bo3_zm_vulkan.pdb": {
+      "bytes": 6623232,
+      "sha256": "deb0d9eae940b641031e2f73ed743de64c818cb0a32c24d7474412251ea2eb47"
+    },
+    "build/pc-vulkan/rexruntime.dll": {
+      "bytes": 12502016,
+      "sha256": "1a2eb5eafef742222d0805aa80f60c9268e1962d2b52655767822bb07c221e1d"
+    },
+    "build/pc-vulkan/rexgpu-xenos.dll": {
+      "bytes": 4765184,
+      "sha256": "233b8866779bd7c1eada3c3d85e19dd6a670aadc80f94b020e532542775e372d"
+    },
+    "nx/pc-vulkan/main.cpp": {
+      "bytes": 824,
+      "sha256": "68dde05256f8f71a8ee3d5eceb0f2e2e1e87f8bd93eea48f3ca6bc1cfa602306"
+    },
+    "nx/pc-vulkan/CMakeLists.txt": {
+      "bytes": 1689,
+      "sha256": "0c7862bacd08340ab0ab101bba8719186baeeeb9f28ffae4038c55c5613e53e6"
+    },
+    "nx/pc-vulkan/draw_capture.cpp": {
+      "bytes": 2692,
+      "sha256": "c6c21da3e3a250f4f0a334cc43f0a86ddc8add8df426200c4a3d2d55207d08a1"
+    },
+    "nx/pc-vulkan/draw_capture.h": {
+      "bytes": 178,
+      "sha256": "da9ff997c896d32d1066d1dffd12eccc0c54c6e4cd406adedcf1a996310c0257"
+    },
+    "nx/pc-vulkan/d3d_trace.cpp": {
+      "bytes": 12341,
+      "sha256": "a0c3b9d5b19958702c31c1f0758f5d401a65a8915eba4a47e6e31069e32dcc4c"
+    },
+    "nx/pc-vulkan/d3d_trace.h": {
+      "bytes": 81,
+      "sha256": "e17e9c9ee6192420473a036a9dd728ad6f2a6f2c12fad7acf3bf5b312b7b5235"
+    },
+    "scripts/nx/launch-pc-vulkan.ps1": {
+      "bytes": 6785,
+      "sha256": "c1e5a64ca50662ab7bff0650c8b0b38d3377a68f2bc48cf0e5a1ffac0e7c859d"
+    },
+    "scripts/nx/prepare-runtime.py": {
+      "bytes": 6568,
+      "sha256": "5130df572edaecdba22d36be03ce07446ac0bb887c7b2aa535ebfe3411a49750"
+    },
+    "analysis/nx_runtime_sources.json": {
+      "bytes": 1090,
+      "sha256": "a634bb48ed9b8e6114e4f0e9e7d0caa5003785c0da474128f96e870ddd678036"
+    },
+    "build/nx-generated/zombies/bo3_zm_init.h": {
+      "bytes": 1136286,
+      "sha256": "3824ce80dc42c46e1c58927f8c4fd8e905e700fd1ea7cb2d3cb5f8906435a0ec"
+    },
+    "build/nx-generated/zombies/bo3_zm_init.cpp": {
+      "bytes": 1084547,
+      "sha256": "1c45018645686cb41275a88aac00fb165cdec9d81e7ac587a3608f6a36902f61"
+    },
+    "tools/nx-sdk/src/graphics/vulkan/render_target_cache.cpp": {
+      "bytes": 329220,
+      "sha256": "c6dec2b7385d448a7174a2f9a9e94924a55b6c0a9bec2d3638c9956158e5c188"
+    },
+    "tools/nx-sdk/src/graphics/vulkan/command_processor.cpp": {
+      "bytes": 338632,
+      "sha256": "bf61bda69fb8987d6d0cf685155ecd61737aaf6ecda03ff02a080adeefcb2885"
+    },
+    "nx/sdk-patches/include/rex/graphics/bo3_memexport_probe.h": {
+      "bytes": 3590,
+      "sha256": "a20181cb9b9d939e058e8177e494dca4c1b7127b87c12bbd5eb0b69ef985ebd5"
+    },
+    "build/pc-vulkan/rexgpu-bo3native.dll": {
+      "bytes": 1424384,
+      "sha256": "f89dc23cae67964a0d1fe87575609f29b7a6c1d1ac2a128fcf790c29b28d35ea"
+    },
+    "build/pc-vulkan/rexgpu-bo3native.pdb": {
+      "bytes": 3170304,
+      "sha256": "452ba577abff9b7b913ad00ffd7b389a0880d1baf9afbb310229199edc12474b"
+    },
+    "nx/native/native_gpu.cpp": {
+      "bytes": 92116,
+      "sha256": "43dfc42b32294ec9e433f79f0d38ba58ded24920b2ae80b4ab9f3cd439a23734"
+    },
+    "nx/native/CMakeLists.txt": {
+      "bytes": 2608,
+      "sha256": "3ee0c6962fd97da861476a04be2780a9887c9503f0dbd28987c941a499535f2f"
+    },
+    "nx/native/memexport_copy.h": {
+      "bytes": 4189,
+      "sha256": "2b3f3d0ab4c4286828879f00da7895ec5400c88da890fa483b37890bddfa8588"
+    },
+    "nx/native/bc_decode.h": {
+      "bytes": 2250,
+      "sha256": "5be82a98dd173d5caf3ae71c2f617217d761453fe361b8bfea28686a9333d41c"
+    },
+    "nx/native/physical_access.h": {
+      "bytes": 1450,
+      "sha256": "96498b45f3d80ba8f850afcf355003e3ec9d50b32556c6ba49cb5bbcfe2a9527"
+    },
+    "nx/native/present.hlsl": {
+      "bytes": 990,
+      "sha256": "e4bb2846318130f41ec12a678d2e43a0c453aff06ee73ea8f6851bc469e20362"
+    },
+    "scripts/nx/embed-native-shaders.py": {
+      "bytes": 1058,
+      "sha256": "ce8fc58fb3416b1f512bca69269935f28af61afacce37576f5721741a40d66bd"
+    },
+    "scripts/nx/prepare-mw2-shader-tools.py": {
+      "bytes": 8899,
+      "sha256": "adfb155e50b95986bf6b1387b535f229ee8abb88902670cd9aa929aeba32a6bc"
+    },
+    "nx/shader-tools/mw2_vertex_ranges.cpp.inc": {
+      "bytes": 532,
+      "sha256": "ee59a5eeecffe4a1047c71a5fdac1223d534695003d8193407c9c30a16a23935"
+    },
+    "nx/shader-tools/mw2_position.cpp.inc": {
+      "bytes": 2631,
+      "sha256": "9150914e8c22e8b000bad67144a7b75bc6259442be3ab375ee1733485b8d7532"
+    },
+    "nx/sdk-patches/include/rex/graphics/bo3_memexport_parity.h": {
+      "bytes": 4961,
+      "sha256": "026cf751a0a5d9e6119ea6c2536333c00600410c37bfc23e969cb6633015a9d4"
+    },
+    "analysis/mw2_shader_tool_staged_sources.json": {
+      "bytes": 3423,
+      "sha256": "6b3ee39e8321d910cd59cbffcd972553857481acd38e052b04fb7b3668b31c21"
+    },
+    "tools/bo3-mw2-shader-translator/runtime/gpu/vulkan/shader_translator.cpp": {
+      "bytes": 121556,
+      "sha256": "b49dabed1ecbfb1e2d0edbb0d06b03e8b65ca19da61d91f92e24ad6c4d83a3be"
+    },
+    "tools/bo3-mw2-shader-translator/runtime/gpu/vulkan/shader_translator.h": {
+      "bytes": 3618,
+      "sha256": "f3b529f2e6ebd3d86f2ff8ed8a6cf97064b56bccf52f9a302491bae5f6914525"
+    },
+    "tools/nx-sdk/src/graphics/util/draw.cpp": {
+      "bytes": 59453,
+      "sha256": "936ed3ba08b6c8ab6a06d723b1e22d84d8002c453dbe0f22b1acf8ea71648aad"
+    },
+    "tools/nx-sdk/include/rex/graphics/util/draw.h": {
+      "bytes": 29233,
+      "sha256": "55701437a6f31da18a1fcce8b532383f49bfa57748d9ec007ed9aad81ab63062"
+    }
+  }
+}

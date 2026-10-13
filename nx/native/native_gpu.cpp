@@ -93,6 +93,7 @@ struct Image {
 // Depth ownership is independent of color attachments: a depth prepass and
 // subsequent equal-depth color pass must observe the same image and layout.
 struct DepthSurface { Image image; VkImageView sampled{}; };
+struct DepthClear { VkRect2D rectangle; VkClearDepthStencilValue value; uint32_t packed; };
 struct Target { Image color, display; DepthSurface* depth{}; bool depth_only = false; VkRenderPass pass{}; VkFramebuffer framebuffer{}; uint64_t draws = 0; };
 struct Pipeline {
   VkDescriptorSetLayout sets[3]{};
@@ -115,6 +116,7 @@ class NativeCommandProcessor final : public CommandProcessor {
  private:
   const VulkanDevice* gpu_ = nullptr;
   PFN_vkCmdClearDepthStencilImage clear_depth_ = nullptr;
+  PFN_vkCmdClearAttachments clear_attachments_ = nullptr;
   PFN_vkCmdResolveImage resolve_image_ = nullptr;
   PFN_vkGetPhysicalDeviceImageFormatProperties image_properties_ = nullptr;
   VkCommandPool command_pool_{};
@@ -128,6 +130,9 @@ class NativeCommandProcessor final : public CommandProcessor {
   std::vector<std::unique_ptr<NativeShader>> shaders_;
   std::map<std::array<uint32_t, 8>, std::unique_ptr<Target>> targets_;
   std::map<std::array<uint32_t, 5>, std::unique_ptr<DepthSurface>> depths_;
+  // Clears can precede the first draw that allocates a matching host image.
+  // Replay retained rectangles in order; newer covering clears replace old ones.
+  std::map<std::array<uint32_t, 4>, std::vector<DepthClear>> depth_clears_;
   std::map<std::vector<uint64_t>, std::unique_ptr<Pipeline>> pipelines_;
   std::map<std::array<uint32_t, 6>, std::unique_ptr<Texture>> textures_;
   std::map<uint32_t, Target*> resolved_;
@@ -138,6 +143,7 @@ class NativeCommandProcessor final : public CommandProcessor {
   uint64_t depth_scene_draw_swap_ = 0;
   uint64_t depth_submitted_ = 0;
   uint64_t pixel_shader_bypassed_ = 0;
+  uint64_t depth_clear_requests_ = 0, depth_clear_applied_ = 0;
   std::map<std::string, uint64_t> unsupported_;
   uint64_t draws_ = 0, submitted_ = 0, swaps_ = 0, copies_ = 0;
   uint64_t image_bytes_ = 0;
@@ -179,6 +185,8 @@ class NativeCommandProcessor final : public CommandProcessor {
   const uint8_t* Guest(uint32_t address, uint32_t size);
   bool Reject(const std::string& reason);
   Target* GetTarget(bool depth_only);
+  void ApplyDepthClear(Target& target, const DepthClear& clear);
+  void IssueDepthClear();
   Texture* GetTexture(uint32_t slot);
   Pipeline* GetPipeline(NativeShader& vs, NativeShader* ps, Target& target, VkPrimitiveTopology topology);
 };
@@ -222,9 +230,10 @@ bool NativeCommandProcessor::SetupContext() {
     readback_diagnostic_ = std::getenv("BO3_NATIVE_READBACK") != nullptr;
     if (no_cull_diagnostic_) REXGPU_WARN("BO3 NATIVE diagnostic: culling disabled for comparison");
     clear_depth_ = reinterpret_cast<PFN_vkCmdClearDepthStencilImage>(gpu_->vulkan_instance()->functions().vkGetDeviceProcAddr(gpu_->device(), "vkCmdClearDepthStencilImage"));
+    clear_attachments_ = reinterpret_cast<PFN_vkCmdClearAttachments>(gpu_->vulkan_instance()->functions().vkGetDeviceProcAddr(gpu_->device(), "vkCmdClearAttachments"));
     resolve_image_ = reinterpret_cast<PFN_vkCmdResolveImage>(gpu_->vulkan_instance()->functions().vkGetDeviceProcAddr(gpu_->device(), "vkCmdResolveImage"));
     image_properties_ = reinterpret_cast<PFN_vkGetPhysicalDeviceImageFormatProperties>(gpu_->vulkan_instance()->functions().vkGetInstanceProcAddr(gpu_->vulkan_instance()->instance(), "vkGetPhysicalDeviceImageFormatProperties"));
-    if (!clear_depth_ || !resolve_image_ || !image_properties_) throw std::runtime_error("Missing core Vulkan image functions");
+    if (!clear_depth_ || !clear_attachments_ || !resolve_image_ || !image_properties_) throw std::runtime_error("Missing core Vulkan image functions");
     REXGPU_INFO("BO3 native framebuffer sample masks: color={:X} depth={:X} stencil={:X}", gpu_->properties().framebufferColorSampleCounts, gpu_->properties().framebufferDepthSampleCounts, gpu_->properties().framebufferStencilSampleCounts);
     VkCommandPoolCreateInfo pool{VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO};
     pool.flags = VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT;
@@ -398,6 +407,7 @@ Target* NativeCommandProcessor::GetTarget(bool depth_only) {
   if (targets_.size() >= 64) throw Unsupported("target_cache_limit");
   const std::array<uint32_t, 5> depth_key{depth.depth_base, uint32_t(depth.depth_format), width, height, guest_samples};
   auto depth_found = depths_.find(depth_key);
+  const bool new_depth = depth_found == depths_.end();
   if (depth_found == depths_.end()) {
     if (depths_.size() >= 64) throw Unsupported("depth_cache_limit");
     auto surface_result = std::make_unique<DepthSurface>();
@@ -465,6 +475,11 @@ Target* NativeCommandProcessor::GetTarget(bool depth_only) {
     DestroyImage(result->color); DestroyImage(result->display); throw;
   }
   auto* pointer = result.get(); targets_.emplace(key, std::move(result));
+  if (new_depth) {
+    const std::array<uint32_t, 4> clear_key{depth.depth_base, uint32_t(depth.depth_format), width, guest_samples};
+    auto clears = depth_clears_.find(clear_key);
+    if (clears != depth_clears_.end()) for (const auto& clear : clears->second) ApplyDepthClear(*pointer, clear);
+  }
   REXGPU_INFO("BO3 native target {}x{} format {} color base {} depth base {} samples={} depthOnly={}", width, height, int(pointer->color.format), key[0], depth.depth_base, uint32_t(samples), depth_only);
   if (uint32_t(depth.depth_format)) REXGPU_INFO("BO3 native float24 depth uses D32 storage; packed quantization/clear parity unverified");
   return pointer;
@@ -901,9 +916,95 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
     catch (const std::exception& error) { failed_ = true; REXGPU_ERROR("BO3 native draw backend stopped: {}", error.what()); return Reject("native_draw_failure"); }
 }
 
+void NativeCommandProcessor::ApplyDepthClear(Target& target, const DepthClear& clear) {
+  auto& image = target.depth->image;
+  const uint32_t x = std::min(uint32_t(clear.rectangle.offset.x), image.width);
+  const uint32_t y = std::min(uint32_t(clear.rectangle.offset.y), image.height);
+  const uint32_t right = uint32_t(std::min(uint64_t(clear.rectangle.offset.x) + clear.rectangle.extent.width, uint64_t(image.width)));
+  const uint32_t bottom = uint32_t(std::min(uint64_t(clear.rectangle.offset.y) + clear.rectangle.extent.height, uint64_t(image.height)));
+  if (right <= x || bottom <= y) return;
+  if (!recording_) Begin();
+  if (!target.depth_only) Transition(target.color, VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL);
+  Transition(image, VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL, VK_IMAGE_ASPECT_DEPTH_BIT | VK_IMAGE_ASPECT_STENCIL_BIT);
+  VkMemoryBarrier barrier{VK_STRUCTURE_TYPE_MEMORY_BARRIER};
+  barrier.srcAccessMask = VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
+  barrier.dstAccessMask = VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
+  constexpr VkPipelineStageFlags stages = VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT;
+  F().vkCmdPipelineBarrier(command_, stages, stages, 0, 1, &barrier, 0, nullptr, 0, nullptr);
+  VkRenderPassBeginInfo render{VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO}; render.renderPass = target.pass; render.framebuffer = target.framebuffer;
+  render.renderArea.extent = {image.width, image.height};
+  VkClearAttachment attachment{}; attachment.aspectMask = VK_IMAGE_ASPECT_DEPTH_BIT | VK_IMAGE_ASPECT_STENCIL_BIT; attachment.clearValue.depthStencil = clear.value;
+  VkClearRect rectangle{{{int32_t(x), int32_t(y)}, {right - x, bottom - y}}, 0, 1};
+  F().vkCmdBeginRenderPass(command_, &render, VK_SUBPASS_CONTENTS_INLINE);
+  clear_attachments_(command_, 1, &attachment, 1, &rectangle);
+  F().vkCmdEndRenderPass(command_); pending_work_ = true; ++depth_clear_applied_;
+}
+
+void NativeCommandProcessor::IssueDepthClear() {
+  const auto& r = *register_file_;
+  const auto control = r.Get<reg::RB_COPY_CONTROL>();
+  if (!control.depth_clear_enable) return;
+  const auto surface = r.Get<reg::RB_SURFACE_INFO>();
+  if (!surface.surface_pitch || surface.surface_pitch > 4096 || uint32_t(surface.msaa_samples) > 2 || control.copy_src_select > 4 ||
+      (control.copy_command != xenos::CopyCommand::kRaw && control.copy_command != xenos::CopyCommand::kConvert)) throw Unsupported("depth_clear_copy_state");
+  // GetResolveInfo reads exactly six float coordinates from the physical VF0.
+  // Guard the range before the SDK decoder, and reject nonfinite vertices.
+  const auto fetch = r.GetVertexFetch(0);
+  if (uint32_t(fetch.type) != 3 || fetch.size != 6) throw Unsupported("depth_clear_vertex_format");
+  const auto* vertices = Guest(fetch.address << 2, 24);
+  for (uint32_t i = 0; i < 6; ++i) {
+    uint32_t word; std::memcpy(&word, vertices + i * 4, 4);
+    if (!std::isfinite(std::bit_cast<float>(EndianWord(word, uint32_t(fetch.endian))))) throw Unsupported("depth_clear_nonfinite_vertex");
+  }
+  draw_util::ResolveInfo info{};
+  if (!draw_util::GetResolveInfo(r, *memory_, 1, 1, false, false, info)) throw Unsupported("depth_clear_rectangle");
+  const auto edram = info.depth_edram_info;
+  if (!edram.pitch_tiles) throw Unsupported("depth_clear_pitch");
+  // Recover the absolute pixel origin from the SDK's tile-relative rectangle.
+  // The existing shared cache only supports surfaces with this exact base and
+  // pitch; EDRAM overlap ownership transfers remain explicitly unsupported.
+  const uint32_t tile_offset = (edram.base_tiles + xenos::kEdramTileCount - info.depth_original_base) % xenos::kEdramTileCount;
+  const uint32_t sx = uint32_t(surface.msaa_samples >= xenos::MsaaSamples::k4X);
+  const uint32_t sy = uint32_t(surface.msaa_samples >= xenos::MsaaSamples::k2X);
+  const uint32_t x = ((tile_offset % edram.pitch_tiles) * xenos::kEdramTileWidthSamples >> sx) + info.coordinate_info.edram_offset_x_div_8 * 8;
+  const uint32_t y = ((tile_offset / edram.pitch_tiles) * xenos::kEdramTileHeightSamples >> sy) + info.coordinate_info.edram_offset_y_div_8 * 8;
+  const uint32_t width = info.coordinate_info.width_div_8 * 8, height = info.height_div_8 * 8;
+  if (!width || !height || x + width > surface.surface_pitch || y + height > 2048) throw Unsupported("depth_clear_extent");
+  const uint32_t packed = info.rb_depth_clear;
+  const uint32_t depth_bits = packed >> 8;
+  const float value = edram.format ? xenos::Float20e4To32(depth_bits) : xenos::UNorm24To32(depth_bits);
+  // D32 currently stores the guest float24 value without the SDK's half-range
+  // remapping. Values above 1 need that remapping and are not approximated here.
+  if (!std::isfinite(value) || value < 0 || value > 1) throw Unsupported("depth_clear_value_range");
+  DepthClear clear{{{int32_t(x), int32_t(y)}, {width, height}}, {value, packed & 255}, packed};
+  const std::array<uint32_t, 4> key{info.depth_original_base, edram.format, surface.surface_pitch, uint32_t(surface.msaa_samples)};
+  const bool fresh = !depth_clears_.contains(key);
+  if (fresh && depth_clears_.size() >= 64) throw Unsupported("depth_clear_cache_limit");
+  auto& history = depth_clears_[key];
+  std::erase_if(history, [&](const DepthClear& old) {
+    return clear.rectangle.offset.x <= old.rectangle.offset.x && clear.rectangle.offset.y <= old.rectangle.offset.y &&
+        uint64_t(x) + width >= uint64_t(old.rectangle.offset.x) + old.rectangle.extent.width &&
+        uint64_t(y) + height >= uint64_t(old.rectangle.offset.y) + old.rectangle.extent.height;
+  });
+  if (history.size() >= 64) throw Unsupported("depth_clear_history_limit");
+  history.push_back(clear); ++depth_clear_requests_;
+  for (auto& [depth_key, depth] : depths_) {
+    if (depth_key[0] != key[0] || depth_key[1] != key[1] || depth_key[2] != key[2] || depth_key[4] != key[3]) continue;
+    // Each shared image is cleared once, even when several targets attach it.
+    for (auto& [target_key, target] : targets_) if (target->depth == depth.get()) { ApplyDepthClear(*target, clear); break; }
+  }
+  if (recording_) Submit();
+  if (fresh || depth_clear_requests_ <= 8) REXGPU_INFO("BO3 native guest depth clear: base={} pitch={} format={} samples={} rect={},{} {}x{} packed={:08X} depth={} stencil={} requests={} applied={}", key[0], key[2], key[1], 1u << key[3], x, y, width, height, packed, value, packed & 255, depth_clear_requests_, depth_clear_applied_);
+}
+
 bool NativeCommandProcessor::IssueCopy() {
   if (recording_) Submit();
   ++copies_;
+  if (!failed_) {
+    try { IssueDepthClear(); }
+    catch (const Unsupported& error) { Reject(error.what()); }
+    catch (const std::exception& error) { failed_ = true; REXGPU_ERROR("BO3 native depth clear stopped: {}", error.what()); }
+  }
   // Native ownership and format conversion are required before any
   // guest-visible resolve is accepted. Never claim a CPU shadow is fresh.
   const auto dest = register_file_->Get<reg::RB_COPY_DEST_INFO>();
@@ -944,6 +1045,7 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
   }
   if (swaps_ == 1 || swaps_ % 120 == 0) {
     REXGPU_INFO("BO3 NATIVE progress: swaps={} packets={} submitted={} depthOnlySubmitted={} pixelShaderBypassed={} copies={} exports={} targets={} depthSurfaces={} textures={} pipelines={} imageMiB={} frontbuffer={:08X}", swaps_, draws_, submitted_, depth_submitted_, pixel_shader_bypassed_, copies_, export_copies_, targets_.size(), depths_.size(), textures_.size(), pipelines_.size(), image_bytes_ / (1024 * 1024), address);
+    REXGPU_INFO("BO3 NATIVE depth clears: requests={} applied={} histories={}", depth_clear_requests_, depth_clear_applied_, depth_clears_.size());
     for (const auto& [reason, count] : unsupported_) REXGPU_INFO("BO3 NATIVE skipped {}: {}", reason, count);
     for (const auto& [key, target] : targets_) if (target->draws || target->color.samples != VK_SAMPLE_COUNT_1_BIT) {
       REXGPU_INFO("BO3 NATIVE target activity: base={} depth={} {}x{} format={} samples={} draws={} presented={} depthOnly={}", key[0], key[4], key[2], key[3], int(target->color.format), uint32_t(target->color.samples), target->draws, target.get() == presentation_target, target->depth_only);
@@ -1064,6 +1166,7 @@ void NativeCommandProcessor::ShutdownContext() {
   targets_.clear();
   for (auto& [key, depth] : depths_) { if (depth->sampled) F().vkDestroyImageView(D(), depth->sampled, nullptr); DestroyImage(depth->image); }
   depths_.clear();
+  depth_clears_.clear();
   for (auto& shader : shaders_) if (shader->module) F().vkDestroyShaderModule(D(), shader->module, nullptr);
   shaders_.clear();
   if (present_.pipeline) F().vkDestroyPipeline(D(), present_.pipeline, nullptr);

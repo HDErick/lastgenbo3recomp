@@ -129,8 +129,13 @@ with SDK viewport/scissor normalization and a 48-byte push interface. It also
 uses SDK analysis to omit pixel shaders only for passes with no PS side effects.
 All 455 captured modules pass structural validation; the two dropped-export
 modules remain excluded in favor of verified CPU copies. Run 19 is open with
-early accepted PS bypass draws; normal/F9 visual confirmation is pending.
-Textures/conversion, mips/cube views, guest clears,
+accepted PS bypass draws; the user reports the same black output with no
+noticeable regression. Run 19 closes normally. The native test launcher mutes
+audio explicitly, so inaudible audio is not evidence of an audio failure.
+Build 28 adds requested resolve-packet depth/stencil clears for matching shared
+surfaces, preserving partial rectangles and replaying prior clears on new
+images. Run 20 is open for comparison; relevance to gameplay remains unproven.
+Textures/conversion, mips/cube views, raster/color clears,
 EDRAM overlap/extent aliasing and native guest resolves remain incomplete.
 See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).
 

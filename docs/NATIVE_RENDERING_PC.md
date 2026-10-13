@@ -174,7 +174,11 @@ the staged declaration now advances float4 members by 16 bytes. The corrected
 453 raster modules and both structurally valid dropped-export modules pass
 `spirv-val`; those two memexport modules remain excluded from native pipelines.
 Build 26 links, and run 19 is open for normal/F9 comparison. Early logs confirm
-accepted PS bypass draws and no backend failure; visual confirmation is pending.
+accepted PS bypass draws and no backend failure. In run 19 the user reports
+the same black output and no noticeable regression; F9 activation is logged
+with a current-frame surface. It closed normally. Audio was reported inaudible,
+but the diagnostic launcher explicitly supplies `--audio_mute`; this run does
+not establish an audio defect, and rendering remains the priority.
 The live run 19 logs MSAA prepasses with `RB_DEPTHCONTROL=0x002002C7`, a greater
 depth comparison with writes enabled, followed by `0x002002E3` greater-equal
 color passes. The current initial depth is 1 and guest resolve clears are still
@@ -182,6 +186,22 @@ ignored. This is a concrete correctness gap and the next investigation target:
 decode the requested depth/stencil clear and its covered rectangle, preserve
 partial clears, and apply it to matching shared surfaces. Do not substitute a
 per-frame full clear or change the depth comparison as a rendering fix.
+
+Build 28 implements depth/stencil clears requested by `RB_COPY_CONTROL` in
+resolve packets. Physical VF0 readability and finite coordinates are checked
+before the SDK resolve decoder. Its scissor/window/8-pixel rectangle is recovered
+from tile-relative coordinates; packed D24/float24 depth and low-byte stencil
+are decoded, and out-of-range float24 clears are rejected. `vkCmdClearAttachments`
+clears only the covered portion of matching shared images, once per image.
+Clears arriving before image creation are replayed from bounded per-surface
+history; newer covering rectangles replace older ones. Resolving to guest
+textures is still rejected separately. Rasterized clear primitives, color
+clears, general EDRAM overlap ownership and float24 values above 1 are not covered
+by this change. Build 28 links; run 20 is open for normal/F9 confirmation. Early
+frontend logs record zero resolve-clear requests, so the path's relevance to
+gameplay must be measured rather than assumed. F9 may see cleared depth if a
+resolve-clear happens after the scene draw; its uniform output alone does not
+prove whether the scene wrote depth earlier in that frame.
 
 Remaining gates include stencil/clear behavior, resolves and their exponent
 conversion, native-produced texture ownership, target aliasing, MRT/MSAA parity,
@@ -211,7 +231,9 @@ Further logs and inputs: `analysis/pc_native_backend_boot15.log`,
 `analysis/pc_native_backend_build23.log`, `analysis/pc_native_provenance18.json`,
 `analysis/pc_native_backend_boot18_depth_prepass.log`,
 `analysis/pc_native_backend_build26.log`, `analysis/pc_native_provenance19.json`,
-`analysis/native_position_validation02.json` and its validation log.
+`analysis/native_position_validation02.json` and its validation log,
+`analysis/pc_native_backend_boot19_position_format.log`,
+`analysis/pc_native_backend_build28.log`, `analysis/pc_native_provenance20.json`.
 
 Run `scripts/nx/prepare-runtime.py` if the ignored SDK/generated staging is
 missing, then `scripts/nx/build-pc-vulkan.cmd`. The executable is
