@@ -13,6 +13,7 @@
 #include "color_resolve.h"
 #include "pipeline_state.h"
 #include "texture_validity.h"
+#include "texture_residency.h"
 #include <mutex>
 #include "sha256.h"
 #include <rex/graphics/command_processor.h>
@@ -105,7 +106,7 @@ struct Image {
 // subsequent equal-depth color pass must observe the same image and layout.
 struct DepthSurface { Image image; VkImageView sampled{}; };
 struct DepthClear { VkRect2D rectangle; VkClearDepthStencilValue value; uint32_t packed; VkImageAspectFlags aspects = VK_IMAGE_ASPECT_DEPTH_BIT | VK_IMAGE_ASPECT_STENCIL_BIT; uint64_t sequence = 0; };
-struct Target { Image color, display; DepthSurface* depth{}; bool depth_only = false; VkRenderPass pass{}; VkFramebuffer framebuffer{}; uint64_t draws = 0, color_sequence = 0; };
+struct Target { Image color, display; DepthSurface* depth{}; bool depth_only = false, diagnostic_unlit=false; VkRenderPass pass{}; VkFramebuffer framebuffer{}; uint64_t draws = 0, color_sequence = 0, unlit_clear_swap=UINT64_MAX; };
 struct Pipeline {
   VkDescriptorSetLayout sets[3]{};
   VkPipelineLayout layout{};
@@ -199,6 +200,11 @@ class NativeCommandProcessor final : public CommandProcessor {
   bool scene_view_diagnostic_ = false;
   bool scene_view_enabled_ = false, scene_key_down_ = false;
   bool depth_view_enabled_ = false, depth_key_down_ = false;
+  bool unlit_view_enabled_=false,unlit_key_down_=false;
+  VkShaderModule unlit_ps_{};
+  uint64_t unlit_draws_=0;
+  Target* unlit_scene_=nullptr;
+  uint64_t unlit_scene_draw_swap_=0;
   bool readback_diagnostic_ = false, recording_ = false;
   bool draw_probe_diagnostic_ = false;
   bool pending_work_ = false;
@@ -240,7 +246,7 @@ class NativeCommandProcessor final : public CommandProcessor {
   const uint8_t* Guest(uint32_t address, uint32_t size);
   bool PendingResolve(uint32_t address, uint32_t size) const;
   bool Reject(const std::string& reason);
-  Target* GetTarget(bool depth_only);
+  Target* GetTarget(bool depth_only,bool unlit);
   void ApplyDepthClear(Target& target, const DepthClear& clear);
   void IssueDepthClear();
   draw_util::ResolveInfo DecodeResolveInfo();
@@ -251,7 +257,7 @@ class NativeCommandProcessor final : public CommandProcessor {
   Texture* GetResolvedTexture(const TextureUploadPlan& plan, const xenos::xe_gpu_texture_fetch_t& fetch, uint32_t kind);
   std::vector<ResolvedSurface*> FindResolvedTextures(const TextureUploadPlan& plan, const xenos::xe_gpu_texture_fetch_t& fetch, uint32_t kind);
   Texture* EnsureTexture(const TextureUploadPlan& plan, const xenos::xe_gpu_texture_fetch_t& fetch, uint32_t kind);
-  void EvictTexture(const std::array<uint32_t, 7>& protected_key);
+  bool EvictTexture();
   Target* FindResolveSource(const draw_util::ResolveInfo& info, ResolveRect rectangle);
   void DrainResolveInvalidations();
   void InvalidateResolvedRange(uint32_t address, uint32_t size);
@@ -260,7 +266,7 @@ class NativeCommandProcessor final : public CommandProcessor {
   Texture* GetTexture(uint32_t slot, uint32_t kind);
   const TextureUploadPlan& GetTexturePlan(const xenos::xe_gpu_texture_fetch_t& fetch, uint32_t kind);
   Texture* GetNullTexture(uint32_t kind);
-  Pipeline* GetPipeline(NativeShader& vs, NativeShader* ps, Target& target, VkPrimitiveTopology topology, bool rectangle);
+  Pipeline* GetPipeline(NativeShader& vs, NativeShader* ps, Target& target, VkPrimitiveTopology topology, bool rectangle, bool unlit);
   VkShaderModule GetRectangleShader(uint32_t mask);
 };
 class NativeGraphicsSystem final : public GraphicsSystem {
@@ -307,7 +313,7 @@ bool NativeCommandProcessor::SetupContext() {
     gpu_ = static_cast<VulkanProvider*>(graphics_system_->provider())->vulkan_device();
     no_cull_diagnostic_ = std::getenv("BO3_NATIVE_NO_CULL") != nullptr;
     scene_view_diagnostic_ = std::getenv("BO3_NATIVE_SCENE_VIEW") != nullptr;
-    if (scene_view_diagnostic_) REXGPU_WARN("BO3 NATIVE diagnostic: F8 toggles scene color, F9 toggles scene depth; normal presentation initially active");
+    if (scene_view_diagnostic_) REXGPU_WARN("BO3 NATIVE diagnostic: F8 scene color, F9 scene depth, F10 unlit geometry (solid colors, no material lighting); normal presentation initially active");
     readback_diagnostic_ = std::getenv("BO3_NATIVE_READBACK") != nullptr;
     draw_probe_diagnostic_ = std::getenv("BO3_NATIVE_DRAW_PROBE") != nullptr;
     if (no_cull_diagnostic_) REXGPU_WARN("BO3 NATIVE diagnostic: culling disabled for comparison");
@@ -435,7 +441,11 @@ Image NativeCommandProcessor::CreateImage(uint32_t width, uint32_t height, VkFor
   try {
   VkMemoryRequirements requirements{}; F().vkGetImageMemoryRequirements(D(), result.image, &requirements);
   VkMemoryAllocateInfo memory{VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO}; memory.allocationSize = requirements.size;
-  if (image_bytes_ + requirements.size > 512ull * 1024 * 1024) throw Unsupported("image_memory_budget");
+  if (requirements.size > kNativeImageBudget) throw Unsupported("image_memory_budget");
+  // Evict only for actual allocation pressure. The former 256-entry limit
+  // thrashed the asset working set even with hundreds of MiB still available.
+  while (!ImageBudgetFits(image_bytes_, requirements.size))
+    if (!EvictTexture()) throw Unsupported("image_memory_budget_no_retired_textures");
   memory.memoryTypeIndex = MemoryType(requirements.memoryTypeBits, gpu_->memory_types().device_local);
   Check(F().vkAllocateMemory(D(), &memory, nullptr, &result.memory), "image memory");
   result.allocation = requirements.size; image_bytes_ += result.allocation;
@@ -504,7 +514,7 @@ static VkFormat ColorFormat(uint32_t format) {
   }
 }
 
-Target* NativeCommandProcessor::GetTarget(bool depth_only) {
+Target* NativeCommandProcessor::GetTarget(bool depth_only,bool unlit) {
   const auto& r = *register_file_;
   const auto surface = r.Get<reg::RB_SURFACE_INFO>();
   const auto color = r.Get<reg::RB_COLOR_INFO>();
@@ -523,7 +533,7 @@ Target* NativeCommandProcessor::GetTarget(bool depth_only) {
     height = uint32_t(std::ceil(std::max(yoffset + std::abs(yscale), 0.0f)));
   if (!height || height > 2048) height = (r[XE_GPU_REG_PA_SC_WINDOW_SCISSOR_BR] >> 16) & 0x3fff;
   if (!width || width > 4096 || !height || height > 2048) throw Unsupported("target_extent");
-  std::array<uint32_t, 8> key{depth_only ? 0u : color.color_base, depth_only ? 0u : uint32_t(xenos::GetStorageColorFormat(color.color_format)), width, height, depth.depth_base, uint32_t(depth.depth_format), guest_samples, uint32_t(depth_only)};
+  std::array<uint32_t, 8> key{depth_only ? 0u : color.color_base, depth_only || unlit ? 0u : uint32_t(xenos::GetStorageColorFormat(color.color_format)), width, height, depth.depth_base, uint32_t(depth.depth_format), guest_samples, uint32_t(depth_only)|(uint32_t(unlit)<<1)};
   auto found = targets_.find(key);
   if (found != targets_.end()) return found->second.get();
   if (targets_.size() >= 64) throw Unsupported("target_cache_limit");
@@ -559,13 +569,13 @@ Target* NativeCommandProcessor::GetTarget(bool depth_only) {
     REXGPU_INFO("BO3 native shared depth {}x{} base={} samples={} format={}", width, height, depth.depth_base, uint32_t(samples), int(depth_found->second->image.format));
   }
   auto result = std::make_unique<Target>();
-  result->depth = depth_found->second.get(); result->depth_only = depth_only;
+  result->depth = depth_found->second.get(); result->depth_only = depth_only;result->diagnostic_unlit=unlit;
   try {
     // Keep dimensions available to viewport/scissor calculations without
     // allocating or accessing a color attachment for depth-only passes.
     result->color.width = width; result->color.height = height; result->color.samples = samples;
     if (!depth_only) {
-      result->color = CreateImage(width, height, ColorFormat(uint32_t(color.color_format)),
+      result->color = CreateImage(width, height, unlit ? VK_FORMAT_R8G8B8A8_UNORM : ColorFormat(uint32_t(color.color_format)),
           VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_TRANSFER_SRC_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT,
           VK_IMAGE_ASPECT_COLOR_BIT, {}, samples);
       if (samples != VK_SAMPLE_COUNT_1_BIT) result->display = CreateImage(width, height, result->color.format,
@@ -685,9 +695,12 @@ Texture* NativeCommandProcessor::GetTexture(uint32_t slot, uint32_t kind) {
 
 Texture* NativeCommandProcessor::EnsureTexture(const TextureUploadPlan& plan, const xenos::xe_gpu_texture_fetch_t& fetch, uint32_t kind) {
   std::array<uint32_t, 7> key{}; std::memcpy(key.data(), &fetch, sizeof(fetch)); key[6] = kind;
+  // Bound metadata independently; normal eviction is driven by image bytes.
+  if(!textures_.contains(key) && textures_.size()>=4096 && !EvictTexture())
+    throw Unsupported("texture_metadata_all_in_current_batch");
   auto& cached = textures_[key];
-  if (!cached && textures_.size() > 256) EvictTexture(key);
   if (!cached) {
+    try {
     auto result = std::make_unique<Texture>();
     VkComponentMapping mapping{};
     VkComponentSwizzle* channels[]{&mapping.r, &mapping.g, &mapping.b, &mapping.a};
@@ -716,6 +729,7 @@ Texture* NativeCommandProcessor::EnsureTexture(const TextureUploadPlan& plan, co
     catch (...) { F().vkDestroySampler(D(), result->sampler, nullptr); throw; }
     cached = std::move(result);
     if (kind || plan.levels > 1) REXGPU_INFO("BO3 native texture allocation: kind={} {}x{}x{} layers={} levels={} guestBase={:08X} guestMips={:08X} decodedBytes={}", kind, plan.width, plan.height, plan.depth, plan.layers, plan.levels, plan.base_address, plan.mip_address, plan.output_bytes);
+    } catch (...) { textures_.erase(key); throw; }
   }
   cached->batch=batch_serial_;cached->use=++texture_use_;
   cached->validity.base=plan.base_address;cached->validity.base_bytes=plan.base_bytes;
@@ -723,19 +737,16 @@ Texture* NativeCommandProcessor::EnsureTexture(const TextureUploadPlan& plan, co
   return cached.get();
 }
 
-void NativeCommandProcessor::EvictTexture(const std::array<uint32_t, 7>& protected_key) {
-  auto victim=textures_.end();
-  for(auto it=textures_.begin();it!=textures_.end();++it) {
-    if(it->first==protected_key || (it->second && recording_ && it->second->batch==batch_serial_))continue;
-    if(victim==textures_.end() || !it->second || (victim->second && it->second->use<victim->second->use))victim=it;
-  }
-  if(victim==textures_.end())throw Unsupported("texture_cache_all_in_current_batch");
+bool NativeCommandProcessor::EvictTexture() {
+  auto victim=SelectRetiredTexture(textures_,recording_,batch_serial_);
+  if(victim==textures_.end())return false;
   // Submit is synchronous: every earlier batch has retired. A texture touched
   // in the currently recorded batch is protected even if that draw is rejected.
   if(victim->second) {
     F().vkDestroySampler(D(),victim->second->sampler,nullptr);DestroyImage(victim->second->image);++texture_evictions_;
   }
   textures_.erase(victim);
+  return true;
 }
 
 // Typed zero descriptors are used only for unbound/incompatible guest bindings,
@@ -789,7 +800,7 @@ VkShaderModule NativeCommandProcessor::GetRectangleShader(uint32_t mask) {
   rectangle_shaders_.emplace(mask, module); return module;
 }
 
-Pipeline* NativeCommandProcessor::GetPipeline(NativeShader& vs, NativeShader* ps, Target& target, VkPrimitiveTopology topology, bool rectangle) {
+Pipeline* NativeCommandProcessor::GetPipeline(NativeShader& vs, NativeShader* ps, Target& target, VkPrimitiveTopology topology, bool rectangle, bool unlit) {
   const auto& r = *register_file_;
   const auto depth = r.Get<reg::RB_DEPTHCONTROL>();
   const auto raster = r.Get<reg::PA_SU_SC_MODE_CNTL>();
@@ -798,11 +809,12 @@ Pipeline* NativeCommandProcessor::GetPipeline(NativeShader& vs, NativeShader* ps
        (!raster.cull_back && raster.polymode_back_ptype != xenos::PolygonType::kTriangles))) throw Unsupported("nonfill_polygon_mode");
   // Unwritten or masked-off MRTs do not require host attachments. Guest clears
   // may leave all four masks enabled while the PS exports only target zero.
-  const uint32_t color_mask = ps ? draw_util::GetNormalizedColorMask(r, ps->native.colourMask) : 0;
+  const uint32_t color_mask = unlit ? 15u : ps ? draw_util::GetNormalizedColorMask(r, ps->native.colourMask) : 0;
   if (color_mask & 0xfff0) throw Unsupported("shader_mrt");
   if (rectangle && ps && (ps->native.interpolatorMask & ~vs.native.interpolatorMask)) throw Unsupported("rectangle_missing_interpolators");
-  const auto static_state=NativePipelineStateKey(depth,raster,r.Get<reg::RB_BLENDCONTROL>(),rectangle,no_cull_diagnostic_,!target.depth_only && ps && (color_mask & 15),gpu_->properties().depthClamp && r.Get<reg::PA_CL_CLIP_CNTL>().clip_disable);
+  const auto static_state=NativePipelineStateKey(depth,raster,r.Get<reg::RB_BLENDCONTROL>(),rectangle,no_cull_diagnostic_,!unlit && !target.depth_only && ps && (color_mask & 15),gpu_->properties().depthClamp && r.Get<reg::PA_CL_CLIP_CNTL>().clip_disable);
   std::vector<uint64_t> key{uint64_t(&vs), uint64_t(ps), uint64_t(target.color.format), uint64_t(target.depth->image.format), uint64_t(target.color.samples), uint64_t(topology), static_state[0], static_state[1], static_state[2], color_mask & 15, uint64_t(rectangle), static_state[3],uint64_t(target.depth_only)};
+  key.push_back(uint64_t(unlit));
   auto found = pipelines_.find(key); if (found != pipelines_.end()) return found->second.get();
   if (pipelines_.size() >= 1024) throw Unsupported("pipeline_cache_limit");
   TimedScope time(timings_.pipeline);
@@ -815,7 +827,7 @@ Pipeline* NativeCommandProcessor::GetPipeline(NativeShader& vs, NativeShader* ps
     VkDescriptorSetLayoutCreateInfo layout{VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO}; layout.bindingCount = 5; layout.pBindings = uniforms;
     Check(F().vkCreateDescriptorSetLayout(D(), &layout, nullptr, &result->sets[0]), "uniform layout");
     for (uint32_t slot = 0; slot < 32; ++slot) {
-      uint32_t mask = vs.native.textureViewMasks[slot] | (ps ? ps->native.textureViewMasks[slot] : 0);
+      uint32_t mask = vs.native.textureViewMasks[slot] | (!unlit && ps ? ps->native.textureViewMasks[slot] : 0);
       for (uint32_t kind = 0; kind < 3; ++kind) if (mask & (1u << kind))
         result->textures.push_back({shader::TextureViewBinding(slot, kind), VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT, nullptr});
     }
@@ -832,7 +844,13 @@ Pipeline* NativeCommandProcessor::GetPipeline(NativeShader& vs, NativeShader* ps
     uint32_t stage_count = 1;
     stages[0].stage = VK_SHADER_STAGE_VERTEX_BIT; stages[0].module = vs.module;
     if (rectangle) { stages[stage_count].stage = VK_SHADER_STAGE_GEOMETRY_BIT; stages[stage_count++].module = GetRectangleShader(vs.native.interpolatorMask); }
-    if (ps) { stages[stage_count].stage = VK_SHADER_STAGE_FRAGMENT_BIT; stages[stage_count++].module = ps->module; }
+    if (unlit) {
+      if(!unlit_ps_) {
+        VkShaderModuleCreateInfo module{VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO};module.codeSize=sizeof(kPresentUnlitPS);module.pCode=kPresentUnlitPS;
+        Check(F().vkCreateShaderModule(D(),&module,nullptr,&unlit_ps_),"unlit diagnostic shader");
+      }
+      stages[stage_count].stage=VK_SHADER_STAGE_FRAGMENT_BIT;stages[stage_count].pName="UnlitPS";stages[stage_count++].module=unlit_ps_;
+    }else if (ps) { stages[stage_count].stage = VK_SHADER_STAGE_FRAGMENT_BIT; stages[stage_count++].module = ps->module; }
     VkPipelineVertexInputStateCreateInfo vertex{VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO};
     VkPipelineInputAssemblyStateCreateInfo input{VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO}; input.topology = topology;
     VkPipelineViewportStateCreateInfo viewport{VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO}; viewport.viewportCount = viewport.scissorCount = 1;
@@ -850,7 +868,7 @@ Pipeline* NativeCommandProcessor::GetPipeline(NativeShader& vs, NativeShader* ps
         ? VkStencilOpState{VkStencilOp(depth.stencilfail_bf), VkStencilOp(depth.stencilzpass_bf), VkStencilOp(depth.stencilzfail_bf), VkCompareOp(depth.stencilfunc_bf), 255, 255, 0} : ds.front;
     const auto blend = r.Get<reg::RB_BLENDCONTROL>();
     VkPipelineColorBlendAttachmentState ba{}; ba.colorWriteMask = color_mask & 15;
-    if (!target.depth_only && ps && (color_mask & 15)) {
+    if (!unlit && !target.depth_only && ps && (color_mask & 15)) {
       ba.blendEnable = true; ba.srcColorBlendFactor = BlendFactor(uint32_t(blend.color_srcblend)); ba.dstColorBlendFactor = BlendFactor(uint32_t(blend.color_destblend)); ba.colorBlendOp = BlendOp(uint32_t(blend.color_comb_fcn));
       ba.srcAlphaBlendFactor = BlendFactor(uint32_t(blend.alpha_srcblend)); ba.dstAlphaBlendFactor = BlendFactor(uint32_t(blend.alpha_destblend)); ba.alphaBlendOp = BlendOp(uint32_t(blend.alpha_comb_fcn));
     }
@@ -928,7 +946,12 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
       if (++export_copies_ <= 5) REXGPU_INFO("BO3 native verified memexport copy {}: sha={} invocations={} bytes={} ranges={}", export_copies_, vs->canonical_sha256, count, bytes, plan.ranges.size());
       return true;
     }
-    if (!vs || !vs->module || (!depth_only && !bypass_ps && (!ps || !ps->module))) return Reject("missing_or_unsupported_shader");
+    // Diagnostic scene shading bypasses unavailable PS material resources,
+    // while retaining the real translated VS and depth/stencil test.
+    const bool unlit=NativeUnlitSceneEligible(unlit_view_enabled_,depth_only,bypass_ps,
+      primitive==xenos::PrimitiveType::kRectangleList,register_file_->Get<reg::RB_DEPTHCONTROL>().z_enable,
+      uint32_t(register_file_->Get<reg::RB_SURFACE_INFO>().msaa_samples),register_file_->values[XE_GPU_REG_RB_COLOR_MASK]);
+    if (!vs || !vs->module || (!unlit && !depth_only && !bypass_ps && (!ps || !ps->module))) return Reject("missing_or_unsupported_shader");
     VkPrimitiveTopology topology{};
     const bool rectangle = primitive == xenos::PrimitiveType::kRectangleList;
     if (rectangle && count % 3) return Reject("rectangle_vertex_count");
@@ -942,9 +965,9 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
     const auto& r = *register_file_;
     if (r.Get<reg::PA_SU_SC_MODE_CNTL>().multi_prim_ib_ena) throw Unsupported("primitive_restart");
     if (uint32_t(r.Get<reg::SQ_PROGRAM_CNTL>().vs_export_mode) == 7) throw Unsupported("memory_export_draw");
-    if (ps && (draw_util::GetNormalizedColorMask(r, ps->native.colourMask) & 0xfff0)) return Reject("mrt_write_mask");
-    auto* target = GetTarget(depth_only);
-    auto* pipeline = GetPipeline(*vs, ps, *target, topology, rectangle);
+    if (!unlit && ps && (draw_util::GetNormalizedColorMask(r, ps->native.colourMask) & 0xfff0)) return Reject("mrt_write_mask");
+    auto* target = GetTarget(depth_only,unlit);
+    auto* pipeline = GetPipeline(*vs, ps, *target, topology, rectangle, unlit);
     // Reject unsupported bindings before any uploads, descriptor allocation,
     // or command recording. Earlier supported draws keep their shared batch.
     for (const auto& binding : pipeline->textures) {
@@ -1035,7 +1058,7 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
     // The translated VS then reconstructs W and pre-divided XYZ before NDC.
     draw_util::ViewportInfo host_viewport{};
     draw_util::GetHostViewportInfo(r, 1, 1, false, target->color.width, target->color.height,
-        true, draw_util::GetNormalizedDepthControl(r), false, false, ps && ps->writes_depth(), host_viewport);
+        true, draw_util::GetNormalizedDepthControl(r), false, false, !unlit && ps && ps->writes_depth(), host_viewport);
     VkViewport viewport{float(host_viewport.xy_offset[0]), float(host_viewport.xy_offset[1]),
         float(host_viewport.xy_extent[0]), float(host_viewport.xy_extent[1]), host_viewport.z_min, host_viewport.z_max};
     struct Push { uint32_t alpha; float ref, scale; uint32_t gamma; float ndc[4]; float depth[4]; } push{7, 0, 1, 0,
@@ -1047,6 +1070,7 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
     for (float value : push.ndc) if (!std::isfinite(value)) throw Unsupported("nonfinite_ndc_transform");
     for (float value : push.depth) if (!std::isfinite(value)) throw Unsupported("nonfinite_ndc_transform");
     if (!std::isfinite(viewport.x) || !std::isfinite(viewport.y) || !std::isfinite(viewport.width) || !std::isfinite(viewport.height) || viewport.width <= 0 || std::abs(viewport.height) <= 0 || viewport.width > 4096 || std::abs(viewport.height) > 2048) throw Unsupported("viewport_range");
+    if(unlit)push.gamma=uint32_t((vs->ucode_data_hash()^(ps ? ps->ucode_data_hash() : 0))>>8)&0xffffffu;
     draw_util::Scissor guest_scissor{}; draw_util::GetScissor(r, guest_scissor);
     int32_t left = std::min(guest_scissor.offset[0], target->color.width), top = std::min(guest_scissor.offset[1], target->color.height);
     int32_t right = std::min(uint64_t(guest_scissor.offset[0]) + guest_scissor.extent[0], uint64_t(target->color.width));
@@ -1060,6 +1084,13 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
     bias_offset *= r.Get<reg::RB_DEPTH_INFO>().depth_format == xenos::DepthRenderTargetFormat::kD24S8
         ? draw_util::kD3D10PolygonOffsetFactorUnorm24 : draw_util::kD3D10PolygonOffsetFactorFloat24;
     if (!std::isfinite(bias_scale) || !std::isfinite(bias_offset)) throw Unsupported("nonfinite_depth_bias");
+    if(unlit && target->unlit_clear_swap!=swaps_) {
+      Transition(target->color,VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
+      VkClearColorValue background{};background.float32[3]=1;
+      VkImageSubresourceRange range{VK_IMAGE_ASPECT_COLOR_BIT,0,1,0,1};
+      F().vkCmdClearColorImage(command_,target->color.image,target->color.layout,&background,1,&range);
+      target->unlit_clear_swap=swaps_;pending_work_=true;
+    }
     if (!depth_only) Transition(target->color, VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL);
     Transition(target->depth->image, VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL, VK_IMAGE_ASPECT_DEPTH_BIT | VK_IMAGE_ASPECT_STENCIL_BIT);
     // Preserve attachment load/blend/depth ordering across separate passes in
@@ -1095,7 +1126,8 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
       coverage_probes_.push_back({batch_draws_, pipeline, target, swaps_}); ++pipeline->probes;
     }
     F().vkCmdEndRenderPass(command_); ++batch_draws_; ++submitted_; ++target->draws;
-    if (depth_only) ++depth_submitted_; else latest_ = target;
+    if(unlit){++unlit_draws_;unlit_scene_=target;unlit_scene_draw_swap_=swaps_;}
+    if (depth_only) ++depth_submitted_; else if(!unlit)latest_ = target;
     if (ps && (pipeline->color_mask & 15)) target->color_sequence = ++color_sequence_;
     if (bypass_ps && ++pixel_shader_bypassed_ <= 5) REXGPU_INFO("BO3 native PS bypass: VS={:016X} mask={:08X} depth={:08X} vte={:08X} clip={:08X} viewport={},{} {}x{} z={},{} ndcZ={},{}", vs->ucode_data_hash(), r[XE_GPU_REG_RB_COLOR_MASK], r[XE_GPU_REG_RB_DEPTHCONTROL], vte.value, r[XE_GPU_REG_PA_CL_CLIP_CNTL], viewport.x, viewport.y, viewport.width, viewport.height, viewport.minDepth, viewport.maxDepth, push.depth[0], push.depth[1]);
     if (rectangle && ++rectangles_submitted_ <= 8) REXGPU_INFO("BO3 native rectangle: VS={:016X} PS={:016X} count={} depth={:08X} mask={:08X} vte={:08X} clip={:08X} stencil={:08X} viewport={},{} {}x{} z={},{}", pipeline->vs_hash, pipeline->ps_hash, count, depth_state.value, pipeline->color_mask, vte.value, r[XE_GPU_REG_PA_CL_CLIP_CNTL], r[XE_GPU_REG_RB_STENCILREFMASK], viewport.x, viewport.y, viewport.width, viewport.height, viewport.minDepth, viewport.maxDepth);
@@ -1306,7 +1338,7 @@ Target* NativeCommandProcessor::FindResolveSource(const draw_util::ResolveInfo& 
   const auto surface=register_file_->Get<reg::RB_SURFACE_INFO>();
   const uint32_t format=uint32_t(xenos::GetStorageColorFormat(xenos::ColorRenderTargetFormat(info.color_edram_info.format)));
   for (auto& [key,target]:targets_) {
-    if(target->depth_only || key[0]!=info.color_original_base || key[1]!=format || key[2]!=surface.surface_pitch || key[6]!=uint32_t(surface.msaa_samples) ||
+    if(target->depth_only || target->diagnostic_unlit || key[0]!=info.color_original_base || key[1]!=format || key[2]!=surface.surface_pitch || key[6]!=uint32_t(surface.msaa_samples) ||
        !ResolveRectContains({0,0,target->color.width,target->color.height},rectangle) || !target->color_sequence) continue;
     if(!source || target->color_sequence>source->color_sequence) source=target.get();
   }
@@ -1594,17 +1626,29 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
       REXGPU_INFO("BO3 NATIVE depth view {} at swap {}; current-frame scene available={} depthOnlySubmitted={}", depth_view_enabled_ ? "ON" : "OFF", swaps_, depth_scene_ && depth_scene_draw_swap_ + 1 == swaps_, depth_submitted_);
     }
     depth_key_down_ = depth_down;
+    const bool unlit_down=foreground_pid==GetCurrentProcessId() && (GetAsyncKeyState(VK_F10)&0x8000);
+    if(unlit_down && !unlit_key_down_) {
+      unlit_view_enabled_=!unlit_view_enabled_;
+      scene_view_enabled_=unlit_view_enabled_;depth_view_enabled_=false;
+      REXGPU_WARN("BO3 NATIVE unlit geometry {} at swap {}; solid colors replace scene PS/lighting/alpha/blend; current-frame draws={}",unlit_view_enabled_ ? "ON" : "OFF",swaps_,unlit_draws_);
+    }
+    unlit_key_down_=unlit_down;
   }
   const bool current_scene = scene_ && scene_draw_swap_ + 1 == swaps_;
   const bool current_depth = current_scene || (depth_scene_ && depth_scene_draw_swap_ + 1 == swaps_);
   const bool show_depth = depth_view_enabled_ && current_depth;
-  auto* presentation_target = show_depth ? (current_scene ? scene_ : depth_scene_) : (scene_view_enabled_ && current_scene ? scene_ : latest_);
+  auto* presentation_target = show_depth ? (current_scene ? scene_ : depth_scene_) : ((scene_view_enabled_ || unlit_view_enabled_) && current_scene ? scene_ : latest_);
+  if(unlit_view_enabled_ && !show_depth)
+    presentation_target=unlit_scene_ && unlit_scene_draw_swap_+1==swaps_ ? unlit_scene_ : nullptr;
   ResolvedSurface* frontbuffer=nullptr;
-  if(!show_depth && !scene_view_enabled_) {
+  const auto display_fetch=register_file_->GetTextureFetch(0);
+  if(!show_depth && !scene_view_enabled_ && !unlit_view_enabled_) {
     for(auto& [key,surface]:resolved_surfaces_)
-      if(ResolveCanPresent(surface->plan,surface->coverage,address,width,height) && (!frontbuffer || surface->sequence>frontbuffer->sequence))frontbuffer=surface.get();
+      if(ResolveCanPresent(surface->plan,surface->coverage,address,width,height) &&
+         ResolveDisplayFetchMatches(surface->plan,display_fetch,address,width,height) &&
+         (!frontbuffer || surface->sequence>frontbuffer->sequence))frontbuffer=surface.get();
     if(frontbuffer) {
-      if(++resolved_presentations_<=3)REXGPU_INFO("BO3 native resolved frontbuffer selected: address={:08X} logical={}x{} storage={}x{} sequence={}",address,width,height,frontbuffer->image.width,frontbuffer->image.height,frontbuffer->sequence);
+      if(++resolved_presentations_<=3)REXGPU_INFO("BO3 native resolved frontbuffer selected: address={:08X} logical={}x{} storage={}x{} sequence={} fetchSwizzle={:03X} format={} endian={} resolveSwapRB={}",address,width,height,frontbuffer->image.width,frontbuffer->image.height,frontbuffer->sequence,uint32_t(display_fetch.swizzle),uint32_t(display_fetch.format),uint32_t(display_fetch.endianness),frontbuffer->plan.swap_rb);
     }else ++fallback_presentations_;
   }
   if (swaps_ % 30 == 0) {
@@ -1615,6 +1659,9 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
     REXGPU_INFO("BO3 NATIVE guest access: checks={} guardWall={:.1f}ms",timings_.guest_checks,timings_.guest_guards);
     const auto& f=timings_.flushes;
     REXGPU_INFO("BO3 NATIVE batch boundaries: other={} drawLimit={} arena={} export={} resolveLimit={} presentation={} readback={} ringEnd={} wait={} textureHits={} textureMisses={} hashMiB={:.2f} textureEvictions={}",f[0],f[1],f[2],f[3],f[4],f[5],f[6],f[7],f[8],timings_.texture_hits,timings_.texture_misses,timings_.texture_hash_bytes/1048576.0,texture_evictions_);
+    uint64_t texture_bytes=0;for(const auto& [key,texture]:textures_)if(texture)texture_bytes+=texture->image.allocation;
+    REXGPU_INFO("BO3 NATIVE texture residency: entries={} textureMiB={:.2f} totalImageMiB={:.2f} imageBudgetMiB={} metadataLimit=4096",textures_.size(),texture_bytes/1048576.0,image_bytes_/1048576.0,kNativeImageBudget/1048576);
+    if(unlit_view_enabled_)REXGPU_INFO("BO3 NATIVE unlit geometry activity: totalDraws={} currentScene={} depthView={}",unlit_draws_,current_scene,show_depth);
     last_thread_ms_ = thread_ms;
     timings_ = {}; last_perf_ = PerfClock::now(); last_perf_swaps_ = swaps_;
   }
@@ -1646,7 +1693,7 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
       VkDescriptorSetLayoutCreateInfo sl{VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO}; sl.bindingCount = 1; sl.pBindings = &binding;
       Check(F().vkCreateDescriptorSetLayout(D(), &sl, nullptr, &present_.sets[0]), "present texture layout");
       VkPipelineLayoutCreateInfo pl{VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO}; pl.setLayoutCount = 1; pl.pSetLayouts = present_.sets;
-      VkPushConstantRange crop{VK_SHADER_STAGE_FRAGMENT_BIT,0,8};pl.pushConstantRangeCount=1;pl.pPushConstantRanges=&crop;
+      VkPushConstantRange crop{VK_SHADER_STAGE_FRAGMENT_BIT,0,16};pl.pushConstantRangeCount=1;pl.pPushConstantRanges=&crop;
       Check(F().vkCreatePipelineLayout(D(), &pl, nullptr, &present_.layout), "present layout");
       VkShaderModuleCreateInfo module{VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO}; module.codeSize = sizeof(kPresentVS); module.pCode = kPresentVS;
       Check(F().vkCreateShaderModule(D(), &module, nullptr, &present_vs_), "present VS"); module.codeSize = sizeof(kPresentPS); module.pCode = kPresentPS;
@@ -1722,8 +1769,13 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
           VkViewport viewport{0, 0, float(width), float(height), 0, 1}; VkRect2D scissor{{0, 0}, {width, height}};
           F().vkCmdBindPipeline(command_, VK_PIPELINE_BIND_POINT_GRAPHICS, display_pipeline.pipeline); F().vkCmdBindDescriptorSets(command_, VK_PIPELINE_BIND_POINT_GRAPHICS, display_pipeline.layout, 0, 1, &set, 0, nullptr);
           if(!show_depth) {
-            const float scale[2]{frontbuffer ? float(width)/source_image->width : 1.f,frontbuffer ? float(height)/source_image->height : 1.f};
-            F().vkCmdPushConstants(command_,display_pipeline.layout,VK_SHADER_STAGE_FRAGMENT_BIT,0,sizeof(scale),scale);
+            // VdSwap writes the frontbuffer header's fetch to slot zero.
+            // Resolve byte order and display swizzle are separate stages.
+            struct Display {float scale[2];uint32_t swizzle,padding;} display{
+              {frontbuffer ? float(width)/source_image->width : 1.f,frontbuffer ? float(height)/source_image->height : 1.f},
+              frontbuffer ? uint32_t(display_fetch.swizzle) : 0x688u,0};
+            static_assert(sizeof(Display)==16);
+            F().vkCmdPushConstants(command_,display_pipeline.layout,VK_SHADER_STAGE_FRAGMENT_BIT,0,sizeof(display),&display);
           }
           F().vkCmdSetViewport(command_, 0, 1, &viewport); F().vkCmdSetScissor(command_, 0, 1, &scissor); F().vkCmdDraw(command_, 3, 1, 0, 0);
         }
@@ -1752,6 +1804,7 @@ void NativeCommandProcessor::ShutdownContext() {
     for (auto set : pipeline->sets) if (set) F().vkDestroyDescriptorSetLayout(D(), set, nullptr);
   }
   pipelines_.clear();
+  if(unlit_ps_)F().vkDestroyShaderModule(D(),unlit_ps_,nullptr);
   for (auto& [mask, module] : rectangle_shaders_) F().vkDestroyShaderModule(D(), module, nullptr);
   rectangle_shaders_.clear();
   for (auto& texture : null_textures_) if (texture) { F().vkDestroySampler(D(), texture->sampler, nullptr); DestroyImage(texture->image); texture.reset(); }

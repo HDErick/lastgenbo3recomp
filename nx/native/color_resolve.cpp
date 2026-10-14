@@ -5,6 +5,14 @@
 #include <bit>
 namespace bo3::native {
 using namespace rex::graphics;
+bool ResolveDisplayFetchMatches(const ColorResolvePlan& plan,const xenos::xe_gpu_texture_fetch_t& fetch,
+                               uint32_t address,uint32_t width,uint32_t height) {
+  if(uint32_t(fetch.type)!=2 || fetch.dimension!=xenos::DataDimension::k2DOrStacked || fetch.stacked ||
+     (fetch.base_address<<12)!=address || uint32_t(fetch.format)!=plan.guest_format ||
+     uint32_t(fetch.endianness)!=plan.endian || fetch.size_2d.width+1!=width || fetch.size_2d.height+1!=height)return false;
+  for(uint32_t i=0;i<4;++i)if(((fetch.swizzle>>(3*i))&7)>5)return false;
+  return true;
+}
 bool ResolveCanPresent(const ColorResolvePlan& plan,const std::vector<ResolveRect>& coverage,
                        uint32_t address,uint32_t width,uint32_t height) {
   // BO3's observed frontbuffers are plain RGBA8. Other display formats and

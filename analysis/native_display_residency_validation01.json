@@ -1,0 +1,139 @@
+{
+  "date": "2026-10-13",
+  "test_log": "analysis/native_texture_upload_tests12.log",
+  "texture_checks": 36,
+  "ownership_checks": 13,
+  "color_resolve_checks": 42,
+  "pipeline_state_checks": 13,
+  "texture_watch_checks": 10,
+  "physical_guard_checks": 10,
+  "texture_residency_checks": 10,
+  "game_test_status": "Offline validation before the authorized game test",
+  "gpu_execution_validated": false,
+  "limitations": [
+    "CPU fixtures do not prove GPU sampling or complete scene rendering.",
+    "Tiled fixture generation uses SDK helpers; it is not independent hardware tiling validation.",
+    "Resolve conversion shaders are structurally validated; numerical GPU output is unverified.",
+    "Depth/array/subset resolves, CPU readback and complete EDRAM alias ownership remain incomplete.",
+    "Physical write callbacks invalidate GPU coverage; arbitrary partial CPU reuse stays conservative."
+  ],
+  "presentation_modules": [
+    {
+      "stage": "VS",
+      "sha256": "bfad3b88165041a61581f2377c513f053e723c7f814cb6d6b6893cc5a55de29b",
+      "returncode": 0,
+      "diagnostics": ""
+    },
+    {
+      "stage": "PS",
+      "sha256": "c0e7cc6e3b743ca1e27335630c466054d49d6c6302acb78b97759ae4e98ee9e4",
+      "returncode": 0,
+      "diagnostics": "",
+      "interface": {
+        "push_member_offsets": [
+          0,
+          8,
+          12
+        ],
+        "push_range_bytes": 16,
+        "descriptor_type": "combined_image_sampler",
+        "set": 0,
+        "binding": 0,
+        "image_multisampled": false
+      }
+    },
+    {
+      "stage": "DepthPS",
+      "sha256": "e813ec6452da2f7ea10371ea578d43cc27583f8c4376dd255c7ff8f2d9bb47be",
+      "returncode": 0,
+      "diagnostics": "",
+      "interface": {
+        "push_member_offsets": [],
+        "push_range_bytes": 0,
+        "descriptor_type": "sampled_image",
+        "set": 0,
+        "binding": 0,
+        "image_multisampled": true
+      }
+    },
+    {
+      "stage": "ResolvePS",
+      "sha256": "adfd7fe5dec07e410f7cde9bd7ce3f609da6ee375ef51edafe035637faa8f574",
+      "returncode": 0,
+      "diagnostics": "",
+      "interface": {
+        "push_member_offsets": [
+          0,
+          8,
+          16,
+          20,
+          24
+        ],
+        "push_range_bytes": 32,
+        "descriptor_type": "sampled_image",
+        "set": 0,
+        "binding": 0,
+        "image_multisampled": false
+      }
+    },
+    {
+      "stage": "ResolveMSPS",
+      "sha256": "4092a303f7a054ca625c45588d9230df21b9438aacb442ac22fad265e09ae7f0",
+      "returncode": 0,
+      "diagnostics": "",
+      "interface": {
+        "push_member_offsets": [
+          0,
+          8,
+          16,
+          20,
+          24
+        ],
+        "push_range_bytes": 32,
+        "descriptor_type": "sampled_image",
+        "set": 0,
+        "binding": 0,
+        "image_multisampled": true
+      }
+    }
+  ],
+  "validator_sha256": "20890cdc60c31f6a20e0b26a244c4ea395d677dc434fb436e20bda1ac9f3f1ff",
+  "inputs": {
+    "nx/native/texture_upload.cpp": "233cded253c0a94fc850a45dd1119fee29b10cfd2544fb9e53d902fe3f52a100",
+    "nx/native/texture_upload.h": "2e52d61e13616f0a5eebb4070678a1fb3ded07e2f289fffb58ce8534ff730325",
+    "nx/native/texture_upload_test.cpp": "0e1eb4d759fe909bdf9fc928a90202b6b904db84e47d156fc18e475b37ee39f5",
+    "nx/native/resolve_ownership.h": "5afb51adfd5979020e5e6644f13c5ba5a75b54963e9b3cc4398f8fb6f40cb6a4",
+    "nx/native/resolve_ownership_test.cpp": "bb2857c08000f053fa9fc4fc782d825b27dd32a684c0117886139b48c350414c",
+    "nx/native/native_gpu.cpp": "bb3bb47fe8e4c1de58de8691ebf4d859812d6149de18da6334a5d03a522f5342",
+    "nx/native/color_resolve.cpp": "247cd62526c88db302133b9fc4d2dab4e88733396f2af63a8d4d5f3d8e7cabea",
+    "nx/native/color_resolve.h": "d3359839fdf243d57e17db85a1f60f2c9ec7a6a6d9e16e37d38c757bae9d7107",
+    "nx/native/color_resolve_test.cpp": "bdc5fdc02b3cadb0d55f37da04d247f9897548a90285ad0c75636f3329b69643",
+    "nx/native/pipeline_state.h": "003bc581c6e2ba38af63e387ca607c4f10a064f27cf16881c4653120a65b579f",
+    "nx/native/pipeline_state_test.cpp": "16e3481ca89b317bc581589d75a1590fc6f6e085266343230c6619ce34822d6d",
+    "nx/native/texture_validity.h": "7b5c877298d3a60ce6f69263082055a99f82516d0864d33f2c36b2288fbfc26e",
+    "nx/native/texture_watch_test.cpp": "86e0bea0a04c907e7fb49314a8d0d8b12c263be24d382436a7bf8c0e2745dc84",
+    "nx/native/texture_residency.h": "596762252b85caa205a71f830ee15e6f095bb24a5af3304a19aef045fcad77a2",
+    "nx/native/texture_residency_test.cpp": "3367585e6e14a52cec4f6aee979f0a05115d6d074e6f8b167b84e7ac7d61d6a5",
+    "nx/native/physical_access.h": "f094c8f08c02e2b553da7ed0b5b10e05875dcb192f683bc25197b1fcb1ba8075",
+    "nx/native/physical_access_test.cpp": "39a08fd2312a9a2990819a77aeb277c510fc2dbe1b5a060e4371750adcd2bc64",
+    "scripts/nx/prepare-runtime.py": "029b4002b5fe279e6258c958a28516e660c4d08c1bdf0dd72dfc6e2d2afb695d",
+    "nx/native/CMakeLists.txt": "3b622cf4f88df328f55dd263896dfbbfe08cbce82f13aeb950f24064ecd1bc55",
+    "nx/native/present.hlsl": "fb8a50b4e327bb21e99b0638fe3f6979bf7f7467b76d543aba077f6757af0879",
+    "scripts/nx/test-native-texture-upload.cmd": "a5752aa6891be732de7ca6430296929fff05d1f60515f5981ee9260571e50634",
+    "build/pc-vulkan/bo3_native_texture_upload_test.exe": "0bd97f548f98297653e1c6a85cda44bdffacceaf1c48cf19cb677cd643ed9848",
+    "build/pc-vulkan/bo3_native_resolve_ownership_test.exe": "129017e53d1f61a2dfd461180d92db1d708d0c00b203997904ceeaa6118bbbb1",
+    "build/pc-vulkan/bo3_native_color_resolve_test.exe": "3ed309d931e2804da1ecc4d2d4f5210d4f6c3337be3a7e8902ee36afae1432d3",
+    "build/pc-vulkan/bo3_native_pipeline_state_test.exe": "03d0914d1e628a270392abaf70b87f988a2cec9a858e1a42a067291fda0873f6",
+    "build/pc-vulkan/bo3_native_texture_watch_test.exe": "ef527b9ad3805873565ca9156e6d0beeb6040720d5f555016fb6a69fc5e0979f",
+    "build/pc-vulkan/bo3_native_texture_residency_test.exe": "20b8fb9756c66ccf2fb9441d3367c9adbd21f04028f982983a975778bab73d0c",
+    "build/pc-vulkan/bo3_native_physical_access_test.exe": "d3e81cd2d394911fb38ce22bd43e5d046417bce6cd952d17bff30d01e0354897",
+    "tools/nx-sdk/src/system/xmemory.cpp": "9fc43b0cdd9f97d72d8ef88344f3b323d093c945be9dbea6afcb01818f9ba523",
+    "tools/nx-sdk/include/rex/system/xmemory.h": "75678ad15ca98a08184c32fe0c7adb8c02b5dac55932b85997e96e96b2883af4",
+    "tools/nx-sdk/src/system/mmio_handler.cpp": "1dcf301519d69f6248f0008d64ce8f411c7aed9a06201d469f7ba107ac9d0228",
+    "build/pc-vulkan/rexruntime.dll": "84c74385b0323f035b33ff7e023a1ccdcdc110ad073e5260d9f2357a71dddc02",
+    "tools/nx-sdk/src/graphics/pipeline/texture/util.cpp": "f075fd8e134eb0c2ed81e55112f0c481a2d18991e78340f7da3b80d6bfb0caf2",
+    "tools/nx-sdk/include/rex/graphics/pipeline/texture/util.h": "e75fa8c3eea52c5af8cd90d27f44722d9bfaaed76ad58bb102d53a58d66815f7",
+    "tools/nx-sdk/include/rex/graphics/vulkan/texture_cache.h": "36c319a234440f17c71a944a50414c414a0c96025a75c20b0e3d9b248f5b148f",
+    "tools/nx-sdk/src/graphics/vulkan/texture_cache.cpp": "9fc83e2ab165e91847cc8d61da4527d4985e0feefde3cbe7cc47e61b8412c5e0"
+  }
+}

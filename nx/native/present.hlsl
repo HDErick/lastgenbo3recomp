@@ -9,9 +9,28 @@ Vertex VS(uint index : SV_VertexID) {
 #if defined(BO3_PRESENT_COLOR)
 [[vk::combinedImageSampler]] [[vk::binding(0, 0)]] Texture2D<float4> source;
 [[vk::combinedImageSampler]] [[vk::binding(0, 0)]] SamplerState filtering;
-struct PresentConstants { float2 uvScale; };
+struct PresentConstants { float2 uvScale; uint swizzle; uint padding; };
 [[vk::push_constant]] ConstantBuffer<PresentConstants> presentConstants;
-float4 PS(Vertex input) : SV_Target0 { return source.Sample(filtering, input.uv * presentConstants.uvScale); }
+float DisplayChannel(float4 color, uint selector) {
+  return selector < 4 ? color[selector] : selector == 5 ? 1.0 : 0.0;
+}
+float4 PS(Vertex input) : SV_Target0 {
+  float4 color = source.Sample(filtering, input.uv * presentConstants.uvScale);
+  uint s = presentConstants.swizzle;
+  return float4(DisplayChannel(color, s & 7), DisplayChannel(color, (s >> 3) & 7),
+                DisplayChannel(color, (s >> 6) & 7), DisplayChannel(color, (s >> 9) & 7));
+}
+#endif
+#if defined(BO3_UNLIT_SCENE)
+// Diagnostic replacement for scene pixel shading. Keeps the draw's real VS
+// and depth/stencil state, but has no material textures, lighting or alpha kill.
+struct UnlitConstants { uint alpha; float reference; float scale; uint colorCode; float4 ndc; float4 depth; };
+[[vk::push_constant]] ConstantBuffer<UnlitConstants> unlitConstants;
+float4 UnlitPS() : SV_Target0 {
+  uint c = unlitConstants.colorCode;
+  float3 palette = float3(c & 255, (c >> 8) & 255, (c >> 16) & 255) / 255.0;
+  return float4(0.35 + 0.65 * palette, 1.0);
+}
 #endif
 #if defined(BO3_PRESENT_DEPTH)
 [[vk::binding(0, 0)]] Texture2DMS<float> sceneDepth;

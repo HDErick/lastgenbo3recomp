@@ -1,6 +1,6 @@
 {
-  "file_count": 19164,
-  "bytes": 718011147,
+  "file_count": 19192,
+  "bytes": 748150350,
   "largest": [
     {
       "path": "thirdparty/rexglue-sdk/thirdparty/vulkan-headers/registry/validusage.json",
@@ -11,8 +11,20 @@
       "bytes": 10559225
     },
     {
+      "path": "patch_zm-inspect.bin",
+      "bytes": 10330637
+    },
+    {
       "path": "thirdparty/rexglue-sdk/thirdparty/vulkan-headers/include/vulkan/vulkan_structs.hpp",
       "bytes": 8579303
+    },
+    {
+      "path": "ui_mp-inspect.bin",
+      "bytes": 5013950
+    },
+    {
+      "path": "ui_zm-inspect.bin",
+      "bytes": 4863819
     },
     {
       "path": "thirdparty/rexglue-sdk/thirdparty/xxHash/tests/sanity_test_vectors.h",
@@ -27,28 +39,16 @@
       "bytes": 3823044
     },
     {
+      "path": "patch_ui_mp-inspect.bin",
+      "bytes": 3294178
+    },
+    {
       "path": "thirdparty/rexglue-sdk/thirdparty/vulkan-headers/registry/vk.xml",
       "bytes": 3190940
     },
     {
-      "path": "thirdparty/rexglue-sdk/thirdparty/vulkan-headers/include/vulkan/vulkan_funcs.hpp",
-      "bytes": 2319604
-    },
-    {
-      "path": "analysis/bo3_mw2_comparison03.json",
-      "bytes": 2305394
-    },
-    {
-      "path": "app/multiplayer/generated/default/bo3_mp_recomp.19.cpp",
-      "bytes": 2097172
-    },
-    {
-      "path": "app/multiplayer/generated/default/bo3_mp_recomp.81.cpp",
-      "bytes": 2097161
-    },
-    {
-      "path": "app/multiplayer/generated/default/bo3_mp_recomp.52.cpp",
-      "bytes": 2097118
+      "path": "analysis/pc_native_backend_boot32_resolved_frontbuffer.log",
+      "bytes": 3110301
     }
   ],
   "forbidden_files": [],

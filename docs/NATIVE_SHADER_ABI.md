@@ -79,11 +79,23 @@ shader's combined-image annotations cannot leak into image-only bindings.
 CPU-shadow availability remains separate from GPU rectangle coverage; complete
 EDRAM alias ownership and CPU readback are still missing.
 
-Build 56's presentation shader uses a combined image/sampler at set 0 binding
-0 and an eight-byte fragment push block (`float2 uvScale` at offset 0). Normal
+Build 57's presentation shader uses a combined image/sampler at set 0 binding
+0 and a sixteen-byte fragment push block (`float2 uvScale` at offset 0,
+`uint swizzle` at offset 8, padding at 12). The swizzle is the actual VdSwap
+frontbuffer fetch, including R/G/B/A and zero/one selectors. Normal
 presentation crops padded resolve storage to the logical frontbuffer dimensions.
-F8 diagnostic color uses scale 1; F9's image-only depth pipeline has no push range.
+F8 diagnostic color uses scale 1 and identity swizzle; F9's image-only depth pipeline has no push range.
 Offline reflection checks descriptor types, member offsets and push byte sizes.
+
+Build 59 adds `UnlitPS`, an optional F10 diagnostic replacing eligible scene
+pixel shaders. Its push block matches the existing draw layout: uint alpha at
+0, float reference at 4, float scale at 8, uint diagnostic color code at 12,
+float4 XY transform at 16 and float4 Z/format transform at 32, total 48 bytes.
+The unlit shader reads only color code and uses no sampled-image descriptors.
+The translated VS retains its normal uniforms/storage and any VS textures.
+Independent RGBA8 diagnostic color targets share real depth/stencil but are
+excluded from normal resolves and cleared each frame. Flat colors, no alpha
+kill and no blending are deliberate diagnostic differences.
 
 Push constants at bytes 0..15 hold pixel alpha function/reference, color exponent
 scale and gamma-target flag. Bytes 16..31 hold vertex XY scale/offset from the

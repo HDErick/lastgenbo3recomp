@@ -30,6 +30,15 @@ int main() {
   check(key()!=empty,"enabled color blend must remain static");
   check(key(false,false)==empty,"masked color blend must reuse pipeline");
   check(key(false,false,true)!=empty,"depth clamp must remain static");
+  auto unlit=[](bool enabled=true,bool depth_only=false,bool bypass=false,bool rectangle=false,bool depth_test=true,uint32_t samples=2,uint32_t mask=15){return NativeUnlitSceneEligible(enabled,depth_only,bypass,rectangle,depth_test,samples,mask);};
+  check(unlit(),"MSAA scene color eligible for unlit diagnostic");
+  check(!unlit(false),"normal mode cannot activate unlit rendering");
+  check(!unlit(true,true),"depth-only prepass stays intact");
+  check(!unlit(true,false,true),"masked pixel bypass stays intact");
+  check(!unlit(true,false,false,true),"rectangle clears/postprocess stay intact");
+  check(!unlit(true,false,false,false,false),"screen color without depth test stays intact");
+  check(!unlit(true,false,false,false,true,0),"single-sample menu/video stays intact");
+  check(!unlit(true,false,false,false,true,2,0xfff0),"MRT-only mask does not invent target-zero output");
   std::cout<<checks<<" pipeline state checks passed; no game or GPU rendering launched\n";return 0;
  }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}
 }

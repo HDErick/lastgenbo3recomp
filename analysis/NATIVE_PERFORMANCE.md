@@ -199,6 +199,106 @@ Evidence: `analysis/pc_native_backend_build56.log`,
 `analysis/native_frontbuffer_validation01.json`, and
 `analysis/pc_native_provenance35_prepared.json`.
 
+## Build 57: display channel mapping and working-set churn
+
+Run 32 ended by normal window close. The user reports that red/blue appear
+exchanged across menus and cutscenes, with FPS worsening over a few seconds.
+Native frontbuffer presentation omitted the fetch swizzle. VdSwap copies the
+actual display fetch into slot zero before its swap packet; the SDK's Vulkan
+texture cache also uses that fetch's swizzle when requesting its swap image.
+Build 57 checks its resource identity and applies all four channel selectors.
+Run 33 confirms `fetchSwizzle=A0A`, meaning B,G,R,one, with `resolveSwapRB=true`.
+The user confirms colors are normal in run 33; gamma ramps remain separate
+unfinished support. FPS is still bad, and zombies are visible in normal view
+when in front of a visible object. This does not prove a particular blend or
+depth/compositing defect.
+
+Run 32 provides a concrete repeated-resource cost, beyond initial compilation:
+
+| Late interval (30 swaps) | Swaps/s | Texture misses | Upload MiB | Texture wall ms | Queue/fence ms | Shader ms |
+|---|---:|---:|---:|---:|---:|---:|
+| Map working set expands | 2.16 | 969 | 169.74 | 1493 | 5228 | 30.5 |
+| Subsequent interval | 0.91 | 7513 | 1060.50 | 8303 | 14451 | 9.6 |
+| Subsequent interval | 0.86 | 8438 | 1263.37 | 8250 | 17534 | 6.9 |
+
+The corresponding cumulative texture evictions are 860, 8,336 and 16,744.
+The prior report at swap 4320 records 256 cached textures and 225 MiB aggregate
+images. The arbitrary entry cap evicts the active working set despite available
+byte budget. Re-decoding/re-uploading then creates extra arena submissions.
+Elapsed timing scopes overlap and are not additive CPU/GPU measurements; queue
+waits are still a major cost and cache churn is not the sole remaining limit.
+
+Build 57 removes normal count-based eviction. Vulkan allocation requirements
+drive pressure against the existing aggregate 512 MiB image cap; only retired
+LRU textures may be released, including when targets/resolves need space.
+Current-batch references are protected, oversized allocations rejected without
+purging, failed placeholders removed, and metadata bounded independently at
+4,096 keys. Per-interval logs report resident texture bytes and aggregate bytes.
+Fetch/sampler variants still have separate backing; sharing is a next step if
+the actual working set exceeds this budget. No Switch memory budget is inferred.
+
+Ten residency fixtures cover an above-256 working set, allocation bounds and
+recorded/retired resource eligibility. Ten new display fixtures cover identity,
+red/blue exchange, constant channels and mismatched/reserved fetch state.
+All 134 CPU cases and five shader modules pass, including the 16-byte display
+push ABI. These do not prove GPU pixels or FPS improvements.
+
+PC-first native PM4/Vulkan remains the chosen direction, consistent with the
+NFSMW-NX and Mass Effect reference designs. This backend is still a serialized
+correctness prototype with unsupported scene paths, per-draw snapshots and raw
+fetch-key textures. Native ownership alone is not a performance guarantee.
+Persistent shared resources, upload deduplication, changed-constant/descriptor
+reuse, offline shader/pipeline reuse and safe frame-slot overlap are required
+before assessing an original/OLED Switch port's performance on hardware.
+
+Evidence: `analysis/pc_native_backend_boot32_resolved_frontbuffer.log`,
+`analysis/pc_native_backend_build57.log`, `analysis/native_texture_upload_tests12.log`,
+`analysis/native_display_residency_validation01.json`, and
+`analysis/pc_native_provenance37_prepared.json`. Run 33 closed normally.
+
+Early live run 33 confirms the count-cap repair: 334, 356 and then 562 textures
+remain resident with zero evictions, using only 278–294 MiB aggregate images.
+Those intervals still fall from 1.70 to 1.36 swaps/s. Texture uploads stay about
+121–125 MiB per 30 swaps, substantially below late run 32 churn, but queue/fence
+scopes still take 8.7–10.7 seconds with 883–984 submissions. This is an unmatched
+live test, not a controlled speedup measurement. It proves count-based churn
+is removed in the sample and that other substantial limits remain.
+
+Next profiling work must separate vertex/constants uploads, draw recording and
+actual GPU execution. Current draw reservation adds every CPU texture's worst-
+case decoded size even if its cached content is unchanged, potentially forcing
+premature arena flushes. Removing that over-reservation needs a safe preparation
+and lifetime scheme so concurrent guest writes cannot overflow the upload arena
+or evict descriptors prepared for a draw. Do not simply omit the reservation.
+Snapshot: `analysis/pc_native_backend_boot33_display_residency_snapshot.log`;
+binary/source hashes: `analysis/pc_native_provenance38_test.json`.
+
+## Build 59: requested unlit visibility diagnostic
+
+No `r_fullbright` string was found in the dumped patched BO3 Zombies image.
+Rather than assuming an undocumented guest dvar works, F10 enables an unlit
+geometry view in the native backend's existing diagnostic mode. The real VS,
+its resources, and depth/stencil/culling remain; eligible MSAA scene pixel
+shaders are replaced by bright per-shader solid colors, with PS material
+textures, lighting, alpha kill and blend omitted. Unsupported PS textures can
+therefore no longer reject those diagnostic draws; unsupported VS data still
+can. Single-sample frontend/video, rectangles and depth-only draws retain their
+paths. It does not display material textures or establish fullbright parity.
+
+Separate RGBA8 diagnostic targets clear once per swap, share actual depth, and
+are never selected for guest resolves. Direct presentation bypasses glow and
+final composition, with no HUD. F10 returns to normal on the next fresh frames;
+F9 remains a depth comparison. This is a diagnostic isolation experiment, not
+a normal renderer fix or optimized performance benchmark.
+
+142 CPU checks and all six shader modules pass; compiled unlit reflection
+confirms no material image descriptors and the existing 48-byte draw push ABI.
+Evidence: `analysis/pc_native_backend_build58.log` (initial diagnostic),
+`analysis/pc_native_backend_build59.log` (independent target/gating final build),
+`analysis/native_texture_upload_tests13.log`, `analysis/native_unlit_validation01.json`,
+and `analysis/pc_native_provenance39_prepared.json`. Run 34 is open with F10 off
+initially, awaiting user comparison.
+
 Evidence: `analysis/pc_native_backend_boot30_texture_watch.log`,
 `analysis/pc_native_backend_build55.log`, `analysis/native_texture_upload_tests10.log`,
 `analysis/native_batching_validation04.json`, and

@@ -72,6 +72,28 @@ int main() {
   p.endian=2;Check(!ResolveCanPresent(p,display,0x100000,80,16),"unverified display endian refused");
   p.endian=0;p.guest_format=30;Check(!ResolveCanPresent(p,display,0x100000,80,16),"non-display alias refused");
   p.guest_format=6;Check(!ResolveCanPresent(p,{},0x100000,80,16),"invalidated frontbuffer refused");
+  xenos::xe_gpu_texture_fetch_t fetch{};
+  fetch.type=xenos::FetchConstantType::kTexture;fetch.dimension=xenos::DataDimension::k2DOrStacked;
+  fetch.base_address=0x100;fetch.format=xenos::TextureFormat::k_8_8_8_8;
+  fetch.size_2d.width=79;fetch.size_2d.height=15;fetch.swizzle=0x688;
+  Check(ResolveDisplayFetchMatches(p,fetch,0x100000,80,16),"identity display fetch matched");
+  fetch.swizzle=0x60a;
+  Check(ResolveDisplayFetchMatches(p,fetch,0x100000,80,16) && (fetch.swizzle&7)==2 && ((fetch.swizzle>>6)&7)==0,"red-blue display exchange retained");
+  fetch.swizzle=0xb2c;
+  Check(ResolveDisplayFetchMatches(p,fetch,0x100000,80,16),"constant display channels supported");
+  fetch.swizzle=0x68e;Check(!ResolveDisplayFetchMatches(p,fetch,0x100000,80,16),"reserved display swizzle refused");
+  fetch.swizzle=0x688;fetch.base_address++;
+  Check(!ResolveDisplayFetchMatches(p,fetch,0x100000,80,16),"different fetch address refused");
+  fetch.base_address--;fetch.size_2d.width++;
+  Check(!ResolveDisplayFetchMatches(p,fetch,0x100000,80,16),"different logical fetch extent refused");
+  fetch.size_2d.width--;fetch.endianness=xenos::Endian(2);
+  Check(!ResolveDisplayFetchMatches(p,fetch,0x100000,80,16),"different fetch endian refused");
+  fetch.endianness=xenos::Endian(0);fetch.format=xenos::TextureFormat::k_8;
+  Check(!ResolveDisplayFetchMatches(p,fetch,0x100000,80,16),"different fetch format refused");
+  fetch.format=xenos::TextureFormat::k_8_8_8_8;fetch.stacked=1;
+  Check(!ResolveDisplayFetchMatches(p,fetch,0x100000,80,16),"stacked display fetch refused");
+  fetch.stacked=0;fetch.type=xenos::FetchConstantType::kVertex;
+  Check(!ResolveDisplayFetchMatches(p,fetch,0x100000,80,16),"nontexture display fetch refused");
   std::cout<<checks<<" color resolve checks passed; no game or GPU rendering launched\n";return 0;
  }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}
 }

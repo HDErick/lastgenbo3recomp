@@ -1,0 +1,221 @@
+{
+  "date": "2026-10-13",
+  "compiler": "Clang 20.1.8, x86-64-v3 Windows Release",
+  "renderer": "Separate BO3 native Vulkan correctness prototype",
+  "build_log": "analysis/pc_native_backend_build57.log",
+  "hardware_status": "Build 57: frontbuffer fetch swizzle and byte-budget residency; 134 CPU fixtures and five structural shader modules passed; visual and performance comparison pending",
+  "files": {
+    "build/pc-vulkan/bo3_zm_vulkan.exe": {
+      "bytes": 58063360,
+      "sha256": "e086ed6c6683a4bf43adb8db7048fe4a7321f656d3a69726131bb39408a7f1f0"
+    },
+    "build/pc-vulkan/bo3_zm_vulkan.pdb": {
+      "bytes": 6623232,
+      "sha256": "deb0d9eae940b641031e2f73ed743de64c818cb0a32c24d7474412251ea2eb47"
+    },
+    "build/pc-vulkan/rexruntime.dll": {
+      "bytes": 12500480,
+      "sha256": "84c74385b0323f035b33ff7e023a1ccdcdc110ad073e5260d9f2357a71dddc02"
+    },
+    "build/pc-vulkan/rexgpu-xenos.dll": {
+      "bytes": 4765184,
+      "sha256": "c4e95c85a2d4c4aec1a991a54bbf9fa7dd0c1e862d92120bf18c4f489de0cd76"
+    },
+    "nx/pc-vulkan/main.cpp": {
+      "bytes": 824,
+      "sha256": "68dde05256f8f71a8ee3d5eceb0f2e2e1e87f8bd93eea48f3ca6bc1cfa602306"
+    },
+    "nx/pc-vulkan/CMakeLists.txt": {
+      "bytes": 1689,
+      "sha256": "0c7862bacd08340ab0ab101bba8719186baeeeb9f28ffae4038c55c5613e53e6"
+    },
+    "nx/pc-vulkan/draw_capture.cpp": {
+      "bytes": 2692,
+      "sha256": "c6c21da3e3a250f4f0a334cc43f0a86ddc8add8df426200c4a3d2d55207d08a1"
+    },
+    "nx/pc-vulkan/draw_capture.h": {
+      "bytes": 178,
+      "sha256": "da9ff997c896d32d1066d1dffd12eccc0c54c6e4cd406adedcf1a996310c0257"
+    },
+    "nx/pc-vulkan/d3d_trace.cpp": {
+      "bytes": 12341,
+      "sha256": "a0c3b9d5b19958702c31c1f0758f5d401a65a8915eba4a47e6e31069e32dcc4c"
+    },
+    "nx/pc-vulkan/d3d_trace.h": {
+      "bytes": 81,
+      "sha256": "e17e9c9ee6192420473a036a9dd728ad6f2a6f2c12fad7acf3bf5b312b7b5235"
+    },
+    "scripts/nx/launch-pc-vulkan.ps1": {
+      "bytes": 6997,
+      "sha256": "258272de3283842473a98a1cb74d113ad440d108ed08a9feabc8751bdab6f467"
+    },
+    "scripts/nx/prepare-runtime.py": {
+      "bytes": 7247,
+      "sha256": "029b4002b5fe279e6258c958a28516e660c4d08c1bdf0dd72dfc6e2d2afb695d"
+    },
+    "analysis/nx_runtime_sources.json": {
+      "bytes": 1149,
+      "sha256": "a1c44bc71dac87b913e467d7605e1ba23955625791625c283221d55f4d1caf94"
+    },
+    "build/nx-generated/zombies/bo3_zm_init.h": {
+      "bytes": 1136286,
+      "sha256": "3824ce80dc42c46e1c58927f8c4fd8e905e700fd1ea7cb2d3cb5f8906435a0ec"
+    },
+    "build/nx-generated/zombies/bo3_zm_init.cpp": {
+      "bytes": 1084547,
+      "sha256": "1c45018645686cb41275a88aac00fb165cdec9d81e7ac587a3608f6a36902f61"
+    },
+    "tools/nx-sdk/src/graphics/vulkan/render_target_cache.cpp": {
+      "bytes": 329220,
+      "sha256": "c6dec2b7385d448a7174a2f9a9e94924a55b6c0a9bec2d3638c9956158e5c188"
+    },
+    "tools/nx-sdk/src/graphics/vulkan/command_processor.cpp": {
+      "bytes": 338632,
+      "sha256": "bf61bda69fb8987d6d0cf685155ecd61737aaf6ecda03ff02a080adeefcb2885"
+    },
+    "nx/sdk-patches/include/rex/graphics/bo3_memexport_probe.h": {
+      "bytes": 3590,
+      "sha256": "a20181cb9b9d939e058e8177e494dca4c1b7127b87c12bbd5eb0b69ef985ebd5"
+    },
+    "build/pc-vulkan/rexgpu-bo3native.dll": {
+      "bytes": 1562112,
+      "sha256": "9ad3398277b12e7a0203c2322b5131856ea9e499577ecbe960667162084cd9f3"
+    },
+    "build/pc-vulkan/rexgpu-bo3native.pdb": {
+      "bytes": 3244032,
+      "sha256": "94c660509efb58a185c8318c46d59bf4b069437acdc1d0df95ee4f8074988554"
+    },
+    "nx/native/native_gpu.cpp": {
+      "bytes": 144473,
+      "sha256": "bb3bb47fe8e4c1de58de8691ebf4d859812d6149de18da6334a5d03a522f5342"
+    },
+    "nx/native/CMakeLists.txt": {
+      "bytes": 4249,
+      "sha256": "3b622cf4f88df328f55dd263896dfbbfe08cbce82f13aeb950f24064ecd1bc55"
+    },
+    "nx/native/memexport_copy.h": {
+      "bytes": 4189,
+      "sha256": "2b3f3d0ab4c4286828879f00da7895ec5400c88da890fa483b37890bddfa8588"
+    },
+    "nx/native/bc_decode.h": {
+      "bytes": 2250,
+      "sha256": "5be82a98dd173d5caf3ae71c2f617217d761453fe361b8bfea28686a9333d41c"
+    },
+    "nx/native/physical_access.h": {
+      "bytes": 1030,
+      "sha256": "f094c8f08c02e2b553da7ed0b5b10e05875dcb192f683bc25197b1fcb1ba8075"
+    },
+    "nx/native/present.hlsl": {
+      "bytes": 2845,
+      "sha256": "fb8a50b4e327bb21e99b0638fe3f6979bf7f7467b76d543aba077f6757af0879"
+    },
+    "nx/native/rectangle_shader.cpp": {
+      "bytes": 4882,
+      "sha256": "468be944c502ff34880a770c532ac57e43f4fcd5f82e37b3f6f72080896a3412"
+    },
+    "nx/native/rectangle_shader.h": {
+      "bytes": 336,
+      "sha256": "346a47c3522d1087d5d4a2d8b7040738053f1882f4796f8515dd0cd508cbdf91"
+    },
+    "nx/native/edram_clear.h": {
+      "bytes": 1552,
+      "sha256": "7b9388477420d26f553ab9e72bb5b09c36a06ed6b7c2b96e6c79b6776bdf958b"
+    },
+    "nx/native/texture_upload.cpp": {
+      "bytes": 9618,
+      "sha256": "233cded253c0a94fc850a45dd1119fee29b10cfd2544fb9e53d902fe3f52a100"
+    },
+    "nx/native/texture_upload.h": {
+      "bytes": 1398,
+      "sha256": "2e52d61e13616f0a5eebb4070678a1fb3ded07e2f289fffb58ce8534ff730325"
+    },
+    "nx/native/resolve_ownership.h": {
+      "bytes": 2207,
+      "sha256": "5afb51adfd5979020e5e6644f13c5ba5a75b54963e9b3cc4398f8fb6f40cb6a4"
+    },
+    "nx/native/color_resolve.cpp": {
+      "bytes": 6688,
+      "sha256": "247cd62526c88db302133b9fc4d2dab4e88733396f2af63a8d4d5f3d8e7cabea"
+    },
+    "nx/native/color_resolve.h": {
+      "bytes": 1422,
+      "sha256": "d3359839fdf243d57e17db85a1f60f2c9ec7a6a6d9e16e37d38c757bae9d7107"
+    },
+    "nx/native/pipeline_state.h": {
+      "bytes": 1706,
+      "sha256": "003bc581c6e2ba38af63e387ca607c4f10a064f27cf16881c4653120a65b579f"
+    },
+    "nx/native/texture_validity.h": {
+      "bytes": 539,
+      "sha256": "7b5c877298d3a60ce6f69263082055a99f82516d0864d33f2c36b2288fbfc26e"
+    },
+    "nx/native/texture_residency.h": {
+      "bytes": 957,
+      "sha256": "596762252b85caa205a71f830ee15e6f095bb24a5af3304a19aef045fcad77a2"
+    },
+    "tools/nx-sdk/include/rex/system/xmemory.h": {
+      "bytes": 27564,
+      "sha256": "75678ad15ca98a08184c32fe0c7adb8c02b5dac55932b85997e96e96b2883af4"
+    },
+    "tools/nx-sdk/src/system/xmemory.cpp": {
+      "bytes": 99376,
+      "sha256": "9fc43b0cdd9f97d72d8ef88344f3b323d093c945be9dbea6afcb01818f9ba523"
+    },
+    "scripts/nx/embed-native-shaders.py": {
+      "bytes": 1435,
+      "sha256": "feb0a364c1461e55574eab09f8ce50d0e9d3f894d17f9b6d3804c525e6202632"
+    },
+    "scripts/nx/prepare-mw2-shader-tools.py": {
+      "bytes": 8899,
+      "sha256": "adfb155e50b95986bf6b1387b535f229ee8abb88902670cd9aa929aeba32a6bc"
+    },
+    "nx/shader-tools/mw2_vertex_ranges.cpp.inc": {
+      "bytes": 532,
+      "sha256": "ee59a5eeecffe4a1047c71a5fdac1223d534695003d8193407c9c30a16a23935"
+    },
+    "nx/shader-tools/mw2_position.cpp.inc": {
+      "bytes": 2631,
+      "sha256": "9150914e8c22e8b000bad67144a7b75bc6259442be3ab375ee1733485b8d7532"
+    },
+    "nx/sdk-patches/include/rex/graphics/bo3_memexport_parity.h": {
+      "bytes": 4961,
+      "sha256": "026cf751a0a5d9e6119ea6c2536333c00600410c37bfc23e969cb6633015a9d4"
+    },
+    "analysis/mw2_shader_tool_staged_sources.json": {
+      "bytes": 3423,
+      "sha256": "6b3ee39e8321d910cd59cbffcd972553857481acd38e052b04fb7b3668b31c21"
+    },
+    "tools/bo3-mw2-shader-translator/runtime/gpu/vulkan/shader_translator.cpp": {
+      "bytes": 121556,
+      "sha256": "b49dabed1ecbfb1e2d0edbb0d06b03e8b65ca19da61d91f92e24ad6c4d83a3be"
+    },
+    "tools/bo3-mw2-shader-translator/runtime/gpu/vulkan/shader_translator.h": {
+      "bytes": 3618,
+      "sha256": "f3b529f2e6ebd3d86f2ff8ed8a6cf97064b56bccf52f9a302491bae5f6914525"
+    },
+    "tools/nx-sdk/src/graphics/util/draw.cpp": {
+      "bytes": 59453,
+      "sha256": "936ed3ba08b6c8ab6a06d723b1e22d84d8002c453dbe0f22b1acf8ea71648aad"
+    },
+    "tools/nx-sdk/include/rex/graphics/util/draw.h": {
+      "bytes": 29233,
+      "sha256": "55701437a6f31da18a1fcce8b532383f49bfa57748d9ec007ed9aad81ab63062"
+    },
+    "tools/nx-sdk/src/graphics/pipeline/texture/util.cpp": {
+      "bytes": 25766,
+      "sha256": "f075fd8e134eb0c2ed81e55112f0c481a2d18991e78340f7da3b80d6bfb0caf2"
+    },
+    "tools/nx-sdk/include/rex/graphics/pipeline/texture/util.h": {
+      "bytes": 20034,
+      "sha256": "e75fa8c3eea52c5af8cd90d27f44722d9bfaaed76ad58bb102d53a58d66815f7"
+    },
+    "tools/nx-sdk/include/rex/graphics/xenos.h": {
+      "bytes": 67770,
+      "sha256": "9410d446105084c35f7663814665c8370636bee23a50aab71d736dfce97f32dd"
+    },
+    "tools/nx-sdk/include/rex/ui/vulkan/api.h": {
+      "bytes": 2474,
+      "sha256": "c7adda1d3695c6245ebd7c3f488569d162a21369099ddd9997e452c48b816e28"
+    }
+  }
+}

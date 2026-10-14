@@ -55,3 +55,5 @@ set_target_properties(bo3_native_pipeline_state_test PROPERTIES RUNTIME_OUTPUT_D
 add_executable(bo3_native_texture_watch_test EXCLUDE_FROM_ALL texture_watch_test.cpp)
 target_link_libraries(bo3_native_texture_watch_test PRIVATE rexruntime)
 set_target_properties(bo3_native_texture_watch_test PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
+add_executable(bo3_native_texture_residency_test EXCLUDE_FROM_ALL texture_residency_test.cpp)
+set_target_properties(bo3_native_texture_residency_test PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")

@@ -19,8 +19,9 @@ resolve = re.search(r'(\d+) color resolve checks passed', log)
 pipeline = re.search(r'(\d+) pipeline state checks passed', log)
 watch = re.search(r'(\d+) texture write-watch checks passed', log)
 guards = re.search(r'Physical allocation guards: PASS \((\d+) cases\)', log)
-if not texture or not ownership or not resolve or not pipeline or not watch or not guards:
-    raise SystemExit('All six fixture suites must report success')
+residency = re.search(r'(\d+) texture residency checks passed', log)
+if not texture or not ownership or not resolve or not pipeline or not watch or not guards or not residency:
+    raise SystemExit('All seven fixture suites must report success')
 
 def digest(path):
     with path.open('rb') as stream:
@@ -33,6 +34,7 @@ inputs = ['nx/native/texture_upload.cpp', 'nx/native/texture_upload.h',
           'nx/native/color_resolve_test.cpp',
           'nx/native/pipeline_state.h', 'nx/native/pipeline_state_test.cpp',
           'nx/native/texture_validity.h', 'nx/native/texture_watch_test.cpp',
+          'nx/native/texture_residency.h', 'nx/native/texture_residency_test.cpp',
           'nx/native/physical_access.h', 'nx/native/physical_access_test.cpp',
           'scripts/nx/prepare-runtime.py',
           'nx/native/CMakeLists.txt', 'nx/native/present.hlsl',
@@ -42,6 +44,7 @@ inputs = ['nx/native/texture_upload.cpp', 'nx/native/texture_upload.h',
           'build/pc-vulkan/bo3_native_color_resolve_test.exe',
           'build/pc-vulkan/bo3_native_pipeline_state_test.exe',
           'build/pc-vulkan/bo3_native_texture_watch_test.exe',
+          'build/pc-vulkan/bo3_native_texture_residency_test.exe',
           'build/pc-vulkan/bo3_native_physical_access_test.exe',
           'tools/nx-sdk/src/system/xmemory.cpp', 'tools/nx-sdk/include/rex/system/xmemory.h',
           'tools/nx-sdk/src/system/mmio_handler.cpp',
@@ -51,7 +54,7 @@ inputs = ['nx/native/texture_upload.cpp', 'nx/native/texture_upload.h',
           'tools/nx-sdk/include/rex/graphics/vulkan/texture_cache.h',
           'tools/nx-sdk/src/graphics/vulkan/texture_cache.cpp']
 
-def resolve_interface(path, multisampled, depth_only=False, presentation=False):
+def resolve_interface(path, multisampled, depth_only=False, presentation=False, unlit=False):
     """Check the compiled interface against the native pipeline's real layout."""
     data = path.read_bytes()
     words = struct.unpack('<' + 'I' * (len(data) // 4), data)
@@ -81,7 +84,7 @@ def resolve_interface(path, multisampled, depth_only=False, presentation=False):
         if len(push) != 1:
             raise SystemExit('Resolve shader must have one push block')
         member_offsets = [offsets[(push[0], n)] for n in range(len(members[push[0]]))]
-        expected_offsets = [0] if presentation else [0, 8, 16, 20, 24]
+        expected_offsets = [0, 4, 8, 12, 16, 32] if unlit else [0, 8, 12] if presentation else [0, 8, 16, 20, 24]
         if member_offsets != expected_offsets:
             raise SystemExit(f'Resolve push ABI mismatch: {member_offsets}')
         def byte_size(type_id):
@@ -89,7 +92,7 @@ def resolve_interface(path, multisampled, depth_only=False, presentation=False):
             component, count = vectors[type_id]
             return scalar_sizes[component] * count
         actual_bytes = max(offset + byte_size(type_id) for offset, type_id in zip(member_offsets, members[push[0]]))
-        if actual_bytes != (8 if presentation else 32):
+        if actual_bytes != (48 if unlit else 16 if presentation else 32):
             raise SystemExit(f'Push range size mismatch: {actual_bytes}')
     resources = []
     for t, v, storage in variables:
@@ -100,6 +103,9 @@ def resolve_interface(path, multisampled, depth_only=False, presentation=False):
             if is_combined != presentation:
                 raise SystemExit('Sampled image versus combined image/sampler ABI mismatch')
             resources.append((v, images[image_id]))
+    if unlit:
+        if resources: raise SystemExit('Unlit diagnostic must not require material textures')
+        return {'push_member_offsets': member_offsets, 'push_range_bytes': 48, 'descriptor_type': 'none'}
     if len(resources) != 1:
         raise SystemExit('Resolve shader must use one sampled image')
     variable, image = resources[0]
@@ -109,13 +115,13 @@ def resolve_interface(path, multisampled, depth_only=False, presentation=False):
         raise SystemExit('Resolve sampled image type mismatch')
     if decorations.get((variable, 33)) != (0,) or decorations.get((variable, 34)) != (0,):
         raise SystemExit('Resolve descriptor must be set 0 binding 0')
-    return {'push_member_offsets': member_offsets, 'push_range_bytes': 0 if depth_only else 8 if presentation else 32,
+    return {'push_member_offsets': member_offsets, 'push_range_bytes': 0 if depth_only else 16 if presentation else 32,
             'descriptor_type': 'combined_image_sampler' if presentation else 'sampled_image',
             'set': 0, 'binding': 0, 'image_multisampled': multisampled}
 
 validator = root / 'build/native-spirv-tools/tools/spirv-val.exe'
 modules = []
-for stage in ['VS', 'PS', 'DepthPS', 'ResolvePS', 'ResolveMSPS']:
+for stage in ['VS', 'PS', 'DepthPS', 'ResolvePS', 'ResolveMSPS', 'UnlitPS']:
     path = root / f'build/pc-vulkan/bo3-native/present_spirv.{stage}.spv'
     result = subprocess.run([str(validator), '--target-env', 'vulkan1.1', str(path)],
                             capture_output=True, text=True)
@@ -128,12 +134,15 @@ for stage in ['VS', 'PS', 'DepthPS', 'ResolvePS', 'ResolveMSPS']:
         modules[-1]['interface'] = resolve_interface(path, True, depth_only=True)
     elif stage == 'PS':
         modules[-1]['interface'] = resolve_interface(path, False, presentation=True)
+    elif stage == 'UnlitPS':
+        modules[-1]['interface'] = resolve_interface(path, False, unlit=True)
 report = {'date': '2026-10-13', 'test_log': args.log,
           'texture_checks': int(texture[1]), 'ownership_checks': int(ownership[1]),
           'color_resolve_checks': int(resolve[1]),
           'pipeline_state_checks': int(pipeline[1]),
           'texture_watch_checks': int(watch[1]),
           'physical_guard_checks': int(guards[1]),
+          'texture_residency_checks': int(residency[1]),
           'game_test_status': 'Offline validation before the authorized game test',
           'gpu_execution_validated': False,
           'limitations': ['CPU fixtures do not prove GPU sampling or complete scene rendering.',
@@ -144,6 +153,6 @@ report = {'date': '2026-10-13', 'test_log': args.log,
           'presentation_modules': modules, 'validator_sha256': digest(validator),
           'inputs': {name: digest(root / name) for name in inputs}}
 (root / args.output).write_text(json.dumps(report, indent=2) + '\n', newline='\n')
-print(f"Recorded {texture[1]} texture checks, {ownership[1]} ownership checks, {resolve[1]} color resolve checks, {pipeline[1]} pipeline checks, {watch[1]} write-watch checks, {guards[1]} physical guard checks, and {len(modules)} shader modules")
+print(f"Recorded {texture[1]} texture checks, {ownership[1]} ownership checks, {resolve[1]} color resolve checks, {pipeline[1]} pipeline checks, {watch[1]} write-watch checks, {guards[1]} physical guard checks, {residency[1]} residency checks, and {len(modules)} shader modules")
 if any(module['returncode'] for module in modules):
     raise SystemExit('Presentation SPIR-V validation failed')

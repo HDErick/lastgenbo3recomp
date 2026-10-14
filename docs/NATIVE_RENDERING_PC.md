@@ -468,8 +468,65 @@ native target, potentially an intermediate or a post-resolve-cleared source.
 Unsupported/missing coverage retains a reported diagnostic fallback; F8/F9
 still select diagnostic targets. The new presentation push range is eight
 bytes and structurally reflected. Six new coverage/address/format fixtures
-bring CPU checks to 114. Run 32 is open for comparison; this is a candidate
-repair for normal-view behavior, not confirmation that trails or FPS are fixed.
+bring CPU checks to 114. Run 32 closed normally, but the user reported red/blue
+exchange across menus/cutscenes and increasingly unplayable gameplay.
+
+Build 57 follows the actual frontbuffer fetch that VdSwap places in slot zero.
+It checks the fetch address, dimensions, format, endian, type and valid channel
+selectors against the selected resolve; the presentation shader applies its
+swizzle through a sixteen-byte push block. Run 33 logs `A0A` (B,G,R,one) and a
+resolve with red/blue swap enabled, establishing the missing display mapping.
+This correction is independent of the still-incomplete scene color passes.
+
+The old 256-texture limit churned the map working set even while aggregate image
+memory was well below its 512 MiB limit. Build 57 evicts retired LRU textures
+when Vulkan allocation bytes require space; recorded resources remain protected.
+An independent 4,096-entry metadata ceiling prevents unlimited key growth.
+Failed allocations remove their empty map entries. Texture and total-image bytes
+are reported with timing counters. Raw fetch keys still duplicate backing for
+sampler/view variants, so shared backing remains needed. The aggregate budget
+is a PC prototype setting, not a measured Switch budget.
+
+134 CPU fixtures and all five structural shader modules pass for build 57.
+Run 33 closed normally. The user confirms display colors are normal again;
+FPS remains bad, and a zombie is visible only when in front of a visible object.
+This does not identify the missing color/depth/compositing behavior.
+
+Build 59 adds an F10 unlit geometry diagnostic when launched with
+`-Native -NativeSceneView`. Hold F10 for roughly a second and release after
+entering gameplay. It replaces eligible MSAA, depth-tested, target-zero scene
+pixel shading with bright solid colors, omitting PS textures/lighting/alpha kill
+and blending. The real translated VS, VS textures, depth/stencil and culling
+remain. Menu/video, depth-only and rectangle clear/postprocess draws retain
+their original path. No reliable `r_fullbright` setting was identified in the
+patched image; this is not BO3's textured fullbright mode.
+
+Diagnostic color targets have a separate identity, clear once per swap and
+cannot become guest resolve sources. Direct scene presentation avoids bloom
+and the normal final compositing chain. F10 again restores normal selection;
+allow fresh frames to redraw it. F9 can still inspect shared real depth. The
+unlit view omits the HUD and loses alpha cutouts/material appearance, so it
+cannot establish full normal-renderer correctness or production FPS.
+All 142 CPU cases and six structurally checked shaders pass for build 59,
+including eight draw-selection checks and the 48-byte unlit push ABI.
+Run 34 is open, with the diagnostic initially off; its visual result is pending.
+
+### Direction toward Switch
+
+Keep the PC-first command-ring-to-native-Vulkan approach. NFSMW-NX and Mass
+Effect retain the game's Direct3D layer and consume its PM4 stream with a native
+backend. Their optimized renderers also use resource caching and overlapping
+frame slots; NFSMW avoids repeated vertex uploads and reuses changed constants.
+See the reference [native renderer](https://github.com/StevensND/nfsmw-nx/blob/main/docs/native-renderer.md).
+These are architectural references, not evidence of BO3 performance on Switch.
+
+Next gates are: verify display colors and residency in the current test; finish
+missing color/resolve/alias behavior against captured reference frames; share
+texture backing and reuse uploads/constants/descriptors; use offline shaders
+and persistent pipeline caches; replace per-batch synchronous waits with frame
+slots while preserving guest completion/readback lifetimes; then measure a
+small correct scene on original Switch hardware. The current incomplete shader
+and resource support cannot be benchmarked as an optimized Switch renderer.
 
 Remaining gates include stencil/clear behavior, remaining resolves and CPU
 writeback, general native-produced texture ownership, target aliasing, MRT/MSAA parity,

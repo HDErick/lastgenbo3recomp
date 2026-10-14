@@ -22,4 +22,7 @@ bool ResolveRectContains(ResolveRect outer,ResolveRect inner);
 void AddResolveCoverage(std::vector<ResolveRect>& coverage,ResolveRect rectangle);
 bool ResolveCanPresent(const ColorResolvePlan& plan,const std::vector<ResolveRect>& coverage,
                        uint32_t address,uint32_t width,uint32_t height);
+bool ResolveDisplayFetchMatches(const ColorResolvePlan& plan,
+                               const rex::graphics::xenos::xe_gpu_texture_fetch_t& fetch,
+                               uint32_t address,uint32_t width,uint32_t height);
 }

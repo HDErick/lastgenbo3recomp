@@ -3,6 +3,10 @@
 #include <rex/graphics/registers.h>
 #include <array>
 namespace bo3::native {
+inline bool NativeUnlitSceneEligible(bool enabled,bool depth_only,bool bypass_ps,
+                                     bool rectangle,bool depth_test,uint32_t samples,uint32_t mask) {
+  return enabled && !depth_only && !bypass_ps && !rectangle && depth_test && samples!=0 && (mask&15);
+}
 // This prototype uses only these static fields. Viewport, bias values, stencil
 // masks/references and clip transforms are supplied dynamically per draw.
 inline std::array<uint32_t,4> NativePipelineStateKey(

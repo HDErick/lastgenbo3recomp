@@ -197,8 +197,34 @@ normal view remains faulty. In run 31 the user sees a barrier/window object in
 normal view, with apparent persistence/trails when moving; most scene color is
 missing and FPS is only marginally better. That run closed normally. Normal
 presentation now prefers the covered resolve image at the guest frontbuffer
-address, with logical dimensions cropped from padded storage. Run 32 is open
-to test this presentation repair; its visual result is pending. Depth/array/
+address, with logical dimensions cropped from padded storage. Run 32 closed
+normally; the user reported red/blue exchanged even in menus/cutscenes and
+progressively unplayable FPS. Its log shows texture churn from the old 256-entry
+cap: 8,438 misses and 1,263 MiB uploaded over a late 30-swap interval despite
+only about 225 MiB allocated at the preceding residency report.
+Build 57 applies the authoritative slot-zero frontbuffer fetch swizzle and
+retains textures until actual pressure on the existing 512 MiB aggregate image
+budget, protecting resources referenced by the recorded batch. Run 33 confirms
+display fetch `A0A` (B,G,R,one), resolve red/blue swapping, and selection of the
+matching resolved frontbuffer. The user confirms colors are back to normal,
+but FPS is still bad. A zombie becomes visible in normal view when positioned
+in front of a visible object; this is a rendering symptom, not proof of its cause.
+Live run 33 retains 562 textures with zero evictions at 294 MiB aggregate images,
+but still reaches only 1.36 swaps/s; serialized submissions and repeated uploads
+remain major costs. This confirms removal of count-cap churn in that sample,
+not a playable renderer or a controlled improvement measurement.
+Run 33 closed normally. Build 59 adds the requested F10 unlit geometry test:
+bright solid colors replace eligible MSAA scene pixel shading, using a separate
+per-frame-cleared color target and the actual vertex/depth/stencil path. It
+bypasses material textures, alpha kill, blend and final compositing. It is a
+diagnostic, not textured engine fullbright or a scene-rendering repair. F10
+toggles it; F9 remains depth view. All 142 CPU cases and six shader modules pass.
+Run 34 is open for comparison, with unlit initially disabled.
+All 134 CPU fixtures and five structural shader validations pass. This remains
+a correctness prototype; native command-stream Vulkan on PC is a useful path
+toward Switch, with persistent/shared resources, fewer uploads, offline shader
+and pipeline reuse, and safe frame overlap still needed. Switch performance is
+unproven. Depth/array/
 sample-subset resolves, CPU readback, complete EDRAM aliasing and several texture
 conversions remain unfinished. No complete native gameplay frame is validated.
 See [native rendering notes](docs/NATIVE_RENDERING_PC.md) and
