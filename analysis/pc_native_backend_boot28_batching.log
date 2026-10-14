@@ -1,0 +1,235 @@
+[2026-10-13 20:13:42.859] [info] [core] [t6640] Vulkan instance API version 1.4.350. Enabled layers and extensions:
+[2026-10-13 20:13:42.859] [info] [core] [t6640] * VK_KHR_surface
+[2026-10-13 20:13:42.859] [info] [core] [t6640] * VK_KHR_win32_surface
+[2026-10-13 20:13:42.859] [info] [core] [t6640] * VK_EXT_debug_utils
+[2026-10-13 20:13:42.859] [info] [core] [t6640] * VK_KHR_portability_enumeration
+[2026-10-13 20:13:42.860] [warning] [core] [t6640] Available Vulkan physical devices (use the 'vulkan_device' configuration variable to force a specific device):
+[2026-10-13 20:13:42.860] [warning] [core] [t6640] * 0: Intel(R) Arc(TM) B580 Graphics
+[2026-10-13 20:13:42.860] [warning] [core] [t6640] * 1: AMD Radeon(TM) Graphics
+[2026-10-13 20:13:42.861] [info] [core] [t6640] Vulkan device 'Intel(R) Arc(TM) B580 Graphics': API 1.4.356, vendor 0x8086, device 0xE20B, driver version 0x196320
+[2026-10-13 20:13:42.861] [info] [core] [t6640] Enabled Vulkan device extensions:
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * VK_KHR_swapchain
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * VK_EXT_shader_stencil_export
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * VK_EXT_fragment_shader_interlock
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * VK_EXT_memory_budget
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * VK_EXT_custom_border_color
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * VK_EXT_robustness2
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * VK_EXT_non_seamless_cube_map
+[2026-10-13 20:13:42.861] [info] [core] [t6640] Vulkan device properties and enabled features:
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * driverID: IntelProprietaryWindows
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * driverName: Intel Corporation
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * driverInfo: 101.8992
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * conformanceVersion: 1.4.0.0
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxImageDimension2D: 16384
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxImageDimension3D: 2048
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxImageDimensionCube: 16384
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxImageArrayLayers: 2048
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxStorageBufferRange: 4294967292
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxSamplerAllocationCount: 4000
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxPerStageDescriptorSamplers: 33554432
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxPerStageDescriptorStorageBuffers: 33554432
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxPerStageDescriptorSampledImages: 33554432
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxPerStageResources: 33554432
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxVertexOutputComponents: 128
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxTessellationEvaluationOutputComponents: 128
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxGeometryInputComponents: 128
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxGeometryOutputComponents: 128
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxFragmentInputComponents: 128
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxFragmentCombinedOutputResources: 33554440
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxSamplerAnisotropy: 16
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxViewportDimensions[0]: 32768
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxViewportDimensions[1]: 32768
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * minUniformBufferOffsetAlignment: 64
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * minStorageBufferOffsetAlignment: 64
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxFramebufferWidth: 16384
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxFramebufferHeight: 16384
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * framebufferColorSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * framebufferDepthSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * framebufferStencilSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * framebufferNoAttachmentsSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * sampledImageColorSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * sampledImageIntegerSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * sampledImageDepthSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * sampledImageStencilSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * standardSampleLocations: 1
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * optimalBufferCopyOffsetAlignment: 64
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * optimalBufferCopyRowPitchAlignment: 64
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * nonCoherentAtomSize: 1
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * robustBufferAccess
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * fullDrawIndexUint32
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * independentBlend
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * geometryShader
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * tessellationShader
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * sampleRateShading
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * depthClamp
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * fillModeNonSolid
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * samplerAnisotropy
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * occlusionQueryPrecise
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * vertexPipelineStoresAndAtomics
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * fragmentStoresAndAtomics
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * shaderClipDistance
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * shaderCullDistance
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * sparseBinding
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * sparseResidencyBuffer
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * samplerMirrorClampToEdge
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * uniformBufferStandardLayout
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * scalarBlockLayout
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * shaderDemoteToHelperInvocation
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * dynamicRendering
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * constantAlphaColorBlendFactors
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * imageViewFormatReinterpretation
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * imageViewFormatSwizzle
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * pointPolygons
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * separateStencilMaskRef
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * shaderSampleRateInterpolationFunctions
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * shaderSignedZeroInfNanPreserveFloat32: 1
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * shaderDenormFlushToZeroFloat32: 1
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * shaderRoundingModeRTEFloat32: 1
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * fragmentShaderSampleInterlock
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * fragmentShaderPixelInterlock
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * nonSeamlessCubeMap
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * customBorderColors
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * customBorderColorWithoutFormat
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * maxCustomBorderColorSamplers: 4096
+[2026-10-13 20:13:42.861] [info] [core] [t6640] * nullDescriptor
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message): Inserted device layer "VK_LAYER_RTSS" (C:\Program Files (x86)\RivaTuner Statistics Server\Vulkan\RTSSVkLayer64.dll) (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message): Inserted device layer "VK_LAYER_OBS_HOOK" (C:\ProgramData\obs-studio-hook\graphics-hook64.dll) (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message): Failed to find vkGetDeviceProcAddr in layer "C:\Windows\System32\DriverStore\FileRepository\u0420529.inf_amd64_94ad5a6c4d1a04e2\B419765\amdvlk64.dll" (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message): vkCreateDevice layer callstack setup to: (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):    <Application> (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):      || (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):    <Loader> (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):      || (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):    VK_LAYER_OBS_HOOK (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):            Type: Implicit (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):            Enabled By: Implicit Layer (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):                Disable Env Var:  DISABLE_VULKAN_OBS_CAPTURE (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):            Manifest: C:\ProgramData\obs-studio-hook\obs-vulkan64.json (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):            Library:  C:\ProgramData\obs-studio-hook\graphics-hook64.dll (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):      || (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):    VK_LAYER_RTSS (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):            Type: Implicit (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):            Enabled By: Implicit Layer (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):                Disable Env Var:  DISABLE_RTSS_LAYER (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):            Manifest: C:\Program Files (x86)\RivaTuner Statistics Server\Vulkan\RTSSVkLayer64.json (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):            Library:  C:\Program Files (x86)\RivaTuner Statistics Server\Vulkan\RTSSVkLayer64.dll (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):      || (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):    <Device> (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:42.861] [info] [gpu] [t6640] Vulkan Info ({ General }, ID 0: Loader Message):        Using "Intel(R) Arc(TM) B580 Graphics" with driver: "C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch_d.inf_amd64_62b87437c1961b1b\igvk64.dll" (object 0: Instance 0x1dca7467050)
+[2026-10-13 20:13:43.242] [info] [core] [t6640] VulkanPresenter: Created 2560x1440 swapchain with format 44, color space 0, presentation mode 0 (IMMEDIATE (intervalo 0)), 4 images requested
+[2026-10-13 20:13:43.242] [info] [core] [t6640] Presenter: modo de pintado -> desde el hilo del juego, presentando en el acto (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 20:13:43.242] [info] [sys] [t6640] Guest memory arena mapped: virtual base 0x0000000100000000, physical base 0x0000000200000000
+[2026-10-13 20:13:43.283] [info] [fs] [t6640] [io] montado 'C:\bo3recomp\runtime\game' en \Device\Harddisk0\Partition1: 394 entradas en 1.7 ms (solo lectura)
+[2026-10-13 20:13:43.285] [info] [fs] [t6640] [io] montado 'C:\bo3recomp\runtime\update' en \Device\Harddisk0\PartitionUpdate: 430 entradas en 2.1 ms (solo lectura)
+[2026-10-13 20:13:43.285] [warning] [gpu] [t21368] BO3 NATIVE diagnostic: F8 toggles scene color, F9 toggles scene depth; normal presentation initially active
+[2026-10-13 20:13:43.286] [info] [gpu] [t21368] BO3 native framebuffer sample masks: color=F depth=F stencil=F
+[2026-10-13 20:13:43.294] [info] [gpu] [t21368] BO3 NATIVE backend active: own Vulkan targets/pipelines/submissions, 16-MiB upload arena; no Xenos draw backend. Device=Intel(R) Arc(TM) B580 Graphics geometryShader=true depthClamp=true preciseCoverage=true
+[2026-10-13 20:13:43.295] [info] [core] [t6640] Function table initialized for module: code=82140000-82AB5CC0, image=82000000-848D0000
+[2026-10-13 20:13:43.408] [warning] [core] [t6640] SDL GameControllerDB: file 'gamecontrollerdb.txt' does not exist.
+[2026-10-13 20:13:43.408] [info] [core] [t6640] SDL input driver initialized successfully
+[2026-10-13 20:13:43.593] [info] [core] [t6640] XEX patch applied successfully: base version: 0.0.0.5, new version: 0.0.8.5
+[2026-10-13 20:13:43.596] [info] [sys] [t6640] [guardado] cabecera de «A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164» escrita en C:\bo3recomp\runtime\user\0000000000000000\4156091D\Headers\00000002\A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164.header
+[2026-10-13 20:13:43.596] [info] [core] [t6640] BO3 content header A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164: result 00000000, original license FFFFFFFF
+[2026-10-13 20:13:43.596] [info] [sys] [t6640] [guardado] cabecera de «4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341» escrita en C:\bo3recomp\runtime\user\0000000000000000\4156091D\Headers\00000002\4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341.header
+[2026-10-13 20:13:43.596] [info] [core] [t6640] BO3 content header 4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341: result 00000000, original license FFFFFFFF
+[2026-10-13 20:13:43.596] [info] [sys] [t6640] [guardado] cabecera de «2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41» escrita en C:\bo3recomp\runtime\user\0000000000000000\4156091D\Headers\00000002\2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41.header
+[2026-10-13 20:13:43.596] [info] [core] [t6640] BO3 content header 2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41: result 00000000, original license 00000001
+[2026-10-13 20:13:43.597] [info] [sys] [t6640] [guardado] cabecera de «D0288B47455419D4F8862B84CCC508126F84816A41» escrita en C:\bo3recomp\runtime\user\0000000000000000\4156091D\Headers\00000002\D0288B47455419D4F8862B84CCC508126F84816A41.header
+[2026-10-13 20:13:43.597] [info] [core] [t6640] BO3 content header D0288B47455419D4F8862B84CCC508126F84816A41: result 00000000, original license 00000001
+[2026-10-13 20:13:43.602] [info] [sys] [t6640] [guardado] listar tipo 00000002 en C:\bo3recomp\runtime\user\0000000000000000\4156091D\00000002: 4 entrada(s)
+[2026-10-13 20:13:43.602] [info] [sys] [t6640] [guardado]   «2CCE693B22906AC3DC61772C3A0CABCCD1DA0C8F41» (mostrado como «The Giant»)
+[2026-10-13 20:13:43.602] [info] [sys] [t6640] [guardado]   «4FD64D1A99FF002F54CEE0FE922808E1D2D21A5341» (mostrado como «Compatibility Pack 2»)
+[2026-10-13 20:13:43.602] [info] [sys] [t6640] [guardado]   «A92CACF8DF6D9DB1C32970035A6B8B63B09C2F164» (mostrado como «Compatibility Pack 1»)
+[2026-10-13 20:13:43.602] [info] [sys] [t6640] [guardado]   «D0288B47455419D4F8862B84CCC508126F84816A41» (mostrado como «Awakening»)
+[2026-10-13 20:13:43.602] [info] [core] [t6640] BO3 common marketplace packages available: 4
+[2026-10-13 20:13:43.605] [info] [core] [t6640] Presenter: modo de pintado -> en el hilo de la interfaz, a peticion (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 20:13:43.614] [info] [core] [t6640] [presentador] adquisicion esperada en la CPU (present_esperar_adquisicion_en_cpu) = no
+[2026-10-13 20:13:43.614] [info] [core] [t6640] Presenter: modo de pintado -> desde el hilo del juego, presentando en el acto (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 20:13:43.615] [info] [core] [t6640] Initializing shader storage for title 4156091D...
+[2026-10-13 20:13:43.618] [info] [core] [t6640] Presenter: modo de pintado -> en el hilo de la interfaz, a peticion (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 20:13:43.619] [info] [core] [t6640] Presenter: modo de pintado -> desde el hilo del juego, presentando en el acto (vsync implicito no, dibujantes de interfaz 0)
+[2026-10-13 20:13:43.620] [warning] [krnl] [t8660] __imp__XamMediaVerificationCreate STUB
+[2026-10-13 20:13:43.632] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.634] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.641] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\fc_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.645] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\as_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.650] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\br_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.658] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\ko_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.661] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.662] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\cz_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.664] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\fj_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.671] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\ar_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.676] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\tc_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.677] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\sc_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.683] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\eg_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.687] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\ej_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.689] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\he_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.691] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.693] [warning] [krnl] [t8660] __imp__XGetDisplaySize STUB
+[2026-10-13 20:13:43.694] [info] [gpu] [t8660] SetInterruptCallback(826F0870, BE428F80)
+[2026-10-13 20:13:43.695] [info] [gpu] [t21368] BO3 native shader VS B6C9863F710683EC: 4 instructions -> 979 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 00000000
+[2026-10-13 20:13:43.695] [info] [gpu] [t21368] BO3 native shader PS A4A965C189287B99: 1 instructions -> 906 SPIR-V words; interpolators 0001, colours 1, textures 00000000, vertex fetches 00000000
+[2026-10-13 20:13:43.695] [warning] [gpu] [t21368] BO3 NATIVE unsupported: primitive_1 (packet consumed, draw not submitted)
+[2026-10-13 20:13:43.695] [warning] [gpu] [t21368] BO3 NATIVE unsupported: primitive_1 (packet consumed, draw not submitted)
+[2026-10-13 20:13:43.696] [warning] [krnl] [t8660] [NtCreateFile] FAILED: path='update:\discdata\SplashScreen.xpr' -> 0xc000000f
+[2026-10-13 20:13:43.696] [warning] [krnl] [t8660] [NtCreateFile] FAILED: path='game:\discdata\SplashScreen.xpr' -> 0xc000000f
+[2026-10-13 20:13:43.696] [info] [gpu] [t21368] BO3 native shader VS 1E6883FCCDE1F688: 5 instructions -> 1985 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 00000001
+[2026-10-13 20:13:43.703] [info] [gpu] [t21368] BO3 native shared depth 640x720 base=1328 samples=4 format=129
+[2026-10-13 20:13:43.703] [info] [gpu] [t21368] BO3 native target 640x720 format 0 color base 0 depth base 1328 samples=4 depthOnly=true
+[2026-10-13 20:13:43.703] [info] [gpu] [t21368] BO3 native scene pipeline: VS=1E6883FCCDE1F688 PS=0000000000000000 depth=00008777 mask=0000FFFF raster=00010000 vte=00000300 clip=00010000
+[2026-10-13 20:13:43.703] [info] [gpu] [t21368] BO3 native rectangle: VS=1E6883FCCDE1F688 PS=0000000000000000 count=3 depth=00008777 mask=00000000 vte=00000300 clip=00010000 stencil=00FF0000 viewport=0,0 640x720 z=0,1
+[2026-10-13 20:13:43.703] [info] [gpu] [t21368] BO3 native fast clear not recognized: reason=nonconstant_endpoint_depth VSsha=abfec28e9858fd1b9b27afd527f08421c38f288e9333cc7fc10d6391ac190fa9 PSsha=none indexed=false count=3 base=0
+[2026-10-13 20:13:43.703] [info] [gpu] [t21368] BO3 NATIVE submitted draw 1: VS 1E6883FCCDE1F688 PS 0000000000000000 3 vertices 640x720 depthOnly=true depthState=00008777
+[2026-10-13 20:13:43.703] [info] [gpu] [t21368] BO3 native shader VS AB1E86137A0240E8: 2 instructions -> 1349 SPIR-V words; interpolators FFFF, colours 0, textures 00000000, vertex fetches 00000001
+[2026-10-13 20:13:43.703] [info] [gpu] [t21368] BO3 native pending resolve: destination=1DB98000 bytes=3768320 depth=false sourceBase=1328 sourceFormat=0 destFormat=6 samples=0 select=0 exponent=0 endian=0 rect=1280x720
+[2026-10-13 20:13:43.703] [warning] [gpu] [t21368] BO3 NATIVE unsupported: native_resolve_source_missing (packet consumed, draw not submitted)
+[2026-10-13 20:13:43.703] [info] [gpu] [t21368] BO3 native pending resolve: destination=1D7E8000 bytes=3768320 depth=false sourceBase=1328 sourceFormat=0 destFormat=6 samples=0 select=0 exponent=0 endian=0 rect=1280x720
+[2026-10-13 20:13:43.703] [warning] [gpu] [t21368] BO3 NATIVE unsupported: native_resolve_source_missing (packet consumed, draw not submitted)
+[2026-10-13 20:13:43.707] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 20:13:43.709] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 20:13:43.710] [info] [gpu] [t21368] BO3 NATIVE progress: swaps=1 packets=27 submitted=1 depthOnlySubmitted=1 pixelShaderBypassed=0 copies=2 exports=0 targets=1 depthSurfaces=1 textures=0 pipelines=1 imageMiB=9 frontbuffer=1DB98000
+[2026-10-13 20:13:43.710] [info] [gpu] [t21368] BO3 NATIVE depth clears: requests=0 applied=0 histories=0
+[2026-10-13 20:13:43.710] [info] [gpu] [t21368] BO3 NATIVE rectangles: submitted=1 shaderVariants=1
+[2026-10-13 20:13:43.710] [info] [gpu] [t21368] BO3 NATIVE resolve ownership: destinations=2 recorded=0 gpuReads=0 surfaces=0 unavailableCpuRanges=2
+[2026-10-13 20:13:43.710] [info] [gpu] [t21368] BO3 NATIVE fast clears: requests=0 aliasApplications=0 histories=0
+[2026-10-13 20:13:43.710] [info] [gpu] [t21368] BO3 NATIVE skipped native_resolve_source_missing: 2
+[2026-10-13 20:13:43.710] [info] [gpu] [t21368] BO3 NATIVE skipped primitive_1: 24
+[2026-10-13 20:13:43.710] [info] [gpu] [t21368] BO3 NATIVE target activity: base=0 depth=1328 640x720 format=0 samples=4 draws=1 presented=false depthOnly=true
+[2026-10-13 20:13:43.710] [info] [gpu] [t21368] BO3 NATIVE diagnostic presentation ready; guest resolve parity is pending
+[2026-10-13 20:13:43.711] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 20:13:43.717] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 20:13:43.722] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 20:13:43.734] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 20:13:43.737] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\core_pre_gfx.xpak' -> 0xc000000f
+[2026-10-13 20:13:43.737] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.739] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 20:13:43.740] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.741] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 20:13:43.744] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\fc_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.745] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\as_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.747] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\br_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.748] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\ko_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.750] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\ja_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.753] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\cz_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.754] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\fj_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.758] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\ar_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.760] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\tc_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.764] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\sc_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.766] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\eg_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.767] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\ej_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.769] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\he_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.771] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\ea_core_patch.ff' -> 0xc000000f
+[2026-10-13 20:13:43.813] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-13 20:13:43.819] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 20:13:43.821] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-13 20:13:43.824] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 20:13:44.185] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_core_patch.xpak' -> 0xc000000f
+[2026-10-13 20:13:44.188] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 20:13:44.190] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 20:13:44.212] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_core_gfx.xpak' -> 0xc000000f
+[2026-10-13 20:13:44.218] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 20:13:44.220] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_core_gfx.xpak' -> 0xc000000f
+[2026-10-13 20:13:44.222] [warning] [krnl] [t15036] [NtCreateFile] FAILED: path='D:\en_disc_core.xpak' -> 0xc000000f
+[2026-10-13 20:14:36.510] [info] [core] [t6640] Window closing, shutting down...
+[2026-10-13 20:14:36.516] [info] [core] [t8944] Execution complete
+[2026-10-13 20:14:36.710] [info] [core] [t6640] Title terminated; hard-exiting process.

@@ -11,6 +11,8 @@
 #include "texture_upload.h"
 #include "resolve_ownership.h"
 #include "color_resolve.h"
+#include "pipeline_state.h"
+#include "texture_validity.h"
 #include <mutex>
 #include "sha256.h"
 #include <rex/graphics/command_processor.h>
@@ -43,7 +45,9 @@ using rex::ui::vulkan::VulkanDevice;
 using rex::ui::vulkan::VulkanProvider;
 using rex::ui::vulkan::VulkanPresenter;
 constexpr uint32_t kArenaBytes = 16 * 1024 * 1024;
-constexpr uint32_t kBatchDraws = 32;
+constexpr uint32_t kBatchDraws = 128;
+constexpr uint32_t kBatchResolves = 32;
+enum class FlushReason { Other, DrawLimit, Arena, Export, ResolveLimit, Presentation, Readback, RingEnd, Wait, Count };
 using PerfClock = std::chrono::steady_clock;
 static double Milliseconds(PerfClock::time_point start) { return std::chrono::duration<double, std::milli>(PerfClock::now() - start).count(); }
 struct TimedScope {
@@ -112,7 +116,7 @@ struct Pipeline {
   uint32_t depth_state = 0, color_mask = 0;
   bool rectangle = false;
 };
-struct Texture { Image image; VkSampler sampler{}; std::array<uint64_t, 2> content{}; bool gpu_resolved = false; };
+struct Texture { Image image; VkSampler sampler{}; std::array<uint64_t, 2> content{}; bool gpu_resolved = false; uint64_t batch = 0, use = 0; TextureValidity validity; };
 
 struct ResolvePipeline { Pipeline gpu; VkRenderPass pass{}; };
 struct ResolvedSurface {
@@ -129,6 +133,9 @@ class NativeCommandProcessor final : public CommandProcessor {
   Shader* LoadShader(xenos::ShaderType type, uint32_t, const uint32_t* data, uint32_t count) override;
   bool IssueDraw(xenos::PrimitiveType primitive, uint32_t count, IndexBufferInfo* indices, bool major) override;
   bool IssueCopy() override;
+  void PrepareForWait() override;
+  void OnPrimaryBufferEnd() override;
+  void MakeCoherent() override;
  private:
   const VulkanDevice* gpu_ = nullptr;
   PFN_vkCmdClearDepthStencilImage clear_depth_ = nullptr;
@@ -195,12 +202,18 @@ class NativeCommandProcessor final : public CommandProcessor {
   bool draw_probe_diagnostic_ = false;
   bool pending_work_ = false;
   uint32_t batch_draws_ = 0;
+  uint32_t batch_draw_allocations_ = 0, batch_resolves_ = 0;
+  uint64_t batch_serial_ = 0, texture_use_ = 0, texture_evictions_ = 0;
   uint64_t export_copies_ = 0;
   std::vector<uint8_t> export_snapshot_;
   struct Timings {
     double texture = 0, exports = 0, shader = 0, pipeline = 0, wait = 0;
     double export_plan = 0, export_guards = 0, export_snapshot = 0, export_write = 0, export_thread = 0;
+    double guest_guards=0;
+    uint64_t guest_checks=0;
     uint64_t submissions = 0, upload_bytes = 0, linear_bytes = 0, tiled_bytes = 0, export_snapshot_bytes = 0;
+    uint64_t texture_hash_bytes = 0, texture_hits = 0, texture_misses = 0;
+    std::array<uint64_t, size_t(FlushReason::Count)> flushes{};
   } timings_;
   PerfClock::time_point last_perf_ = PerfClock::now();
   uint64_t last_perf_swaps_ = 0;
@@ -215,7 +228,7 @@ class NativeCommandProcessor final : public CommandProcessor {
   VkDevice D() const { return gpu_->device(); }
   uint32_t MemoryType(uint32_t allowed, uint32_t preferred);
   void Begin();
-  void Submit();
+  void Submit(FlushReason reason = FlushReason::Other);
   void Transition(Image& image, VkImageLayout layout, VkImageAspectFlags aspect = VK_IMAGE_ASPECT_COLOR_BIT);
   Image CreateImage(uint32_t width, uint32_t height, VkFormat format, VkImageUsageFlags usage,
                     VkImageAspectFlags aspect = VK_IMAGE_ASPECT_COLOR_BIT, VkComponentMapping mapping = {},
@@ -235,7 +248,9 @@ class NativeCommandProcessor final : public CommandProcessor {
   void ClearResolvedColor(const draw_util::ResolveInfo& info);
   ResolvePipeline* GetResolvePipeline(VkFormat format, bool multisampled);
   Texture* GetResolvedTexture(const TextureUploadPlan& plan, const xenos::xe_gpu_texture_fetch_t& fetch, uint32_t kind);
+  std::vector<ResolvedSurface*> FindResolvedTextures(const TextureUploadPlan& plan, const xenos::xe_gpu_texture_fetch_t& fetch, uint32_t kind);
   Texture* EnsureTexture(const TextureUploadPlan& plan, const xenos::xe_gpu_texture_fetch_t& fetch, uint32_t kind);
+  void EvictTexture(const std::array<uint32_t, 7>& protected_key);
   Target* FindResolveSource(const draw_util::ResolveInfo& info, ResolveRect rectangle);
   void DrainResolveInvalidations();
   void InvalidateResolvedRange(uint32_t address, uint32_t size);
@@ -266,6 +281,7 @@ uint32_t NativeCommandProcessor::MemoryType(uint32_t allowed, uint32_t preferred
   return std::countr_zero(mask);
 }
 const uint8_t* NativeCommandProcessor::Guest(uint32_t address, uint32_t size) {
+  TimedScope time(timings_.guest_guards);++timings_.guest_checks;
   if (uint64_t(address) + size > 0x20000000) throw Unsupported("physical_range");
   const auto* pointer = memory_->TranslatePhysical<const uint8_t*>(address);
   if (!PhysicalAccessible(*memory_->GetPhysicalHeap(), address, size)) throw Unsupported("unreadable_guest_range");
@@ -319,9 +335,9 @@ bool NativeCommandProcessor::SetupContext() {
       REXGPU_INFO("BO3 native coverage probe active: first four draws per scene/rectangle pipeline; precise={}", gpu_->properties().occlusionQueryPrecise);
     }
     const VkDescriptorPoolSize sizes[] = {{VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 5 * kBatchDraws},
-      {VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, kBatchDraws}, {VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 32 * kBatchDraws}, {VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, 1}};
+      {VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, kBatchDraws}, {VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 32 * kBatchDraws}, {VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, kBatchResolves + 1}};
     VkDescriptorPoolCreateInfo desc{VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO};
-    desc.maxSets = 3 * kBatchDraws; desc.poolSizeCount = 4; desc.pPoolSizes = sizes;
+    desc.maxSets = 3 * kBatchDraws + kBatchResolves + 1; desc.poolSizeCount = 4; desc.pPoolSizes = sizes;
     Check(F().vkCreateDescriptorPool(D(), &desc, nullptr, &descriptors_), "descriptor pool");
     VkBufferCreateInfo buffer{VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO};
     buffer.size = kArenaBytes; buffer.usage = VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT | VK_BUFFER_USAGE_STORAGE_BUFFER_BIT |
@@ -346,7 +362,7 @@ void NativeCommandProcessor::Begin() {
   if (recording_) throw std::runtime_error("Native command buffer already recording");
   // The previous Submit retired its fence. Reset uploads/descriptors only at
   // batch boundaries, never while recorded draws still reference them.
-  cursor_ = 16384; batch_draws_ = 0;
+  cursor_ = 16384; batch_draws_ = 0; batch_draw_allocations_ = 0; batch_resolves_ = 0; ++batch_serial_;
   pending_work_ = false;
   Check(F().vkResetDescriptorPool(D(), descriptors_, 0), "reset batch descriptors");
   Check(F().vkResetCommandPool(D(), command_pool_, 0), "reset command pool");
@@ -356,7 +372,7 @@ void NativeCommandProcessor::Begin() {
   if (coverage_queries_) F().vkCmdResetQueryPool(command_, coverage_queries_, 0, kBatchDraws);
   recording_ = true;
 }
-void NativeCommandProcessor::Submit() {
+void NativeCommandProcessor::Submit(FlushReason reason) {
   TimedScope time(timings_.wait);
   if (!recording_) throw std::runtime_error("Native command buffer is not recording");
   Check(F().vkEndCommandBuffer(command_), "end command");
@@ -370,6 +386,7 @@ void NativeCommandProcessor::Submit() {
     Check(F().vkQueueSubmit(queue.queue(), 1, &submit, fence_), "queue submit"); }
   Check(F().vkWaitForFences(D(), 1, &fence_, VK_TRUE, UINT64_MAX), "native completion fence");
   ++timings_.submissions;
+  ++timings_.flushes[size_t(reason)];
   for (const auto& probe : coverage_probes_) {
     uint64_t samples = 0;
     Check(query_results_(D(), coverage_queries_, probe.query, 1, sizeof(samples), &samples, sizeof(samples), VK_QUERY_RESULT_64_BIT), "native coverage result");
@@ -377,6 +394,23 @@ void NativeCommandProcessor::Submit() {
     REXGPU_INFO("BO3 NATIVE coverage: swap={} rectangle={} VS={:016X} PS={:016X} extent={}x{} msaa={} depth={:08X} mask={:08X} passedSamples={} precise={}", probe.swap, p.rectangle, p.vs_hash, p.ps_hash, t.color.width, t.color.height, uint32_t(t.color.samples), p.depth_state, p.color_mask, samples, gpu_->properties().occlusionQueryPrecise);
   }
   coverage_probes_.clear();
+}
+void NativeCommandProcessor::PrepareForWait() {
+  if(recording_)Submit(FlushReason::Wait);
+}
+void NativeCommandProcessor::OnPrimaryBufferEnd() {
+  // At the end of a ring chunk, retire work that guest completion waits may
+  // depend on. The parser also publishes intermediate consumption pointers.
+  if(recording_)Submit(FlushReason::RingEnd);
+  // The PM4 parser performs direct physical fence/query writes without a
+  // virtual-alias fault. Limit clean reuse to a ring chunk conservatively.
+  for(auto& [key,texture]:textures_)if(texture)texture->validity.clean=false;
+}
+void NativeCommandProcessor::MakeCoherent() {
+  const auto status=register_file_->Get<reg::COHER_STATUS_HOST>();
+  if(status.status && status.tc_action_ena)
+    for(auto& [key,texture]:textures_)if(texture)texture->validity.clean=false;
+  CommandProcessor::MakeCoherent();
 }
 Image NativeCommandProcessor::CreateImage(uint32_t width, uint32_t height, VkFormat format, VkImageUsageFlags usage,
                                          VkImageAspectFlags aspect, VkComponentMapping mapping, VkSampleCountFlagBits samples,
@@ -593,6 +627,7 @@ const TextureUploadPlan& NativeCommandProcessor::GetTexturePlan(const xenos::xe_
   catch (const TextureUploadError& error) { throw Unsupported(error.what()); }
 }
 Texture* NativeCommandProcessor::GetTexture(uint32_t slot, uint32_t kind) {
+  DrainResolveInvalidations();
   TimedScope time(timings_.texture);
   const auto fetch = register_file_->GetTextureFetch(slot);
   if (!TextureDimensionsCompatible(fetch, kind)) return GetNullTexture(kind);
@@ -604,16 +639,26 @@ Texture* NativeCommandProcessor::GetTexture(uint32_t slot, uint32_t kind) {
   std::span<const uint8_t> base, mips;
   if (plan.base_bytes) base = {Guest(plan.base_address, plan.base_bytes), plan.base_bytes};
   if (plan.mip_bytes) mips = {Guest(plan.mip_address, plan.mip_bytes), plan.mip_bytes};
+  auto* cached=EnsureTexture(plan,fetch,kind);
+  if(!cached->gpu_resolved && cached->validity.clean){++timings_.texture_hits;return cached;}
+  // Arm before hashing so a concurrent write queues invalidation. Permissions
+  // were checked freshly above; virtual write faults and allocation changes
+  // dirty the cache, and direct native exports invalidate explicitly.
+  if(!cached->validity.watched) {
+    if(plan.base_bytes)memory_->EnablePhysicalMemoryAccessCallbacks(plan.base_address,plan.base_bytes,true,false);
+    if(plan.mip_bytes)memory_->EnablePhysicalMemoryAccessCallbacks(plan.mip_address,plan.mip_bytes,true,false);
+    cached->validity.watched=true;
+  }
   const std::array<uint64_t, 2> hash{base.empty() ? 0 : XXH3_64bits(base.data(), base.size()), mips.empty() ? 0 : XXH3_64bits(mips.data(), mips.size())};
-  std::array<uint32_t, 7> key{}; std::memcpy(key.data(), &fetch, sizeof(fetch)); key[6] = kind;
-  auto& cached = textures_[key];
-  if (cached && !cached->gpu_resolved && cached->content == hash) return cached.get();
-  if (!cached && textures_.size() > 256) { textures_.erase(key); throw Unsupported("texture_cache_limit"); }
+  timings_.texture_hash_bytes += base.size() + mips.size();
+  if (!cached->gpu_resolved && cached->content == hash) {
+    cached->validity.clean=true;DrainResolveInvalidations();++timings_.texture_hits;return cached;
+  }
+  ++timings_.texture_misses;
   std::vector<uint8_t> pixels;
   try { pixels = DecodeTextureUpload(plan, base, mips); }
   catch (const TextureUploadError& error) { throw Unsupported(error.what()); }
   if (fetch.tiled || plan.bc) timings_.tiled_bytes += pixels.size(); else timings_.linear_bytes += pixels.size();
-  EnsureTexture(plan, fetch, kind);
   const uint32_t saved = cursor_, offset = Upload(pixels.data(), uint32_t(pixels.size()), 16);
   const bool standalone = !recording_;
   if (standalone) Begin();
@@ -633,13 +678,14 @@ Texture* NativeCommandProcessor::GetTexture(uint32_t slot, uint32_t kind) {
   F().vkCmdCopyBufferToImage(command_, arena_, cached->image.image, cached->image.layout, uint32_t(copies.size()), copies.data());
   Transition(cached->image, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
   if (standalone) { Submit(); cursor_ = saved; }
-  timings_.upload_bytes += pixels.size(); cached->content = hash; cached->gpu_resolved = false; return cached.get();
+  timings_.upload_bytes += pixels.size(); cached->content = hash; cached->gpu_resolved = false;
+  cached->validity.clean=true;DrainResolveInvalidations();return cached;
 }
 
 Texture* NativeCommandProcessor::EnsureTexture(const TextureUploadPlan& plan, const xenos::xe_gpu_texture_fetch_t& fetch, uint32_t kind) {
   std::array<uint32_t, 7> key{}; std::memcpy(key.data(), &fetch, sizeof(fetch)); key[6] = kind;
   auto& cached = textures_[key];
-  if (!cached && textures_.size() > 256) { textures_.erase(key); throw Unsupported("texture_cache_limit"); }
+  if (!cached && textures_.size() > 256) EvictTexture(key);
   if (!cached) {
     auto result = std::make_unique<Texture>();
     VkComponentMapping mapping{};
@@ -670,7 +716,25 @@ Texture* NativeCommandProcessor::EnsureTexture(const TextureUploadPlan& plan, co
     cached = std::move(result);
     if (kind || plan.levels > 1) REXGPU_INFO("BO3 native texture allocation: kind={} {}x{}x{} layers={} levels={} guestBase={:08X} guestMips={:08X} decodedBytes={}", kind, plan.width, plan.height, plan.depth, plan.layers, plan.levels, plan.base_address, plan.mip_address, plan.output_bytes);
   }
+  cached->batch=batch_serial_;cached->use=++texture_use_;
+  cached->validity.base=plan.base_address;cached->validity.base_bytes=plan.base_bytes;
+  cached->validity.mips=plan.mip_address;cached->validity.mip_bytes=plan.mip_bytes;
   return cached.get();
+}
+
+void NativeCommandProcessor::EvictTexture(const std::array<uint32_t, 7>& protected_key) {
+  auto victim=textures_.end();
+  for(auto it=textures_.begin();it!=textures_.end();++it) {
+    if(it->first==protected_key || (it->second && recording_ && it->second->batch==batch_serial_))continue;
+    if(victim==textures_.end() || !it->second || (victim->second && it->second->use<victim->second->use))victim=it;
+  }
+  if(victim==textures_.end())throw Unsupported("texture_cache_all_in_current_batch");
+  // Submit is synchronous: every earlier batch has retired. A texture touched
+  // in the currently recorded batch is protected even if that draw is rejected.
+  if(victim->second) {
+    F().vkDestroySampler(D(),victim->second->sampler,nullptr);DestroyImage(victim->second->image);++texture_evictions_;
+  }
+  textures_.erase(victim);
 }
 
 // Typed zero descriptors are used only for unbound/incompatible guest bindings,
@@ -736,7 +800,8 @@ Pipeline* NativeCommandProcessor::GetPipeline(NativeShader& vs, NativeShader* ps
   const uint32_t color_mask = ps ? draw_util::GetNormalizedColorMask(r, ps->native.colourMask) : 0;
   if (color_mask & 0xfff0) throw Unsupported("shader_mrt");
   if (rectangle && ps && (ps->native.interpolatorMask & ~vs.native.interpolatorMask)) throw Unsupported("rectangle_missing_interpolators");
-  std::vector<uint64_t> key{uint64_t(&vs), uint64_t(ps), uint64_t(target.color.format), uint64_t(target.depth->image.format), uint64_t(target.color.samples), uint64_t(topology), depth.value, raster.value, target.depth_only ? 0u : r[XE_GPU_REG_RB_BLENDCONTROL0], color_mask & 15, uint64_t(rectangle), r[XE_GPU_REG_PA_CL_CLIP_CNTL]};
+  const auto static_state=NativePipelineStateKey(depth,raster,r.Get<reg::RB_BLENDCONTROL>(),rectangle,no_cull_diagnostic_,!target.depth_only && ps && (color_mask & 15),gpu_->properties().depthClamp && r.Get<reg::PA_CL_CLIP_CNTL>().clip_disable);
+  std::vector<uint64_t> key{uint64_t(&vs), uint64_t(ps), uint64_t(target.color.format), uint64_t(target.depth->image.format), uint64_t(target.color.samples), uint64_t(topology), static_state[0], static_state[1], static_state[2], color_mask & 15, uint64_t(rectangle), static_state[3],uint64_t(target.depth_only)};
   auto found = pipelines_.find(key); if (found != pipelines_.end()) return found->second.get();
   if (pipelines_.size() >= 1024) throw Unsupported("pipeline_cache_limit");
   TimedScope time(timings_.pipeline);
@@ -784,7 +849,7 @@ Pipeline* NativeCommandProcessor::GetPipeline(NativeShader& vs, NativeShader* ps
         ? VkStencilOpState{VkStencilOp(depth.stencilfail_bf), VkStencilOp(depth.stencilzpass_bf), VkStencilOp(depth.stencilzfail_bf), VkCompareOp(depth.stencilfunc_bf), 255, 255, 0} : ds.front;
     const auto blend = r.Get<reg::RB_BLENDCONTROL>();
     VkPipelineColorBlendAttachmentState ba{}; ba.colorWriteMask = color_mask & 15;
-    if (!target.depth_only && ps) {
+    if (!target.depth_only && ps && (color_mask & 15)) {
       ba.blendEnable = true; ba.srcColorBlendFactor = BlendFactor(uint32_t(blend.color_srcblend)); ba.dstColorBlendFactor = BlendFactor(uint32_t(blend.color_destblend)); ba.colorBlendOp = BlendOp(uint32_t(blend.color_comb_fcn));
       ba.srcAlphaBlendFactor = BlendFactor(uint32_t(blend.alpha_srcblend)); ba.dstAlphaBlendFactor = BlendFactor(uint32_t(blend.alpha_destblend)); ba.alphaBlendOp = BlendOp(uint32_t(blend.alpha_comb_fcn));
     }
@@ -809,7 +874,6 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
   ++draws_;
   if (failed_) return Reject("backend_disabled_after_failure");
   if (register_file_->Get<reg::RB_MODECONTROL>().edram_mode == xenos::EdramMode::kCopy) return IssueCopy();
-  bool touched_batch = false;
   try {
     if (!count) return true;
     if (count > 1000000) throw Unsupported("draw_count");
@@ -823,7 +887,6 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
     const bool bypass_ps = ps && !draw_util::IsPixelShaderNeededWithRasterization(*ps, *register_file_);
     if (bypass_ps) ps = nullptr;
     if (vs && vs->native.writesMemory) {
-      if (recording_) Submit();
       TimedScope time(timings_.exports);
       ThreadTimedScope thread_time(timings_.export_thread);
       CopyPlan plan;
@@ -843,6 +906,7 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
       }
       // Prior native submissions have retired. Snapshot every source byte
       // before exposing any output; all range guards have already passed.
+      if (recording_) Submit(FlushReason::Export);
       {
         TimedScope phase(timings_.export_snapshot);
         export_snapshot_.resize(source_bytes);
@@ -884,7 +948,11 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
     // or command recording. Earlier supported draws keep their shared batch.
     for (const auto& binding : pipeline->textures) {
       const auto tf = r.GetTextureFetch(binding.binding % 32);
-      if (TextureDimensionsCompatible(tf, binding.binding / 32)) GetTexturePlan(tf, binding.binding / 32);
+      if (TextureDimensionsCompatible(tf, binding.binding / 32)) {
+        const auto& plan=GetTexturePlan(tf,binding.binding / 32);
+        if(PendingResolve(plan.base_address,plan.base_bytes) || PendingResolve(plan.mip_address,plan.mip_bytes))
+          FindResolvedTextures(plan,tf,binding.binding / 32);
+      }
     }
     uint32_t base = r[XE_GPU_REG_VGT_INDX_OFFSET] & 0xffffff;
     uint32_t highest = count - 1;
@@ -913,13 +981,19 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
       budget += (uint64_t(highest) * vs->native.vertexFetchStride[slot] + vs->native.vertexFetchTail[slot]) * 4 + 4;
     for (const auto& binding : pipeline->textures) {
       const auto tf = r.GetTextureFetch(binding.binding % 32);
-      if (TextureDimensionsCompatible(tf, binding.binding / 32)) budget += GetTexturePlan(tf, binding.binding / 32).output_bytes + 16;
+      if (TextureDimensionsCompatible(tf, binding.binding / 32)) {
+        const auto& plan=GetTexturePlan(tf,binding.binding / 32);
+        // Resolved images are copied on the GPU and consume no upload arena.
+        if(!PendingResolve(plan.base_address,plan.base_bytes) && !PendingResolve(plan.mip_address,plan.mip_bytes))budget += plan.output_bytes + 16;
+      }
     }
-    if (recording_ && (batch_draws_ >= kBatchDraws || budget > kArenaBytes - cursor_)) Submit();
+    if (recording_ && (batch_draw_allocations_ >= kBatchDraws || budget > kArenaBytes - cursor_))
+      Submit(batch_draw_allocations_ >= kBatchDraws ? FlushReason::DrawLimit : FlushReason::Arena);
+    if(budget > kArenaBytes-16384) throw Unsupported("draw_upload_reservation_limit");
     if (!recording_) Begin();
-    touched_batch = true;
     VkDescriptorSet sets[3]{}; VkDescriptorSetAllocateInfo allocation{VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO}; allocation.descriptorPool = descriptors_; allocation.descriptorSetCount = 3; allocation.pSetLayouts = pipeline->sets;
     Check(F().vkAllocateDescriptorSets(D(), &allocation, sets), "draw descriptors");
+    ++batch_draw_allocations_;
     if (indices) index_offset = Upload(host_indices.data(), count * 4, 4);
     std::array<uint32_t, 96 * 4> fetch{};
     for (uint32_t i = 0; i < 96; ++i) { fetch[i * 4] = r[XE_GPU_REG_SHADER_CONSTANT_FETCH_00_0 + i * 2]; fetch[i * 4 + 1] = r[XE_GPU_REG_SHADER_CONSTANT_FETCH_00_0 + i * 2 + 1]; }
@@ -968,7 +1042,7 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
         {host_viewport.ndc_scale[2], host_viewport.ndc_offset[2], float((vte.value >> 8) & 7), 0}};
     static_assert(sizeof(Push) == 48);
     const auto cc = r.Get<reg::RB_COLORCONTROL>(); push.alpha = cc.alpha_test_enable ? uint32_t(cc.alpha_func) : 7; push.ref = r.Get<float>(XE_GPU_REG_RB_ALPHA_REF); push.scale = std::ldexp(1.f, r.Get<reg::RB_COLOR_INFO>().color_exp_bias);
-    if (!host_viewport.xy_extent[0] || !host_viewport.xy_extent[1]) { Submit(); return true; }
+    if (!host_viewport.xy_extent[0] || !host_viewport.xy_extent[1]) return true;
     for (float value : push.ndc) if (!std::isfinite(value)) throw Unsupported("nonfinite_ndc_transform");
     for (float value : push.depth) if (!std::isfinite(value)) throw Unsupported("nonfinite_ndc_transform");
     if (!std::isfinite(viewport.x) || !std::isfinite(viewport.y) || !std::isfinite(viewport.width) || !std::isfinite(viewport.height) || viewport.width <= 0 || std::abs(viewport.height) <= 0 || viewport.width > 4096 || std::abs(viewport.height) > 2048) throw Unsupported("viewport_range");
@@ -976,7 +1050,7 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
     int32_t left = std::min(guest_scissor.offset[0], target->color.width), top = std::min(guest_scissor.offset[1], target->color.height);
     int32_t right = std::min(uint64_t(guest_scissor.offset[0]) + guest_scissor.extent[0], uint64_t(target->color.width));
     int32_t bottom = std::min(uint64_t(guest_scissor.offset[1]) + guest_scissor.extent[1], uint64_t(target->color.height));
-    if (left == right || top == bottom) { Submit(); return true; }
+    if (left == right || top == bottom) return true;
     VkRect2D scissor{{left, top}, {uint32_t(right - left), uint32_t(bottom - top)}};
     float blend[4]; for (uint32_t i = 0; i < 4; ++i) blend[i] = r.Get<float>(XE_GPU_REG_RB_BLEND_RED + i);
     float bias_scale, bias_offset;
@@ -1030,10 +1104,10 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
       depth_scene_ = target; depth_scene_draw_swap_ = swaps_;
       if (!depth_only) { scene_ = target; scene_draw_swap_ = swaps_; }
     }
-    if (batch_draws_ >= kBatchDraws) Submit();
+    if (batch_draw_allocations_ >= kBatchDraws) Submit(FlushReason::DrawLimit);
     if (submitted_ <= 5 || (depth_only && depth_submitted_ <= 5)) REXGPU_INFO("BO3 NATIVE submitted draw {}: VS {:016X} PS {:016X} {} vertices {}x{} depthOnly={} depthState={:08X}", submitted_, vs->ucode_data_hash(), ps ? ps->ucode_data_hash() : 0, count, target->color.width, target->color.height, depth_only, r[XE_GPU_REG_RB_DEPTHCONTROL]);
     if (readback_diagnostic_ && submitted_ <= 5 && target->color.format == VK_FORMAT_R8G8B8A8_UNORM && target->color.samples == VK_SAMPLE_COUNT_1_BIT) {
-      if (recording_) Submit();
+      if (recording_) Submit(FlushReason::Readback);
       REXGPU_INFO("BO3 native draw state: depth={:08X} blend={:08X} raster={:08X} mask={:08X} vte={:08X} viewport={},{} {},{} alpha={} scale={}", r[XE_GPU_REG_RB_DEPTHCONTROL], r[XE_GPU_REG_RB_BLENDCONTROL0], r[XE_GPU_REG_PA_SU_SC_MODE_CNTL], r[XE_GPU_REG_RB_COLOR_MASK], r[XE_GPU_REG_PA_CL_VTE_CNTL], viewport.x, viewport.y, viewport.width, viewport.height, push.alpha, push.scale);
       const uint32_t bytes = target->color.width * target->color.height * 4;
       if (bytes <= kArenaBytes) {
@@ -1042,7 +1116,7 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
         F().vkCmdCopyImageToBuffer(command_, target->color.image, target->color.layout, arena_, 1, &copy);
         VkBufferMemoryBarrier barrier{VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER}; barrier.srcAccessMask = VK_ACCESS_TRANSFER_WRITE_BIT; barrier.dstAccessMask = VK_ACCESS_HOST_READ_BIT; barrier.srcQueueFamilyIndex = barrier.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED; barrier.buffer = arena_; barrier.size = bytes;
         F().vkCmdPipelineBarrier(command_, VK_PIPELINE_STAGE_TRANSFER_BIT, VK_PIPELINE_STAGE_HOST_BIT, 0, 0, nullptr, 1, &barrier, 0, nullptr);
-        Submit();
+        Submit(FlushReason::Readback);
         uint32_t rgb = 0, alpha = 0;
         for (uint32_t i = 0; i < bytes; i += 4) { if (mapped_[i] || mapped_[i + 1] || mapped_[i + 2]) ++rgb; if (mapped_[i + 3]) ++alpha; }
         REXGPU_INFO("BO3 native target readback: draw={} nonzeroRGBpixels={} nonzeroAlphaPixels={} totalPixels={}", submitted_, rgb, alpha, bytes / 4);
@@ -1050,9 +1124,9 @@ bool NativeCommandProcessor::IssueDraw(xenos::PrimitiveType primitive, uint32_t 
     }
     return true;
   } catch (const Unsupported& error) {
-      // A later unsupported texture/state may follow recorded uploads. Submit
-      // those before reusing memory so tracked layouts/content stay truthful.
-      if (recording_ && touched_batch) { try { Submit(); } catch (const std::exception& failure) { failed_ = true; REXGPU_ERROR("BO3 native partial upload submission failed: {}", failure.what()); } }
+      // Keep recorded uploads and their immutable arena/descriptors alive.
+      // Begin only resets storage after a real batch boundary has retired.
+      // Allocation attempts count toward the limit even for rejected draws.
       return Reject(error.what());
     }
     catch (const std::exception& error) { failed_ = true; REXGPU_ERROR("BO3 native draw backend stopped: {}", error.what()); return Reject("native_draw_failure"); }
@@ -1171,9 +1245,9 @@ void NativeCommandProcessor::ApplyDepthClear(Target& target, const DepthClear& c
   if (!target.depth_only) Transition(target.color, VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL);
   Transition(image, VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL, VK_IMAGE_ASPECT_DEPTH_BIT | VK_IMAGE_ASPECT_STENCIL_BIT);
   VkMemoryBarrier barrier{VK_STRUCTURE_TYPE_MEMORY_BARRIER};
-  barrier.srcAccessMask = VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
-  barrier.dstAccessMask = VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
-  constexpr VkPipelineStageFlags stages = VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT;
+  barrier.srcAccessMask = VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+  barrier.dstAccessMask = VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT | VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+  constexpr VkPipelineStageFlags stages = VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
   F().vkCmdPipelineBarrier(command_, stages, stages, 0, 1, &barrier, 0, nullptr, 0, nullptr);
   VkRenderPassBeginInfo render{VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO}; render.renderPass = target.pass; render.framebuffer = target.framebuffer;
   render.renderArea.extent = {image.width, image.height};
@@ -1213,12 +1287,16 @@ void NativeCommandProcessor::InvalidateResolvedRange(uint32_t address,uint32_t s
   const uint64_t end=uint64_t(address)+size;
   for (auto& [key,surface]:resolved_surfaces_) if (address<uint64_t(surface->plan.extent_start)+surface->plan.extent_bytes && end>surface->plan.extent_start)
     surface->coverage.clear();
+  for(auto& [key,texture]:textures_)if(texture)texture->validity.Invalidate(address,size);
 }
 void NativeCommandProcessor::DrainResolveInvalidations() {
   std::lock_guard lock(invalidation_mutex_);
   // Metadata only: no Memory/Vulkan calls under this lock. Keep the reserved
   // queue allocation so guest fault callbacks never grow it.
-  if (invalidate_all_resolves_) for (auto& [key,surface]:resolved_surfaces_) surface->coverage.clear();
+  if (invalidate_all_resolves_) {
+    for (auto& [key,surface]:resolved_surfaces_) surface->coverage.clear();
+    for(auto& [key,texture]:textures_)if(texture){texture->validity.clean=false;texture->validity.watched=false;}
+  }
   else for (auto [address,size]:invalidation_queue_) InvalidateResolvedRange(address,size);
   invalidate_all_resolves_=false;invalidation_queue_.clear();
 }
@@ -1284,6 +1362,7 @@ bool NativeCommandProcessor::ResolveColor(const draw_util::ResolveInfo& info) {
   catch(const ColorResolveError& error){throw Unsupported(error.what());}
   auto* source=FindResolveSource(info,plan.source);
   auto* pipeline=GetResolvePipeline(plan.format,plan.samples>1);
+  if(recording_ && batch_resolves_>=kBatchResolves)Submit(FlushReason::ResolveLimit);
   const std::array<uint32_t,5> key{plan.address,plan.width,plan.height,plan.guest_format,plan.endian};
   auto found=resolved_surfaces_.find(key);
   if(found==resolved_surfaces_.end()) {
@@ -1293,9 +1372,9 @@ bool NativeCommandProcessor::ResolveColor(const draw_util::ResolveInfo& info) {
     try {
       VkFramebufferCreateInfo fb{VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO};fb.renderPass=pipeline->pass;fb.attachmentCount=1;fb.pAttachments=&created->image.view;fb.width=plan.width;fb.height=plan.height;fb.layers=1;
       Check(F().vkCreateFramebuffer(D(),&fb,nullptr,&created->framebuffer),"resolved framebuffer");
-      Begin();Transition(created->image,VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
+      if(!recording_)Begin();Transition(created->image,VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
       VkClearColorValue zero{};VkImageSubresourceRange range{VK_IMAGE_ASPECT_COLOR_BIT,0,1,0,1};
-      F().vkCmdClearColorImage(command_,created->image.image,created->image.layout,&zero,1,&range);Submit();
+      F().vkCmdClearColorImage(command_,created->image.image,created->image.layout,&zero,1,&range);
     }catch(...){if(created->framebuffer)F().vkDestroyFramebuffer(D(),created->framebuffer,nullptr);DestroyImage(created->image);throw;}
     found=resolved_surfaces_.emplace(key,std::move(created)).first;
   }
@@ -1311,7 +1390,8 @@ bool NativeCommandProcessor::ResolveColor(const draw_util::ResolveInfo& info) {
     aggregate.extent_bytes=uint32_t(std::max(uint64_t(plan.extent_start)+plan.extent_bytes,uint64_t(cached->plan.extent_start)+cached->plan.extent_bytes)-aggregate.extent_start);
   }
   cached->plan=aggregate;
-  Begin();
+  if(!recording_)Begin();
+  ++batch_resolves_;
   const bool direct=plan.samples==1 && source->color.format==plan.format && !plan.exponent && !plan.swap_rb;
   if(direct) {
     Transition(source->color,VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);Transition(cached->image,VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
@@ -1332,9 +1412,9 @@ bool NativeCommandProcessor::ResolveColor(const draw_util::ResolveInfo& info) {
     VkViewport viewport{0,0,float(plan.width),float(plan.height),0,1};VkRect2D scissor{{int32_t(plan.destination.x),int32_t(plan.destination.y)},{plan.destination.width,plan.destination.height}};
     F().vkCmdSetViewport(command_,0,1,&viewport);F().vkCmdSetScissor(command_,0,1,&scissor);F().vkCmdDraw(command_,3,1,0,0);F().vkCmdEndRenderPass(command_);pending_work_=true;
   }
-  Transition(cached->image,VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);Submit();
+  Transition(cached->image,VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
   AddResolveCoverage(cached->coverage,plan.destination);cached->sequence=++resolved_sequence_;++resolve_completed_;
-  if(resolve_completed_<=8) REXGPU_INFO("BO3 native color resolve completed: address={:08X} format={} rect={},{} {}x{} samples={} exponent={} direct={}",plan.address,plan.guest_format,plan.destination.x,plan.destination.y,plan.destination.width,plan.destination.height,plan.samples,plan.exponent,direct);
+  if(resolve_completed_<=8) REXGPU_INFO("BO3 native color resolve recorded: address={:08X} format={} rect={},{} {}x{} samples={} exponent={} direct={}",plan.address,plan.guest_format,plan.destination.x,plan.destination.y,plan.destination.width,plan.destination.height,plan.samples,plan.exponent,direct);
   DrainResolveInvalidations();return true;
 }
 void NativeCommandProcessor::ClearResolvedColor(const draw_util::ResolveInfo& info) {
@@ -1359,6 +1439,11 @@ void NativeCommandProcessor::ClearResolvedColor(const draw_util::ResolveInfo& in
   }
   if(!recording_)Begin();Transition(target->color,VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL);
   Transition(target->depth->image,VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL,VK_IMAGE_ASPECT_DEPTH_BIT|VK_IMAGE_ASPECT_STENCIL_BIT);
+  VkMemoryBarrier order{VK_STRUCTURE_TYPE_MEMORY_BARRIER};
+  order.srcAccessMask=VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT|VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
+  order.dstAccessMask=VK_ACCESS_COLOR_ATTACHMENT_READ_BIT|VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT|VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT|VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
+  const auto stages=VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT|VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT|VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT;
+  F().vkCmdPipelineBarrier(command_,stages,stages,0,1,&order,0,nullptr,0,nullptr);
   VkRenderPassBeginInfo render{VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO};render.renderPass=target->pass;render.framebuffer=target->framebuffer;render.renderArea.extent={target->color.width,target->color.height};
   VkClearAttachment attachment{};attachment.aspectMask=VK_IMAGE_ASPECT_COLOR_BIT;attachment.colorAttachment=0;attachment.clearValue.color=value;
   VkClearRect clear{{{int32_t(rectangle.x),int32_t(rectangle.y)},{rectangle.width,rectangle.height}},0,1};
@@ -1366,11 +1451,9 @@ void NativeCommandProcessor::ClearResolvedColor(const draw_util::ResolveInfo& in
   pending_work_=true;target->color_sequence=++color_sequence_;
 }
 
-Texture* NativeCommandProcessor::GetResolvedTexture(const TextureUploadPlan& plan,const xenos::xe_gpu_texture_fetch_t& fetch,uint32_t kind) {
-  DrainResolveInvalidations();
+std::vector<ResolvedSurface*> NativeCommandProcessor::FindResolvedTextures(const TextureUploadPlan& plan,const xenos::xe_gpu_texture_fetch_t& fetch,uint32_t kind) {
   if(kind!=0 || plan.kind!=0 || !fetch.tiled || plan.bc) throw Unsupported("resolved_texture_shape_unimplemented");
   std::vector<ResolvedSurface*> sources;
-  std::vector<uint64_t> versions;
   for(const auto& slice:plan.slices) {
     const uint32_t address=(slice.from_mips ? plan.mip_address : plan.base_address)+slice.source_offset;
     const ResolveRect rectangle{slice.x_blocks*plan.block_width,slice.y_blocks*plan.block_width,slice.width,slice.height};
@@ -1381,11 +1464,19 @@ Texture* NativeCommandProcessor::GetResolvedTexture(const TextureUploadPlan& pla
       if(!found || surface->sequence>found->sequence) found=surface.get();
     }
     if(!found) throw Unsupported("resolved_texture_coverage_or_layout");
-    sources.push_back(found);versions.push_back(found->sequence);
+    sources.push_back(found);
   }
+  return sources;
+}
+Texture* NativeCommandProcessor::GetResolvedTexture(const TextureUploadPlan& plan,const xenos::xe_gpu_texture_fetch_t& fetch,uint32_t kind) {
+  DrainResolveInvalidations();
+  const auto sources=FindResolvedTextures(plan,fetch,kind);
+  std::vector<uint64_t> versions;for(const auto* source:sources)versions.push_back(source->sequence);
   const std::array<uint64_t,2> version{XXH3_64bits(versions.data(),versions.size()*sizeof(uint64_t)),0xB03B03B03B03B03ull};
   auto* texture=EnsureTexture(plan,fetch,kind);
-  if(texture->gpu_resolved && texture->content==version) return texture;
+  texture->validity.clean=false;
+  if(texture->gpu_resolved && texture->content==version) {++timings_.texture_hits;return texture;}
+  ++timings_.texture_misses;
   if(!recording_)Begin();
   Transition(texture->image,VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
   // Levels outside the guest's valid mip range have no backing data. Clear
@@ -1456,16 +1547,14 @@ void NativeCommandProcessor::IssueDepthClear() {
     // Each shared image is cleared once, even when several targets attach it.
     for (auto& [target_key, target] : targets_) if (target->depth == depth.get()) { ApplyDepthClear(*target, clear); break; }
   }
-  if (recording_) Submit();
   if (fresh || depth_clear_requests_ <= 8) REXGPU_INFO("BO3 native guest depth clear: base={} pitch={} format={} samples={} rect={},{} {}x{} packed={:08X} depth={} stencil={} requests={} applied={}", key[0], key[2], key[1], 1u << key[3], x, y, width, height, packed, value, packed & 255, depth_clear_requests_, depth_clear_applied_);
 }
 
 bool NativeCommandProcessor::IssueCopy() {
-  if(recording_)Submit(); DrainResolveInvalidations(); ++copies_;
+  DrainResolveInvalidations(); ++copies_;
   if(failed_)return Reject("backend_disabled_after_failure");
-  bool copied=false;
   draw_util::ResolveInfo info{};bool decoded=false;
-  try {info=DecodeResolveInfo();decoded=true;TrackResolveDestination(info);copied=ResolveColor(info);}
+  try {info=DecodeResolveInfo();decoded=true;TrackResolveDestination(info);ResolveColor(info);}
   catch(const Unsupported& error){if(decoded)InvalidateResolvedRange(info.copy_dest_extent_start,info.copy_dest_extent_length);Reject(error.what());}
   catch(const ColorResolveError& error){if(decoded)InvalidateResolvedRange(info.copy_dest_extent_start,info.copy_dest_extent_length);Reject(error.what());}
   catch(const std::exception& error){failed_=true;REXGPU_ERROR("BO3 native resolve stopped: {}",error.what());}
@@ -1480,11 +1569,13 @@ bool NativeCommandProcessor::IssueCopy() {
       catch(const std::exception& error){failed_=true;REXGPU_ERROR("BO3 native post-resolve depth clear stopped: {}",error.what());}
     }
   }
-  return copied;
+  // Unsupported copies are consumed and reported by native counters, like
+  // unsupported draws. They must not spam the PM4 parser's failure logger.
+  return !failed_;
 }
 
 void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_t height) {
-  if (recording_) Submit();
+  if (recording_) Submit(FlushReason::Presentation);
   ++swaps_;
   if (scene_view_diagnostic_) {
     DWORD foreground_pid = 0;
@@ -1511,6 +1602,9 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
     const double thread_ms = ThreadMilliseconds();
     REXGPU_INFO("BO3 NATIVE timing: {:.2f} swaps/s over {:.0f}ms; queue/fence={:.1f}ms textureWall={:.1f}ms exportWall={:.1f}ms shader={:.1f}ms pipeline={:.1f}ms submissions={} uploadMiB={:.2f} linearMiB={:.2f} tiledMiB={:.2f} exportSnapshotMiB={:.2f}", (swaps_ - last_perf_swaps_) * 1000.0 / std::max(wall, .001), wall, timings_.wait, timings_.texture, timings_.exports, timings_.shader, timings_.pipeline, timings_.submissions, timings_.upload_bytes / 1048576.0, timings_.linear_bytes / 1048576.0, timings_.tiled_bytes / 1048576.0, timings_.export_snapshot_bytes / 1048576.0);
     REXGPU_INFO("BO3 NATIVE export phases: plan={:.1f}ms guards={:.1f}ms snapshot={:.1f}ms writes={:.1f}ms exportThreadCPU={:.1f}ms commandThreadCPU={:.1f}ms", timings_.export_plan, timings_.export_guards, timings_.export_snapshot, timings_.export_write, timings_.export_thread, thread_ms >= 0 && last_thread_ms_ >= 0 ? thread_ms - last_thread_ms_ : -1.0);
+    REXGPU_INFO("BO3 NATIVE guest access: checks={} guardWall={:.1f}ms",timings_.guest_checks,timings_.guest_guards);
+    const auto& f=timings_.flushes;
+    REXGPU_INFO("BO3 NATIVE batch boundaries: other={} drawLimit={} arena={} export={} resolveLimit={} presentation={} readback={} ringEnd={} wait={} textureHits={} textureMisses={} hashMiB={:.2f} textureEvictions={}",f[0],f[1],f[2],f[3],f[4],f[5],f[6],f[7],f[8],timings_.texture_hits,timings_.texture_misses,timings_.texture_hash_bytes/1048576.0,texture_evictions_);
     last_thread_ms_ = thread_ms;
     timings_ = {}; last_perf_ = PerfClock::now(); last_perf_swaps_ = swaps_;
   }
@@ -1518,7 +1612,7 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
     REXGPU_INFO("BO3 NATIVE progress: swaps={} packets={} submitted={} depthOnlySubmitted={} pixelShaderBypassed={} copies={} exports={} targets={} depthSurfaces={} textures={} pipelines={} imageMiB={} frontbuffer={:08X}", swaps_, draws_, submitted_, depth_submitted_, pixel_shader_bypassed_, copies_, export_copies_, targets_.size(), depths_.size(), textures_.size(), pipelines_.size(), image_bytes_ / (1024 * 1024), address);
     REXGPU_INFO("BO3 NATIVE depth clears: requests={} applied={} histories={}", depth_clear_requests_, depth_clear_applied_, depth_clears_.size());
     REXGPU_INFO("BO3 NATIVE rectangles: submitted={} shaderVariants={}", rectangles_submitted_, rectangle_shaders_.size());
-    REXGPU_INFO("BO3 NATIVE resolve ownership: destinations={} completed={} gpuReads={} surfaces={} unavailableCpuRanges={}", resolve_destinations_, resolve_completed_, resolved_reads_, resolved_surfaces_.size(), unavailable_resolves_.ranges().size());
+    REXGPU_INFO("BO3 NATIVE resolve ownership: destinations={} recorded={} gpuReads={} surfaces={} unavailableCpuRanges={}", resolve_destinations_, resolve_completed_, resolved_reads_, resolved_surfaces_.size(), unavailable_resolves_.ranges().size());
     REXGPU_INFO("BO3 NATIVE fast clears: requests={} aliasApplications={} histories={}", fast_clear_requests_, fast_clear_aliases_, fast_depth_clears_.size());
     for (const auto& [reason, count] : unsupported_) REXGPU_INFO("BO3 NATIVE skipped {}: {}", reason, count);
     for (const auto& [key, target] : targets_) if (target->draws || target->color.samples != VK_SAMPLE_COUNT_1_BIT) {
@@ -1615,7 +1709,7 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
           F().vkCmdBindPipeline(command_, VK_PIPELINE_BIND_POINT_GRAPHICS, display_pipeline.pipeline); F().vkCmdBindDescriptorSets(command_, VK_PIPELINE_BIND_POINT_GRAPHICS, display_pipeline.layout, 0, 1, &set, 0, nullptr);
           F().vkCmdSetViewport(command_, 0, 1, &viewport); F().vkCmdSetScissor(command_, 0, 1, &scissor); F().vkCmdDraw(command_, 3, 1, 0, 0);
         }
-        F().vkCmdEndRenderPass(command_); pending_work_ = true; Transition(output, VulkanPresenter::kGuestOutputInternalLayout); Submit();
+        F().vkCmdEndRenderPass(command_); pending_work_ = true; Transition(output, VulkanPresenter::kGuestOutputInternalLayout); Submit(FlushReason::Presentation);
       } catch (...) { F().vkDestroyFramebuffer(D(), framebuffer, nullptr); throw; }
       F().vkDestroyFramebuffer(D(), framebuffer, nullptr); return true;
     });

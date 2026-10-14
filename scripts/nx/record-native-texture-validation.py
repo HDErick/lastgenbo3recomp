@@ -8,7 +8,7 @@ import subprocess
 import struct
 
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--log', default='analysis/native_texture_upload_tests06.log')
+parser.add_argument('--log', default='analysis/native_texture_upload_tests10.log')
 parser.add_argument('--output', default='analysis/native_texture_validation01.json')
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[2]
@@ -16,8 +16,11 @@ log = (root / args.log).read_text()
 texture = re.search(r'(\d+) texture upload checks passed', log)
 ownership = re.search(r'(\d+) resolve ownership checks passed', log)
 resolve = re.search(r'(\d+) color resolve checks passed', log)
-if not texture or not ownership or not resolve:
-    raise SystemExit('All three fixture suites must report success')
+pipeline = re.search(r'(\d+) pipeline state checks passed', log)
+watch = re.search(r'(\d+) texture write-watch checks passed', log)
+guards = re.search(r'Physical allocation guards: PASS \((\d+) cases\)', log)
+if not texture or not ownership or not resolve or not pipeline or not watch or not guards:
+    raise SystemExit('All six fixture suites must report success')
 
 def digest(path):
     with path.open('rb') as stream:
@@ -28,11 +31,20 @@ inputs = ['nx/native/texture_upload.cpp', 'nx/native/texture_upload.h',
           'nx/native/resolve_ownership_test.cpp', 'nx/native/native_gpu.cpp',
           'nx/native/color_resolve.cpp', 'nx/native/color_resolve.h',
           'nx/native/color_resolve_test.cpp',
+          'nx/native/pipeline_state.h', 'nx/native/pipeline_state_test.cpp',
+          'nx/native/texture_validity.h', 'nx/native/texture_watch_test.cpp',
+          'nx/native/physical_access.h', 'nx/native/physical_access_test.cpp',
+          'scripts/nx/prepare-runtime.py',
           'nx/native/CMakeLists.txt', 'nx/native/present.hlsl',
           'scripts/nx/test-native-texture-upload.cmd',
           'build/pc-vulkan/bo3_native_texture_upload_test.exe',
           'build/pc-vulkan/bo3_native_resolve_ownership_test.exe',
           'build/pc-vulkan/bo3_native_color_resolve_test.exe',
+          'build/pc-vulkan/bo3_native_pipeline_state_test.exe',
+          'build/pc-vulkan/bo3_native_texture_watch_test.exe',
+          'build/pc-vulkan/bo3_native_physical_access_test.exe',
+          'tools/nx-sdk/src/system/xmemory.cpp', 'tools/nx-sdk/include/rex/system/xmemory.h',
+          'tools/nx-sdk/src/system/mmio_handler.cpp',
           'build/pc-vulkan/rexruntime.dll',
           'tools/nx-sdk/src/graphics/pipeline/texture/util.cpp',
           'tools/nx-sdk/include/rex/graphics/pipeline/texture/util.h',
@@ -97,6 +109,9 @@ for stage in ['VS', 'PS', 'DepthPS', 'ResolvePS', 'ResolveMSPS']:
 report = {'date': '2026-10-13', 'test_log': args.log,
           'texture_checks': int(texture[1]), 'ownership_checks': int(ownership[1]),
           'color_resolve_checks': int(resolve[1]),
+          'pipeline_state_checks': int(pipeline[1]),
+          'texture_watch_checks': int(watch[1]),
+          'physical_guard_checks': int(guards[1]),
           'game_test_status': 'Offline validation before the authorized game test',
           'gpu_execution_validated': False,
           'limitations': ['CPU fixtures do not prove GPU sampling or complete scene rendering.',
@@ -107,6 +122,6 @@ report = {'date': '2026-10-13', 'test_log': args.log,
           'presentation_modules': modules, 'validator_sha256': digest(validator),
           'inputs': {name: digest(root / name) for name in inputs}}
 (root / args.output).write_text(json.dumps(report, indent=2) + '\n', newline='\n')
-print(f"Recorded {texture[1]} texture checks, {ownership[1]} ownership checks, {resolve[1]} color resolve checks, and {len(modules)} shader modules")
+print(f"Recorded {texture[1]} texture checks, {ownership[1]} ownership checks, {resolve[1]} color resolve checks, {pipeline[1]} pipeline checks, {watch[1]} write-watch checks, {guards[1]} physical guard checks, and {len(modules)} shader modules")
 if any(module['returncode'] for module in modules):
     raise SystemExit('Presentation SPIR-V validation failed')

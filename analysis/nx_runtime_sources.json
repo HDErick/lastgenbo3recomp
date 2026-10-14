@@ -13,7 +13,8 @@
     "Explicit C linkage in generated GCC aliases",
     "Log requested and selected Vulkan render-target path",
     "Optional bounded GPU-thread memexport register snapshots",
-    "Optional PC memexport byte capture around synchronous GPU readback"
+    "Optional PC memexport byte capture around synchronous GPU readback",
+    "Require committed pages in bounded QueryRangeAccess"
   ],
   "patch_files": [
     "include/rex/graphics/bo3_memexport_parity.h",

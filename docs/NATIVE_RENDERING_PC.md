@@ -412,6 +412,51 @@ consumed-packet handling while keeping unsupported counters is a follow-up.
 Evidence: `analysis/pc_native_backend_boot27_color_resolves_snapshot.log` and
 `analysis/pc_native_provenance29_test.json`.
 
+Run 27 subsequently reached The Giant. The user's F9 screenshot shows
+recognizable world structures and zombies in the native depth buffer. Normal
+color view is mostly black with some content, and gameplay is too slow to
+inspect. Three nearby 30-swap reports show 0.67–0.88 swaps/s, with 13.4–20.0 s
+in submission/fence scopes, 4.8–7.1 s in texture scopes and 5.2–11.2 s in pipeline
+creation. Translation itself takes only 14–48 ms in those intervals. The run
+ends with user window closure. This establishes depth geometry progress, not
+complete native gameplay or correct color/depth parity.
+
+Builds 49–51 reduce unnecessary batch flushes, preflight resolve coverage,
+protect current-batch images during texture eviction and canonicalize static
+pipeline state. They add flush/hash/cache counters. Run 28 stalled after one
+swap and was closed; build 51 restores startup target-clear submissions and
+adds command-ring/wait retirement. The exact stall cause is unconfirmed. Run 29
+is advancing past startup, with early frontend reports around 30–34 swaps/s;
+in-game improvement remains unverified. All 88 CPU checks and five structural
+shader validations pass. Driver behavior and scene regression remain test gates.
+See [native performance evidence](../analysis/NATIVE_PERFORMANCE.md).
+
+The user confirmed faster menus in run 29 but still unplayable gameplay. Its
+normal view contains faint scene detail and apparent red trails when moving;
+a missing clear/overwrite/compositing operation or target ownership is plausible
+but unconfirmed. F9 was not tested. In-game counters remain 1.03–1.56 swaps/s,
+with roughly 15–20 GiB hashed and 1,500–1,800 submissions per 30 swaps. The run
+closed normally.
+
+Build 54 allows 128 draws per batch and reuses watched CPU texture contents
+within a command-ring chunk. Every lookup still checks memory permissions;
+base/mip write faults, allocation changes, native exports and coherency actions
+invalidate reuse. Ring ends expire clean reuse for direct PM4 writers. Ten
+actual SDK write-watch fixtures bring the total to 98 CPU checks; shader
+validation still passes all five modules. Run 30 reduced measured hash traffic
+to around 415–418 MiB and submissions to 452–480 per 30 in-game swaps, but
+presentation still falls around 1.4–1.6 swaps/s. The user confirms F9 geometry
+still looks correct, normal view remains faulty and gameplay unplayable. They
+closed the test. These samples are not a matched-scene performance comparison.
+
+Build 55 replaces whole-allocation permission-region scans with locked checks
+of only the pages needed by each input span. The staged SDK's bounded
+`QueryRangeAccess` now rejects uncommitted pages as well as inaccessible ones;
+this adaptation is reproduced by `prepare-runtime.py`. Fresh checks remain
+on every lookup, with no permission cache. Ten guard fixtures bring the total
+to 108 CPU checks, and new logs measure guest-access guard time. Run 31 is open;
+the visual/performance result remains pending.
+
 Remaining gates include stencil/clear behavior, remaining resolves and CPU
 writeback, general native-produced texture ownership, target aliasing, MRT/MSAA parity,
 remaining primitive modes, unsupported texture conversions/filter modes, queries

@@ -5,27 +5,16 @@
 namespace bo3::native {
 // Physical reads/writes use the SDK's direct physical mapping. Allocation,
 // decommit and protection changes update this parent heap under its mutex.
-// No permission cache survives between calls. Region sizes start at the first
-// containing page, so subtract the initial byte offset before advancing.
+// No permission cache survives between calls. The staged QueryRangeAccess
+// checks commitment/protection under one lock and visits only requested pages.
+// QueryRegionInfo scans to the end of the allocation, even for a tiny read.
 inline bool PhysicalAccessible(rex::memory::BaseHeap& heap, uint32_t address,
                                uint32_t size, bool writable = false) {
   const uint64_t end = uint64_t(address) + size;
   if (!size || address < heap.heap_base() ||
       end > uint64_t(heap.heap_base()) + heap.heap_size()) return false;
-  uint64_t at = address;
-  while (at < end) {
-    rex::memory::HeapAllocationInfo info{};
-    if (!heap.QueryRegionInfo(uint32_t(at), &info) ||
-        !(info.state & rex::memory::kMemoryAllocationCommit) ||
-        !(info.protect & rex::memory::kMemoryProtectRead) ||
-        (writable && !(info.protect & (rex::memory::kMemoryProtectWrite |
-                                      rex::memory::kMemoryProtectWriteCombine)))) return false;
-    const uint64_t page_start = heap.heap_base() +
-        ((at - heap.heap_base()) / heap.page_size()) * heap.page_size();
-    const uint64_t next = page_start + info.region_size;
-    if (next <= at) return false;
-    at = next;
-  }
-  return true;
+  const auto access=heap.QueryRangeAccess(address,uint32_t(end-1));
+  return access==rex::memory::PageAccess::kReadWrite ||
+      (!writable && access==rex::memory::PageAccess::kReadOnly);
 }
 }  // namespace bo3::native

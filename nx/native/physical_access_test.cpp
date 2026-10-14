@@ -2,7 +2,7 @@
 #include "physical_access.h"
 #include <cstdio>
 
-// Exercise the actual SDK QueryRegionInfo, including its page-based extent,
+// Exercise the actual staged SDK QueryRangeAccess, including bounded extents,
 // against committed, reserved, read-only and inaccessible page entries.
 class HeapFixture : public rex::memory::BaseHeap {
  public:

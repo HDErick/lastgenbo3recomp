@@ -31,6 +31,8 @@ if args.native:
               'nx/native/texture_upload.cpp', 'nx/native/texture_upload.h',
               'nx/native/resolve_ownership.h',
               'nx/native/color_resolve.cpp', 'nx/native/color_resolve.h',
+              'nx/native/pipeline_state.h',
+              'nx/native/texture_validity.h',
               'tools/nx-sdk/include/rex/system/xmemory.h',
               'tools/nx-sdk/src/system/xmemory.cpp',
               'scripts/nx/embed-native-shaders.py', 'scripts/nx/prepare-mw2-shader-tools.py',

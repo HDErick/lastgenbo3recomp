@@ -81,6 +81,17 @@ for name, path in inputs.items():
         assert source.count(parity_anchor) == 1
         source = source.replace(parity_anchor, '  bo3::CaptureMemexportAfter(*memory_);\n' + parity_anchor, 1)
         data = source.encode()
+    if name == 'src/system/xmemory.cpp':
+        source = data.decode().replace('\r\n', '\n')
+        anchor = '      uint32_t page_protect = page_table_[i].current_protect;'
+        assert source.count(anchor) == 1
+        # QueryRangeAccess already locks and visits only requested pages. A
+        # reserved page can still carry protection metadata; it is not readable.
+        source = source.replace(anchor, '''      if (!(page_table_[i].state & memory::kMemoryAllocationCommit)) {
+        return rex::memory::PageAccess::kNoAccess;
+      }
+''' + anchor, 1)
+        data = source.encode()
     write_if_changed(target / name, data)
 
 generated = root / 'build/nx-generated/zombies'
@@ -100,7 +111,8 @@ provenance = {'reference_repository': 'https://github.com/StevensND/nfsmw-nx',
               'adaptations': ['Vendored dependency directory checks', 'Explicit C linkage in generated GCC aliases',
                               'Log requested and selected Vulkan render-target path',
                               'Optional bounded GPU-thread memexport register snapshots',
-                              'Optional PC memexport byte capture around synchronous GPU readback'],
+                              'Optional PC memexport byte capture around synchronous GPU readback',
+                              'Require committed pages in bounded QueryRangeAccess'],
               'patch_files': [p.relative_to(patches).as_posix() for p in patches.rglob('*') if p.is_file()] if patches.exists() else [],
               'desktop_init_sha256': hashlib.sha256((root / 'app/generated/default_zm/bo3_zm_init.h').read_bytes()).hexdigest(),
               'nx_init_sha256': hashlib.sha256(header_path.read_bytes()).hexdigest()}

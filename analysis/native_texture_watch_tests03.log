@@ -1,0 +1,10 @@
+[0/2] Re-checking globbed directories...
+[1/3] Building CXX object bo3-native/CMakeFiles/bo3_native_texture_watch_test.dir/texture_watch_test.cpp.obj
+[2/3] Linking CXX executable bo3_native_texture_watch_test.exe
+callback range 1fcae000 + 1000
+callback range 1fcaf000 + 1000
+after page2 write: calls=2 prior=1 otherClean=0
+callback range 1fcaf000 + 1000
+callback range 1fcae000 + 1000
+callback range 1fcae000 + 2000
+10 texture write-watch checks passed; no game or GPU rendering launched

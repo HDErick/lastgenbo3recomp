@@ -1,0 +1,11 @@
+[0/2] Re-checking globbed directories...
+[1/7] Linking CXX executable bo3_native_texture_upload_test.exe
+[2/7] Linking CXX executable bo3_native_color_resolve_test.exe
+[3/7] Building CXX object bo3-native/CMakeFiles/bo3_native_resolve_ownership_test.dir/resolve_ownership_test.cpp.obj
+[4/7] Linking CXX executable bo3_native_resolve_ownership_test.exe
+[5/7] Building CXX object bo3-native/CMakeFiles/bo3_native_pipeline_state_test.dir/pipeline_state_test.cpp.obj
+[6/7] Linking CXX executable bo3_native_pipeline_state_test.exe
+36 texture upload checks passed; no game or GPU rendering launched
+13 resolve ownership checks passed; no game launched
+26 color resolve checks passed; no game or GPU rendering launched
+13 pipeline state checks passed; no game or GPU rendering launched

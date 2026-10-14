@@ -175,22 +175,30 @@ Textures/conversion, mips/cube views, raster/color clears,
 EDRAM overlap/extent aliasing and native guest resolves remain incomplete.
 See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).
 
-**Native resolve build 48 is ready for a user-authorized comparison.** The native
-renderer now copies/converts supported color targets into GPU texture images,
-including full-sample MSAA averages, exponent bias and R/B swapping. Later shader
-readers require matching layout and actual resolved rectangle coverage. Physical
-CPU-write callbacks and verified native exports invalidate overwritten GPU data.
-Cube/3D and mip support from build 43 is included. All 36 texture, 13 ownership
-and 26 color-resolve CPU checks pass; five shaders pass structural validation,
-with resolve/depth descriptor types checked against the native layouts. This
-caught and repaired a compiler annotation leak into image-only bindings.
-Numerical GPU conversion and visible gameplay remain unverified. Depth/array/
-sample-subset resolves, CPU readback, complete EDRAM aliasing and conservative
-CPU reuse handling remain limitations. The user has now authorized opening the
-executable when ready; run 27 is open. Its early live counters show 2,164
-completed color resolves and 767 GPU texture reads, with visual confirmation
-pending. Details and evidence are in
-[native rendering notes](docs/NATIVE_RENDERING_PC.md).
+**Native world depth is visible; normal color and gameplay performance remain
+incomplete.** Run 27's F9 screenshot shows The Giant structures and zombies.
+Normal view is dark with some scene detail. The user reports apparent red trails
+when moving in run 29; missing clear/overwrite/compositing or target ownership
+is a candidate, not a confirmed cause. That run closed normally, with faster
+menus but in-game presentation still around 1–1.6 swaps/s. Counters show 15–20
+GiB hashed and about 1,500–1,800 synchronous submissions per 30 in-game swaps.
+
+Build 55 combines native color resolves and coverage-checked GPU readers with
+larger 128-draw batches, early rejection, protected texture eviction, static
+pipeline key normalization and watched CPU texture reuse within command-ring
+chunks. Permission checks now scan just the requested pages under the SDK heap
+lock, with commitment checks and invalidation for native exports retained.
+Run 28 stalled after one startup swap; startup clear boundaries and command-ring/
+wait retirement were restored before the successful startup/menu test in run 29.
+All 108 CPU checks and five structural shader validations pass. Run 30 reduced
+hash traffic to around 415–418 MiB and submissions to 452–480 per 30 swaps,
+but the user confirms FPS remains unplayable, F9 geometry remains visible and
+normal view remains faulty. Run 31 is open to test bounded permission checks;
+its visual and performance result is pending. Depth/array/
+sample-subset resolves, CPU readback, complete EDRAM aliasing and several texture
+conversions remain unfinished. No complete native gameplay frame is validated.
+See [native rendering notes](docs/NATIVE_RENDERING_PC.md) and
+[native performance](analysis/NATIVE_PERFORMANCE.md).
 
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches
 playable Shadows of Evil, confirmed by the user. The user also confirmed that
