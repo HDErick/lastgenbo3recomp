@@ -509,7 +509,19 @@ unlit view omits the HUD and loses alpha cutouts/material appearance, so it
 cannot establish full normal-renderer correctness or production FPS.
 All 142 CPU cases and six structurally checked shaders pass for build 59,
 including eight draw-selection checks and the 48-byte unlit push ABI.
-Run 34 is open, with the diagnostic initially off; its visual result is pending.
+Run 34 closed normally. The user and attached screenshot confirm extensive
+world/viewmodel geometry in F10, while FPS remains poor. This establishes a
+working diagnostic vertex/raster/depth route for the visible surfaces. It does
+not validate texture sampling, ordinary pixel shaders, alpha kill, blend,
+lighting or final composition. Several systems are bypassed together, so the
+image cannot identify lighting alone as the cause of normal black output.
+The normal-path counters still include 30,668 texture numeric-mode rejects,
+26,424 texture-extent rejects, 6,120 resolve-number-format rejects, 3,117
+incomplete resolve-reader rejects and 1,093 missing depth resolves. These are
+cumulative attempts, not unique missing objects. Next work should localize
+the failures by VS/PS and fetch state, implement supported numeric/resource
+semantics, and compare normal pre-composition scene color against the baseline.
+Full log: `analysis/pc_native_backend_boot34_unlit_geometry.log`.
 
 ### Direction toward Switch
 

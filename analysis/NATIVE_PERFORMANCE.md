@@ -296,8 +296,46 @@ confirms no material image descriptors and the existing 48-byte draw push ABI.
 Evidence: `analysis/pc_native_backend_build58.log` (initial diagnostic),
 `analysis/pc_native_backend_build59.log` (independent target/gating final build),
 `analysis/native_texture_upload_tests13.log`, `analysis/native_unlit_validation01.json`,
-and `analysis/pc_native_provenance39_prepared.json`. Run 34 is open with F10 off
-initially, awaiting user comparison.
+and `analysis/pc_native_provenance39_prepared.json`.
+
+### Run 34 result
+
+The run closed through normal window shutdown. The user reports extensive
+geometry displayed in F10, with FPS still bad. Their supplied screenshot shows
+The Giant's teleporter, architecture, stairs/railings and player viewmodel in
+bright per-shader flat colors. This is evidence for substantial vertex/raster/
+depth coverage in this view, not proof that every primitive or normal pass is
+correct. The diagnostic deliberately bypasses ordinary PS resources/shading,
+alpha kill, blend and final composition, so lighting is one candidate among
+several rather than an isolated cause.
+
+By the final periodic report, cumulative normal-path failures include 30,668
+`texture_numeric_conversion`, 26,424 `texture_extent`, 6,120
+`resolve_number_format`, 3,117 `resolved_texture_coverage_or_layout` and 1,093
+`native_depth_resolve_unimplemented`. The CPU upload planner explicitly rejects
+any non-unsigned component sign or nonzero `num_format` before uploading; this
+can discard whole material draws. F10's replacement PS avoids their resource
+requirements. These counters count rejected attempts, not distinct assets;
+without VS/PS/fetch context they cannot quantify one defect's scene coverage.
+
+F10-on intervals report roughly 2.09, 4.92, 5.18, 3.17 and 1.73 swaps/s under
+varying scene activity. The last 30-swap interval takes 17.295 seconds, with
+1,137 submissions, 9.318 seconds in queue/fence scopes, 18.5 ms texture time,
+1.1 ms shader compilation and 52.4 ms pipeline creation. Only 0.25 MiB of CPU
+texture upload is recorded. These are elapsed overlapping scopes; CPU-side
+compilation is plainly small in this warmed interval, but actual GPU shader
+execution is not separately timed. Geometry/constant uploads, descriptor work,
+serialized submissions and guest CPU work need their own attribution. The
+result is not a matched-scene benchmark or evidence of playable performance.
+
+Next correctness isolation: collect bounded VS/PS/fetch context for rejected
+material draws; implement the observed signed/biased/gamma/numeric resource
+semantics and missing resolve readers; inspect normal scene color before final
+composition. Do not blanket-disable numeric checks or assume lighting constants
+are the sole cause from the unlit screenshot.
+
+Full evidence: `analysis/pc_native_backend_boot34_unlit_geometry.log`;
+exact build hashes remain in `analysis/pc_native_provenance39_prepared.json`.
 
 Evidence: `analysis/pc_native_backend_boot30_texture_watch.log`,
 `analysis/pc_native_backend_build55.log`, `analysis/native_texture_upload_tests10.log`,

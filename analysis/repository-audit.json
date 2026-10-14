@@ -1,7 +1,11 @@
 {
-  "file_count": 19192,
-  "bytes": 748150350,
+  "file_count": 19195,
+  "bytes": 763465023,
   "largest": [
+    {
+      "path": "patch_mp-inspect.bin",
+      "bytes": 14713756
+    },
     {
       "path": "thirdparty/rexglue-sdk/thirdparty/vulkan-headers/registry/validusage.json",
       "bytes": 13047665
@@ -45,10 +49,6 @@
     {
       "path": "thirdparty/rexglue-sdk/thirdparty/vulkan-headers/registry/vk.xml",
       "bytes": 3190940
-    },
-    {
-      "path": "analysis/pc_native_backend_boot32_resolved_frontbuffer.log",
-      "bytes": 3110301
     }
   ],
   "forbidden_files": [],

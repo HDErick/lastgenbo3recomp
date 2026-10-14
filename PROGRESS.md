@@ -219,7 +219,19 @@ per-frame-cleared color target and the actual vertex/depth/stencil path. It
 bypasses material textures, alpha kill, blend and final compositing. It is a
 diagnostic, not textured engine fullbright or a scene-rendering repair. F10
 toggles it; F9 remains depth view. All 142 CPU cases and six shader modules pass.
-Run 34 is open for comparison, with unlit initially disabled.
+Run 34 closed normally. The user confirms F10 displays extensive scene geometry
+and the viewmodel in bright solid colors, with FPS still poor; their screenshot
+shows The Giant's teleporter area. This validates substantial geometry/depth
+coverage but not the normal pixel/material or final composition paths. Normal
+path counters include 30,668 texture numeric-mode rejects and 3,117 incomplete
+resolved-texture reader rejects; these are cumulative path counts, not unique
+assets. F10 bypasses PS textures, alpha/blend and final compositing together, so
+lighting alone is not isolated. Next correctness work should identify/implement
+the observed texture numeric modes and resolve readers, then compare normal
+scene color before final composition. Warmed F10 still reaches 1.73 swaps/s
+with 1,137 submissions and 9.3 seconds in queue/fence scopes per 30 swaps;
+shader compilation takes about 1 ms in that interval. Submission/upload costs
+remain a separate performance problem.
 All 134 CPU fixtures and five structural shader validations pass. This remains
 a correctness prototype; native command-stream Vulkan on PC is a useful path
 toward Switch, with persistent/shared resources, fewer uploads, offline shader
