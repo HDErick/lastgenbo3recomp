@@ -5,6 +5,14 @@
 #include <bit>
 namespace bo3::native {
 using namespace rex::graphics;
+bool ResolveCanPresent(const ColorResolvePlan& plan,const std::vector<ResolveRect>& coverage,
+                       uint32_t address,uint32_t width,uint32_t height) {
+  // BO3's observed frontbuffers are plain RGBA8. Other display formats and
+  // endian interpretations need display-state validation before presentation.
+  if(plan.address!=address || plan.endian || (plan.guest_format!=6 && plan.guest_format!=14 && plan.guest_format!=50) ||
+     !width || !height || width>plan.width || height>plan.height)return false;
+  return std::any_of(coverage.begin(),coverage.end(),[&](ResolveRect r){return ResolveRectContains(r,{0,0,width,height});});
+}
 bool ResolveRectContains(ResolveRect a,ResolveRect b) {
   return b.x>=a.x && b.y>=a.y && uint64_t(b.x)+b.width<=uint64_t(a.x)+a.width && uint64_t(b.y)+b.height<=uint64_t(a.y)+a.height;
 }

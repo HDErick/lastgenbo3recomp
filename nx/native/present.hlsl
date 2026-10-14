@@ -9,7 +9,9 @@ Vertex VS(uint index : SV_VertexID) {
 #if defined(BO3_PRESENT_COLOR)
 [[vk::combinedImageSampler]] [[vk::binding(0, 0)]] Texture2D<float4> source;
 [[vk::combinedImageSampler]] [[vk::binding(0, 0)]] SamplerState filtering;
-float4 PS(Vertex input) : SV_Target0 { return source.Sample(filtering, input.uv); }
+struct PresentConstants { float2 uvScale; };
+[[vk::push_constant]] ConstantBuffer<PresentConstants> presentConstants;
+float4 PS(Vertex input) : SV_Target0 { return source.Sample(filtering, input.uv * presentConstants.uvScale); }
 #endif
 #if defined(BO3_PRESENT_DEPTH)
 [[vk::binding(0, 0)]] Texture2DMS<float> sceneDepth;

@@ -183,18 +183,22 @@ is a candidate, not a confirmed cause. That run closed normally, with faster
 menus but in-game presentation still around 1–1.6 swaps/s. Counters show 15–20
 GiB hashed and about 1,500–1,800 synchronous submissions per 30 in-game swaps.
 
-Build 55 combines native color resolves and coverage-checked GPU readers with
+Build 56 combines native color resolves and coverage-checked GPU readers with
 larger 128-draw batches, early rejection, protected texture eviction, static
 pipeline key normalization and watched CPU texture reuse within command-ring
 chunks. Permission checks now scan just the requested pages under the SDK heap
 lock, with commitment checks and invalidation for native exports retained.
 Run 28 stalled after one startup swap; startup clear boundaries and command-ring/
 wait retirement were restored before the successful startup/menu test in run 29.
-All 108 CPU checks and five structural shader validations pass. Run 30 reduced
+All 114 CPU checks and five structural shader validations pass. Run 30 reduced
 hash traffic to around 415–418 MiB and submissions to 452–480 per 30 swaps,
 but the user confirms FPS remains unplayable, F9 geometry remains visible and
-normal view remains faulty. Run 31 is open to test bounded permission checks;
-its visual and performance result is pending. Depth/array/
+normal view remains faulty. In run 31 the user sees a barrier/window object in
+normal view, with apparent persistence/trails when moving; most scene color is
+missing and FPS is only marginally better. That run closed normally. Normal
+presentation now prefers the covered resolve image at the guest frontbuffer
+address, with logical dimensions cropped from padded storage. Run 32 is open
+to test this presentation repair; its visual result is pending. Depth/array/
 sample-subset resolves, CPU readback, complete EDRAM aliasing and several texture
 conversions remain unfinished. No complete native gameplay frame is validated.
 See [native rendering notes](docs/NATIVE_RENDERING_PC.md) and

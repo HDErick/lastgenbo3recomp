@@ -1,0 +1,20 @@
+[0/2] Re-checking globbed directories...
+[1/8] Linking CXX executable bo3_native_physical_access_test.exe
+[2/8] Linking CXX executable bo3_native_texture_watch_test.exe
+[3/8] Linking CXX executable bo3_native_texture_upload_test.exe
+[4/8] Linking CXX executable bo3_native_pipeline_state_test.exe
+[5/8] Building CXX object bo3-native/CMakeFiles/bo3_native_color_resolve_test.dir/color_resolve.cpp.obj
+[6/8] Building CXX object bo3-native/CMakeFiles/bo3_native_color_resolve_test.dir/color_resolve_test.cpp.obj
+[7/8] Linking CXX executable bo3_native_color_resolve_test.exe
+36 texture upload checks passed; no game or GPU rendering launched
+13 resolve ownership checks passed; no game launched
+32 color resolve checks passed; no game or GPU rendering launched
+13 pipeline state checks passed; no game or GPU rendering launched
+callback range 1fcae000 + 1000
+callback range 1fcaf000 + 1000
+after page2 write: calls=2 prior=1 otherClean=0
+callback range 1fcaf000 + 1000
+callback range 1fcae000 + 1000
+callback range 1fcae000 + 2000
+10 texture write-watch checks passed; no game or GPU rendering launched
+Physical allocation guards: PASS (10 cases)

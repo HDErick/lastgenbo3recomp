@@ -454,15 +454,29 @@ of only the pages needed by each input span. The staged SDK's bounded
 `QueryRangeAccess` now rejects uncommitted pages as well as inaccessible ones;
 this adaptation is reproduced by `prepare-runtime.py`. Fresh checks remain
 on every lookup, with no permission cache. Ten guard fixtures bring the total
-to 108 CPU checks, and new logs measure guest-access guard time. Run 31 is open;
-the visual/performance result remains pending.
+to 108 CPU checks, and new logs measure guest-access guard time. Run 31's guard
+cost is tens of milliseconds per roughly 150,000–225,000 checks, but gameplay
+remains unplayable (about 1.9–4.8 swaps/s across sampled gameplay intervals).
+The user sees a barrier and its window object in normal view, with persistent
+redraw/trails as the camera moves. Most scene color remains missing. The run
+closed normally; incomplete texture and resolve paths still reject many draws.
+
+Build 56 corrects a missing presentation path: normal view prefers the covered
+RGBA8 resolve image at the actual guest frontbuffer address, cropping its
+padded storage to logical dimensions. Previously it always sampled the latest
+native target, potentially an intermediate or a post-resolve-cleared source.
+Unsupported/missing coverage retains a reported diagnostic fallback; F8/F9
+still select diagnostic targets. The new presentation push range is eight
+bytes and structurally reflected. Six new coverage/address/format fixtures
+bring CPU checks to 114. Run 32 is open for comparison; this is a candidate
+repair for normal-view behavior, not confirmation that trails or FPS are fixed.
 
 Remaining gates include stencil/clear behavior, remaining resolves and CPU
 writeback, general native-produced texture ownership, target aliasing, MRT/MSAA parity,
 remaining primitive modes, unsupported texture conversions/filter modes, queries
 and complete GPU semantics.
-Presentation currently samples the latest drawn native target as a diagnostic;
-it does not yet follow guest frontbuffer resolves. Unsupported paths are counted
+Presentation now follows supported, covered guest RGBA8 frontbuffer resolves;
+missing/unsupported output retains a diagnostic fallback. Unsupported paths are counted
 and skipped, so a visible menu does not establish a complete renderer. Batches
 still wait synchronously at their boundaries; overlapping frame slots and Switch
 performance are unproven.

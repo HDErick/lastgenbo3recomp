@@ -146,7 +146,58 @@ Later warmed in-game reports show 3.21 and 4.80 swaps/s. They record about
 157,000 guest checks taking 25–28 ms per 30 swaps, zero shader/pipeline time,
 roughly 363–420 ms texture time and 2.1–4.9 s in submission/fence scopes.
 Performance remains low; player actions and scene complexity are not controlled.
-Normal-view/F9 confirmation for run 31 is pending.
+The user subsequently confirmed only marginal performance improvement and
+unplayable gameplay. In normal view, a zombie barrier and the entire window
+object are visibly drawn; most of the scene is still absent/dark. Their image
+appears to persist/redraw as the camera moves. This may be a clear, overwrite,
+compositing or ownership defect; no single cause is established. The full run
+closed normally. Later samples fall to 1.87–2.88 swaps/s, with roughly 570–790
+submissions per 30 swaps; a new-content interval includes 1.56 seconds of
+pipeline creation, while most warmed intervals report zero compilation.
+
+At swap 5160, skipped-path totals include 303,940 numeric-conversion texture
+rejects, 226,428 texture-extent rejects, 11,096 resolve-number-format rejects,
+3,475 depth-resolve rejects and 3,456 incomplete resolve reader rejects. These
+are cumulative packet/path counts, not counts of uniquely missing objects.
+They demonstrate that significant rendering support remains incomplete.
+
+This native plugin owns Vulkan draws/resources but still executes BO3's original
+GPU command stream and MW2-derived Xbox shader translations. Per-draw snapshots,
+descriptors, barriers, synchronization and unoptimized translated shaders remain
+costs. Native ownership alone does not guarantee higher FPS. CPU recompilation
+and a complete, efficient renderer are separate requirements for the Switch goal.
+
+Full evidence: `analysis/pc_native_backend_boot31_bounded_guards.log`.
+
+## Build 56: follow the resolved guest frontbuffer
+
+Normal presentation previously sampled `latest_`, the most recently drawn native
+target. That can expose an intermediate image or a source after post-resolve
+clearing. Supported resolves now exist, so presentation should follow the actual
+guest frontbuffer address. Build 56 selects the newest matching, fully covered
+RGBA8 resolve image with verified zero-endian display interpretation. It crops
+aligned pitch/height padding via an eight-byte fragment push constant. Missing
+or unsupported frontbuffer coverage retains the logged diagnostic fallback;
+F8/F9 explicitly retain native target views.
+
+This is a confirmed missing presentation path, but its contribution to the red
+trails/dark scene has not been proven. Six address/format/endian/coverage fixtures
+bring the total to 114 CPU checks. All five shaders structurally validate, and
+compiled reflection checks the new presentation descriptor and push ABI. The
+user-authorized run 32 is open for comparison. Remaining texture/conversion,
+resolve, clear and alias support may still omit color passes; this build does
+not establish a faster or complete renderer.
+
+The live run 32 log confirms that resolved frontbuffer output is selected in
+both frontend and early map-entry intervals. That establishes source selection
+and submission, not correct pixels. Snapshot/provenance:
+`analysis/pc_native_backend_boot32_resolved_frontbuffer_snapshot.log` and
+`analysis/pc_native_provenance36_test.json`.
+
+Evidence: `analysis/pc_native_backend_build56.log`,
+`analysis/native_texture_upload_tests11.log`,
+`analysis/native_frontbuffer_validation01.json`, and
+`analysis/pc_native_provenance35_prepared.json`.
 
 Evidence: `analysis/pc_native_backend_boot30_texture_watch.log`,
 `analysis/pc_native_backend_build55.log`, `analysis/native_texture_upload_tests10.log`,

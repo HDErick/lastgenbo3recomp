@@ -51,11 +51,12 @@ inputs = ['nx/native/texture_upload.cpp', 'nx/native/texture_upload.h',
           'tools/nx-sdk/include/rex/graphics/vulkan/texture_cache.h',
           'tools/nx-sdk/src/graphics/vulkan/texture_cache.cpp']
 
-def resolve_interface(path, multisampled, depth_only=False):
+def resolve_interface(path, multisampled, depth_only=False, presentation=False):
     """Check the compiled interface against the native pipeline's real layout."""
     data = path.read_bytes()
     words = struct.unpack('<' + 'I' * (len(data) // 4), data)
     pointers, members, offsets, decorations, images, variables = {}, {}, {}, {}, {}, []
+    combined_images, scalar_sizes, vectors = {}, {}, {}
     index = 5
     while index < len(words):
         count, opcode = words[index] >> 16, words[index] & 65535
@@ -63,6 +64,9 @@ def resolve_interface(path, multisampled, depth_only=False):
             raise SystemExit('Malformed SPIR-V instruction')
         a = words[index + 1:index + count]
         if opcode == 32: pointers[a[0]] = a[2]  # OpTypePointer
+        elif opcode in (21, 22): scalar_sizes[a[0]] = a[1] // 8
+        elif opcode == 23: vectors[a[0]] = a[1:]
+        elif opcode == 27: combined_images[a[0]] = a[1]
         elif opcode == 30: members[a[0]] = a[1:]  # OpTypeStruct
         elif opcode == 25: images[a[0]] = a[1:]  # OpTypeImage
         elif opcode == 59: variables.append(a[:3])  # OpVariable
@@ -77,10 +81,25 @@ def resolve_interface(path, multisampled, depth_only=False):
         if len(push) != 1:
             raise SystemExit('Resolve shader must have one push block')
         member_offsets = [offsets[(push[0], n)] for n in range(len(members[push[0]]))]
-        if member_offsets != [0, 8, 16, 20, 24]:
+        expected_offsets = [0] if presentation else [0, 8, 16, 20, 24]
+        if member_offsets != expected_offsets:
             raise SystemExit(f'Resolve push ABI mismatch: {member_offsets}')
-    resources = [(v, images[pointers[t]]) for t, v, storage in variables
-                 if storage == 0 and pointers[t] in images]
+        def byte_size(type_id):
+            if type_id in scalar_sizes: return scalar_sizes[type_id]
+            component, count = vectors[type_id]
+            return scalar_sizes[component] * count
+        actual_bytes = max(offset + byte_size(type_id) for offset, type_id in zip(member_offsets, members[push[0]]))
+        if actual_bytes != (8 if presentation else 32):
+            raise SystemExit(f'Push range size mismatch: {actual_bytes}')
+    resources = []
+    for t, v, storage in variables:
+        type_id = pointers[t]
+        is_combined = type_id in combined_images
+        image_id = combined_images.get(type_id, type_id)
+        if storage == 0 and image_id in images:
+            if is_combined != presentation:
+                raise SystemExit('Sampled image versus combined image/sampler ABI mismatch')
+            resources.append((v, images[image_id]))
     if len(resources) != 1:
         raise SystemExit('Resolve shader must use one sampled image')
     variable, image = resources[0]
@@ -90,7 +109,8 @@ def resolve_interface(path, multisampled, depth_only=False):
         raise SystemExit('Resolve sampled image type mismatch')
     if decorations.get((variable, 33)) != (0,) or decorations.get((variable, 34)) != (0,):
         raise SystemExit('Resolve descriptor must be set 0 binding 0')
-    return {'push_member_offsets': member_offsets, 'push_range_bytes': 0 if depth_only else 32,
+    return {'push_member_offsets': member_offsets, 'push_range_bytes': 0 if depth_only else 8 if presentation else 32,
+            'descriptor_type': 'combined_image_sampler' if presentation else 'sampled_image',
             'set': 0, 'binding': 0, 'image_multisampled': multisampled}
 
 validator = root / 'build/native-spirv-tools/tools/spirv-val.exe'
@@ -106,6 +126,8 @@ for stage in ['VS', 'PS', 'DepthPS', 'ResolvePS', 'ResolveMSPS']:
         modules[-1]['interface'] = resolve_interface(path, stage == 'ResolveMSPS')
     elif stage == 'DepthPS':
         modules[-1]['interface'] = resolve_interface(path, True, depth_only=True)
+    elif stage == 'PS':
+        modules[-1]['interface'] = resolve_interface(path, False, presentation=True)
 report = {'date': '2026-10-13', 'test_log': args.log,
           'texture_checks': int(texture[1]), 'ownership_checks': int(ownership[1]),
           'color_resolve_checks': int(resolve[1]),

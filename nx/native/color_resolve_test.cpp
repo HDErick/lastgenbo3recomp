@@ -64,6 +64,14 @@ int main() {
   Check(coverage.size()==2 && !ResolveRectContains(coverage[0],{0,0,160,16}) && !ResolveRectContains(coverage[1],{0,0,160,16}),"disjoint records are not invented full coverage");
   AddResolveCoverage(coverage,{0,0,160,16});Check(coverage.size()==1 && ResolveRectContains(coverage[0],{0,0,160,16}),"covering update replaces old regions");
   Check(!ResolveRectContains({0,0,16,16},{std::numeric_limits<uint32_t>::max(),0,2,1}),"coverage addition cannot overflow");
+  p=PlanColorResolve(Fixture(),880,0x100000);
+  std::vector<ResolveRect> display{{0,0,80,16}};
+  Check(ResolveCanPresent(p,display,0x100000,80,16),"covered logical frontbuffer accepted despite padding");
+  Check(!ResolveCanPresent(p,display,0x101000,80,16),"unrelated frontbuffer address refused");
+  Check(!ResolveCanPresent(p,display,0x100000,80,32),"zero padding is not valid display output");
+  p.endian=2;Check(!ResolveCanPresent(p,display,0x100000,80,16),"unverified display endian refused");
+  p.endian=0;p.guest_format=30;Check(!ResolveCanPresent(p,display,0x100000,80,16),"non-display alias refused");
+  p.guest_format=6;Check(!ResolveCanPresent(p,{},0x100000,80,16),"invalidated frontbuffer refused");
   std::cout<<checks<<" color resolve checks passed; no game or GPU rendering launched\n";return 0;
  }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}
 }

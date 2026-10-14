@@ -171,6 +171,7 @@ class NativeCommandProcessor final : public CommandProcessor {
   UnavailableResolveRanges unavailable_resolves_;
   uint64_t resolve_destinations_ = 0, resolve_completed_ = 0, resolved_reads_ = 0;
   uint64_t color_sequence_ = 0, resolved_sequence_ = 0;
+  uint64_t resolved_presentations_=0, fallback_presentations_=0;
   std::map<std::array<uint32_t, 2>, std::unique_ptr<ResolvePipeline>> resolve_pipelines_;
   std::map<std::array<uint32_t, 5>, std::unique_ptr<ResolvedSurface>> resolved_surfaces_;
   VkShaderModule resolve_vs_{}, resolve_ps_{}, resolve_ms_ps_{};
@@ -1576,6 +1577,7 @@ bool NativeCommandProcessor::IssueCopy() {
 
 void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_t height) {
   if (recording_) Submit(FlushReason::Presentation);
+  DrainResolveInvalidations();
   ++swaps_;
   if (scene_view_diagnostic_) {
     DWORD foreground_pid = 0;
@@ -1597,6 +1599,14 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
   const bool current_depth = current_scene || (depth_scene_ && depth_scene_draw_swap_ + 1 == swaps_);
   const bool show_depth = depth_view_enabled_ && current_depth;
   auto* presentation_target = show_depth ? (current_scene ? scene_ : depth_scene_) : (scene_view_enabled_ && current_scene ? scene_ : latest_);
+  ResolvedSurface* frontbuffer=nullptr;
+  if(!show_depth && !scene_view_enabled_) {
+    for(auto& [key,surface]:resolved_surfaces_)
+      if(ResolveCanPresent(surface->plan,surface->coverage,address,width,height) && (!frontbuffer || surface->sequence>frontbuffer->sequence))frontbuffer=surface.get();
+    if(frontbuffer) {
+      if(++resolved_presentations_<=3)REXGPU_INFO("BO3 native resolved frontbuffer selected: address={:08X} logical={}x{} storage={}x{} sequence={}",address,width,height,frontbuffer->image.width,frontbuffer->image.height,frontbuffer->sequence);
+    }else ++fallback_presentations_;
+  }
   if (swaps_ % 30 == 0) {
     double wall = Milliseconds(last_perf_);
     const double thread_ms = ThreadMilliseconds();
@@ -1610,6 +1620,7 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
   }
   if (swaps_ == 1 || swaps_ % 120 == 0) {
     REXGPU_INFO("BO3 NATIVE progress: swaps={} packets={} submitted={} depthOnlySubmitted={} pixelShaderBypassed={} copies={} exports={} targets={} depthSurfaces={} textures={} pipelines={} imageMiB={} frontbuffer={:08X}", swaps_, draws_, submitted_, depth_submitted_, pixel_shader_bypassed_, copies_, export_copies_, targets_.size(), depths_.size(), textures_.size(), pipelines_.size(), image_bytes_ / (1024 * 1024), address);
+    REXGPU_INFO("BO3 NATIVE presentation ownership: resolved={} diagnosticFallback={} resolvedSelected={}",resolved_presentations_,fallback_presentations_,frontbuffer!=nullptr);
     REXGPU_INFO("BO3 NATIVE depth clears: requests={} applied={} histories={}", depth_clear_requests_, depth_clear_applied_, depth_clears_.size());
     REXGPU_INFO("BO3 NATIVE rectangles: submitted={} shaderVariants={}", rectangles_submitted_, rectangle_shaders_.size());
     REXGPU_INFO("BO3 NATIVE resolve ownership: destinations={} recorded={} gpuReads={} surfaces={} unavailableCpuRanges={}", resolve_destinations_, resolve_completed_, resolved_reads_, resolved_surfaces_.size(), unavailable_resolves_.ranges().size());
@@ -1622,8 +1633,8 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
   }
   if (failed_ || !width || !height || width > 4096 || height > 2048 || !graphics_system_->presenter()) return;
   try {
-    // Until resolves are implemented this is a diagnostic view of the most
-    // recently drawn native target, not the resolved guest frontbuffer.
+    // Normal output uses the actual covered resolved frontbuffer. Before such
+    // output is available, retain the existing diagnostic target fallback.
     if (!present_pass_) {
       VkAttachmentDescription attachment{}; attachment.format = VulkanPresenter::kGuestOutputFormat; attachment.samples = VK_SAMPLE_COUNT_1_BIT;
       attachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR; attachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE; attachment.initialLayout = attachment.finalLayout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
@@ -1635,6 +1646,7 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
       VkDescriptorSetLayoutCreateInfo sl{VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO}; sl.bindingCount = 1; sl.pBindings = &binding;
       Check(F().vkCreateDescriptorSetLayout(D(), &sl, nullptr, &present_.sets[0]), "present texture layout");
       VkPipelineLayoutCreateInfo pl{VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO}; pl.setLayoutCount = 1; pl.pSetLayouts = present_.sets;
+      VkPushConstantRange crop{VK_SHADER_STAGE_FRAGMENT_BIT,0,8};pl.pushConstantRangeCount=1;pl.pPushConstantRanges=&crop;
       Check(F().vkCreatePipelineLayout(D(), &pl, nullptr, &present_.layout), "present layout");
       VkShaderModuleCreateInfo module{VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO}; module.codeSize = sizeof(kPresentVS); module.pCode = kPresentVS;
       Check(F().vkCreateShaderModule(D(), &module, nullptr, &present_vs_), "present VS"); module.codeSize = sizeof(kPresentPS); module.pCode = kPresentPS;
@@ -1657,6 +1669,7 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
       binding.descriptorType = VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE;
       Check(F().vkCreateDescriptorSetLayout(D(), &sl, nullptr, &present_depth_.sets[0]), "depth texture layout");
       pl.pSetLayouts = present_depth_.sets;
+      pl.pushConstantRangeCount=0;pl.pPushConstantRanges=nullptr;
       Check(F().vkCreatePipelineLayout(D(), &pl, nullptr, &present_depth_.layout), "depth present layout");
       module.codeSize = sizeof(kPresentDepthPS); module.pCode = kPresentDepthPS;
       Check(F().vkCreateShaderModule(D(), &module, nullptr, &present_depth_ps_), "depth diagnostic shader");
@@ -1665,7 +1678,7 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
       Check(F().vkCreateGraphicsPipelines(D(), VK_NULL_HANDLE, 1, &info, nullptr, &present_depth_.pipeline), "depth diagnostic pipeline");
       VkSamplerCreateInfo sampler{VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO}; sampler.magFilter = sampler.minFilter = VK_FILTER_NEAREST; sampler.addressModeU = sampler.addressModeV = sampler.addressModeW = VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE;
       Check(F().vkCreateSampler(D(), &sampler, nullptr, &present_sampler_), "present sampler");
-      REXGPU_INFO("BO3 NATIVE diagnostic presentation ready; guest resolve parity is pending");
+      REXGPU_INFO("BO3 NATIVE presentation ready: covered RGBA8 frontbuffer preferred; F8/F9 use diagnostic targets");
     }
     auto* presenter = graphics_system_->presenter();
     presenter->RefreshGuestOutput(width, height, width, height, [&](rex::ui::Presenter::GuestOutputRefreshContext& base) {
@@ -1676,11 +1689,11 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
       Check(F().vkCreateFramebuffer(D(), &fb, nullptr, &framebuffer), "present framebuffer");
       try {
         Begin();
-        Image* source_image = presentation_target ? &presentation_target->color : nullptr;
+        Image* source_image = frontbuffer ? &frontbuffer->image : presentation_target ? &presentation_target->color : nullptr;
         if (show_depth) {
           Transition(presentation_target->depth->image, VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL, VK_IMAGE_ASPECT_DEPTH_BIT | VK_IMAGE_ASPECT_STENCIL_BIT);
           source_image = nullptr;
-        } else if (presentation_target && presentation_target->color.samples != VK_SAMPLE_COUNT_1_BIT) {
+        } else if (!frontbuffer && presentation_target && presentation_target->color.samples != VK_SAMPLE_COUNT_1_BIT) {
           Transition(presentation_target->color, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
           Transition(presentation_target->display, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
           VkImageResolve resolve{}; resolve.srcSubresource = resolve.dstSubresource = {VK_IMAGE_ASPECT_COLOR_BIT, 0, 0, 1};
@@ -1692,7 +1705,8 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
         if (source_image) Transition(*source_image, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
         VkDescriptorSet set{};
         auto& display_pipeline = show_depth ? present_depth_ : present_;
-        if (presentation_target) {
+        const bool drawable=show_depth ? presentation_target!=nullptr : source_image!=nullptr;
+        if (drawable) {
           VkDescriptorSetAllocateInfo allocation{VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO}; allocation.descriptorPool = descriptors_; allocation.descriptorSetCount = 1; allocation.pSetLayouts = display_pipeline.sets;
           Check(F().vkAllocateDescriptorSets(D(), &allocation, &set), "present descriptors");
           VkDescriptorImageInfo source{show_depth ? VK_NULL_HANDLE : present_sampler_, show_depth ? presentation_target->depth->sampled : source_image->view, show_depth ? VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL : VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL};
@@ -1704,9 +1718,13 @@ void NativeCommandProcessor::IssueSwap(uint32_t address, uint32_t width, uint32_
         VkClearValue clear{}; clear.color.float32[2] = .04f; clear.color.float32[3] = 1;
         VkRenderPassBeginInfo render{VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO}; render.renderPass = present_pass_; render.framebuffer = framebuffer; render.renderArea.extent = {width, height}; render.clearValueCount = 1; render.pClearValues = &clear;
         F().vkCmdBeginRenderPass(command_, &render, VK_SUBPASS_CONTENTS_INLINE);
-        if (presentation_target) {
+        if (drawable) {
           VkViewport viewport{0, 0, float(width), float(height), 0, 1}; VkRect2D scissor{{0, 0}, {width, height}};
           F().vkCmdBindPipeline(command_, VK_PIPELINE_BIND_POINT_GRAPHICS, display_pipeline.pipeline); F().vkCmdBindDescriptorSets(command_, VK_PIPELINE_BIND_POINT_GRAPHICS, display_pipeline.layout, 0, 1, &set, 0, nullptr);
+          if(!show_depth) {
+            const float scale[2]{frontbuffer ? float(width)/source_image->width : 1.f,frontbuffer ? float(height)/source_image->height : 1.f};
+            F().vkCmdPushConstants(command_,display_pipeline.layout,VK_SHADER_STAGE_FRAGMENT_BIT,0,sizeof(scale),scale);
+          }
           F().vkCmdSetViewport(command_, 0, 1, &viewport); F().vkCmdSetScissor(command_, 0, 1, &scissor); F().vkCmdDraw(command_, 3, 1, 0, 0);
         }
         F().vkCmdEndRenderPass(command_); pending_work_ = true; Transition(output, VulkanPresenter::kGuestOutputInternalLayout); Submit(FlushReason::Presentation);

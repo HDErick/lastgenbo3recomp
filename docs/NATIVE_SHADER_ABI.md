@@ -79,6 +79,12 @@ shader's combined-image annotations cannot leak into image-only bindings.
 CPU-shadow availability remains separate from GPU rectangle coverage; complete
 EDRAM alias ownership and CPU readback are still missing.
 
+Build 56's presentation shader uses a combined image/sampler at set 0 binding
+0 and an eight-byte fragment push block (`float2 uvScale` at offset 0). Normal
+presentation crops padded resolve storage to the logical frontbuffer dimensions.
+F8 diagnostic color uses scale 1; F9's image-only depth pipeline has no push range.
+Offline reflection checks descriptor types, member offsets and push byte sizes.
+
 Push constants at bytes 0..15 hold pixel alpha function/reference, color exponent
 scale and gamma-target flag. Bytes 16..31 hold vertex XY scale/offset from the
 SDK host viewport normalization. Bytes 32..47 hold float4 `{Z scale, Z offset,

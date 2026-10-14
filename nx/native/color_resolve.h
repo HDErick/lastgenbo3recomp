@@ -20,4 +20,6 @@ ResolveRect ColorResolveSourceRectangle(const rex::graphics::draw_util::ResolveI
 bool ResolveRectContains(ResolveRect outer,ResolveRect inner);
 // Coverage is semantic: zero-initialized padding is never declared guest data.
 void AddResolveCoverage(std::vector<ResolveRect>& coverage,ResolveRect rectangle);
+bool ResolveCanPresent(const ColorResolvePlan& plan,const std::vector<ResolveRect>& coverage,
+                       uint32_t address,uint32_t width,uint32_t height);
 }
