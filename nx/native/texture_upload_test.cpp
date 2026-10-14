@@ -49,6 +49,16 @@ int main() {
   std::vector<uint8_t> base(p.base_bytes); for(uint32_t b=0;b<12;++b){base[b]=uint8_t(b+1);base[256+b]=uint8_t(b+21);}
   auto out=DecodeTextureUpload(p,base,{});
   Check(out[0]==1 && out[11]==12 && out[12]==21 && out[23]==32,"linear row decode");
+  // Newly supported resolve formats must retain raw bits and row padding,
+  // including packed 10-bit fields and 128-bit float texels.
+  for (const auto [format,bytes] : {std::pair{7u,4u}, {50u,4u}, {54u,4u}, {36u,4u}, {37u,8u}, {38u,16u}}) {
+    f=Fetch(3,2);f.format=xenos::TextureFormat(format);p=PlanTextureUpload(f,0,4096);
+    std::vector<uint8_t> raw(p.base_bytes);
+    const uint32_t pitch=64*bytes;
+    for(uint32_t b=0;b<3*bytes;++b){raw[b]=uint8_t(b+1);raw[pitch+b]=uint8_t(b+51);}
+    out=DecodeTextureUpload(p,raw,{});
+    Check(p.bytes_per_block==bytes && out.size()==6*bytes && out[3*bytes-1]==3*bytes && out[3*bytes]==51 && out.back()==50+3*bytes,"resolve-format raw bits/row padding");
+  }
   const uint8_t endian_words[4][4]={{1,2,3,4},{2,1,4,3},{4,3,2,1},{3,4,1,2}};
   for(uint32_t e=0;e<4;++e) {
     f=Fetch(1,1); f.endianness=xenos::Endian(e); p=PlanTextureUpload(f,0,4096);

@@ -66,8 +66,18 @@ using these binding numbers. It provides real cube and volume uploads with mip
 levels, and uses a real volume's base Z slice for compatible 2D access. Typed
 zero descriptors follow SDK semantics only for unbound/incompatible dimensions;
 unsupported compatible data is still refused. Per-instruction sampler overrides,
-some conversions and native resolved-output readers remain incomplete. This
+some conversions remained incomplete in that build. This
 build has CPU fixture validation; no game test was launched at the user's request.
+
+Build 48 adds exact-layout, coverage-checked 2D readers of native color resolves.
+This resolve shader pipeline uses its own ABI: image-only descriptor set 0,
+binding 0, with a 32-byte fragment push range (source origin at 0, destination
+origin at 8, exponent scale at 16, R/B swap at 20, padding at 24). Single-sample
+and multisample image types are reflected against their respective layouts.
+Compile entries with isolated resource declarations so the presentation
+shader's combined-image annotations cannot leak into image-only bindings.
+CPU-shadow availability remains separate from GPU rectangle coverage; complete
+EDRAM alias ownership and CPU readback are still missing.
 
 Push constants at bytes 0..15 hold pixel alpha function/reference, color exponent
 scale and gamma-target flag. Bytes 16..31 hold vertex XY scale/offset from the

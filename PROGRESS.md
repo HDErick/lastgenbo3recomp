@@ -175,16 +175,22 @@ Textures/conversion, mips/cube views, raster/color clears,
 EDRAM overlap/extent aliasing and native guest resolves remain incomplete.
 See [MW2 assessment and work order](analysis/MW2_NATIVE_REFERENCE.md).
 
-**Prepared next renderer build; game launch deferred at user request.** Build 43
-adds real cube/3D backing and typed descriptors, separate and packed mip uploads,
-base-level 3D-as-2D access, capability/bounds checks and fresh base/mip content
-hashes. All 30 texture and 13 resolve-ownership CPU checks pass. F9's reverse-depth
-display now uses a black zero clear. Resolve destination ranges are tracked and
-stale CPU readers rejected; actual resolve conversion/writeback remains unfinished.
-Only verified native CPU-export writes release those ranges so far, so arbitrary
-guest CPU reuse may be conservatively rejected. No game was opened for this work;
-visible color output, regression and performance checks are pending. Details and
-evidence are in [native rendering notes](docs/NATIVE_RENDERING_PC.md).
+**Native resolve build 48 is ready for a user-authorized comparison.** The native
+renderer now copies/converts supported color targets into GPU texture images,
+including full-sample MSAA averages, exponent bias and R/B swapping. Later shader
+readers require matching layout and actual resolved rectangle coverage. Physical
+CPU-write callbacks and verified native exports invalidate overwritten GPU data.
+Cube/3D and mip support from build 43 is included. All 36 texture, 13 ownership
+and 26 color-resolve CPU checks pass; five shaders pass structural validation,
+with resolve/depth descriptor types checked against the native layouts. This
+caught and repaired a compiler annotation leak into image-only bindings.
+Numerical GPU conversion and visible gameplay remain unverified. Depth/array/
+sample-subset resolves, CPU readback, complete EDRAM aliasing and conservative
+CPU reuse handling remain limitations. The user has now authorized opening the
+executable when ready; run 27 is open. Its early live counters show 2,164
+completed color resolves and 767 GPU texture reads, with visual confirmation
+pending. Details and evidence are in
+[native rendering notes](docs/NATIVE_RENDERING_PC.md).
 
 The updated Xbox 360 Zombies executable builds as `build/bo3_zm.exe` and reaches
 playable Shadows of Evil, confirmed by the user. The user also confirmed that

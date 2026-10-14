@@ -291,7 +291,7 @@ Evidence: `analysis/pc_native_backend_boot21_rectangles_coverage.log`,
 The BO2 renderer was reviewed for useful ideas; no code was imported. See
 [BO2 native renderer assessment](../analysis/BO2_NATIVE_REFERENCE.md).
 
-### Prepared texture/resource build (game launch deferred)
+### Prepared texture/resource build 43 (historical; game launch deferred)
 
 The user requested further implementation without opening the game. The native
 runtime now supplies the ABI's 2D, cube and 3D bindings, with real six-face cube
@@ -342,11 +342,78 @@ Evidence: `analysis/native_texture_upload_tests06.log`,
 `analysis/native_texture_validation01.json`, and
 `analysis/pc_native_provenance27_prepared.json`.
 Reproduce the CPU tests with `scripts/nx/test-native-texture-upload.cmd` after
-the normal PC build. The next stage is native resolve conversion/reader ownership,
-then a user-authorized rendering comparison.
+the normal PC build. The following stage implements native resolve conversion
+and reader ownership.
 
-Remaining gates include stencil/clear behavior, resolves and their exponent
-conversion, native-produced texture ownership, target aliasing, MRT/MSAA parity,
+### Native color resolve build 48
+
+The native backend now implements supported color resolves into its own GPU
+images. An unchanged single-sample format uses an image copy preserving bits;
+conversion uses an image-only pixel shader with exponent scaling, optional R/B
+swap and destination-format quantization. Multisample input averages **all**
+samples (2x or 4x); individual/subset selections are refused because host sample
+ordering has not been mapped to Xenos. The implementation copies before applying
+supported post-resolve color and depth clears.
+
+Source lookup requires an existing drawn color image with exact base, storage
+format, pitch and sample count. Source rectangles account for tile offsets,
+64-bit tile pairs and MSAA sample coordinates. Destination anchor arithmetic is
+checked against the SDK's decoded tiled address. The CPU-shadow availability
+journal remains conservative; successful GPU output does not make CPU bytes
+fresh. Covered GPU regions are tracked separately from zero-initialized padding.
+Supported destination formats are R8/RG8/RGBA8 UNORM (including storage aliases),
+packed 10/10/10/2 UNORM, and R/RG/RGBA 16- or 32-bit floats.
+
+Compatible tiled 2D fetches can read these images. Each requested mip must have
+matching backing address, pitch, host format, endian mode and complete recorded
+rectangle coverage. Copies crop padded resolve allocations into the sampler's
+logical image. Content epochs prevent stale cache reuse. Mixed CPU/GPU mip
+chains, resolved cubes/volumes, depth/array output and 64/128-bit endian modes
+remain refused. Different destination layouts invalidate overlapping old views.
+
+The SDK physical-memory invalidation callbacks enqueue guest writes/reallocation
+without issuing Vulkan calls on guest threads; the GPU thread clears intersecting
+coverage. Verified native exports also invalidate explicitly because direct
+physical writes can bypass virtual-alias faults. Partial writes do not release
+unwritten CPU-shadow bytes. Full arbitrary CPU reuse may consequently still be
+rejected; CPU readback/data providers and complete EDRAM ownership transfers are
+unfinished. Post-resolve FP16 clears currently accept only zero/one endpoints;
+their wider format/word-order parity is unproven. Presentation still uses the
+latest drawn target rather than following the guest frontbuffer resolve.
+
+Offline shader reflection found that the shared source file's
+`combinedImageSampler` annotations were leaking into resolve and depth entries
+at the same binding. Entries now compile with isolated resource declarations.
+The two resolve modules and depth diagnostic use actual image-only descriptors;
+resolve push offsets are checked as 0/8/16/20/24 in a 32-byte range. This repairs
+an interface mismatch, but previous F9 observations cannot establish numerical
+depth correctness under the old descriptor declaration.
+
+Build 48 links the executable and native plugin. Fixtures pass 36 texture,
+13 availability-ownership and 26 resolve planning/coverage checks. All five
+presentation/resolve modules pass Vulkan 1.1 structural validation. CPU fixtures
+and reflection do not prove GPU numerical output, visible world rendering or
+performance. The user authorized the next game launch after implementation;
+the comparison result is pending.
+
+Evidence: `analysis/pc_native_backend_build48.log`,
+`analysis/native_texture_upload_tests07.log`,
+`analysis/native_resolve_validation01.json`, and
+`analysis/pc_native_provenance28_prepared.json`.
+
+Run 27 was opened after the user authorized launch, with normal native
+presentation and the F9 diagnostic available. An early live report records
+2,164 completed color resolves and 767 resolved-texture reads. Vulkan creation
+and submission succeeded for those operations; their numerical output and
+visual correctness remain unconfirmed. This is a partial live-run observation,
+not a complete gameplay result. Unsupported copies currently return failure
+to the PM4 parser, causing repeated backend-failure log messages; preserving
+consumed-packet handling while keeping unsupported counters is a follow-up.
+Evidence: `analysis/pc_native_backend_boot27_color_resolves_snapshot.log` and
+`analysis/pc_native_provenance29_test.json`.
+
+Remaining gates include stencil/clear behavior, remaining resolves and CPU
+writeback, general native-produced texture ownership, target aliasing, MRT/MSAA parity,
 remaining primitive modes, unsupported texture conversions/filter modes, queries
 and complete GPU semantics.
 Presentation currently samples the latest drawn native target as a diagnostic;

@@ -8,6 +8,7 @@ add_library(rexgpu-bo3native SHARED
     native_gpu.cpp
     rectangle_shader.cpp
     texture_upload.cpp
+    color_resolve.cpp
     "${BO3_SDK}/thirdparty/crypto/sha256.cpp"
     "${CMAKE_CURRENT_BINARY_DIR}/present_spirv.h"
     "${BO3_TRANSLATOR}/shader_translator.cpp" "${BO3_TRANSLATOR}/spirv.cpp"
@@ -45,3 +46,6 @@ target_link_libraries(bo3_native_texture_upload_test PRIVATE rexruntime Vulkan::
 set_target_properties(bo3_native_texture_upload_test PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
 add_executable(bo3_native_resolve_ownership_test EXCLUDE_FROM_ALL resolve_ownership_test.cpp)
 set_target_properties(bo3_native_resolve_ownership_test PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
+add_executable(bo3_native_color_resolve_test EXCLUDE_FROM_ALL color_resolve_test.cpp color_resolve.cpp)
+target_link_libraries(bo3_native_color_resolve_test PRIVATE rexruntime Vulkan::Headers)
+set_target_properties(bo3_native_color_resolve_test PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")

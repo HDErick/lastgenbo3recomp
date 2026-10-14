@@ -35,10 +35,14 @@ TextureUploadPlan PlanTextureUpload(const xenos::xe_gpu_texture_fetch_t& fetch, 
   switch (uint32_t(fetch.format)) {
     case 2: case 8: case 9: p.bytes_per_block=1; p.format=VK_FORMAT_R8_UNORM; break;
     case 10: p.bytes_per_block=2; p.format=VK_FORMAT_R8G8_UNORM; break;
-    case 6: case 14: p.bytes_per_block=4; p.format=VK_FORMAT_R8G8B8A8_UNORM; break;
+    case 6: case 14: case 50: p.bytes_per_block=4; p.format=VK_FORMAT_R8G8B8A8_UNORM; break;
+    case 7: case 54: p.bytes_per_block=4; p.format=VK_FORMAT_A2B10G10R10_UNORM_PACK32; break;
     case 30: p.bytes_per_block=2; p.format=VK_FORMAT_R16_SFLOAT; break;
     case 31: p.bytes_per_block=4; p.format=VK_FORMAT_R16G16_SFLOAT; break;
     case 32: p.bytes_per_block=8; p.format=VK_FORMAT_R16G16B16A16_SFLOAT; break;
+    case 36: p.bytes_per_block=4; p.format=VK_FORMAT_R32_SFLOAT; break;
+    case 37: p.bytes_per_block=8; p.format=VK_FORMAT_R32G32_SFLOAT; break;
+    case 38: p.bytes_per_block=16; p.format=VK_FORMAT_R32G32B32A32_SFLOAT; break;
     case 18: p.bytes_per_block=8; p.bc=1; p.format=VK_FORMAT_R8G8B8A8_UNORM; break;
     case 19: p.bytes_per_block=16; p.bc=2; p.format=VK_FORMAT_R8G8B8A8_UNORM; break;
     case 20: p.bytes_per_block=16; p.bc=3; p.format=VK_FORMAT_R8G8B8A8_UNORM; break;

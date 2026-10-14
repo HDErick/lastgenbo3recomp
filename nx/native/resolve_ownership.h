@@ -6,8 +6,9 @@
 #include <vector>
 #include <utility>
 namespace bo3::native {
-// GPU resolves whose output is not available to native readers yet. Intervals
-// include SDK destination padding; partial CPU writes release only their bytes.
+// GPU resolve output unavailable in the CPU shadow. Native GPU readers must
+// prove coverage separately. Intervals include SDK destination padding; verified
+// CPU export writes release only their bytes, fault callbacks release none.
 class UnavailableResolveRanges {
  public:
   struct Range { uint32_t begin, end; };

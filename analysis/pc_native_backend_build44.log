@@ -1,0 +1,437 @@
+CMake Warning at C:/bo3recomp/tools/nx-sdk/cmake/rex_version.cmake:33 (message):
+  rex_compute_version: no v* tag reachable from HEAD.  Falling back to
+  0.10.0.0-dev.unknown.  If this is a CI build, ensure tags are fetched
+  (fetch-depth: 0 + fetch-tags: true).  If this is a fork, push tags with:
+  git push <fork-remote> --tags
+Call Stack (most recent call first):
+  C:/bo3recomp/tools/nx-sdk/cmake/rex_version.cmake:165 (rex_compute_version)
+  C:/bo3recomp/tools/nx-sdk/CMakeLists.txt:207 (rex_resolve_version)
+
+
+-- xxHash build type: Release
+-- Architecture: x86
+-- {fmt} version: 12.1.0
+-- Build type: Release
+-- Build spdlog: 1.17.0
+-- Build type: Release
+-- Generating install
+-- Vulkan stack: SDK 1.4.357.0
+-- Checking for module 'libusb-1.0>=1.0.16'
+--   Package 'libusb-1.0' not found
+-- Could NOT find LibUSB (missing: LibUSB_LIBRARY LibUSB_INCLUDE_PATH) (found version "LibUSB_VERSION-NOTFOUND")
+-- 
+-- SDL3 was configured with the following options:
+-- 
+-- Platform: Windows-10.0.26200
+-- 64-bit:   TRUE
+-- Compiler: C:/bo3recomp/tools/llvm-20.1.8/bin/clang.exe
+-- Revision: SDL-3.5.0-HEAD-HASH-NOTFOUND
+-- Vendor:   
+-- 
+-- Subsystems:
+--   Audio:    ON
+--   Video:    ON
+--   GPU:      ON
+--   Render:   OFF
+--   Camera:   OFF
+--   Joystick: ON
+--   Haptic:   OFF
+--   Hidapi:   ON
+--   Power:    OFF
+--   Sensor:   OFF
+--   Dialog:   ON
+--   Tray:     OFF
+-- 
+-- Options:
+--   SDL_ALSA                    (Wanted: OFF): OFF
+--   SDL_ALSA_SHARED             (Wanted: OFF): OFF
+--   SDL_ALTIVEC                 (Wanted: OFF): OFF
+--   SDL_ARMNEON                 (Wanted: OFF): OFF
+--   SDL_ASAN                    (Wanted: OFF): OFF
+--   SDL_ASSEMBLY                (Wanted: ON): ON
+--   SDL_ASSERTIONS              (Wanted: auto): auto
+--   SDL_AVX                     (Wanted: ON): ON
+--   SDL_AVX2                    (Wanted: ON): ON
+--   SDL_AVX512F                 (Wanted: ON): ON
+--   SDL_BACKGROUNDING_SIGNAL    (Wanted: OFF): OFF
+--   SDL_CCACHE                  (Wanted: OFF): OFF
+--   SDL_CLANG_TIDY              (Wanted: OFF): OFF
+--   SDL_CLOCK_GETTIME           (Wanted: OFF): OFF
+--   SDL_COCOA                   (Wanted: OFF): OFF
+--   SDL_DBUS                    (Wanted: OFF): OFF
+--   SDL_DEPS_SHARED             (Wanted: ON): OFF
+--   SDL_DIRECTX                 (Wanted: ON): ON
+--   SDL_DISKAUDIO               (Wanted: OFF): OFF
+--   SDL_DLOPEN_NOTES            (Wanted: OFF): OFF
+--   SDL_DUMMYAUDIO              (Wanted: OFF): OFF
+--   SDL_DUMMYCAMERA             (Wanted: OFF): OFF
+--   SDL_DUMMYVIDEO              (Wanted: OFF): OFF
+--   SDL_EXAMPLES                (Wanted: OFF): OFF
+--   SDL_EXAMPLES_LINK_SHARED    (Wanted: OFF): OFF
+--   SDL_FOREGROUNDING_SIGNAL    (Wanted: OFF): OFF
+--   SDL_FRIBIDI                 (Wanted: OFF): OFF
+--   SDL_FRIBIDI_SHARED          (Wanted: OFF): OFF
+--   SDL_GCC_ATOMICS             (Wanted: ON): ON
+--   SDL_GPU_OPENXR              (Wanted: ON): ON
+--   SDL_HIDAPI                  (Wanted: ON): ON
+--   SDL_HIDAPI_JOYSTICK         (Wanted: ON): ON
+--   SDL_HIDAPI_LIBUSB           (Wanted: ON): OFF
+--   SDL_HIDAPI_LIBUSB_SHARED    (Wanted: ON): OFF
+--   SDL_IBUS                    (Wanted: OFF): OFF
+--   SDL_INSTALL                 (Wanted: ON): OFF
+--   SDL_INSTALL_TESTS           (Wanted: OFF): OFF
+--   SDL_JACK                    (Wanted: OFF): OFF
+--   SDL_JACK_SHARED             (Wanted: OFF): OFF
+--   SDL_KMSDRM                  (Wanted: OFF): OFF
+--   SDL_KMSDRM_SHARED           (Wanted: OFF): OFF
+--   SDL_LASX                    (Wanted: OFF): OFF
+--   SDL_LIBC                    (Wanted: ON): ON
+--   SDL_LIBICONV                (Wanted: OFF): OFF
+--   SDL_LIBTHAI                 (Wanted: OFF): OFF
+--   SDL_LIBTHAI_SHARED          (Wanted: OFF): OFF
+--   SDL_LIBUDEV                 (Wanted: ON): OFF
+--   SDL_LIBURING                (Wanted: OFF): OFF
+--   SDL_LSX                     (Wanted: OFF): OFF
+--   SDL_METAL                   (Wanted: OFF): OFF
+--   SDL_MMX                     (Wanted: ON): ON
+--   SDL_OFFSCREEN               (Wanted: ON): ON
+--   SDL_OPENGL                  (Wanted: OFF): OFF
+--   SDL_OPENGLES                (Wanted: OFF): OFF
+--   SDL_OPENVR                  (Wanted: OFF): OFF
+--   SDL_OSS                     (Wanted: OFF): OFF
+--   SDL_PIPEWIRE                (Wanted: OFF): OFF
+--   SDL_PIPEWIRE_SHARED         (Wanted: OFF): OFF
+--   SDL_PTHREADS                (Wanted: OFF): OFF
+--   SDL_PTHREADS_SEM            (Wanted: OFF): OFF
+--   SDL_PULSEAUDIO              (Wanted: OFF): OFF
+--   SDL_PULSEAUDIO_SHARED       (Wanted: OFF): OFF
+--   SDL_RENDER_D3D              (Wanted: OFF): OFF
+--   SDL_RENDER_D3D11            (Wanted: OFF): OFF
+--   SDL_RENDER_D3D12            (Wanted: OFF): OFF
+--   SDL_RENDER_GPU              (Wanted: OFF): OFF
+--   SDL_RENDER_METAL            (Wanted: OFF): OFF
+--   SDL_RENDER_VULKAN           (Wanted: OFF): OFF
+--   SDL_ROCKCHIP                (Wanted: OFF): OFF
+--   SDL_RPATH                   (Wanted: OFF): OFF
+--   SDL_RPI                     (Wanted: OFF): OFF
+--   SDL_SNDIO                   (Wanted: OFF): OFF
+--   SDL_SNDIO_SHARED            (Wanted: OFF): OFF
+--   SDL_SSE                     (Wanted: ON): ON
+--   SDL_SSE2                    (Wanted: ON): ON
+--   SDL_SSE3                    (Wanted: ON): ON
+--   SDL_SSE4_1                  (Wanted: ON): ON
+--   SDL_SSE4_2                  (Wanted: ON): ON
+--   SDL_SYSTEM_ICONV            (Wanted: OFF): OFF
+--   SDL_TESTS                   (Wanted: OFF): OFF
+--   SDL_TESTS_LINK_SHARED       (Wanted: OFF): OFF
+--   SDL_UNINSTALL               (Wanted: OFF): OFF
+--   SDL_VIRTUAL_JOYSTICK        (Wanted: ON): ON
+--   SDL_VIVANTE                 (Wanted: OFF): OFF
+--   SDL_VULKAN                  (Wanted: OFF): OFF
+--   SDL_WASAPI                  (Wanted: ON): ON
+--   SDL_WAYLAND                 (Wanted: OFF): OFF
+--   SDL_WAYLAND_LIBDECOR        (Wanted: OFF): OFF
+--   SDL_WAYLAND_LIBDECOR_SHARED (Wanted: OFF): OFF
+--   SDL_WAYLAND_SHARED          (Wanted: OFF): OFF
+--   SDL_X11                     (Wanted: OFF): OFF
+--   SDL_X11_SHARED              (Wanted: OFF): OFF
+--   SDL_X11_XCURSOR             (Wanted: OFF): OFF
+--   SDL_X11_XDBE                (Wanted: OFF): OFF
+--   SDL_X11_XFIXES              (Wanted: OFF): OFF
+--   SDL_X11_XINPUT              (Wanted: OFF): OFF
+--   SDL_X11_XRANDR              (Wanted: OFF): OFF
+--   SDL_X11_XSCRNSAVER          (Wanted: OFF): OFF
+--   SDL_X11_XSHAPE              (Wanted: OFF): OFF
+--   SDL_X11_XSYNC               (Wanted: OFF): OFF
+--   SDL_X11_XTEST               (Wanted: OFF): OFF
+--   SDL_XINPUT                  (Wanted: ON): ON
+-- 
+--  Build Shared Library: OFF
+--  Build Static Library: ON
+-- 
+-- Enabled backends:
+--   Video drivers: offscreen windows
+--   Render drivers: 
+--   GPU drivers: d3d12 openxr
+--   Audio drivers: dsound wasapi
+--   Joystick drivers: dinput gameinput hidapi rawinput virtual wgi xinput
+--   Camera drivers: dummy
+-- 
+CMake Deprecation Warning at C:/bo3recomp/tools/nx-sdk/thirdparty/glslang/CMakeLists.txt:39 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Warning (dev) at C:/bo3recomp/tools/nx-sdk/thirdparty/glslang/CMakeLists.txt:233 (find_package):
+  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+  the cmake_policy command to set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  C:/bo3recomp/tools/nx-sdk/thirdparty/glslang/CMakeLists.txt:239 (find_host_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- ===========================================
+-- ReXGlue Configuration Summary:
+--   Version: 0.10.0.0-dev.unknown (dev)
+--   Platform: win-amd64
+--   Compiler: Clang 20.1.8
+--   Configurations: 
+--   Output Dir: C:/bo3recomp/tools/nx-sdk/out/win-amd64
+--   C++ Standard: C++23
+--   Graphics: D3D12=OFF Vulkan=ON
+--   FidelityFX: OFF
+--   Tracy: OFF
+--   Perf Counters: OFF
+-- ===========================================
+-- Configuring done (0.9s)
+-- Generating done (0.6s)
+-- Build files have been written to: C:/bo3recomp/build/pc-vulkan
+[0/2] Re-checking globbed directories...
+[1/11] Building CXX object rexglue-sdk/src/ui/CMakeFiles/rexui.dir/overlay/debug_overlay.cpp.obj
+[2/11] Linking CXX shared library C:\bo3recomp\tools\nx-sdk\out\win-amd64\rexruntime.dll
+[3/11] Linking CXX shared library C:\bo3recomp\tools\nx-sdk\out\win-amd64\rexgpu-xenos.dll
+[4/11] Generating present_spirv.h
+[5/11] Building CXX object CMakeFiles/bo3_zm_vulkan.dir/C_/bo3recomp/tools/nx-sdk/src/ui/rex_app.cpp.obj
+[6/11] Building CXX object bo3-native/CMakeFiles/rexgpu-bo3native.dir/color_resolve.cpp.obj
+FAILED: bo3-native/CMakeFiles/rexgpu-bo3native.dir/color_resolve.cpp.obj 
+C:\bo3recomp\tools\llvm-20.1.8\bin\clang++.exe -DNOMINMAX -DREX_HAS_VULKAN=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DWIN32_LEAN_AND_MEAN -Drexgpu_bo3native_EXPORTS -IC:/bo3recomp/tools/bo3-mw2-shader-translator/runtime/gpu/vulkan -IC:/bo3recomp/build/pc-vulkan/bo3-native -IC:/bo3recomp/tools/nx-sdk/thirdparty/renderdoc -IC:/bo3recomp/tools/nx-sdk/thirdparty/crypto -IC:/bo3recomp/tools/nx-sdk/include -IC:/bo3recomp/build/pc-vulkan/rexglue-sdk/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/simde -IC:/bo3recomp/tools/nx-sdk/thirdparty/simde/simde -IC:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/spdlog/include -IC:/bo3recomp/build/pc-vulkan/rexglue-sdk/thirdparty/sdl3/include-revision -IC:/bo3recomp/tools/nx-sdk/thirdparty/sdl3/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-memory-allocator/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/xxHash/cmake_unofficial/.. -isystem C:/bo3recomp/tools/nx-sdk/thirdparty/tomlplusplus/include -isystem C:/bo3recomp/tools/nx-sdk/thirdparty/spirv-tools/include -march=x86-64-v3 -O3 -DNDEBUG -std=gnu++23 -D_DLL -D_MT -Xclang --dependent-lib=msvcrt -ffp-contract=off -fno-strict-aliasing -gcodeview -MD -MT bo3-native/CMakeFiles/rexgpu-bo3native.dir/color_resolve.cpp.obj -MF bo3-native\CMakeFiles\rexgpu-bo3native.dir\color_resolve.cpp.obj.d -o bo3-native/CMakeFiles/rexgpu-bo3native.dir/color_resolve.cpp.obj -c C:/bo3recomp/nx/native/color_resolve.cpp
+C:/bo3recomp/nx/native/color_resolve.cpp:27:5: error: non-constant-expression cannot be narrowed from type 'int' to 'uint32_t' (aka 'unsigned int') in initializer list [-Wc++11-narrowing]
+   27 |     info.coordinate_info.width_div_8*8,info.height_div_8*8};
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/bo3recomp/nx/native/color_resolve.cpp:27:5: note: insert an explicit cast to silence this issue
+   27 |     info.coordinate_info.width_div_8*8,info.height_div_8*8};
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     static_cast<uint32_t>(            )
+C:/bo3recomp/nx/native/color_resolve.cpp:64:12: error: no matching function for call to 'max'
+   64 |   p.height=std::max(info.copy_dest_coordinate_info.height_aligned_div_32*32,(p.destination.y+p.destination.height+31)&~31u);
+      |            ^~~~~~~~
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\utility:74:6: note: candidate template ignored: deduced conflicting types for parameter '_Ty' ('int' vs. 'unsigned int')
+   74 |     (max) (const _Ty& _Left _MSVC_LIFETIMEBOUND, const _Ty& _Right _MSVC_LIFETIMEBOUND)
+      |      ^
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\xutility:7116:26: note: candidate template ignored: could not match 'initializer_list<_Ty>' against 'int'
+ 7116 | _NODISCARD constexpr _Ty(max)(initializer_list<_Ty> _Ilist, _Pr _Pred) {
+      |                          ^
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\xutility:7132:26: note: candidate function template not viable: requires single argument '_Ilist', but 2 arguments were provided
+ 7132 | _NODISCARD constexpr _Ty(max)(initializer_list<_Ty> _Ilist) {
+      |                          ^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\utility:64:33: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+
+   64 | _NODISCARD constexpr const _Ty&(max) (const _Ty& _Left _MSVC_LIFETIMEBOUND, const _Ty& _Right _MSVC_LIFETIMEBOUND,
+
+      |                                 ^     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   65 |     _Pr _Pred) noexcept(noexcept(_Pred(_Left, _Right))) /* strengthened */ {
+
+      |     ~~~~~~~~~
+
+2 errors generated.
+
+[7/11] Building CXX object bo3-native/CMakeFiles/rexgpu-bo3native.dir/texture_upload.cpp.obj
+[8/11] Building CXX object bo3-native/CMakeFiles/rexgpu-bo3native.dir/native_gpu.cpp.obj
+FAILED: bo3-native/CMakeFiles/rexgpu-bo3native.dir/native_gpu.cpp.obj 
+C:\bo3recomp\tools\llvm-20.1.8\bin\clang++.exe -DNOMINMAX -DREX_HAS_VULKAN=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DWIN32_LEAN_AND_MEAN -Drexgpu_bo3native_EXPORTS -IC:/bo3recomp/tools/bo3-mw2-shader-translator/runtime/gpu/vulkan -IC:/bo3recomp/build/pc-vulkan/bo3-native -IC:/bo3recomp/tools/nx-sdk/thirdparty/renderdoc -IC:/bo3recomp/tools/nx-sdk/thirdparty/crypto -IC:/bo3recomp/tools/nx-sdk/include -IC:/bo3recomp/build/pc-vulkan/rexglue-sdk/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/simde -IC:/bo3recomp/tools/nx-sdk/thirdparty/simde/simde -IC:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/spdlog/include -IC:/bo3recomp/build/pc-vulkan/rexglue-sdk/thirdparty/sdl3/include-revision -IC:/bo3recomp/tools/nx-sdk/thirdparty/sdl3/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-headers/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/vulkan-memory-allocator/include -IC:/bo3recomp/tools/nx-sdk/thirdparty/xxHash/cmake_unofficial/.. -isystem C:/bo3recomp/tools/nx-sdk/thirdparty/tomlplusplus/include -isystem C:/bo3recomp/tools/nx-sdk/thirdparty/spirv-tools/include -march=x86-64-v3 -O3 -DNDEBUG -std=gnu++23 -D_DLL -D_MT -Xclang --dependent-lib=msvcrt -ffp-contract=off -fno-strict-aliasing -gcodeview -MD -MT bo3-native/CMakeFiles/rexgpu-bo3native.dir/native_gpu.cpp.obj -MF bo3-native\CMakeFiles\rexgpu-bo3native.dir\native_gpu.cpp.obj.d -o bo3-native/CMakeFiles/rexgpu-bo3native.dir/native_gpu.cpp.obj -c C:/bo3recomp/nx/native/native_gpu.cpp
+C:/bo3recomp/nx/native/native_gpu.cpp:290:32: warning: 'getenv' is deprecated: This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [-Wdeprecated-declarations]
+  290 |     no_cull_diagnostic_ = std::getenv("BO3_NATIVE_NO_CULL") != nullptr;
+      |                                ^
+C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\ucrt\stdlib.h:1183:20: note: 'getenv' has been explicitly marked deprecated here
+ 1183 |     _Check_return_ _CRT_INSECURE_DEPRECATE(_dupenv_s)
+      |                    ^
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vcruntime.h:368:55: note: expanded from macro '_CRT_INSECURE_DEPRECATE'
+  368 |         #define _CRT_INSECURE_DEPRECATE(_Replacement) _CRT_DEPRECATE_TEXT(    \
+      |                                                       ^
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vcruntime.h:358:47: note: expanded from macro '_CRT_DEPRECATE_TEXT'
+  358 | #define _CRT_DEPRECATE_TEXT(_Text) __declspec(deprecated(_Text))
+      |                                               ^
+C:/bo3recomp/nx/native/native_gpu.cpp:291:35: warning: 'getenv' is deprecated: This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [-Wdeprecated-declarations]
+  291 |     scene_view_diagnostic_ = std::getenv("BO3_NATIVE_SCENE_VIEW") != nullptr;
+      |                                   ^
+C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\ucrt\stdlib.h:1183:20: note: 'getenv' has been explicitly marked deprecated here
+ 1183 |     _Check_return_ _CRT_INSECURE_DEPRECATE(_dupenv_s)
+      |                    ^
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vcruntime.h:368:55: note: expanded from macro '_CRT_INSECURE_DEPRECATE'
+  368 |         #define _CRT_INSECURE_DEPRECATE(_Replacement) _CRT_DEPRECATE_TEXT(    \
+      |                                                       ^
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vcruntime.h:358:47: note: expanded from macro '_CRT_DEPRECATE_TEXT'
+  358 | #define _CRT_DEPRECATE_TEXT(_Text) __declspec(deprecated(_Text))
+      |                                               ^
+C:/bo3recomp/nx/native/native_gpu.cpp:293:33: warning: 'getenv' is deprecated: This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [-Wdeprecated-declarations]
+  293 |     readback_diagnostic_ = std::getenv("BO3_NATIVE_READBACK") != nullptr;
+      |                                 ^
+C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\ucrt\stdlib.h:1183:20: note: 'getenv' has been explicitly marked deprecated here
+ 1183 |     _Check_return_ _CRT_INSECURE_DEPRECATE(_dupenv_s)
+      |                    ^
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vcruntime.h:368:55: note: expanded from macro '_CRT_INSECURE_DEPRECATE'
+  368 |         #define _CRT_INSECURE_DEPRECATE(_Replacement) _CRT_DEPRECATE_TEXT(    \
+      |                                                       ^
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vcruntime.h:358:47: note: expanded from macro '_CRT_DEPRECATE_TEXT'
+  358 | #define _CRT_DEPRECATE_TEXT(_Text) __declspec(deprecated(_Text))
+      |                                               ^
+C:/bo3recomp/nx/native/native_gpu.cpp:294:35: warning: 'getenv' is deprecated: This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [-Wdeprecated-declarations]
+  294 |     draw_probe_diagnostic_ = std::getenv("BO3_NATIVE_DRAW_PROBE") != nullptr;
+      |                                   ^
+C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\ucrt\stdlib.h:1183:20: note: 'getenv' has been explicitly marked deprecated here
+ 1183 |     _Check_return_ _CRT_INSECURE_DEPRECATE(_dupenv_s)
+      |                    ^
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vcruntime.h:368:55: note: expanded from macro '_CRT_INSECURE_DEPRECATE'
+  368 |         #define _CRT_INSECURE_DEPRECATE(_Replacement) _CRT_DEPRECATE_TEXT(    \
+      |                                                       ^
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vcruntime.h:358:47: note: expanded from macro '_CRT_DEPRECATE_TEXT'
+  358 | #define _CRT_DEPRECATE_TEXT(_Text) __declspec(deprecated(_Text))
+      |                                               ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:13:
+In file included from C:/bo3recomp/nx/native\color_resolve.h:3:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/graphics/util/draw.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/graphics/pipeline/shader/shader.h:26:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/string/buffer.h:21:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt/format.h:41:
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:1240:58: warning: implicit conversion between pointer-to-function and pointer-to-object is a Microsoft extension [-Wmicrosoft-cast]
+ 1240 | using mapped_t = decltype(detail::type_mapper<Char>::map(std::declval<T&>()));
+      |                                                          ^~~~~~~~~~~~~~~~~~
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:1244:1: note: in instantiation of template type alias 'mapped_t' requested here
+ 1244 | using mapped_type_constant = type_constant<mapped_t<T, Char>, Char>;
+      | ^
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:1719:16: note: in instantiation of template type alias 'mapped_type_constant' requested here
+ 1719 |       : types_{mapped_type_constant<T, Char>::value...},
+      |                ^
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:2759:57: note: in instantiation of function template specialization 'fmt::detail::format_string_checker<char, 10, 0, false>::format_string_checker<int (&)(const char *, stat *), unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &>' requested here
+ 2759 |     if (FMT_USE_CONSTEVAL) parse_format_string<char>(s, checker(s, arg_pack()));
+      |                                                         ^
+C:/bo3recomp/nx/native/native_gpu.cpp:668:46: note: in instantiation of function template specialization 'fmt::fstring<int (&)(const char *, stat *), unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &>::fstring<126ULL>' requested here
+  668 |     if (kind || plan.levels > 1) REXGPU_INFO("BO3 native texture allocation: slot={} kind={} {}x{}x{} layers={} levels={} guestBase={:08X} guestMips={:08X} decodedBytes={}", slot, kind, plan.width, plan.height, plan.depth, plan.layers, plan.levels, plan.base_address, plan.mip_address, plan.output_bytes);
+      |                                              ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:13:
+In file included from C:/bo3recomp/nx/native\color_resolve.h:3:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/graphics/util/draw.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/graphics/pipeline/shader/shader.h:26:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/string/buffer.h:21:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt/format.h:41:
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:1240:58: warning: implicit conversion between pointer-to-function and pointer-to-object is a Microsoft extension [-Wmicrosoft-cast]
+ 1240 | using mapped_t = decltype(detail::type_mapper<Char>::map(std::declval<T&>()));
+      |                                                          ^~~~~~~~~~~~~~~~~~
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:1695:38: note: in instantiation of template type alias 'mapped_t' requested here
+ 1695 |   using mapped_type = remove_cvref_t<mapped_t<T, Char>>;
+      |                                      ^
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:1722:23: note: in instantiation of function template specialization 'fmt::detail::invoke_parse<int (&)(const char *, stat *), char>' requested here
+ 1722 |         parse_funcs_{&invoke_parse<T, Char>...} {
+      |                       ^
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:2759:57: note: in instantiation of function template specialization 'fmt::detail::format_string_checker<char, 10, 0, false>::format_string_checker<int (&)(const char *, stat *), unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &>' requested here
+ 2759 |     if (FMT_USE_CONSTEVAL) parse_format_string<char>(s, checker(s, arg_pack()));
+      |                                                         ^
+C:/bo3recomp/nx/native/native_gpu.cpp:668:46: note: in instantiation of function template specialization 'fmt::fstring<int (&)(const char *, stat *), unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &>::fstring<126ULL>' requested here
+  668 |     if (kind || plan.levels > 1) REXGPU_INFO("BO3 native texture allocation: slot={} kind={} {}x{}x{} layers={} levels={} guestBase={:08X} guestMips={:08X} decodedBytes={}", slot, kind, plan.width, plan.height, plan.depth, plan.layers, plan.levels, plan.base_address, plan.mip_address, plan.output_bytes);
+      |                                              ^
+C:/bo3recomp/nx/native/native_gpu.cpp:668:175: error: use of undeclared identifier 'slot'; did you mean 'stat'?
+  668 |     if (kind || plan.levels > 1) REXGPU_INFO("BO3 native texture allocation: slot={} kind={} {}x{}x{} layers={} levels={} guestBase={:08X} guestMips={:08X} decodedBytes={}", slot, kind, plan.width, plan.height, plan.depth, plan.layers, plan.levels, plan.base_address, plan.mip_address, plan.output_bytes);
+      |                                                                                                                                                                               ^~~~
+      |                                                                                                                                                                               stat
+C:/bo3recomp/tools/nx-sdk/include\rex/logging/macros.h:82:61: note: expanded from macro 'REXGPU_INFO'
+   82 | #define REXGPU_INFO(...) REXLOG_CAT_INFO(::rex::log::gpu(), __VA_ARGS__)
+      |                                                             ^
+C:/bo3recomp/tools/nx-sdk/include\rex/logging/macros.h:37:74: note: expanded from macro 'REXLOG_CAT_INFO'
+   37 | #define REXLOG_CAT_INFO(cat, ...) REX_LOG_IMPL(cat, spdlog::level::info, __VA_ARGS__)
+      |                                                                          ^
+C:/bo3recomp/tools/nx-sdk/include\rex/logging/macros.h:22:84: note: expanded from macro 'REX_LOG_IMPL'
+   22 |       rex_log_ptr_->log(spdlog::source_loc{__FILE__, __LINE__, __FUNCTION__}, lvl, __VA_ARGS__); \
+      |                                                                                    ^
+C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\ucrt\sys/stat.h:238:56: note: 'stat' declared here
+  238 |         _CRT_NONSTANDARD_STATIC __inline int __CRTDECL stat(char const* const _FileName, struct stat* const _Stat)
+      |                                                        ^
+C:/bo3recomp/nx/native/native_gpu.cpp:1313:9: error: no member named 'vkCmdCopyImage' in 'rex::ui::vulkan::VulkanDevice::Functions'
+ 1313 |     F().vkCmdCopyImage(command_,source->color.image,source->color.layout,cached->image.image,cached->image.layout,1,&copy);pending_work_=true;
+      |     ~~~ ^
+C:/bo3recomp/nx/native/native_gpu.cpp:1388:9: error: no member named 'vkCmdCopyImage' in 'rex::ui::vulkan::VulkanDevice::Functions'
+ 1388 |     F().vkCmdCopyImage(command_,source.image.image,source.image.layout,texture->image.image,texture->image.layout,1,&copy);pending_work_=true;
+      |     ~~~ ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:13:
+In file included from C:/bo3recomp/nx/native\color_resolve.h:3:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/graphics/util/draw.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/graphics/pipeline/shader/shader.h:26:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/string/buffer.h:21:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt/format.h:41:
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:1240:58: warning: implicit conversion between pointer-to-function and pointer-to-object is a Microsoft extension [-Wmicrosoft-cast]
+ 1240 | using mapped_t = decltype(detail::type_mapper<Char>::map(std::declval<T&>()));
+      |                                                          ^~~~~~~~~~~~~~~~~~
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:1244:1: note: in instantiation of template type alias 'mapped_t' requested here
+ 1244 | using mapped_type_constant = type_constant<mapped_t<T, Char>, Char>;
+      | ^
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:1248:15: note: in instantiation of template type alias 'mapped_type_constant' requested here
+ 1248 |               mapped_type_constant<T, typename Context::char_type>::value>
+      |               ^
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:2350:32: note: in instantiation of default argument for 'stored_type_constant<int (const char *, stat *), fmt::context>' required here
+ 2350 |   return static_cast<unsigned>(stored_type_constant<First, Context>::value) |
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:2356:40: note: in instantiation of function template specialization 'fmt::detail::encode_types<fmt::context, int (const char *, stat *), unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int>' requested here
+ 2356 |   return NUM_ARGS <= max_packed_args ? encode_types<Context, T...>()
+      |                                        ^
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:2823:45: note: in instantiation of function template specialization 'fmt::detail::make_descriptor<fmt::context, int (const char *, stat *), unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, 10ULL>' requested here
+ 2823 |           unsigned long long DESC = detail::make_descriptor<Context, T...>()>
+      |                                             ^
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:2824:34: note: in instantiation of default argument for 'make_format_args<context, int (const char *, stat *), unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, 10, 0>' required here
+ 2824 | constexpr FMT_ALWAYS_INLINE auto make_format_args(T&... args)
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2825 |     -> detail::format_arg_store<Context, NUM_ARGS, NUM_NAMED_ARGS, DESC> {
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2826 |   // Suppress warnings for pathological types convertible to detail::value.
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2827 |   FMT_PRAGMA_GCC(diagnostic ignored "-Wconversion")
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2828 |   return {{args...}};
+      |   ~~~~~~~~~~~~~~~~~~~
+ 2829 | }
+      | ~
+C:/bo3recomp/tools/nx-sdk/thirdparty/spdlog/include\spdlog/logger.h:328:54: note: while substituting deduced template arguments into function template 'make_format_args' [with Context = (no value), T = <int (const char *, stat *), unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int>, NUM_ARGS = (no value), NUM_NAMED_ARGS = (no value), DESC = (no value)]
+  328 |             fmt::vformat_to(fmt::appender(buf), fmt, fmt::make_format_args(args...));
+      |                                                      ^
+C:/bo3recomp/tools/nx-sdk/thirdparty/spdlog/include\spdlog/logger.h:80:9: note: in instantiation of function template specialization 'spdlog::logger::log_<int (&)(const char *, stat *), unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &>' requested here
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |         ^
+C:/bo3recomp/nx/native/native_gpu.cpp:668:34: note: in instantiation of function template specialization 'spdlog::logger::log<int (&)(const char *, stat *), unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &>' requested here
+  668 |     if (kind || plan.levels > 1) REXGPU_INFO("BO3 native texture allocation: slot={} kind={} {}x{}x{} layers={} levels={} guestBase={:08X} guestMips={:08X} decodedBytes={}", slot, kind, plan.width, plan.height, plan.depth, plan.layers, plan.levels, plan.base_address, plan.mip_address, plan.output_bytes);
+      |                                  ^
+C:/bo3recomp/tools/nx-sdk/include\rex/logging/macros.h:82:26: note: expanded from macro 'REXGPU_INFO'
+   82 | #define REXGPU_INFO(...) REXLOG_CAT_INFO(::rex::log::gpu(), __VA_ARGS__)
+      |                          ^
+C:/bo3recomp/tools/nx-sdk/include\rex/logging/macros.h:37:35: note: expanded from macro 'REXLOG_CAT_INFO'
+   37 | #define REXLOG_CAT_INFO(cat, ...) REX_LOG_IMPL(cat, spdlog::level::info, __VA_ARGS__)
+      |                                   ^
+C:/bo3recomp/tools/nx-sdk/include\rex/logging/macros.h:22:21: note: expanded from macro 'REX_LOG_IMPL'
+   22 |       rex_log_ptr_->log(spdlog::source_loc{__FILE__, __LINE__, __FUNCTION__}, lvl, __VA_ARGS__); \
+      |                     ^
+In file included from C:/bo3recomp/nx/native/native_gpu.cpp:13:
+In file included from C:/bo3recomp/nx/native\color_resolve.h:3:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/graphics/util/draw.h:19:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/graphics/pipeline/shader/shader.h:26:
+In file included from C:/bo3recomp/tools/nx-sdk/include\rex/string/buffer.h:21:
+In file included from C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt/format.h:41:
+C:/bo3recomp/tools/nx-sdk/thirdparty/fmt/include\fmt\base.h:2828:12: warning: implicit conversion between pointer-to-function and pointer-to-object is a Microsoft extension [-Wmicrosoft-cast]
+ 2828 |   return {{args...}};
+      |            ^~~~
+C:/bo3recomp/tools/nx-sdk/thirdparty/spdlog/include\spdlog/logger.h:328:59: note: in instantiation of function template specialization 'fmt::make_format_args<fmt::context, int (const char *, stat *), unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, const unsigned int, 10, 0, 146601550382ULL>' requested here
+  328 |             fmt::vformat_to(fmt::appender(buf), fmt, fmt::make_format_args(args...));
+      |                                                           ^
+C:/bo3recomp/tools/nx-sdk/thirdparty/spdlog/include\spdlog/logger.h:80:9: note: in instantiation of function template specialization 'spdlog::logger::log_<int (&)(const char *, stat *), unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &>' requested here
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |         ^
+C:/bo3recomp/nx/native/native_gpu.cpp:668:34: note: in instantiation of function template specialization 'spdlog::logger::log<int (&)(const char *, stat *), unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &, const unsigned int &>' requested here
+  668 |     if (kind || plan.levels > 1) REXGPU_INFO("BO3 native texture allocation: slot={} kind={} {}x{}x{} layers={} levels={} guestBase={:08X} guestMips={:08X} decodedBytes={}", slot, kind, plan.width, plan.height, plan.depth, plan.layers, plan.levels, plan.base_address, plan.mip_address, plan.output_bytes);
+      |                                  ^
+C:/bo3recomp/tools/nx-sdk/include\rex/logging/macros.h:82:26: note: expanded from macro 'REXGPU_INFO'
+   82 | #define REXGPU_INFO(...) REXLOG_CAT_INFO(::rex::log::gpu(), __VA_ARGS__)
+      |                          ^
+C:/bo3recomp/tools/nx-sdk/include\rex/logging/macros.h:37:35: note: expanded from macro 'REXLOG_CAT_INFO'
+   37 | #define REXLOG_CAT_INFO(cat, ...) REX_LOG_IMPL(cat, spdlog::level::info, __VA_ARGS__)
+      |                                   ^
+C:/bo3recomp/tools/nx-sdk/include\rex/logging/macros.h:22:21: note: expanded from macro 'REX_LOG_IMPL'
+
+   22 |       rex_log_ptr_->log(spdlog::source_loc{__FILE__, __LINE__, __FUNCTION__}, lvl, __VA_ARGS__); \
+
+      |                     ^
+
+8 warnings and 3 errors generated.
+
+ninja: build stopped: subcommand failed.
